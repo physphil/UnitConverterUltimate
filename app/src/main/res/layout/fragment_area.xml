@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/area_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+	   	<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	        
+	   	   	<!-- Transparent image view to anchor the radio groups with the swap image in the main layout -->
+	   	    <include 
+	   	        android:id="@+id/areaDummyImage"
+	   	        layout="@layout/transparent_image" />
+
+	        <RadioGroup
+	            android:id="@+id/radioFromArea"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentTop="true"
+	            android:layout_toLeftOf="@id/areaDummyImage" >
+
+	            <RadioButton
+	                android:id="@+id/fromSqKilometre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:checked="true"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqKilometre" />
+
+	            <RadioButton
+	                android:id="@+id/fromSqMetre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqMetre" />
+
+	            <RadioButton
+	                android:id="@+id/fromSqCentimetre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqCentimetre" />
+
+	            <RadioButton
+	                android:id="@+id/fromHectare"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromHectare" />
+
+	            <RadioButton
+	                android:id="@+id/fromSqMile"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqMile" />
+
+	             <RadioButton
+	                android:id="@+id/fromSqYard"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqYard" />
+
+	             <RadioButton
+	                android:id="@+id/fromSqFoot"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqFoot" />
+
+	             <RadioButton
+	                android:id="@+id/fromSqInch"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromSqInch" />
+
+	             <RadioButton
+	                android:id="@+id/fromAcre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/fromAcre" />
+
+	        </RadioGroup>            
+
+	        <RadioGroup
+	            android:id="@+id/radioToArea"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentTop="true"
+	            android:layout_toRightOf="@id/areaDummyImage" >
+
+	            <RadioButton
+	                android:id="@+id/toSqKilometre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqKilometre" />
+
+	            <RadioButton
+	                android:id="@+id/toSqMetre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:checked="true"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqMetre" />
+
+	            <RadioButton
+	                android:id="@+id/toSqCentimetre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqCentimetre" />
+
+	            <RadioButton
+	                android:id="@+id/toHectare"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toHectare" />
+
+	            <RadioButton
+	                android:id="@+id/toSqMile"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqMile" />
+
+	             <RadioButton
+	                android:id="@+id/toSqYard"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqYard" />
+
+	             <RadioButton
+	                android:id="@+id/toSqFoot"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqFoot" />
+
+	             <RadioButton
+	                android:id="@+id/toSqInch"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toSqInch" />
+
+	           	<RadioButton
+	                android:id="@+id/toAcre"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:minHeight="@dimen/radioButtonSpacing"
+	                android:textSize="@dimen/radioButtonTextSize"
+	                android:text="@string/toAcre" />
+
+	        </RadioGroup>
+	    </RelativeLayout>
+    </ScrollView>

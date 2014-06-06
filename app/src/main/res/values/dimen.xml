@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fromValueTextSize">18sp</dimen>
+    <dimen name="toValueTextSize">18sp</dimen>
+    <dimen name="radioButtonTextSize">16sp</dimen>
+    <dimen name="fromToTextSize">14sp</dimen>
+    <dimen name="radioButtonSpacing">32dp</dimen>
+    <dimen name="swapTextSize">9sp</dimen>
+    
+    <dimen name="rowMarginTypical">10dp</dimen>
+    <dimen name="rowMarginSmall">5dp</dimen>
+    <dimen name="textMarginTypical">5dp</dimen>
+    <dimen name="textMarginLarge">10dp</dimen>
+    <dimen name="textPaddingTypical">8dp</dimen>
+    <dimen name="textPaddingSmall">3dp</dimen>
+    
+    <dimen name="drawerLayoutWidth">240dp</dimen>
+    <dimen name="drawerRowHeight">60dp</dimen>
+</resources>

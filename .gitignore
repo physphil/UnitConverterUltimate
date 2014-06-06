@@ -1,0 +1,26 @@
+# built application files
+*.apk
+*.ap_
+
+# files for dev VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+out/
+build/
+.gradle/
+
+# project files
+*.iml
+.idea
+
+# local configuration file
+local.properties
+
+# Idea non-crucial project files
+*.iws

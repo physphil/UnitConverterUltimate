@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="conversions">
+        <item>Area</item>
+        <item>Cooking / Volume</item>
+        <item>Digital Storage</item>
+        <item>Energy</item>
+        <item>Fuel Consumption</item>
+        <item>Length / Distance</item>
+        <item>Mass / Weight</item>
+        <item>Power</item>
+        <item>Pressure</item>
+        <item>Speed</item>
+        <item>Temperature</item>
+        <item>Time</item>
+    </string-array>
+    
+    <string-array name="fragmentNames">
+        <item>AreaFragment</item>
+        <item>CookingFragment</item>
+        <item>StorageFragment</item>
+        <item>EnergyFragment</item>
+        <item>FuelFragment</item>
+        <item>LengthFragment</item>
+        <item>MassFragment</item>
+        <item>PowerFragment</item>
+        <item>PressureFragment</item>
+        <item>SpeedFragment</item>
+        <item>TemperatureFragment</item>
+        <item>TimeFragment</item>
+    </string-array>
+    
+    <string-array name="fromButtonTags">
+        <item>AreaFromID</item>
+        <item>CookingFromID</item>
+        <item>StorageFromID</item>
+        <item>EnergyFromID</item>
+        <item>FuelFromID</item>
+        <item>LengthFromID</item>
+        <item>MassFromID</item>
+        <item>PowerFromID</item>
+        <item>PressureFromID</item>
+        <item>SpeedFromID</item>
+        <item>TemperatureFromID</item>
+        <item>TimeFromID</item>
+    </string-array>
+    
+    <string-array name="toButtonTags">
+        <item>AreaToID</item>
+        <item>CookingToID</item>
+        <item>StorageToID</item>
+        <item>EnergyToID</item>
+        <item>FuelToID</item>
+        <item>LengthToID</item>
+        <item>MassToID</item>
+        <item>PowerToID</item>
+        <item>PressureToID</item>
+        <item>SpeedToID</item>
+        <item>TemperatureToID</item>
+        <item>TimeToID</item>
+    </string-array>
+    
+    <array name="fromRadioGroupIds">
+        <item>@id/radioFromArea</item>
+        <item>@id/radioFromCooking</item>
+        <item>@id/radioFromStorage</item>
+        <item>@id/radioFromEnergy</item>
+        <item>@id/radioFromFuel</item>
+        <item>@id/radioFromLength</item>
+        <item>@id/radioFromMass</item>
+        <item>@id/radioFromPower</item>
+        <item>@id/radioFromPressure</item>
+        <item>@id/radioFromSpeed</item>
+        <item>@id/radioFromTemp</item>
+        <item>@id/radioFromTime</item>
+    </array>
+    
+    <array name="toRadioGroupIds">
+        <item>@id/radioToArea</item>
+        <item>@id/radioToCooking</item>
+        <item>@id/radioToStorage</item>
+        <item>@id/radioToEnergy</item>
+        <item>@id/radioToFuel</item>
+        <item>@id/radioToLength</item>
+        <item>@id/radioToMass</item>
+        <item>@id/radioToPower</item>
+        <item>@id/radioToPressure</item>
+        <item>@id/radioToSpeed</item>
+        <item>@id/radioToTemp</item>
+        <item>@id/radioToTime</item>
+    </array>
+    
+    <array name="fragmentLayouts">
+        <item>@layout/fragment_area</item>
+        <item>@layout/fragment_cooking</item>
+        <item>@layout/fragment_storage</item>
+        <item>@layout/fragment_energy</item>
+        <item>@layout/fragment_fuel</item>
+        <item>@layout/fragment_length</item>
+        <item>@layout/fragment_mass</item>
+        <item>@layout/fragment_power</item>
+        <item>@layout/fragment_pressure</item>
+        <item>@layout/fragment_speed</item>
+        <item>@layout/fragment_temperature</item>
+        <item>@layout/fragment_time</item>
+    </array>
+    
+    <string-array name="noDecimals">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="separatorType">
+        <item>None</item>
+        <item>,</item>
+        <item>" "</item>
+        <item>.</item>
+    </string-array>
+    
+    <string-array name="decimalSeparatorType">
+        <item>.</item>
+        <item>,</item>
+    </string-array>
+    
+    <string-array name="helpText">
+        <item>Use the drop-down menu for navigation between conversions and select the units you require. You can also swipe left-to-right to switch between conversions.</item>
+        <item>The converted value is fully customizable. Use the options menu to select the number of decimal places required as well as the grouping and decimal separators.</item>
+        <item>Long-pressing on the converted value copies it to the clipboard.</item>
+    </string-array>
+</resources>

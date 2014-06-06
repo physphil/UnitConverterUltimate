@@ -1,0 +1,47 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--style name="AppBaseTheme" parent="Theme.Sherlock" -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat" >
+        
+        <!-- Theme customizations for backwards compatibility -->
+        <item name="android:editTextStyle">@style/EditTextAppTheme</item>
+    	<item name="android:radioButtonStyle">@style/RadioButtonAppTheme</item>
+    </style>
+    
+    <!--style name="AppBaseTheme.Light" parent="Theme.Sherlock.Light.DarkActionBar" -->
+    <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <!-- Theme customizations for backwards compatibility -->
+        <item name="android:editTextStyle">@style/EditTextAppThemeLight</item>
+    	<item name="android:radioButtonStyle">@style/RadioButtonAppThemeLight</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+    
+    </style>
+    
+    <style name="radioButtonText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/radioButtonTextSize</item>
+        <item name="android:minHeight">@dimen/radioButtonSpacing</item>
+    </style>
+    
+    <style name="EditTextAppTheme" parent="android:Widget.EditText">
+		<item name="android:background">@drawable/edit_text_holo_dark</item>
+	  	<item name="android:textColor">#ffffff</item>
+  	</style>
+
+  	<style name="RadioButtonAppTheme" parent="android:Widget.CompoundButton.RadioButton">
+      	<item name="android:button">@drawable/btn_radio_holo_dark</item>
+  	</style>
+  	
+  	<style name="EditTextAppThemeLight" parent="android:Widget.EditText">
+	  	<item name="android:background">@drawable/edit_text_holo_light</item>
+	  	<item name="android:textColor">#000000</item>
+  	</style>
+
+  	<style name="RadioButtonAppThemeLight" parent="android:Widget.CompoundButton.RadioButton">
+      	<item name="android:button">@drawable/btn_radio_holo_light</item>
+  	</style>
+
+
+</resources>

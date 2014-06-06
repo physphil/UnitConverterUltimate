@@ -1,0 +1,11 @@
+<resources>
+
+    <!--style name="AppBaseTheme" parent="Theme.Sherlock" -->
+	<style name="AppBaseTheme" parent="Theme.AppCompat" >        
+    </style>
+    
+	<style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!--style name="AppBaseTheme.Light" parent="Theme.Sherlock.Light.DarkActionBar"-->        
+    </style>
+
+</resources>

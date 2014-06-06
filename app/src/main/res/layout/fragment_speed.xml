@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/speed_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+	   	
+	   	<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	        
+	   	   	<!-- Transparent image view to anchor the radio groups with the swap image in the main layout -->
+	   	    <include 
+	   	        android:id="@+id/speedDummyImage"
+	   	        layout="@layout/transparent_image" />
+			
+	   	    <RadioGroup
+	   	        android:id="@+id/radioFromSpeed"
+	   	        android:layout_width="match_parent"
+	   	        android:layout_height="wrap_content"
+	   	        android:layout_alignParentTop="true"
+	   	        android:layout_toLeftOf="@id/speedDummyImage" >
+
+	   	        <RadioButton
+	   	            android:id="@+id/fromKmph"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:checked="true"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/fromKmph"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/fromMph"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/fromMph"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/fromMps"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/fromMps"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/fromFps"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/fromFps"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/fromKnot"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/fromKnot"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+	   	    </RadioGroup>
+
+	   	    <RadioGroup
+	   	        android:id="@+id/radioToSpeed"
+	   	        android:layout_width="match_parent"
+	   	        android:layout_height="wrap_content"
+	   	        android:layout_alignParentTop="true"
+	   	        android:layout_toRightOf="@id/speedDummyImage" >
+
+	   	        <RadioButton
+	   	            android:id="@+id/toKmph"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/toKmph"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/toMph"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:checked="true"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/toMph"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/toMps"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/toMps"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/toFps"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/toFps"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+
+	   	        <RadioButton
+	   	            android:id="@+id/toKnot"
+	   	            android:layout_width="wrap_content"
+	   	            android:layout_height="wrap_content"
+	   	            android:minHeight="@dimen/radioButtonSpacing"
+	   	            android:text="@string/toKnot"
+	   	            android:textSize="@dimen/radioButtonTextSize" />
+	   	    </RadioGroup>
+
+	    </RelativeLayout>
+    </ScrollView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fromValueTextSize">26sp</dimen>
+    <dimen name="toValueTextSize">26sp</dimen>
+    <dimen name="radioButtonTextSize">20sp</dimen>
+    <dimen name="fromToTextSize">20sp</dimen>
+    <dimen name="radioButtonSpacing">50dip</dimen> 
+    <dimen name="swapTextSize">12sp</dimen> 
+</resources>
