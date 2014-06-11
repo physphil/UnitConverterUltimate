@@ -41,7 +41,9 @@
         android:id="@+id/menuRate"
         android:orderInCategory="160"
         app:showAsAction="never"
-        android:title="@string/menuRate">
+        android:title="@string/menuRate"
+        android:enabled="false"
+        android:visible="false">
     </item>
     <item
         android:id="@+id/menuClear"

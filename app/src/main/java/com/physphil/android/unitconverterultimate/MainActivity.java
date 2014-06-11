@@ -186,7 +186,7 @@ public class MainActivity extends ActionBarActivity{
 		}
 		
 		// Check if it's time to ask user to rate app
-		checkToRate();	
+//		checkToRate();
 	}
 	
 	@Override
