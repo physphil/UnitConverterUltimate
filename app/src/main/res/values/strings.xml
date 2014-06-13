@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Unit Converter Ultimate</string>
+    <string name="app_name_short">Convert</string>
     <string name="test">test</string>
     <string name="fromText">From</string>    
     <string name="toText">To</string>
