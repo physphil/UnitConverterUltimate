@@ -1,10 +1,5 @@
 package com.physphil.android.unitconverterultimate.util;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +7,11 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.physphil.android.unitconverterultimate.R;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Convert {
 	
@@ -49,7 +49,7 @@ public class Convert {
             //Get conversion between units if they're not equal
             String fromUnit = fromConversion.substring(4);
             String toUnit = toConversion.substring(2);
-            
+
             double fromMult = Globals.conversions.get(fromConversion);
 	        double toMult = Globals.conversions.get(toConversion);
 

@@ -13,6 +13,7 @@
         <item>Speed</item>
         <item>Temperature</item>
         <item>Time</item>
+        <item>Torque</item>
     </string-array>
     
     <string-array name="fragmentNames">
@@ -28,6 +29,7 @@
         <item>SpeedFragment</item>
         <item>TemperatureFragment</item>
         <item>TimeFragment</item>
+        <item>TorqueFragment</item>
     </string-array>
     
     <string-array name="fromButtonTags">
@@ -43,6 +45,7 @@
         <item>SpeedFromID</item>
         <item>TemperatureFromID</item>
         <item>TimeFromID</item>
+        <item>TorqueFromID</item>
     </string-array>
     
     <string-array name="toButtonTags">
@@ -58,6 +61,7 @@
         <item>SpeedToID</item>
         <item>TemperatureToID</item>
         <item>TimeToID</item>
+        <item>TorqueToID</item>
     </string-array>
     
     <array name="fromRadioGroupIds">
@@ -73,6 +77,7 @@
         <item>@id/radioFromSpeed</item>
         <item>@id/radioFromTemp</item>
         <item>@id/radioFromTime</item>
+        <item>@id/radioFromTorque</item>
     </array>
     
     <array name="toRadioGroupIds">
@@ -88,6 +93,7 @@
         <item>@id/radioToSpeed</item>
         <item>@id/radioToTemp</item>
         <item>@id/radioToTime</item>
+        <item>@id/radioToTorque</item>
     </array>
     
     <array name="fragmentLayouts">
@@ -103,6 +109,7 @@
         <item>@layout/fragment_speed</item>
         <item>@layout/fragment_temperature</item>
         <item>@layout/fragment_time</item>
+        <item>@layout/fragment_torque</item>
     </array>
     
     <string-array name="noDecimals">

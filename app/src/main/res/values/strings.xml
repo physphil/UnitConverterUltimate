@@ -209,7 +209,7 @@
     <string name="toBtups">BTU/second</string>
     <string name="tokVA">kV-A</string>
     <string name="toElectronVolt">eV</string>
-    <string name="fromJoule">Joule (N-m)</string>
+    <string name="fromJoule">Joule</string>
     <string name="fromKilojoule">Kilojoule</string>
     <string name="fromCalorie">Calorie</string>
     <string name="fromKilocalorie">Kilocalorie</string>
@@ -245,6 +245,8 @@
     <string name="toGigabyte">Gigabyte</string>
     <string name="toTerabit">Terabit</string>
     <string name="toTerabyte">Terabyte</string>
+    <string name="fromNm">N-m</string>
+    <string name="toNm">N-m</string>
     
     <string name="buttonOK">OK</string>
     <string name="buttonCancel">Cancel</string>

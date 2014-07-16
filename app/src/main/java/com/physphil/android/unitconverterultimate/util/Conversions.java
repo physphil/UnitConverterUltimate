@@ -20,6 +20,7 @@ public class Conversions {
 	public static final int SPEED = 9;
 	public static final int TEMPERATURE = 10;
 	public static final int TIME = 11;
+    public static final int TORQUE = 12;
     
     public static final String FROM = "from";
     public static final String TO = "to";
@@ -75,6 +76,7 @@ public class Conversions {
     public static final String IN_LB_F = "InlbF";
     public static final String KILOWATT_HOUR = "KilowattHour";
     public static final String ELECTRON_VOLT = "ElectronVolt";
+    public static final String N_M = "Nm";
     
     public static final String MILES_PER_GALLONUS = "MpgUS";
     public static final String MILES_PER_GALLONUK = "MpgUK";
@@ -159,6 +161,7 @@ public class Conversions {
     	getPressureConversions();
     	getSpeedConversions();
     	getTimeConversions();
+        getTorqueConversions();
     }
     
     public static Conversions getInstance(){
@@ -456,5 +459,13 @@ public class Conversions {
     	conversions.put(TO + SECOND, 1.0);
     	conversions.put(TO + MILLISECOND, 1000.0);
     	conversions.put(TO + NANOSECOND, 1000000000.0);
+    }
+
+    private void getTorqueConversions(){
+        // Base unit - Newton-metres
+        conversions.put(FROM + N_M, 1.0);
+        conversions.put(TO + N_M, 1.0);
+
+        // In-lb and ft-lb are included in Energy
     }
 }

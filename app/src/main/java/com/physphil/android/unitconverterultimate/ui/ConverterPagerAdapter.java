@@ -13,7 +13,7 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 
 public class ConverterPagerAdapter extends FragmentPagerAdapter{
 	
-	private final int PAGE_COUNT = 12;
+	private final int PAGE_COUNT = 13;
 	private Context mContext;
 	private String[] mConversions;
 

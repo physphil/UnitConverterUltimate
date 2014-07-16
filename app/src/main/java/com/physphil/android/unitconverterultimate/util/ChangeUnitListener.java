@@ -20,13 +20,13 @@ public class ChangeUnitListener implements RadioGroup.OnCheckedChangeListener {
 		//Convert
 		int radioGroupId = radioGroup.getId();
 		int complimentaryId = Util.getComplimentaryId(radioGroupId);
-		
+
 		//Call appropriate conversion function based on visible fragment and specific unit requested
 		if(isTemperature){
 			Convert.convertTempValue(activity);
 		}
 		else if(isFromUnit){
-			Convert.convertValue(activity, radioGroupId, complimentaryId);
+		    Convert.convertValue(activity, radioGroupId, complimentaryId);
 		}
 		else{
 			Convert.convertValue(activity, complimentaryId, radioGroupId);
