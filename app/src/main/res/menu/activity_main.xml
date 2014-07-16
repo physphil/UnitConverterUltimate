@@ -20,6 +20,12 @@
         android:title="@string/menuSetDecimalSeparator">
     </item>
     <item
+        android:id="@+id/menuDonate"
+        android:orderInCategory="125"
+        app:showAsAction="never"
+        android:title="@string/menuDonate" />
+
+    <item
         android:id="@+id/menuRequest"
         android:orderInCategory="130"
         app:showAsAction="never"

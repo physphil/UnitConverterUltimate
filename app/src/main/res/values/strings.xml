@@ -276,6 +276,7 @@
     <string name="menuRate">Rate This App!</string>
     <string name="menuRequest">Request A Unit</string>
     <string name="menuClear">Clear Value</string>
+    <string name="menuDonate">Donate!</string>
     
     <string name="errorGooglePlay">Unable to launch the Google Play Store</string>
     <string name="errorNoEmailClient">There are no email clients installed</string>
