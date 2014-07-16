@@ -26,4 +26,4 @@ local.properties
 *.iws
 
 #In-App-Billing constants
-iab.xml
+app/src/main/res/values/iab.xml
