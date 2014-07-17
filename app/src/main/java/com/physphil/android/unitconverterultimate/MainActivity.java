@@ -23,7 +23,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,9 +36,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.physphil.android.unitconverterultimate.iab.IabHelper;
-import com.physphil.android.unitconverterultimate.iab.IabResult;
-import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.ui.ConverterPagerAdapter;
 import com.physphil.android.unitconverterultimate.ui.SetDecimalSeparatorDialogFragment;
 import com.physphil.android.unitconverterultimate.ui.SetDecimalsDialogFragment;
@@ -49,10 +45,6 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 import com.physphil.android.unitconverterultimate.util.Convert;
 import com.physphil.android.unitconverterultimate.util.Globals;
 import com.physphil.android.unitconverterultimate.util.Util;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity{
@@ -66,7 +58,6 @@ public class MainActivity extends ActionBarActivity{
 	private ViewPager viewPager;
 	private int theme;
 	private SharedPreferences preferences;
-    private IabHelper mHelper;
 	
 	//Class variables required for navigation drawer implementation
 	private ListView mDrawerList;
@@ -163,27 +154,10 @@ public class MainActivity extends ActionBarActivity{
 		
 		//Instantiate conversions HashMap
 		Globals.conversions = Conversions.getInstance().getConversions();
-
-        // Setup google play
-        StringBuilder sb = new StringBuilder().append(getString(R.string.license_key_p1))
-                .append(getString(R.string.license_key_p2))
-                .append(getString(R.string.license_key_p3));
-
-        mHelper = new IabHelper(this, sb.toString());
-        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-            @Override
-            public void onIabSetupFinished(IabResult result) {
-                if(result.isSuccess()){
-                    Log.d("PS", "IAB is setup!");
-                }
-                else{
-                    Log.d("PS", "there was an error setting up IAB");
-                }
-            }
-        });
 	}
-	
-	@Override
+
+
+    @Override
 	public void onResume(){
 		super.onResume();
 		
@@ -231,17 +205,6 @@ public class MainActivity extends ActionBarActivity{
 		
 		fromValueText.removeTextChangedListener(fromValueTextWatcher);
 	}
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        // Shut down IAB
-        if(mHelper != null){
-            mHelper.dispose();
-        }
-        mHelper = null;
-    }
 
     @Override
 	protected void onPostCreate(Bundle savedInstanceState){
@@ -501,24 +464,13 @@ public class MainActivity extends ActionBarActivity{
 		}
 	}
 
-    private void promptDonation(){
-        final List<String> skus = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.donation_options)));
-        mHelper.queryInventoryAsync(true, skus, new IabHelper.QueryInventoryFinishedListener() {
-            @Override
-            public void onQueryInventoryFinished(IabResult result, Inventory inv) {
-
-                if(result.isFailure()){
-                    Log.d("PS", "failure querying skus!");
-                }
-                else{
-                    for(String sku : skus){
-                        Log.d("PS", "price of " + sku + " = " + inv.getSkuDetails(sku).getPrice());
-                    }
-                }
-            }
-        });
+    /**
+     * Start activity to display donation options
+     */
+    private void startDonationActivity(){
+        startActivity(new Intent(this, DonateActivity.class));
     }
-	
+
 	/**
 	 * Show help dialog to user
 	 */
@@ -575,8 +527,8 @@ public class MainActivity extends ActionBarActivity{
 		TextView fromValue = (TextView) findViewById(R.id.fromValue);
 		fromValue.setText("");
 	}
-	
-	@Override
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -626,7 +578,7 @@ public class MainActivity extends ActionBarActivity{
 				break;
 
             case(R.id.menuDonate):
-                promptDonation();
+                startDonationActivity();
                 break;
 	
 			case(R.id.menuRate):

@@ -3,14 +3,13 @@
 
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="test">test</string>
-    <string name="fromText">From</string>    
+    <string name="fromText">From</string>
     <string name="toText">To</string>
     <string name="defaultValue">1</string>
     <string name="swapText">SWAP</string>
     <string name="contentDescriptionDummy">transparent image for view anchoring</string>
     <string name="drawerOpen">Navigation Drawer Open</string>
     <string name="drawerClose">Navigation Drawer Close</string>
-    
     <string name="fromCelsius">Celsius</string>
     <string name="fromFahrenheit">Fahrenheit</string>
     <string name="fromKelvin">Kelvin</string>
@@ -51,7 +50,7 @@
     <string name="toNanometre">Nanometre</string>
     <string name="toYard">Yard</string>
     <string name="toFeet">Feet</string>
-    <string name="toInch">Inch</string>  
+    <string name="toInch">Inch</string>
     <string name="toNauticalMile">Nautical Mile</string>
     <string name="toFurlong">Furlong</string>
     <string name="toLightYear">Light Year</string>
@@ -119,8 +118,8 @@
     <string name="fromMph">Mile/hour</string>
     <string name="fromMps">Metre/second</string>
     <string name="fromFps">Foot/second</string>
-    <string name="fromKnot">Knot</string>   
-	<string name="toKmph">Kilometre/hour</string>
+    <string name="fromKnot">Knot</string>
+    <string name="toKmph">Kilometre/hour</string>
     <string name="toMph">Mile/hour</string>
     <string name="toMps">Metre/second</string>
     <string name="toFps">Foot/second</string>
@@ -247,15 +246,12 @@
     <string name="toTerabyte">Terabyte</string>
     <string name="fromNm">N-m</string>
     <string name="toNm">N-m</string>
-    
     <string name="buttonOK">OK</string>
     <string name="buttonCancel">Cancel</string>
     <string name="buttonNoThanks">No thanks</string>
     <string name="buttonRate">Rate!</string>
     <string name="buttonAlreadyDone">I Already Have!</string>
-    
     <string name="emailChooser">Choose email client</string>
-    
     <string name="dialogSetDecimal">Set Number of Decimals</string>
     <string name="dialogSetSeparator">Set Grouping Separator</string>
     <string name="dialogSetDecimalSeparator">Set Decimal Separator</string>
@@ -265,9 +261,7 @@
     <string name="dialogNewNavMessage">There are now two ways to navigate through the different conversions in the app. To display the navigation menu:\n\n- Swipe in from the left side of the screen, or\n\n- Press the app icon in the top left corner.</string>
     <string name="dialogRateTitle">Rate My App?</string>
     <string name="dialogRateMessage">Doing a lot of conversions? Would you mind taking a second and rating the app?</string>
-    
     <string name="copiedToClipboard">Text copied to clipboard</string>
-    
     <string name="menuSetDecimal">Set Decimal Places</string>
     <string name="menuSetSeparator">Set Group Separator</string>
     <string name="menuSetDecimalSeparator">Set Decimal Separator</string>
@@ -277,8 +271,10 @@
     <string name="menuRequest">Request A Unit</string>
     <string name="menuClear">Clear Value</string>
     <string name="menuDonate">Donate!</string>
-    
     <string name="errorGooglePlay">Unable to launch the Google Play Store</string>
     <string name="errorNoEmailClient">There are no email clients installed</string>
-    
+    <string name="title_activity_donate">DonateActivity</string>
+
+    <string name="toast_error_billing">Oops, there was a problem. Please make sure you have a working Internet connection and try again.</string>
+
 </resources>
