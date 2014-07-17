@@ -273,8 +273,9 @@
     <string name="menuDonate">Donate!</string>
     <string name="errorGooglePlay">Unable to launch the Google Play Store</string>
     <string name="errorNoEmailClient">There are no email clients installed</string>
-    <string name="title_activity_donate">DonateActivity</string>
+    <string name="title_activity_donate">Donate?</string>
 
     <string name="toast_error_billing">Oops, there was a problem. Please make sure you have a working Internet connection and try again.</string>
+    <string name="toast_donation_successful">Thank you for donating!</string>
 
 </resources>
