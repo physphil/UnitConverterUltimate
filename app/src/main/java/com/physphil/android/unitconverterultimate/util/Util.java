@@ -134,6 +134,9 @@ public class Util {
         else if (radioGroupId == R.id.radioFromTorque) {
             complimentaryId = R.id.radioToTorque;
         }
+        else if (radioGroupId == R.id.radioFromVolume) {
+            complimentaryId = R.id.radioToVolume;
+        }
 		else if (radioGroupId == R.id.radioToArea) {
 			complimentaryId = R.id.radioFromArea;
 		}
@@ -172,6 +175,9 @@ public class Util {
 		}
         else if (radioGroupId == R.id.radioToTorque) {
             complimentaryId = R.id.radioFromTorque;
+        }
+        else if (radioGroupId == R.id.radioToVolume) {
+            complimentaryId = R.id.radioFromVolume;
         }
 		
 		return complimentaryId;

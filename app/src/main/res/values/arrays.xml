@@ -2,7 +2,7 @@
 <resources>
     <string-array name="conversions">
         <item>Area</item>
-        <item>Cooking / Volume</item>
+        <item>Cooking</item>
         <item>Digital Storage</item>
         <item>Energy</item>
         <item>Fuel Consumption</item>
@@ -14,6 +14,7 @@
         <item>Temperature</item>
         <item>Time</item>
         <item>Torque</item>
+        <item>Volume</item>
     </string-array>
     
     <string-array name="fragmentNames">
@@ -30,6 +31,7 @@
         <item>TemperatureFragment</item>
         <item>TimeFragment</item>
         <item>TorqueFragment</item>
+        <item>VolumeFragment</item>
     </string-array>
     
     <string-array name="fromButtonTags">
@@ -46,6 +48,7 @@
         <item>TemperatureFromID</item>
         <item>TimeFromID</item>
         <item>TorqueFromID</item>
+        <item>VolumeFromID</item>
     </string-array>
     
     <string-array name="toButtonTags">
@@ -62,6 +65,7 @@
         <item>TemperatureToID</item>
         <item>TimeToID</item>
         <item>TorqueToID</item>
+        <item>VolumeToID</item>
     </string-array>
     
     <array name="fromRadioGroupIds">
@@ -78,6 +82,7 @@
         <item>@id/radioFromTemp</item>
         <item>@id/radioFromTime</item>
         <item>@id/radioFromTorque</item>
+        <item>@id/radioFromVolume</item>
     </array>
     
     <array name="toRadioGroupIds">
@@ -94,6 +99,7 @@
         <item>@id/radioToTemp</item>
         <item>@id/radioToTime</item>
         <item>@id/radioToTorque</item>
+        <item>@id/radioToVolume</item>
     </array>
     
     <array name="fragmentLayouts">
@@ -110,6 +116,7 @@
         <item>@layout/fragment_temperature</item>
         <item>@layout/fragment_time</item>
         <item>@layout/fragment_torque</item>
+        <item>@layout/fragment_volume</item>
     </array>
     
     <string-array name="noDecimals">

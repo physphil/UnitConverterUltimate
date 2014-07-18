@@ -21,6 +21,7 @@ public class Conversions {
 	public static final int TEMPERATURE = 10;
 	public static final int TIME = 11;
     public static final int TORQUE = 12;
+    public static final int VOLUME = 13;
     
     public static final String FROM = "from";
     public static final String TO = "to";
@@ -162,6 +163,7 @@ public class Conversions {
     	getSpeedConversions();
     	getTimeConversions();
         getTorqueConversions();
+        getVolumeConversions();
     }
     
     public static Conversions getInstance(){
@@ -205,47 +207,47 @@ public class Conversions {
     private void getCookingConversions(){
     	//Base Unit = cubic metres
 	
-    	conversions.put(FROM + TEASPOON, 0.0000049289215938);
-    	conversions.put(FROM + TABLESPOON, 0.0000147867647812);
-    	conversions.put(FROM + FLUID_OUNCE, 0.0000295735295625);
-    	conversions.put(FROM + FLUID_OUNCEUK, 0.0000284130625);
-    	conversions.put(FROM + CUP, 0.0002365882365);
-    	conversions.put(FROM + PINT, 0.000473176473);
-    	conversions.put(FROM + PINTUK, 0.00056826125);
-    	conversions.put(FROM + QUART, 0.000946352946);
-    	conversions.put(FROM + QUARTUK, 0.0011365225);
-    	conversions.put(FROM + GALLON, 0.003785411784);
-    	conversions.put(FROM + GALLONUK, 0.00454609);
-    	conversions.put(FROM + BARREL, 0.119240471196);
-    	conversions.put(FROM + BARRELUK, 0.16365924);
-    	conversions.put(FROM + MILLILITRE, 0.000001);
-    	conversions.put(FROM + LITRE, 0.001);
-    	conversions.put(FROM + CUBIC_CENTIMETRE, 0.000001);
-    	conversions.put(FROM + CUBIC_METRE, 1.0);
-    	conversions.put(FROM + CUBIC_INCH, 0.000016387064);
-    	conversions.put(FROM + CUBIC_FOOT, 0.028316846592);
-    	conversions.put(FROM + CUBIC_YARD, 0.7645548692741148);
-
-    	conversions.put(TO + TEASPOON, 202884.136211058);
-    	conversions.put(TO + TABLESPOON, 67628.045403686);
-    	conversions.put(TO + FLUID_OUNCE, 33814.0227018429972);
-    	conversions.put(TO + FLUID_OUNCEUK, 35195.07972785404600437);
-    	conversions.put(TO + CUP, 4226.7528377304);
-    	conversions.put(TO + PINT, 2113.37641886518732);
-    	conversions.put(TO + PINTUK, 1759.753986392702300218);
-    	conversions.put(TO + QUART, 1056.68820943259366);
-    	conversions.put(TO + QUARTUK, 879.8769931963511501092);
-    	conversions.put(TO + GALLON, 264.172052358148415);
-    	conversions.put(TO + GALLONUK, 219.9692482990877875273);
-    	conversions.put(TO + BARREL, 8.38641436057614017079);
-    	conversions.put(TO + BARRELUK, 6.11025689719688298687);
-    	conversions.put(TO + MILLILITRE, 1000000.0);
-    	conversions.put(TO + LITRE, 1000.0);
-    	conversions.put(TO + CUBIC_CENTIMETRE, 1000000.0);
-    	conversions.put(TO + CUBIC_METRE, 1.0);
-    	conversions.put(TO + CUBIC_INCH, 61023.744094732284);
-    	conversions.put(TO + CUBIC_FOOT, 35.3146667214885903);
-    	conversions.put(TO + CUBIC_YARD, 1.3079506);
+//    	conversions.put(FROM + TEASPOON, 0.0000049289215938);
+//    	conversions.put(FROM + TABLESPOON, 0.0000147867647812);
+//    	conversions.put(FROM + FLUID_OUNCE, 0.0000295735295625);
+//    	conversions.put(FROM + FLUID_OUNCEUK, 0.0000284130625);
+//    	conversions.put(FROM + CUP, 0.0002365882365);
+//    	conversions.put(FROM + PINT, 0.000473176473);
+//    	conversions.put(FROM + PINTUK, 0.00056826125);
+//    	conversions.put(FROM + QUART, 0.000946352946);
+//    	conversions.put(FROM + QUARTUK, 0.0011365225);
+//    	conversions.put(FROM + GALLON, 0.003785411784);
+//    	conversions.put(FROM + GALLONUK, 0.00454609);
+//    	conversions.put(FROM + BARREL, 0.119240471196);
+//    	conversions.put(FROM + BARRELUK, 0.16365924);
+//    	conversions.put(FROM + MILLILITRE, 0.000001);
+//    	conversions.put(FROM + LITRE, 0.001);
+//    	conversions.put(FROM + CUBIC_CENTIMETRE, 0.000001);
+//    	conversions.put(FROM + CUBIC_METRE, 1.0);
+//    	conversions.put(FROM + CUBIC_INCH, 0.000016387064);
+//    	conversions.put(FROM + CUBIC_FOOT, 0.028316846592);
+//    	conversions.put(FROM + CUBIC_YARD, 0.7645548692741148);
+//
+//    	conversions.put(TO + TEASPOON, 202884.136211058);
+//    	conversions.put(TO + TABLESPOON, 67628.045403686);
+//    	conversions.put(TO + FLUID_OUNCE, 33814.0227018429972);
+//    	conversions.put(TO + FLUID_OUNCEUK, 35195.07972785404600437);
+//    	conversions.put(TO + CUP, 4226.7528377304);
+//    	conversions.put(TO + PINT, 2113.37641886518732);
+//    	conversions.put(TO + PINTUK, 1759.753986392702300218);
+//    	conversions.put(TO + QUART, 1056.68820943259366);
+//    	conversions.put(TO + QUARTUK, 879.8769931963511501092);
+//    	conversions.put(TO + GALLON, 264.172052358148415);
+//    	conversions.put(TO + GALLONUK, 219.9692482990877875273);
+//    	conversions.put(TO + BARREL, 8.38641436057614017079);
+//    	conversions.put(TO + BARRELUK, 6.11025689719688298687);
+//    	conversions.put(TO + MILLILITRE, 1000000.0);
+//    	conversions.put(TO + LITRE, 1000.0);
+//    	conversions.put(TO + CUBIC_CENTIMETRE, 1000000.0);
+//    	conversions.put(TO + CUBIC_METRE, 1.0);
+//    	conversions.put(TO + CUBIC_INCH, 61023.744094732284);
+//    	conversions.put(TO + CUBIC_FOOT, 35.3146667214885903);
+//    	conversions.put(TO + CUBIC_YARD, 1.3079506);
     }
     
     private void getStorageConversions(){
@@ -467,5 +469,49 @@ public class Conversions {
         conversions.put(TO + N_M, 1.0);
 
         // In-lb and ft-lb are included in Energy
+    }
+
+    private void getVolumeConversions(){
+        conversions.put(FROM + TEASPOON, 0.0000049289215938);
+        conversions.put(FROM + TABLESPOON, 0.0000147867647812);
+        conversions.put(FROM + FLUID_OUNCE, 0.0000295735295625);
+        conversions.put(FROM + FLUID_OUNCEUK, 0.0000284130625);
+        conversions.put(FROM + CUP, 0.0002365882365);
+        conversions.put(FROM + PINT, 0.000473176473);
+        conversions.put(FROM + PINTUK, 0.00056826125);
+        conversions.put(FROM + QUART, 0.000946352946);
+        conversions.put(FROM + QUARTUK, 0.0011365225);
+        conversions.put(FROM + GALLON, 0.003785411784);
+        conversions.put(FROM + GALLONUK, 0.00454609);
+        conversions.put(FROM + BARREL, 0.119240471196);
+        conversions.put(FROM + BARRELUK, 0.16365924);
+        conversions.put(FROM + MILLILITRE, 0.000001);
+        conversions.put(FROM + LITRE, 0.001);
+        conversions.put(FROM + CUBIC_CENTIMETRE, 0.000001);
+        conversions.put(FROM + CUBIC_METRE, 1.0);
+        conversions.put(FROM + CUBIC_INCH, 0.000016387064);
+        conversions.put(FROM + CUBIC_FOOT, 0.028316846592);
+        conversions.put(FROM + CUBIC_YARD, 0.7645548692741148);
+
+        conversions.put(TO + TEASPOON, 202884.136211058);
+        conversions.put(TO + TABLESPOON, 67628.045403686);
+        conversions.put(TO + FLUID_OUNCE, 33814.0227018429972);
+        conversions.put(TO + FLUID_OUNCEUK, 35195.07972785404600437);
+        conversions.put(TO + CUP, 4226.7528377304);
+        conversions.put(TO + PINT, 2113.37641886518732);
+        conversions.put(TO + PINTUK, 1759.753986392702300218);
+        conversions.put(TO + QUART, 1056.68820943259366);
+        conversions.put(TO + QUARTUK, 879.8769931963511501092);
+        conversions.put(TO + GALLON, 264.172052358148415);
+        conversions.put(TO + GALLONUK, 219.9692482990877875273);
+        conversions.put(TO + BARREL, 8.38641436057614017079);
+        conversions.put(TO + BARRELUK, 6.11025689719688298687);
+        conversions.put(TO + MILLILITRE, 1000000.0);
+        conversions.put(TO + LITRE, 1000.0);
+        conversions.put(TO + CUBIC_CENTIMETRE, 1000000.0);
+        conversions.put(TO + CUBIC_METRE, 1.0);
+        conversions.put(TO + CUBIC_INCH, 61023.744094732284);
+        conversions.put(TO + CUBIC_FOOT, 35.3146667214885903);
+        conversions.put(TO + CUBIC_YARD, 1.3079506);
     }
 }
