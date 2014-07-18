@@ -36,7 +36,7 @@ public class DonateActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_donate);
+        setContentView(R.layout.activity_donate);
 
         mListview = (ListView) findViewById(R.id.billing_listview);
         mProgressBar = (ProgressBar) findViewById(R.id.billing_progress_spinner);
@@ -58,7 +58,7 @@ public class DonateActivity extends ActionBarActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("PS", "onActivityResult(" + requestCode + "," + resultCode + "," + data);
+
         if(!mHelper.handleActivityResult(requestCode, resultCode, data)) {
 
             // Not related to in-app billing, handle normally
@@ -76,7 +76,7 @@ public class DonateActivity extends ActionBarActivity {
                 .append(getString(R.string.license_key_p3));
 
         mHelper = new IabHelper(this, sb.toString());
-        mHelper.enableDebugLogging(true, "PS");
+//        mHelper.enableDebugLogging(true, "PS");
         mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
             @Override
             public void onIabSetupFinished(IabResult result) {
@@ -168,7 +168,7 @@ public class DonateActivity extends ActionBarActivity {
     private void shutdown(boolean success){
 
         if(success){
-            Toast.makeText(this, R.string.toast_donation_successful, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_donation_successful, Toast.LENGTH_LONG).show();
         }
         else {
             Toast.makeText(this, R.string.toast_error_billing, Toast.LENGTH_SHORT).show();
@@ -182,18 +182,39 @@ public class DonateActivity extends ActionBarActivity {
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         @Override
         public void onIabPurchaseFinished(IabResult result, Purchase info) {
-            Log.d("PS", "in onIabPurchaseFinished");
+
             if(result.isFailure()){
-                shutdown(false);
+
+                switch(result.getResponse()){
+                    case IabHelper.IABHELPER_USER_CANCELLED:
+                        break;
+
+                    default:
+                        shutdown(false);
+                        break;
+                }
             }
             else{
-                Log.d("PS", "purchase successful!");
-                // Consume the purchase and thank user
-                if(info.getDeveloperPayload().equals(mPurchasePayload)){
-                    Log.d("PS", "payloads match!");
-                }
-                shutdown(true);
+                // Consume purchase so it can be done again and thank user
+//                shutdown(true);
+                mHelper.consumeAsync(info, mConsumeFinishedListener);
             }
+        }
+    };
+
+    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
+        @Override
+        public void onConsumeFinished(Purchase purchase, IabResult result) {
+
+            if(result.isFailure()){
+                Log.d("PS", "Problem consuming " + purchase.getSku());
+            }
+            else{
+                Log.d("PS", "Successfully consumed " + purchase.getSku());
+            }
+
+            // Purchase is successful, thank user and shutdown activity
+            shutdown(true);
         }
     };
 

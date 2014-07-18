@@ -41,7 +41,7 @@ public class DonateFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_donate, container, false);
+        View v = inflater.inflate(R.layout.activity_donate, container, false);
 
         mListview = (ListView) v.findViewById(R.id.billing_listview);
         mProgressBar = (ProgressBar) v.findViewById(R.id.billing_progress_spinner);
