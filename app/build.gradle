@@ -8,7 +8,7 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 8
         targetSdkVersion 19
-        versionCode 16
+        versionCode 17
         versionName '2.1'
     }
 
