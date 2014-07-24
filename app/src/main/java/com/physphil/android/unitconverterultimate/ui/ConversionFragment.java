@@ -1,10 +1,5 @@
 package com.physphil.android.unitconverterultimate.ui;
 
-import com.physphil.android.unitconverterultimate.util.Constants;
-import com.physphil.android.unitconverterultimate.util.Convert;
-import com.physphil.android.unitconverterultimate.util.Util;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,10 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
+import com.physphil.android.unitconverterultimate.util.Constants;
+import com.physphil.android.unitconverterultimate.util.Convert;
+import com.physphil.android.unitconverterultimate.util.Util;
+
 
 public class ConversionFragment extends Fragment{
 	
-	private Activity activity;
+//	private Activity activity;
 	private int fragmentLayout;
 	private String fromButtonTag;
 	private String toButtonTag;
@@ -23,13 +22,14 @@ public class ConversionFragment extends Fragment{
 	private int toButtonsId;
 	private boolean isTemperature;
 	private boolean justCreated;
+    private RadioButton mFromButton;
+    private RadioButton mToButton;
 	
 	public ConversionFragment() {}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		activity = getActivity();
 		
 		//Define arguments which will customize fragment to specific conversion required
 		fragmentLayout = getArguments().getInt(Constants.FRAGMENT_LAYOUT);
@@ -46,7 +46,19 @@ public class ConversionFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		//Inflate appropriate layout based on selected conversion
-		return inflater.inflate(fragmentLayout, container, false);
+        View v = inflater.inflate(fragmentLayout, container, false);
+
+        int fromId = Util.getButtonState(getActivity(), fromButtonTag);
+        if(fromId != 0) {
+            mFromButton = (RadioButton) v.findViewById(fromId);
+        }
+
+        int toId = Util.getButtonState(getActivity(), toButtonTag);
+        if(toId != 0){
+            mToButton = (RadioButton) v.findViewById(toId);
+        }
+
+        return v;
 	}
 	
 	@Override
@@ -54,20 +66,21 @@ public class ConversionFragment extends Fragment{
 		super.onResume();
 		
 		//Restore state of radio buttons from previous use. If no values are stored, defaults from the fragment layout will be used
-		int fromId = Util.getButtonState(activity, fromButtonTag);
-		if(fromId != 0){
-			RadioButton fromButton = (RadioButton) activity.findViewById(fromId);
-			fromButton.setChecked(true);
+//		int fromId = Util.getButtonState(getActivity(), fromButtonTag);
+//		if(fromId != 0){
+//			RadioButton fromButton = (RadioButton) activity.findViewById(fromId);
+        if(mFromButton != null){
+			mFromButton.setChecked(true);
 		}
 		
-		int toId = Util.getButtonState(activity, toButtonTag);
-		if(toId != 0){
-			RadioButton toButton = (RadioButton) activity.findViewById(toId);
-			toButton.setChecked(true);
+//		int toId = Util.getButtonState(getActivity(), toButtonTag);
+//		if(toId != 0){
+        if(mToButton != null){
+			mToButton.setChecked(true);
 		}
 		
 		//Add check changed listeners to radio button groups to convert when a new unit is selected
-		Util.addCheckChangedListeners(activity, fromButtonsId, toButtonsId, isTemperature);
+		Util.addCheckChangedListeners(getActivity(), fromButtonsId, toButtonsId, isTemperature);
 
 		//If fragment was just created, and it's visible to user, call conversion.
 		//This was added to handle case where views are created by viewpager after they are selected by drawerListener, usually on app open
@@ -76,10 +89,10 @@ public class ConversionFragment extends Fragment{
 			justCreated = false;
 			
 			if(isTemperature){
-				Convert.convertTempValue(activity);
+				Convert.convertTempValue(getActivity());
 			}
 			else{
-				Util.onFragmentVisible(activity, fromButtonsId, toButtonsId);
+				Util.onFragmentVisible(getActivity(), fromButtonsId, toButtonsId);
 			}
 		}
 	}
@@ -89,7 +102,7 @@ public class ConversionFragment extends Fragment{
 		super.onPause();
 		
 		//Save state of radio buttons for next use
-		Util.setButtonState(activity, fromButtonsId, toButtonsId, fromButtonTag, toButtonTag);
+		Util.setButtonState(getActivity(), fromButtonsId, toButtonsId, fromButtonTag, toButtonTag);
 	}
 	
 }
