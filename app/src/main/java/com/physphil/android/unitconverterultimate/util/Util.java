@@ -1,10 +1,5 @@
 package com.physphil.android.unitconverterultimate.util;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +7,11 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.physphil.android.unitconverterultimate.R;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 
 public class Util {	
@@ -131,6 +131,12 @@ public class Util {
 		else if (radioGroupId == R.id.radioFromTime) {
 			complimentaryId = R.id.radioToTime;
 		}
+        else if (radioGroupId == R.id.radioFromTorque) {
+            complimentaryId = R.id.radioToTorque;
+        }
+        else if (radioGroupId == R.id.radioFromVolume) {
+            complimentaryId = R.id.radioToVolume;
+        }
 		else if (radioGroupId == R.id.radioToArea) {
 			complimentaryId = R.id.radioFromArea;
 		}
@@ -167,6 +173,12 @@ public class Util {
 		else if (radioGroupId == R.id.radioToTime) {
 			complimentaryId = R.id.radioFromTime;
 		}
+        else if (radioGroupId == R.id.radioToTorque) {
+            complimentaryId = R.id.radioFromTorque;
+        }
+        else if (radioGroupId == R.id.radioToVolume) {
+            complimentaryId = R.id.radioFromVolume;
+        }
 		
 		return complimentaryId;
 	}

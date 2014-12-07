@@ -24,3 +24,6 @@ local.properties
 
 # Idea non-crucial project files
 *.iws
+
+#In-App-Billing constants
+app/src/main/res/values/iab.xml

@@ -1,15 +1,5 @@
 package com.physphil.android.unitconverterultimate;
 
-import com.physphil.android.unitconverterultimate.ui.ConverterPagerAdapter;
-import com.physphil.android.unitconverterultimate.ui.SetDecimalSeparatorDialogFragment;
-import com.physphil.android.unitconverterultimate.ui.SetDecimalsDialogFragment;
-import com.physphil.android.unitconverterultimate.ui.SetSeparatorDialogFragment;
-import com.physphil.android.unitconverterultimate.util.Constants;
-import com.physphil.android.unitconverterultimate.util.Conversions;
-import com.physphil.android.unitconverterultimate.util.Convert;
-import com.physphil.android.unitconverterultimate.util.Globals;
-import com.physphil.android.unitconverterultimate.util.Util;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -45,6 +35,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.physphil.android.unitconverterultimate.ui.ConverterPagerAdapter;
+import com.physphil.android.unitconverterultimate.ui.SetDecimalSeparatorDialogFragment;
+import com.physphil.android.unitconverterultimate.ui.SetDecimalsDialogFragment;
+import com.physphil.android.unitconverterultimate.ui.SetSeparatorDialogFragment;
+import com.physphil.android.unitconverterultimate.util.Constants;
+import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.util.Convert;
+import com.physphil.android.unitconverterultimate.util.Globals;
+import com.physphil.android.unitconverterultimate.util.Util;
 
 
 public class MainActivity extends ActionBarActivity{
@@ -155,8 +155,9 @@ public class MainActivity extends ActionBarActivity{
 		//Instantiate conversions HashMap
 		Globals.conversions = Conversions.getInstance().getConversions();
 	}
-	
-	@Override
+
+
+    @Override
 	public void onResume(){
 		super.onResume();
 		
@@ -204,8 +205,8 @@ public class MainActivity extends ActionBarActivity{
 		
 		fromValueText.removeTextChangedListener(fromValueTextWatcher);
 	}
-	
-	@Override
+
+    @Override
 	protected void onPostCreate(Bundle savedInstanceState){
 		super.onPostCreate(savedInstanceState);
 		//Sync toggle state after onRestoreInstanceState has occurred
@@ -462,7 +463,14 @@ public class MainActivity extends ActionBarActivity{
 			Toast.makeText(this, getString(R.string.errorNoEmailClient), Toast.LENGTH_LONG).show();
 		}
 	}
-	
+
+    /**
+     * Start activity to display donation options
+     */
+    private void startDonationActivity(){
+        startActivity(new Intent(this, DonateActivity.class));
+    }
+
 	/**
 	 * Show help dialog to user
 	 */
@@ -519,8 +527,8 @@ public class MainActivity extends ActionBarActivity{
 		TextView fromValue = (TextView) findViewById(R.id.fromValue);
 		fromValue.setText("");
 	}
-	
-	@Override
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -568,6 +576,10 @@ public class MainActivity extends ActionBarActivity{
 //				helpFragment.show(fragmentManager, "helpMenu");
 				showHelpDialog();
 				break;
+
+            case(R.id.menuDonate):
+                startDonationActivity();
+                break;
 	
 			case(R.id.menuRate):
 				rateApp();
