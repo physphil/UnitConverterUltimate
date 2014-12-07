@@ -24,7 +24,7 @@ import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -126,7 +126,7 @@ public class MainActivity extends ActionBarActivity{
 		}
 		
 		//Define drawer toggle to adjust action bar when drawer is opened/closed
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, drawerIcon, R.string.drawerOpen, R.string.drawerClose){
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawerOpen, R.string.drawerClose){
 			
 			public void onDrawerClosed(View view){
 				actionBar.setTitle(mTitle);

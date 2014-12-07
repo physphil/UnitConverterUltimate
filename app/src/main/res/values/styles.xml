@@ -1,24 +1,26 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--style name="AppBaseTheme" parent="Theme.Sherlock" -->
     <style name="AppBaseTheme" parent="Theme.AppCompat" >
-        
+        <item name="colorPrimary">@color/theme_teal</item>
+        <item name="colorAccent">@color/theme_teal</item>
+        <item name="colorPrimaryDark">@color/theme_teal_dark</item>
         <!-- Theme customizations for backwards compatibility -->
-        <item name="android:editTextStyle">@style/EditTextAppTheme</item>
-    	<item name="android:radioButtonStyle">@style/RadioButtonAppTheme</item>
+        <!--<item name="android:editTextStyle">@style/EditTextAppTheme</item>-->
+    	<!--<item name="android:radioButtonStyle">@style/RadioButtonAppTheme</item>-->
     </style>
     
-    <!--style name="AppBaseTheme.Light" parent="Theme.Sherlock.Light.DarkActionBar" -->
     <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.DarkActionBar">
-        
+        <item name="colorPrimary">@color/theme_teal</item>
+        <item name="colorAccent">@color/theme_teal</item>
+        <item name="colorPrimaryDark">@color/theme_teal_dark</item>
         <!-- Theme customizations for backwards compatibility -->
-        <item name="android:editTextStyle">@style/EditTextAppThemeLight</item>
-    	<item name="android:radioButtonStyle">@style/RadioButtonAppThemeLight</item>
+        <!--<item name="android:editTextStyle">@style/EditTextAppThemeLight</item>-->
+    	<!--<item name="android:radioButtonStyle">@style/RadioButtonAppThemeLight</item>-->
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
-    
-    </style>
+    <!--<style name="AppTheme" parent="AppBaseTheme">-->
+    <!---->
+    <!--</style>-->
     
     <style name="radioButtonText" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">@dimen/radioButtonTextSize</item>

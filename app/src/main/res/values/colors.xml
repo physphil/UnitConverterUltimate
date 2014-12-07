@@ -14,5 +14,16 @@
 	 <color name="icsDarkGray">#333333</color>
 	 <color name="icsShadeLight">#D4D4D4</color>
 	 <color name="icsPressedBlue">#19A2D1</color>
+
+    <color name="theme_blue">#006699</color>
+    <color name="theme_blue_dark">#004A80</color>
+    <color name="theme_green">#13874B</color>
+    <color name="theme_green_dark">#0F6C3C</color>
+    <color name="theme_teal">#199ACA</color>
+    <color name="theme_teal_dark">#147BA1</color>
+    <color name="theme_purple">#6568C9</color>
+    <color name="theme_purple_dark">#5053A0</color>
+    <color name="theme_light_gray">#999999</color>
+    <color name="theme_white">#E5E5E5</color>
 </resources>
 

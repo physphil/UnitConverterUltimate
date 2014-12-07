@@ -45,7 +45,7 @@
     </item>
     <item
         android:id="@+id/menuClear"
-        android:icon="@drawable/ic_clear"
+        android:icon="@drawable/ic_action_delete"
         android:orderInCategory="90"
         app:showAsAction="always"
         android:title="@string/menuClear">
