@@ -6,4 +6,5 @@
     android:minHeight="@dimen/drawerRowHeight"
 	android:paddingLeft="@dimen/textMarginTypical"
 	android:paddingRight="@dimen/textMarginTypical"
+    android:text="@string/drawer_download_shareables"
 	android:background="@drawable/activated_indicator" />

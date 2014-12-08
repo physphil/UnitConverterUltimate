@@ -4,6 +4,10 @@
         android:drawable="@color/theme_teal_dark"
         android:state_activated="true" >        
     </item>
+    <item
+        android:drawable="@color/theme_teal_dark"
+        android:state_pressed="true" >
+    </item>
     <item android:drawable="@android:color/transparent" />
 
 </selector>

@@ -8,8 +8,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 8
         targetSdkVersion 21
-        versionCode 20100
-        versionName '2.1.0'
+        versionCode 30000
+        versionName '3.0.0'
     }
 
     buildTypes {

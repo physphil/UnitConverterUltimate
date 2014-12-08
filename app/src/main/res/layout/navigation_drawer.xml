@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/icsLightBlack">
+
+    <include
+        android:id="@+id/drawer_header"
+        layout="@layout/drawer_list_item"/>
+
+    <ListView
+        android:id="@+id/nav_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/drawer_header"
+        android:choiceMode="singleChoice" />
+
+</RelativeLayout>

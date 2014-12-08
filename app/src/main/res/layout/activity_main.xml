@@ -103,12 +103,18 @@
 	</RelativeLayout>
     
     <!-- Navigation Drawer -->
-    <ListView 
-        android:id="@+id/nav_drawer"
+    <include
+        android:id="@+id/navigation_drawer"
+        layout="@layout/navigation_drawer"
         android:layout_width="@dimen/drawerLayoutWidth"
         android:layout_height="match_parent"
-        android:background="@color/icsLightBlack"
-        android:layout_gravity="start"
-        android:choiceMode="singleChoice" />
+        android:layout_gravity="start" />
+    <!--<ListView -->
+        <!--android:id="@+id/nav_drawer"-->
+        <!--android:layout_width="@dimen/drawerLayoutWidth"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/icsLightBlack"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:choiceMode="singleChoice" />-->
     
 </android.support.v4.widget.DrawerLayout>

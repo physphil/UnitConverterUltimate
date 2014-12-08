@@ -23,6 +23,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +65,7 @@ public class MainActivity extends ActionBarActivity{
 	private ListView mDrawerList;
 	private String[] mDrawerOptions;
 	private DrawerLayout mDrawerLayout;
+    private RelativeLayout mNavigationDrawer;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private CharSequence mTitle;
 
@@ -116,13 +119,22 @@ public class MainActivity extends ActionBarActivity{
 		mDrawerList = (ListView) findViewById(R.id.nav_drawer);
 		mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mDrawerOptions));
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerList.setDivider(null);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.mainLayout);
-		int drawerIcon = R.drawable.ic_drawer;
-		
+        mNavigationDrawer = (RelativeLayout) findViewById(R.id.navigation_drawer);
+        TextView header = (TextView) findViewById(R.id.drawer_header);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayStore("com.physphil.android.shareables");
+                mDrawerLayout.closeDrawer(mNavigationDrawer);
+            }
+        });
+
 		//Adjust background of navigation drawer for light theme
 		if(theme == Constants.THEME_LIGHT){
-			mDrawerList.setBackgroundColor(getResources().getColor(R.color.icsWhite));
-			drawerIcon = R.drawable.ic_drawer_light;
+			mNavigationDrawer.setBackgroundColor(getResources().getColor(R.color.icsWhite));
+//			mDrawerList.setBackgroundColor(getResources().getColor(R.color.icsWhite));
 		}
 		
 		//Define drawer toggle to adjust action bar when drawer is opened/closed
@@ -272,8 +284,7 @@ public class MainActivity extends ActionBarActivity{
 		
 		//Call appropriate convert function based on selected conversion
 		if(selectedConversion == Conversions.TEMPERATURE){
-		//if (mConversions[selectedConversion].equalsIgnoreCase("Temperature")){
-			Convert.convertTempValue(this);			
+			Convert.convertTempValue(this);
 		}
 		else{
 			Convert.convertValue(this, fromGroupId, toGroupId);			
@@ -372,9 +383,14 @@ public class MainActivity extends ActionBarActivity{
 	
 	//Start play store to rate app
 	private void rateApp(){
-		Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+		openPlayStore(getPackageName());
+	}
+
+	//Start play store to download shareables
+	private void openPlayStore(String packageName){
+		Uri uri = Uri.parse("market://details?id=" + packageName);
 		Intent goToPlayStore = new Intent(Intent.ACTION_VIEW, uri);
-		
+
 		try{
 			startActivity(goToPlayStore);
 		}
@@ -545,11 +561,11 @@ public class MainActivity extends ActionBarActivity{
 			case(android.R.id.home):
 	
 				//If drawer is open, close it, and vice versa
-				if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
-	                mDrawerLayout.closeDrawer(mDrawerList);
+				if (mDrawerLayout.isDrawerOpen(mNavigationDrawer)) {
+	                mDrawerLayout.closeDrawer(mNavigationDrawer);
 	            } 
 				else {
-	                mDrawerLayout.openDrawer(mDrawerList);
+	                mDrawerLayout.openDrawer(mNavigationDrawer);
 	            }
 				break;
 			
@@ -609,33 +625,33 @@ public class MainActivity extends ActionBarActivity{
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-			selectedConversion = position;
-			EditText fromValue = (EditText) findViewById(R.id.fromValue);
-			
-			//Set view pager to selected item, which creates the fragment and caches the surrounding ones for smooth swiping
-			//The fragment is always created by viewpager and visible before continuing in this listener
-			viewPager.setCurrentItem(position, false);
-			
-			//Call convert function from each fragment when it's visible. Viewpager has previously created selected fragment and surrounding ones
-			int fromButtonGroupId = getRadioGroupId(true);
-			int toButtonGroupId = getRadioGroupId(false);
-			
-			if(position == Conversions.TEMPERATURE){
+            selectedConversion = position;
+            EditText fromValue = (EditText) findViewById(R.id.fromValue);
 
-				//Allow negative value inputs for each temperature, call direct temperature conversion
-				fromValue.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
-				Convert.convertTempValue(MainActivity.this);				
-			}
-			else{
-				//Only allow positive values, call onFragmentVisible to handle general conversion case
-				fromValue.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
-				Util.onFragmentVisible(MainActivity.this, fromButtonGroupId, toButtonGroupId);
-			}
-			
-			//Highlight selected item, update title, close drawer
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mDrawerOptions[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
+            //Set view pager to selected item, which creates the fragment and caches the surrounding ones for smooth swiping
+            //The fragment is always created by viewpager and visible before continuing in this listener
+            viewPager.setCurrentItem(selectedConversion, false);
+
+            //Call convert function from each fragment when it's visible. Viewpager has previously created selected fragment and surrounding ones
+            int fromButtonGroupId = getRadioGroupId(true);
+            int toButtonGroupId = getRadioGroupId(false);
+
+            if (selectedConversion == Conversions.TEMPERATURE) {
+
+                //Allow negative value inputs for each temperature, call direct temperature conversion
+                fromValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
+                Convert.convertTempValue(MainActivity.this);
+            } else {
+                //Only allow positive values, call onFragmentVisible to handle general conversion case
+                fromValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                Util.onFragmentVisible(MainActivity.this, fromButtonGroupId, toButtonGroupId);
+            }
+
+            //Highlight selected item, update title, close drawer
+            mDrawerList.setItemChecked(position, true);
+            setTitle(mDrawerOptions[position]);
+//                mDrawerLayout.closeDrawer(mDrawerList);
+            mDrawerLayout.closeDrawer(mNavigationDrawer);
 		}
 		
 	}
