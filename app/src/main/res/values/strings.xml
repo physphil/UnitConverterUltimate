@@ -191,8 +191,8 @@
     <string name="fromWatt">Watt</string>
     <string name="fromKilowatt">Kilowatt</string>
     <string name="fromMegawatt">Megawatt</string>
-    <string name="fromHp">Horsepower</string>
-    <string name="fromHpUK">Horsepower (UK)</string>
+    <string name="fromHp">HP (metric)</string>
+    <string name="fromHpUK">HP (mechanical)</string>
     <string name="fromFtLbfps">ft-lbf/second</string>
     <string name="fromCalps">Calorie/second</string>
     <string name="fromBtups">BTU/second</string>
@@ -201,8 +201,8 @@
     <string name="toWatt">Watt</string>
     <string name="toKilowatt">Kilowatt</string>
     <string name="toMegawatt">Megawatt</string>
-    <string name="toHp">Horsepower</string>
-    <string name="toHpUK">Horsepower (UK)</string>
+    <string name="toHp">HP (metric)</string>
+    <string name="toHpUK">HP (mechanical)</string>
     <string name="toFtLbfps">ft-lbf/second</string>
     <string name="toCalps">Calorie/second</string>
     <string name="toBtups">BTU/second</string>
