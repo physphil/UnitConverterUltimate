@@ -1,6 +1,12 @@
 package com.physphil.android.unitconverterultimate.util;
 
+import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.Unit;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Contains HashMaps for all conversions. Key is the name of the radio button ID
@@ -147,6 +153,7 @@ public class Conversions {
     public static final String NANOSECOND = "Nanosecond";
     
     private static Conversions instance = null;
+    private List<Conversion> mConversions = new ArrayList<Conversion>();
     private HashMap<String, Double> conversions = new HashMap<String, Double>();
     
     private Conversions(){
@@ -346,6 +353,22 @@ public class Conversions {
     	conversions.put(TO + NAUTICAL_MILE, 0.000539956803455723542);
     	conversions.put(TO + FURLONG, 0.0049709695379);
     	conversions.put(TO + LIGHT_YEAR, 0.0000000000000001057000834024615463709);
+
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(0, R.string.kilometre, 1000.0, 0.001));
+        units.add(new Unit(1, R.string.mile, 1609.344, 0.00062137119223733397));
+        units.add(new Unit(2, R.string.metre, 1.0, 1.0));
+        units.add(new Unit(3, R.string.centimetre, 0.01, 100.0));
+        units.add(new Unit(4, R.string.millimetre, 0.001, 1000.0));
+        units.add(new Unit(5, R.string.micrometre, 0.000001, 1000000.0));
+        units.add(new Unit(6, R.string.nanometre, 0.000000001, 1000000000.0));
+        units.add(new Unit(7, R.string.yard, 0.9144, 1.09361329833770779));
+        units.add(new Unit(8, R.string.feet, 0.3048, 3.28083989501312336));
+        units.add(new Unit(9, R.string.inch, 0.0254, 39.3700787401574803));
+        units.add(new Unit(10, R.string.nautical_mile, 1852.0, 0.000539956803455723542));
+        units.add(new Unit(11, R.string.furlong, 201.168, 0.0049709695379));
+        units.add(new Unit(12, R.string.light_year, 9460730472580800.0, 0.0000000000000001057000834024615463709));
+        mConversions.add(new Conversion(5, R.string.length, units));
     }
     
     private void getMassConversions(){

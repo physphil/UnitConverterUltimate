@@ -279,4 +279,22 @@
     <string name="toast_error_billing">Oops, there was a problem. Please make sure you have a working Internet connection and try again.</string>
     <string name="toast_donation_successful">Thank you for donating!</string>
 
+    <!-- Conversions -->
+    <string name="length">Length / Distance</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometre</string>
+    <string name="mile">Miles</string>
+    <string name="metre">Metre</string>
+    <string name="centimetre">Centimetre (cm)</string>
+    <string name="millimetre">Millimetre (mm)</string>
+    <string name="micrometre">Micrometre</string>
+    <string name="nanometre">Nanometre</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Feet</string>
+    <string name="inch">Inch</string>
+    <string name="nautical_mile">Nautical Mile</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Light Year</string>
+
 </resources>
