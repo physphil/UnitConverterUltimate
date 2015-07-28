@@ -280,7 +280,59 @@
     <string name="toast_donation_successful">Thank you for donating!</string>
 
     <!-- Conversions -->
+    <string name="area">Area</string>
+    <string name="storage">Digital Storage</string>
+    <string name="energy">Energy</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
     <string name="length">Length / Distance</string>
+    <string name="mass">Mass / Weight</string>
+    <string name="power">Power</string>
+    <string name="pressure">Pressure</string>
+    <string name="speed">Speed</string>
+    <string name="time">Time</string>
+    <string name="torque">Torque</string>
+    <string name="volume">Volume</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Sq Kilometre</string>
+    <string name="sq_metre">Sq Metre</string>
+    <string name="sq_centimetre">Sq Centimetre</string>
+    <string name="hectare">Hectare</string>
+    <string name="sq_mile">Sq Mile</string>
+    <string name="sq_yard">Sq Yard</string>
+    <string name="sq_foot">Sq Foot</string>
+    <string name="sq_inch">Sq Inch</string>
+    <string name="acre">Acre</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Calorie</string>
+    <string name="kilocalorie">Kilocalorie</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowatt-Hour</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Miles/gallon (US)</string>
+    <string name="mpg_uk">Miles/gallon (UK)</string>
+    <string name="l_100k">Litres/100km</string>
+    <string name="km_l">Kilometres/litre</string>
+    <string name="miles_l">Miles/litre</string>
 
     <!-- Distance -->
     <string name="kilometre">Kilometre</string>
@@ -296,5 +348,46 @@
     <string name="nautical_mile">Nautical Mile</string>
     <string name="furlong">Furlong</string>
     <string name="light_year">Light Year</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pound</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Milligram</string>
+    <string name="ounce">Ounce</string>
+    <string name="grain">Grain</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Ton (metric)</string>
+    <string name="short_ton">Ton (US/short)</string>
+    <string name="long_ton">Ton (UK/long)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HP (metric)</string>
+    <string name="hp_uk">HP (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">Calorie/second</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosphere</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometre/hour</string>
+    <string name="mph">Mile/hour</string>
+    <string name="m_s">Metre/second</string>
+    <string name="fps">Foot/second</string>
+    <string name="knot">Knot</string>
 
 </resources>
