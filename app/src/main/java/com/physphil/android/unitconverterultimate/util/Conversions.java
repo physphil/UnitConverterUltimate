@@ -182,7 +182,12 @@ public class Conversions {
     	
     	return instance;
     }
-    
+
+    public List<Conversion> getConversion()
+    {
+        return mConversions;
+    }
+
     public HashMap<String, Double> getConversions(){
     	return conversions;
     }
@@ -368,7 +373,7 @@ public class Conversions {
         units.add(new Unit(10, R.string.nautical_mile, 1852.0, 0.000539956803455723542));
         units.add(new Unit(11, R.string.furlong, 201.168, 0.0049709695379));
         units.add(new Unit(12, R.string.light_year, 9460730472580800.0, 0.0000000000000001057000834024615463709));
-        mConversions.add(new Conversion(5, R.string.length, units));
+        mConversions.add(new Conversion(LENGTH, R.string.length, units));
     }
     
     private void getMassConversions(){

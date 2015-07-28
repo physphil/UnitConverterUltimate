@@ -31,9 +31,9 @@
 	        android:layout_below="@id/swapImage"
 	        android:clickable="true"
 	        android:onClick="swapValues"
-	        android:text="@string/swapText"
+	        android:text="@string/text_swap"
 	        android:textColor="@color/icsWhite"
-	        android:textSize="@dimen/swapTextSize"
+	        android:textSize="@dimen/text_size_swap"
 	        android:textStyle="bold" />
 	    
 	    <EditText
@@ -44,9 +44,9 @@
 	        android:layout_toLeftOf="@id/swapImage"
 	        android:layout_marginRight="@dimen/textMarginTypical"
 	        android:inputType="numberSigned|numberDecimal"
-	        android:maxLength="@integer/fromMaxNoDigits"
+	        android:maxLength="@integer/num_digits_from"
 	        android:scrollHorizontally="true"
-	        android:text="@string/defaultValue"
+	        android:text="@string/default_value"
 	        android:textSize="@dimen/fromValueTextSize" >
 	        <requestFocus />
 	    </EditText>
@@ -77,7 +77,7 @@
 	        android:layout_alignLeft="@id/fromValue"
 	        android:layout_marginTop="@dimen/rowMarginTypical"
 	        android:layout_marginLeft="@dimen/textMarginTypical"
-	        android:text="@string/fromText"
+	        android:text="@string/text_from"
 	        android:textSize="@dimen/fromToTextSize" />
 	
 	    <TextView
@@ -88,7 +88,7 @@
 	        android:layout_alignLeft="@id/toValue"
 	        android:layout_marginTop="@dimen/rowMarginTypical"
 	        android:layout_marginLeft="@dimen/textMarginTypical"
-	        android:text="@string/toText"
+	        android:text="@string/text_to"
 	        android:textSize="@dimen/fromToTextSize" />
 	
 	    <!-- This is the empty container that will hold the various unit fragments -->

@@ -5,5 +5,5 @@
     <dimen name="radioButtonTextSize">20sp</dimen>
     <dimen name="fromToTextSize">20sp</dimen>
     <dimen name="radioButtonSpacing">50dip</dimen> 
-    <dimen name="swapTextSize">12sp</dimen> 
+    <dimen name="text_size_swap">12sp</dimen>
 </resources>

@@ -8,7 +8,7 @@
     <dimen name="radioButtonTextSize">16sp</dimen>
     <dimen name="fromToTextSize">14sp</dimen>
     <dimen name="radioButtonSpacing">32dp</dimen>
-    <dimen name="swapTextSize">9sp</dimen>
+    <dimen name="text_size_swap">9sp</dimen>
     
     <dimen name="rowMarginTypical">10dp</dimen>
     <dimen name="rowMarginSmall">5dp</dimen>
@@ -19,4 +19,9 @@
     
     <dimen name="drawerLayoutWidth">240dp</dimen>
     <dimen name="drawerRowHeight">60dp</dimen>
+
+    <dimen name="margin_view_small">4dp</dimen>
+    <dimen name="margin_view_typical">8dp</dimen>
+    <dimen name="margin_view_large">16dp</dimen>
+    <dimen name="margin_view_xlarge">32dp</dimen>
 </resources>

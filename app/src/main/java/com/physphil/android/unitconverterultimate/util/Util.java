@@ -34,7 +34,7 @@ public class Util {
 			double fromValue = Math.abs(Double.parseDouble(fromValueString));
 					
 			//Add formatting to remove trailing .0 if number is an integer
-			currentFormat.setMaximumFractionDigits(activity.getResources().getInteger(R.integer.fromMaxNoDigits));
+			currentFormat.setMaximumFractionDigits(activity.getResources().getInteger(R.integer.num_digits_from));
 			currentFormat.setGroupingUsed(false);
 			fromValueView.setText(currentFormat.format(fromValue));
 			fromValueView.setSelection(fromValueView.getText().length());

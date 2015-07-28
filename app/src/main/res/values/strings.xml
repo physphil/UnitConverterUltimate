@@ -3,10 +3,10 @@
 
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="test">test</string>
-    <string name="fromText">From</string>
-    <string name="toText">To</string>
-    <string name="defaultValue">1</string>
-    <string name="swapText">SWAP</string>
+    <string name="text_from">From</string>
+    <string name="text_to">To</string>
+    <string name="default_value">1</string>
+    <string name="text_swap">SWAP</string>
     <string name="contentDescriptionDummy">transparent image for view anchoring</string>
     <string name="drawerOpen">Navigation Drawer Open</string>
     <string name="drawerClose">Navigation Drawer Close</string>
