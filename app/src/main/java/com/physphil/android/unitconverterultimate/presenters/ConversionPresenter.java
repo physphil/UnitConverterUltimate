@@ -12,7 +12,7 @@ public class ConversionPresenter
 {
     public interface ConversionView
     {
-        void updateResult(String result);
+        void showResult(String result);
     }
 
     private ConversionView mView;
@@ -37,6 +37,6 @@ public class ConversionPresenter
         Log.d("PS", "Converting from " + from.getId() + " to " + to.getId());
         // TODO do conversion, then update result
 
-        mView.updateResult("");
+        mView.showResult(Integer.toString(to.getId()));
     }
 }

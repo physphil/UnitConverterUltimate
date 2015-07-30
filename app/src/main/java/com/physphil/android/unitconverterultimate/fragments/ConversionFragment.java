@@ -151,8 +151,8 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     }
 
     @Override
-    public void updateResult(String result)
+    public void showResult(String result)
     {
-
+        mTxtResult.setText(result);
     }
 }
