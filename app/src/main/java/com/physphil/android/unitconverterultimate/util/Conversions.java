@@ -7,6 +7,7 @@ import com.physphil.android.unitconverterultimate.models.Unit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Contains HashMaps for all conversions. Key is the name of the radio button ID
@@ -14,7 +15,6 @@ import java.util.List;
 
 public class Conversions
 {
-
     public static final int AREA = 0;
     public static final int COOKING = 1;
     public static final int STORAGE = 2;
@@ -154,7 +154,7 @@ public class Conversions
     public static final String NANOSECOND = "Nanosecond";
 
     private static Conversions instance = null;
-    private List<Conversion> mConversions = new ArrayList<Conversion>();
+    private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
     private HashMap<String, Double> conversions = new HashMap<String, Double>();
 
     private Conversions()
@@ -177,7 +177,6 @@ public class Conversions
 
     public static Conversions getInstance()
     {
-
         //Create singleton to contain all conversions
         if (instance == null)
         {
@@ -187,9 +186,14 @@ public class Conversions
         return instance;
     }
 
-    public List<Conversion> getConversion()
+    /**
+     * Get Conversion object by its id
+     * @param id id of conversion
+     * @return Conversion object
+     */
+    public Conversion getById(int id)
     {
-        return mConversions;
+        return mConversions.get(id);
     }
 
     public HashMap<String, Double> getConversions()
@@ -210,7 +214,7 @@ public class Conversions
         units.add(new Unit(5, R.string.sq_yard, 0.83612736, 1.19599004630108026));
         units.add(new Unit(6, R.string.sq_foot, 0.09290304, 10.7639104167097223));
         units.add(new Unit(7, R.string.sq_inch, 4046.8564224, 0.000247105381467165342));
-        mConversions.add(new Conversion(AREA, R.string.area, units));
+        mConversions.put(AREA, new Conversion(AREA, R.string.area, units));
 
         conversions.put(FROM + SQ_KILOMETRE, 1000000.0);
         conversions.put(FROM + SQ_METRE, 1.0);
@@ -250,7 +254,7 @@ public class Conversions
         units.add(new Unit(10, R.string.gallon_uk, 0.00454609, 219.9692482990877875273));
         units.add(new Unit(11, R.string.millilitre, 0.000001, 1000000.0));
         units.add(new Unit(12, R.string.litre, 0.001, 1000.0));
-        mConversions.add(new Conversion(COOKING, R.string.cooking, units));
+        mConversions.put(COOKING, new Conversion(COOKING, R.string.cooking, units));
     }
 
     private void getStorageConversions()
@@ -267,7 +271,7 @@ public class Conversions
         units.add(new Unit(7, R.string.gigabyte, 1024.0, 0.0009765625));
         units.add(new Unit(8, R.string.terabit, 131072.0, 0.00000762939453125));
         units.add(new Unit(9, R.string.terabyte, 1048576.0, 0.00000095367431640625));
-        mConversions.add(new Conversion(STORAGE, R.string.storage, units));
+        mConversions.put(STORAGE, new Conversion(STORAGE, R.string.storage, units));
 
 
         conversions.put(FROM + BIT, 0.00000011920928955078);
@@ -307,7 +311,7 @@ public class Conversions
         units.add(new Unit(6, R.string.in_lbF, 0.1129848290276167, 8.850745793490557922604));
         units.add(new Unit(7, R.string.kilowatt_hour, 3600000.0, 0.0000002777777777777777777778));
         units.add(new Unit(8, R.string.electron_volt, 6241509479607718382.9424839, 0.000000000000000000160217653));
-        mConversions.add(new Conversion(ENERGY, R.string.energy, units));
+        mConversions.put(ENERGY, new Conversion(ENERGY, R.string.energy, units));
 
         conversions.put(FROM + JOULE, 1.0);
         conversions.put(FROM + KILOJOULE, 1000.0);
@@ -340,7 +344,7 @@ public class Conversions
         units.add(new Unit(2, R.string.l_100k, 235.214582, 235.214582));
         units.add(new Unit(3, R.string.km_l, 2.352145833, 0.42514370749052));
         units.add(new Unit(4, R.string.miles_l, 3.7854118, 0.264172052));
-        mConversions.add(new Conversion(FUEL, R.string.fuel_consumption, units));
+        mConversions.put(FUEL, new Conversion(FUEL, R.string.fuel_consumption, units));
 
         conversions.put(FROM + MILES_PER_GALLONUS, 1.0);
         conversions.put(FROM + MILES_PER_GALLONUK, 0.83267418460479);
@@ -401,7 +405,7 @@ public class Conversions
         units.add(new Unit(10, R.string.nautical_mile, 1852.0, 0.000539956803455723542));
         units.add(new Unit(11, R.string.furlong, 201.168, 0.0049709695379));
         units.add(new Unit(12, R.string.light_year, 9460730472580800.0, 0.0000000000000001057000834024615463709));
-        mConversions.add(new Conversion(LENGTH, R.string.length, units));
+        mConversions.put(LENGTH, new Conversion(LENGTH, R.string.length, units));
     }
 
     private void getMassConversions()
@@ -419,7 +423,7 @@ public class Conversions
         units.add(new Unit(7, R.string.metric_ton, 1000.0, 0.001));
         units.add(new Unit(8, R.string.short_ton, 907.18474, 0.0011023113109243879));
         units.add(new Unit(9, R.string.long_ton, 1016.0469088, 0.0009842065276110606282276));
-        mConversions.add(new Conversion(MASS, R.string.mass, units));
+        mConversions.put(MASS, new Conversion(MASS, R.string.mass, units));
 
         conversions.put(FROM + KILOGRAM, 1.0);
         conversions.put(FROM + POUND, 0.45359237);
@@ -459,7 +463,7 @@ public class Conversions
         units.add(new Unit(7, R.string.btu_s, 1055.05585262, 0.0009478171203133172));
         units.add(new Unit(8, R.string.kva, 1000.0, 0.001));
         units.add(new Unit(9, R.string.electron_volt, 6241509479607718382.9424839, 0.000000000000000000160217653));
-        mConversions.add(new Conversion(POWER, R.string.power, units));
+        mConversions.put(POWER, new Conversion(POWER, R.string.power, units));
 
         conversions.put(FROM + WATT, 1.0);
         conversions.put(FROM + KILOWATT, 1000.0);
@@ -496,7 +500,7 @@ public class Conversions
         units.add(new Unit(6, R.string.atmosphere, 101325.0, 0.0000098692326671601283));
         units.add(new Unit(7, R.string.mmhg, 133.322387415, 0.007500615758456563339513));
         units.add(new Unit(8, R.string.torr, 133.3223684210526315789, 0.00750061682704169751));
-        mConversions.add(new Conversion(PRESSURE, R.string.pressure, units));
+        mConversions.put(PRESSURE, new Conversion(PRESSURE, R.string.pressure, units));
 
         conversions.put(FROM + MEGAPASCAL, 1000000.0);
         conversions.put(FROM + KILOPASCAL, 1000.0);
@@ -529,7 +533,7 @@ public class Conversions
         units.add(new Unit(2, R.string.m_s, 1.0, 1.0));
         units.add(new Unit(3, R.string.fps, 0.3048, 3.2808398950131));
         units.add(new Unit(4, R.string.knot, 0.51444444444444, 1.9438444924406));
-        mConversions.add(new Conversion(SPEED, R.string.speed, units));
+        mConversions.put(SPEED, new Conversion(SPEED, R.string.speed, units));
 
         conversions.put(FROM + KILOMETRES_PER_HOUR, 0.27777777777778);
         conversions.put(FROM + MILES_PER_HOUR, 0.44704);
@@ -557,7 +561,7 @@ public class Conversions
         units.add(new Unit(6, R.string.second, 1.0, 1.0));
         units.add(new Unit(7, R.string.millisecond, 0.001, 1000.0));
         units.add(new Unit(8, R.string.nanosecond, 0.000000001, 1000000000.0));
-        mConversions.add(new Conversion(TIME, R.string.time, units));
+        mConversions.put(TIME, new Conversion(TIME, R.string.time, units));
 
         conversions.put(FROM + YEAR, 31536000.0);
         conversions.put(FROM + MONTH, 2628000.0);
@@ -587,7 +591,7 @@ public class Conversions
         units.add(new Unit(0, R.string.n_m, 31536000.0, 0.0000000317097919837645865));
         units.add(new Unit(1, R.string.ft_lbF, 1.3558179483314004, 0.7375621494575464935503));
         units.add(new Unit(2, R.string.in_lbF, 0.1129848290276167, 8.850745793490557922604));
-        mConversions.add(new Conversion(TORQUE, R.string.torque, units));
+        mConversions.put(TORQUE, new Conversion(TORQUE, R.string.torque, units));
 
         conversions.put(FROM + N_M, 1.0);
         conversions.put(TO + N_M, 1.0);
@@ -619,7 +623,7 @@ public class Conversions
         units.add(new Unit(17, R.string.cubic_inch, 0.000016387064, 61023.744094732284));
         units.add(new Unit(18, R.string.cubic_foot, 0.028316846592, 35.3146667214885903));
         units.add(new Unit(19, R.string.cubic_yard, 0.7645548692741148, 1.3079506));
-        mConversions.add(new Conversion(VOLUME, R.string.volume, units));
+        mConversions.put(VOLUME, new Conversion(VOLUME, R.string.volume, units));
 
         conversions.put(FROM + TEASPOON, 0.0000049289215938);
         conversions.put(FROM + TABLESPOON, 0.0000147867647812);

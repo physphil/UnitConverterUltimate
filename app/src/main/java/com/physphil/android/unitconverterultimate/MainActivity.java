@@ -5,6 +5,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
+import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**
  * Main activity
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity
         if(savedInstanceState == null)
         {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, ConversionFragment.newInstance())
+                    .replace(R.id.fragment_container, ConversionFragment.newInstance(Conversions.AREA))
                     .commit();
         }
     }
