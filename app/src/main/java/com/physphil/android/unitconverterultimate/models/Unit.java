@@ -38,6 +38,11 @@ public class Unit
         return conversionToBase;
     }
 
+    public double getConversionFromBase()
+    {
+        return conversionFromBase;
+    }
+
     public int getLabelResource()
     {
         return labelResource;

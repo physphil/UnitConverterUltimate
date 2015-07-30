@@ -36,7 +36,8 @@ public class ConversionPresenter
     {
         Log.d("PS", "Converting from " + from.getId() + " to " + to.getId());
         // TODO do conversion, then update result
-
-        mView.showResult(Integer.toString(to.getId()));
+        double multiplier = from.getConversionToBase() * to.getConversionFromBase();
+        double result = value * multiplier;
+        mView.showResult(Double.toString(result));
     }
 }

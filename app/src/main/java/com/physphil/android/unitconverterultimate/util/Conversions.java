@@ -213,7 +213,8 @@ public class Conversions
         units.add(new Unit(4, R.string.sq_mile, 2589988.110336, 0.000000386102158542445847));
         units.add(new Unit(5, R.string.sq_yard, 0.83612736, 1.19599004630108026));
         units.add(new Unit(6, R.string.sq_foot, 0.09290304, 10.7639104167097223));
-        units.add(new Unit(7, R.string.sq_inch, 4046.8564224, 0.000247105381467165342));
+        units.add(new Unit(7, R.string.sq_inch, 0.00064516, 1550.00310000620001));
+        units.add(new Unit(8, R.string.acre, 4046.8564224, 0.000247105381467165342));
         mConversions.put(AREA, new Conversion(AREA, R.string.area, units));
 
         conversions.put(FROM + SQ_KILOMETRE, 1000000.0);
