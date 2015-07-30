@@ -235,49 +235,22 @@ public class Conversions
 
     private void getCookingConversions()
     {
-        //Base Unit = cubic metres
-
-//    	conversions.put(FROM + TEASPOON, 0.0000049289215938);
-//    	conversions.put(FROM + TABLESPOON, 0.0000147867647812);
-//    	conversions.put(FROM + FLUID_OUNCE, 0.0000295735295625);
-//    	conversions.put(FROM + FLUID_OUNCEUK, 0.0000284130625);
-//    	conversions.put(FROM + CUP, 0.0002365882365);
-//    	conversions.put(FROM + PINT, 0.000473176473);
-//    	conversions.put(FROM + PINTUK, 0.00056826125);
-//    	conversions.put(FROM + QUART, 0.000946352946);
-//    	conversions.put(FROM + QUARTUK, 0.0011365225);
-//    	conversions.put(FROM + GALLON, 0.003785411784);
-//    	conversions.put(FROM + GALLONUK, 0.00454609);
-//    	conversions.put(FROM + BARREL, 0.119240471196);
-//    	conversions.put(FROM + BARRELUK, 0.16365924);
-//    	conversions.put(FROM + MILLILITRE, 0.000001);
-//    	conversions.put(FROM + LITRE, 0.001);
-//    	conversions.put(FROM + CUBIC_CENTIMETRE, 0.000001);
-//    	conversions.put(FROM + CUBIC_METRE, 1.0);
-//    	conversions.put(FROM + CUBIC_INCH, 0.000016387064);
-//    	conversions.put(FROM + CUBIC_FOOT, 0.028316846592);
-//    	conversions.put(FROM + CUBIC_YARD, 0.7645548692741148);
-//
-//    	conversions.put(TO + TEASPOON, 202884.136211058);
-//    	conversions.put(TO + TABLESPOON, 67628.045403686);
-//    	conversions.put(TO + FLUID_OUNCE, 33814.0227018429972);
-//    	conversions.put(TO + FLUID_OUNCEUK, 35195.07972785404600437);
-//    	conversions.put(TO + CUP, 4226.7528377304);
-//    	conversions.put(TO + PINT, 2113.37641886518732);
-//    	conversions.put(TO + PINTUK, 1759.753986392702300218);
-//    	conversions.put(TO + QUART, 1056.68820943259366);
-//    	conversions.put(TO + QUARTUK, 879.8769931963511501092);
-//    	conversions.put(TO + GALLON, 264.172052358148415);
-//    	conversions.put(TO + GALLONUK, 219.9692482990877875273);
-//    	conversions.put(TO + BARREL, 8.38641436057614017079);
-//    	conversions.put(TO + BARRELUK, 6.11025689719688298687);
-//    	conversions.put(TO + MILLILITRE, 1000000.0);
-//    	conversions.put(TO + LITRE, 1000.0);
-//    	conversions.put(TO + CUBIC_CENTIMETRE, 1000000.0);
-//    	conversions.put(TO + CUBIC_METRE, 1.0);
-//    	conversions.put(TO + CUBIC_INCH, 61023.744094732284);
-//    	conversions.put(TO + CUBIC_FOOT, 35.3146667214885903);
-//    	conversions.put(TO + CUBIC_YARD, 1.3079506);
+        // Base unit - cubic metre
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(0, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
+        units.add(new Unit(1, R.string.tablespoon, 0.0000147867647812, 67628.045403686));
+        units.add(new Unit(2, R.string.cup, 0.0002365882365, 4226.7528377304));
+        units.add(new Unit(3, R.string.fluid_ounce, 0.0000295735295625, 33814.0227018429972));
+        units.add(new Unit(4, R.string.fluid_ounce_uk, 0.0000284130625, 35195.07972785404600437));
+        units.add(new Unit(5, R.string.pint, 0.000473176473, 2113.37641886518732));
+        units.add(new Unit(6, R.string.pint_uk, 0.00056826125, 1759.753986392702300218));
+        units.add(new Unit(7, R.string.quart, 0.000946352946, 1056.68820943259366));
+        units.add(new Unit(8, R.string.quart_uk, 0.0011365225, 879.8769931963511501092));
+        units.add(new Unit(9, R.string.gallon, 0.003785411784, 264.172052358148415));
+        units.add(new Unit(10, R.string.gallon_uk, 0.00454609, 219.9692482990877875273));
+        units.add(new Unit(11, R.string.millilitre, 0.000001, 1000000.0));
+        units.add(new Unit(12, R.string.litre, 0.001, 1000.0));
+        mConversions.add(new Conversion(COOKING, R.string.cooking, units));
     }
 
     private void getStorageConversions()
@@ -574,6 +547,17 @@ public class Conversions
     private void getTimeConversions()
     {
         //Base unit - seconds
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(0, R.string.year, 31536000.0, 0.0000000317097919837645865));
+        units.add(new Unit(1, R.string.month, 2628000.0, 0.0000003805175));
+        units.add(new Unit(2, R.string.week, 604800.0, 0.00000165343915343915344));
+        units.add(new Unit(3, R.string.day, 86400.0, 0.0000115740740740740741));
+        units.add(new Unit(4, R.string.hour, 3600.0, 0.000277777777777777778));
+        units.add(new Unit(5, R.string.minute, 60.0, 0.0166666666666666667));
+        units.add(new Unit(6, R.string.second, 1.0, 1.0));
+        units.add(new Unit(7, R.string.millisecond, 0.001, 1000.0));
+        units.add(new Unit(8, R.string.nanosecond, 0.000000001, 1000000000.0));
+        mConversions.add(new Conversion(TIME, R.string.time, units));
 
         conversions.put(FROM + YEAR, 31536000.0);
         conversions.put(FROM + MONTH, 2628000.0);
@@ -599,6 +583,12 @@ public class Conversions
     private void getTorqueConversions()
     {
         // Base unit - Newton-metres
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(0, R.string.n_m, 31536000.0, 0.0000000317097919837645865));
+        units.add(new Unit(1, R.string.ft_lbF, 1.3558179483314004, 0.7375621494575464935503));
+        units.add(new Unit(2, R.string.in_lbF, 0.1129848290276167, 8.850745793490557922604));
+        mConversions.add(new Conversion(TORQUE, R.string.torque, units));
+
         conversions.put(FROM + N_M, 1.0);
         conversions.put(TO + N_M, 1.0);
 
@@ -607,6 +597,30 @@ public class Conversions
 
     private void getVolumeConversions()
     {
+        // Base unit - cubic metre
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(0, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
+        units.add(new Unit(1, R.string.tablespoon, 0.0000147867647812, 67628.045403686));
+        units.add(new Unit(2, R.string.cup, 0.0002365882365, 4226.7528377304));
+        units.add(new Unit(3, R.string.fluid_ounce, 0.0000295735295625, 33814.0227018429972));
+        units.add(new Unit(4, R.string.fluid_ounce_uk, 0.0000284130625, 35195.07972785404600437));
+        units.add(new Unit(5, R.string.pint, 0.000473176473, 2113.37641886518732));
+        units.add(new Unit(6, R.string.pint_uk, 0.00056826125, 1759.753986392702300218));
+        units.add(new Unit(7, R.string.quart, 0.000946352946, 1056.68820943259366));
+        units.add(new Unit(8, R.string.quart_uk, 0.0011365225, 879.8769931963511501092));
+        units.add(new Unit(9, R.string.gallon, 0.003785411784, 264.172052358148415));
+        units.add(new Unit(10, R.string.gallon_uk, 0.00454609, 219.9692482990877875273));
+        units.add(new Unit(11, R.string.barrel, 0.119240471196, 8.38641436057614017079));
+        units.add(new Unit(12, R.string.barrel_uk, 0.16365924, 6.11025689719688298687));
+        units.add(new Unit(13, R.string.millilitre, 0.000001, 1000000.0));
+        units.add(new Unit(14, R.string.litre, 0.001, 1000.0));
+        units.add(new Unit(15, R.string.cubic_cm, 0.000001, 1000000.0));
+        units.add(new Unit(16, R.string.cubic_m, 1.0, 1.0));
+        units.add(new Unit(17, R.string.cubic_inch, 0.000016387064, 61023.744094732284));
+        units.add(new Unit(18, R.string.cubic_foot, 0.028316846592, 35.3146667214885903));
+        units.add(new Unit(19, R.string.cubic_yard, 0.7645548692741148, 1.3079506));
+        mConversions.add(new Conversion(VOLUME, R.string.volume, units));
+
         conversions.put(FROM + TEASPOON, 0.0000049289215938);
         conversions.put(FROM + TABLESPOON, 0.0000147867647812);
         conversions.put(FROM + FLUID_OUNCE, 0.0000295735295625);

@@ -281,6 +281,7 @@
 
     <!-- Conversions -->
     <string name="area">Area</string>
+    <string name="cooking">Cooking</string>
     <string name="storage">Digital Storage</string>
     <string name="energy">Energy</string>
     <string name="fuel_consumption">Fuel Consumption</string>
@@ -289,6 +290,7 @@
     <string name="power">Power</string>
     <string name="pressure">Pressure</string>
     <string name="speed">Speed</string>
+    <string name="temperature">Temperature</string>
     <string name="time">Time</string>
     <string name="torque">Torque</string>
     <string name="volume">Volume</string>
@@ -389,5 +391,41 @@
     <string name="m_s">Metre/second</string>
     <string name="fps">Foot/second</string>
     <string name="knot">Knot</string>
+
+    <!-- Time -->
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="second">Second</string>
+    <string name="millisecond">Millisecond</string>
+    <string name="nanosecond">Nanosecond</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teaspoon</string>
+    <string name="tablespoon">Tablespoon</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barrel (US)</string>
+    <string name="fluid_ounce_uk">Fluid Ounce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Barrel (UK)</string>
+    <string name="millilitre">Millilitre</string>
+    <string name="litre">Litre</string>
+    <string name="cubic_cm">Cubic cm</string>
+    <string name="cubic_m">Cubic Metre</string>
+    <string name="cubic_inch">Cubic Inch</string>
+    <string name="cubic_foot">Cubic Foot</string>
+    <string name="cubic_yard">Cubic Yard</string>
 
 </resources>

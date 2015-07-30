@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.models.Conversion;
@@ -68,6 +70,18 @@ public final class ConversionFragment extends Fragment
         RadioButton btn = new RadioButton(getActivity());
         btn.setTag(u);
         btn.setText(u.getLabelResource());
+        btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton btn, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    Unit u = (Unit) btn.getTag();
+                    Toast.makeText(getActivity(), "selected " + getActivity().getString(u.getLabelResource()), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         return btn;
     }
 }
