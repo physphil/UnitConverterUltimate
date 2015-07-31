@@ -1,11 +1,14 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +20,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
+import com.physphil.android.unitconverterultimate.util.Constants;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 /**
  * Base fragment to display units to convert
@@ -35,6 +43,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private RadioGroup mGrpFrom, mGrpTo;
     private EditText mTxtValue, mTxtResult;
     private int mConversionId;
+    private Preferences mPrefs;
 
     /**
      * Create a new ConversionFragment to display
@@ -57,6 +66,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         setRetainInstance(true);
         mConversionId = getArguments().getInt(ARGS_CONVERSION_ID);
         mConversionPresenter = new ConversionPresenter(this);
+        mPrefs = Preferences.getInstance(getActivity());
     }
 
     @Nullable
@@ -66,6 +76,8 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
+        mTxtValue.setText(mPrefs.getLastValue());
+        mTxtValue.setSelection(mTxtValue.getText().length());
         mTxtValue.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -116,6 +128,21 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         });
 
         return v;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+        convert();
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        mPrefs.setLastValue(mTxtValue.getText().toString());
+        mPrefs.setLastConversion(mConversionId);
     }
 
     /**
@@ -216,9 +243,36 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
     }
 
+    /**
+     * Get DecimalFormat used to format result
+     * @return DecimalFormat
+     */
+    private DecimalFormat getDecimalFormat()
+    {
+        DecimalFormat formatter = new DecimalFormat();
+
+        //Set maximum number of decimal places
+        formatter.setMaximumFractionDigits(mPrefs.getNumberDecimals());
+
+        //Set group and decimal separators
+        DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
+        symbols.setDecimalSeparator(mPrefs.getDecimalSeparator().charAt(0));
+
+        String groupSeparator = mPrefs.getGroupSeparator();
+        boolean isSeparatorUsed = !TextUtils.isEmpty(groupSeparator);
+        formatter.setGroupingUsed(isSeparatorUsed);
+        if(isSeparatorUsed)
+        {
+            symbols.setGroupingSeparator(groupSeparator.charAt(0));
+        }
+
+        formatter.setDecimalFormatSymbols(symbols);
+        return formatter;
+    }
+
     @Override
     public void showResult(double result)
     {
-        mTxtResult.setText(Double.toString(result));
+        mTxtResult.setText(getDecimalFormat().format(result));
     }
 }

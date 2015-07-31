@@ -53,26 +53,26 @@ public class Convert {
             double fromMult = Globals.conversions.get(fromConversion);
 	        double toMult = Globals.conversions.get(toConversion);
 
-            if(fromUnit.equals(Conversions.LITRES_PER_100K) || toUnit.equals(Conversions.LITRES_PER_100K)){
-            	
-            	if(fromUnit.equals(toUnit)){
-            		toValue = fromValue;
-            	}
-            	else if(fromUnit.equals(Conversions.LITRES_PER_100K)){
-            		toValue = (fromMult / fromValue) * toMult;
-            	}
-            	else if(toUnit.equals(Conversions.LITRES_PER_100K)){
-            		toValue = toMult / (fromValue * fromMult);
-            	}
-            }
-            else{
-            	
-            	if(!fromUnit.equals(toUnit)){
-            		conversion = fromMult * toMult;
-            	}
-            	
-            	toValue = fromValue * conversion;
-            }
+//            if(fromUnit.equals(Conversions.LITRES_PER_100K) || toUnit.equals(Conversions.LITRES_PER_100K)){
+//
+//            	if(fromUnit.equals(toUnit)){
+//            		toValue = fromValue;
+//            	}
+//            	else if(fromUnit.equals(Conversions.LITRES_PER_100K)){
+//            		toValue = (fromMult / fromValue) * toMult;
+//            	}
+//            	else if(toUnit.equals(Conversions.LITRES_PER_100K)){
+//            		toValue = toMult / (fromValue * fromMult);
+//            	}
+//            }
+//            else{
+//
+//            	if(!fromUnit.equals(toUnit)){
+//            		conversion = fromMult * toMult;
+//            	}
+//
+//            	toValue = fromValue * conversion;
+//            }
 
             //Format output
             toText.setText(format(activity).format(toValue));
@@ -142,386 +142,386 @@ public class Convert {
 	//Conversion functions
 	private static double toCelsius(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to C (no conversion)
 			toTemp = fromTemp;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to C
 			toTemp = (fromTemp - 32) * 5 / 9;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to C
 			toTemp = fromTemp - 273.15;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to C
 			toTemp = (fromTemp - 491.67) * 5 / 9;
 		break;
-		
+
 		case(R.id.fromDelisle):	// D to C
 			toTemp = 100 - fromTemp*2/3;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to C
 			toTemp = fromTemp*100/33;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to C
 			toTemp = fromTemp*5/4;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to C
 			toTemp = (fromTemp-7.5)*40/21;
 		break;
-		
+
 		case(R.id.fromGasMark): //GM to C
 			//Convert from GM to F, then from F to C
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (toTemp - 32) * 5 / 9;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toFahrenheit(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to F
 			toTemp = fromTemp * 9 / 5 +32;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to F
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to F
 			toTemp = fromTemp * 9 / 5 - 459.67;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to F
 			toTemp = fromTemp - 459.67;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to F
 			toTemp = 212 - fromTemp*6/5;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to F
 			toTemp = fromTemp * 60/11+32;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to F
 			toTemp = fromTemp * 9/4 + 32;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to F
 			toTemp = (fromTemp-7.5) * 24/7 + 32;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toKelvin(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to K
 			toTemp = fromTemp + 273.15;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to K
 			toTemp = (fromTemp + 459.67) * 5 / 9;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to K
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to K
 			toTemp = fromTemp * 5 / 9;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to K
 			toTemp = 373.15-fromTemp * 2/3;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to K
 			toTemp = fromTemp*100/33 + 273.15;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to K
 			toTemp = fromTemp*5/4 + 273.15;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to K
 			toTemp = (fromTemp-7.5)*40/21 + 273.15;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (toTemp + 459.67) * 5 / 9;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toRankine(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to R
 			toTemp = (fromTemp + 273.15) * 9 / 5;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to R
 			toTemp = fromTemp + 459.67;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to R
 			toTemp = fromTemp * 9 / 5;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to R
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to R
 			toTemp = 671.67-fromTemp*6/5;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to R
 			toTemp = fromTemp*60/11 + 491.67;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to R
 			toTemp = fromTemp*9/4 + 491.67;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to R
 			toTemp = (fromTemp - 7.5)*24/7 + 491.67;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = toTemp + 459.67;
 		break;
 		}
-			
+
 		return toTemp;
 	}
-	
+
 	private static double toDelisle(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to D
 			toTemp = (100-fromTemp) * 1.5;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to D
 			toTemp = (212-fromTemp) *5/6;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to D
 			toTemp = (373.15-fromTemp)*1.5;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to D
 			toTemp = (671.67-fromTemp)*5/6;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to D
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to D
 			toTemp = (33-fromTemp)*50/11;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to D
 			toTemp = (80-fromTemp)*1.875;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to D
 			toTemp = (60-fromTemp)*20/7;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (212 - toTemp) * 5 / 6;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toNewton(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to N
 			toTemp = fromTemp * 33/100;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to N
 			toTemp = (fromTemp-32) *11/60;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to N
 			toTemp = (fromTemp-273.15)*33/100;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to N
 			toTemp = (fromTemp-491.67)*11/60;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to N
 			toTemp = 33-fromTemp*11/50;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to N
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to N
 			toTemp = fromTemp*33/80;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to N
 			toTemp = (fromTemp-7.5)*22/35;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (toTemp - 32) * 11 / 60;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toReaumur(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to Re
 			toTemp = fromTemp*4/5;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to Re
 			toTemp = (fromTemp-32)*4/9;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to Re
 			toTemp = (fromTemp-273.15)*4/5;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to Re
 			toTemp = (fromTemp-491.67)*4/9;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to Re
 			toTemp = 80 - fromTemp*8/15;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to Re
 			toTemp = fromTemp*80/33;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to Re
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to Re
 			toTemp = (fromTemp-7.5)*32/21;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (toTemp - 32) * 4 / 9;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toRomer(int fromId, double fromTemp){
 		double toTemp=0;
-		
+
 		switch(fromId){
 		case(R.id.fromCelsius):	// C to Ro
 			toTemp = fromTemp*21/40 + 7.5;
-		break;	
-		
+		break;
+
 		case(R.id.fromFahrenheit):	// F to Ro
 			toTemp = (fromTemp-32)*7/24 + 7.5;
 		break;
-		
+
 		case(R.id.fromKelvin):	// K to Ro
 			toTemp = (fromTemp-273.15)*21/40 + 7.5;
 		break;
-		
+
 		case(R.id.fromRankine):	// R to Ro
 			toTemp = (fromTemp-491.67)*7/24 + 7.5;
 		break;
-		
+
 		case(R.id.fromDelisle):	//D to Ro
 			toTemp = 60 - fromTemp * 7/20;
 		break;
-		
+
 		case(R.id.fromNewton):	//N to Ro
 			toTemp = fromTemp*35/22 + 7.5;
 		break;
-		
+
 		case(R.id.fromReaumur):	//Re to Ro
 			toTemp = fromTemp*21/32 + 7.5;
 		break;
-		
+
 		case(R.id.fromRomer):	//Ro to Ro
 			toTemp = fromTemp;
 		break;
-		
+
 		case(R.id.fromGasMark):
 			toTemp = fromGasMark(fromTemp);
 			toTemp = (toTemp - 32) * 7 / 24 + 7.5;
 		break;
 		}
-		
+
 		return toTemp;
 	}
-	
+
 	private static double toGasMark(int fromId, double fromTemp){
 		double toTempGM = 0;
 		double toTempF = 0;
-		
+
 		//Convert incoming temperature to Fahrenheit, then convert from F to Gas Mark
 		toTempF = toFahrenheit(fromId, fromTemp);
-		
+
 		if(toTempF >= 275){
 			toTempGM = 0.04*toTempF - 10;
 		}
 		else if(toTempF < 275){
 			toTempGM = 0.01*toTempF - 2;
 		}
-		
+
 		if(toTempGM < 0) toTempGM = 0;
-		
+
 		return toTempGM;
 	}
-	
+
 	private static double fromGasMark(double fromTemp){
 		double toTempF = 0;
-		
+
 		//Convert incoming Gas Mark to Fahrenheit, which will then be subequently converted to desired unit
 		if (fromTemp >= 1){
 			toTempF = 25*fromTemp + 250;
@@ -529,7 +529,7 @@ public class Convert {
 		else if (fromTemp < 1){
 			toTempF = 100*fromTemp + 200;
 		}
-		
+
 		return toTempF;
 	}
 	
