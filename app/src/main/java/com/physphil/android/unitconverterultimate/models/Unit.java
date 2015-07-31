@@ -33,12 +33,12 @@ public class Unit
         return id;
     }
 
-    public double getConversionToBase()
+    public double getConversionToBaseUnit()
     {
         return conversionToBase;
     }
 
-    public double getConversionFromBase()
+    public double getConversionFromBaseUnit()
     {
         return conversionFromBase;
     }

@@ -12,7 +12,7 @@ public class ConversionPresenter
 {
     public interface ConversionView
     {
-        void showResult(String result);
+        void showResult(double result);
     }
 
     private ConversionView mView;
@@ -27,6 +27,38 @@ public class ConversionPresenter
     }
 
     /**
+     * Convert a Fuel Consumption value from one unit to another
+     * @param value the value to convert
+     * @param from the unit to be converted from
+     * @param to the unit to be converted to
+     */
+    public void convertFuelValue(double value, Unit from, Unit to)
+    {
+        double result = value;
+        if(from.getId() != to.getId())
+        {
+            if (from.getId() == 2)   // Litres/100km
+            {
+                Log.d("PS", "from = " + from.getConversionFromBaseUnit());
+                Log.d("PS", "value = " + value);
+                Log.d("PS", "to = " + to.getConversionToBaseUnit());
+                result = (from.getConversionToBaseUnit() / value) * to.getConversionFromBaseUnit();
+            }
+            else if (to.getId() == 2)   // Litres/100km
+            {
+                result = to.getConversionFromBaseUnit() / (value * from.getConversionToBaseUnit());
+            }
+            else
+            {
+                double multiplier = from.getConversionToBaseUnit() * to.getConversionFromBaseUnit();
+                result = value * multiplier;
+            }
+        }
+
+        mView.showResult(result);
+    }
+
+    /**
      * Convert a value from one unit to another
      * @param value the value to convert
      * @param from the unit to be converted from
@@ -34,10 +66,12 @@ public class ConversionPresenter
      */
     public void convert(double value, Unit from, Unit to)
     {
-        Log.d("PS", "Converting from " + from.getId() + " to " + to.getId());
-        // TODO do conversion, then update result
-        double multiplier = from.getConversionToBase() * to.getConversionFromBase();
-        double result = value * multiplier;
-        mView.showResult(Double.toString(result));
+        double result = value;
+        if(from.getId() != to.getId())
+        {
+            double multiplier = from.getConversionToBaseUnit() * to.getConversionFromBaseUnit();
+            result = value * multiplier;
+        }
+        mView.showResult(result);
     }
 }

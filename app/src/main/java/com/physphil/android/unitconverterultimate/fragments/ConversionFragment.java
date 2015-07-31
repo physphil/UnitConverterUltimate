@@ -126,13 +126,19 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         String input = mTxtValue.getText().toString();
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
 
-        if(mConversionId == Conversions.TEMPERATURE)
+        switch(mConversionId)
         {
-            // TODO do temp conversions
-        }
-        else
-        {
-            mConversionPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+            case Conversions.TEMPERATURE:
+                // TODO temp conversions
+                break;
+
+            case Conversions.FUEL:
+                mConversionPresenter.convertFuelValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+                break;
+
+            default:
+                mConversionPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+                break;
         }
     }
 
@@ -210,8 +216,8 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     }
 
     @Override
-    public void showResult(String result)
+    public void showResult(double result)
     {
-        mTxtResult.setText(result);
+        mTxtResult.setText(Double.toString(result));
     }
 }
