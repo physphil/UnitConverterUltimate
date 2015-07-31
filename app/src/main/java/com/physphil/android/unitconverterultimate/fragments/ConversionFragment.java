@@ -18,8 +18,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.melnykov.fab.FloatingActionButton;
+import com.melnykov.fab.ObservableScrollView;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.models.Conversion;
@@ -126,6 +129,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 convert();
             }
         });
+
+        ObservableScrollView scrollView = (ObservableScrollView) v.findViewById(R.id.list_conversion);
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.attachToScrollView(scrollView);
 
         return v;
     }

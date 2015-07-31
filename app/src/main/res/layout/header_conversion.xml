@@ -1,91 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/header_swap_image"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="0px"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
         android:layout_marginTop="@dimen/margin_view_typical"
-        android:src="@drawable/ic_swap"
-        tools:ignore="ContentDescription"/>
+        android:layout_marginBottom="@dimen/margin_view_small">
 
-    <TextView
-        android:id="@+id/header_swap_text"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/header_value_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLength="@integer/num_digits_from"
+            android:scrollHorizontally="true"
+            android:text="@string/default_value">
+
+            <requestFocus/>
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/header_text_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/header_value_from"
+            android:layout_alignStart="@id/header_value_from"
+            android:layout_below="@id/header_value_from"
+            android:layout_marginBottom="@dimen/margin_view_typical"
+            android:layout_marginLeft="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_view_small"
+            android:layout_marginTop="@dimen/margin_view_typical"
+            android:text="@string/text_from"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0px"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header_swap_image"
-        android:layout_centerHorizontal="true"
-        android:text="@string/text_swap"
-        android:textColor="@color/icsWhite"
-        android:textSize="@dimen/text_size_swap"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/header_value_from"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/header_swap_text"
-        android:layout_marginLeft="@dimen/margin_view_typical"
-        android:layout_marginRight="@dimen/margin_view_typical"
-        android:layout_toLeftOf="@id/header_swap_image"
-        android:layout_toStartOf="@id/header_swap_image"
-        android:inputType="numberSigned|numberDecimal"
-        android:maxLength="@integer/num_digits_from"
-        android:scrollHorizontally="true"
-        android:text="@string/default_value">
-
-        <requestFocus/>
-
-    </EditText>
-
-    <!-- Use EditText instead of TextView to allow horizontal scrolling if answer is too long -->
-    <EditText
-        android:id="@+id/header_value_to"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/header_swap_text"
-        android:layout_marginLeft="@dimen/margin_view_typical"
-        android:layout_marginRight="@dimen/margin_view_typical"
-        android:layout_toEndOf="@id/header_swap_image"
-        android:layout_toRightOf="@id/header_swap_image"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:gravity="center"
-        android:inputType="none"
-        android:scrollHorizontally="true"/>
-
-    <TextView
-        android:id="@+id/header_text_from"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/header_value_from"
-        android:layout_alignStart="@id/header_value_from"
-        android:layout_below="@id/header_value_from"
-        android:layout_marginLeft="@dimen/margin_view_small"
-        android:layout_marginStart="@dimen/margin_view_small"
+        android:layout_weight="1"
         android:layout_marginTop="@dimen/margin_view_typical"
-        android:layout_marginBottom="@dimen/margin_view_typical"
-        android:text="@string/text_from"/>
+        android:layout_marginBottom="@dimen/margin_view_small">
 
-    <TextView
-        android:id="@+id/header_text_to"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/header_value_to"
-        android:layout_alignStart="@id/header_value_to"
-        android:layout_below="@id/header_value_to"
-        android:layout_marginLeft="@dimen/margin_view_small"
-        android:layout_marginStart="@dimen/margin_view_small"
-        android:layout_marginTop="@dimen/margin_view_typical"
-        android:layout_marginBottom="@dimen/margin_view_typical"
-        android:text="@string/text_to"/>
+        <!-- Use EditText instead of TextView to allow horizontal scrolling if answer is too long -->
+        <EditText
+            android:id="@+id/header_value_to"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:inputType="none"
+            android:scrollHorizontally="true"/>
 
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/header_text_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/header_value_to"
+            android:layout_alignStart="@id/header_value_to"
+            android:layout_below="@id/header_value_to"
+            android:layout_marginLeft="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_view_small"
+            android:layout_marginTop="@dimen/margin_view_typical"
+            android:text="@string/text_to"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
