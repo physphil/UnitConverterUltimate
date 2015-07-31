@@ -3,6 +3,10 @@ package com.physphil.android.unitconverterultimate.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,10 +65,37 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
+        mTxtValue.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                convert();
+            }
+        });
+
+        // Only allow negative values for temperature
+        if(mConversionId == Conversions.TEMPERATURE)
+        {
+            mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
+        }
+        else
+        {
+            mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        }
+
         mTxtResult = (EditText) v.findViewById(R.id.header_value_to);
         mGrpFrom = (RadioGroup) v.findViewById(R.id.radio_group_from);
         mGrpTo = (RadioGroup) v.findViewById(R.id.radio_group_to);
         addUnits();
+
+        // Convert when user selects new unit from radio groups
         mGrpFrom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
@@ -91,8 +122,18 @@ public final class ConversionFragment extends Fragment implements ConversionPres
      */
     private void convert()
     {
-        double value = Double.parseDouble(mTxtValue.getText().toString());
-        mConversionPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+        // If input isn't a number yet then set to 0
+        String input = mTxtValue.getText().toString();
+        double value = isNumeric(input) ? Double.parseDouble(input) : 0;
+
+        if(mConversionId == Conversions.TEMPERATURE)
+        {
+            // TODO do temp conversions
+        }
+        else
+        {
+            mConversionPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+        }
     }
 
     /**
@@ -148,6 +189,24 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         btn.setTag(u);
         btn.setText(u.getLabelResource());
         return btn;
+    }
+
+    /**
+     * Checks to see if a string contains a numeric value
+     * @param number string input
+     * @return if the input is a numeric value
+     */
+    private boolean isNumeric(String number)
+    {
+        try
+        {
+            double d = Double.parseDouble(number);
+            return true;
+        }
+        catch(NumberFormatException e)
+        {
+            return false;
+        }
     }
 
     @Override
