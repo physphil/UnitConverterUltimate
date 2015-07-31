@@ -6,7 +6,7 @@ import java.util.List;
  * Object representing a conversion type, ie Area, Power, Time, etc.
  * Created by Phizz on 15-07-25.
  */
-public class Conversion
+public final class Conversion
 {
     private int id;
     private int labelResource;

@@ -1,7 +1,5 @@
 package com.physphil.android.unitconverterultimate.models;
 
-import android.content.Context;
-
 /**
  * A unit that can be converted to/from
  * Created by Phizz on 15-07-25.

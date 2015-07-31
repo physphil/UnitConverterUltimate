@@ -2,6 +2,7 @@ package com.physphil.android.unitconverterultimate.util;
 
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.TemperatureUnit;
 import com.physphil.android.unitconverterultimate.models.Unit;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 public class Conversions
 {
+    // Unit conversion categories
     public static final int AREA = 0;
     public static final int COOKING = 1;
     public static final int STORAGE = 2;
@@ -29,6 +31,17 @@ public class Conversions
     public static final int TIME = 11;
     public static final int TORQUE = 12;
     public static final int VOLUME = 13;
+
+    // Temperature units TODO @INTDEF
+    public static final int CELSIUS = 0;
+    public static final int FAHRENHEIT = 1;
+    public static final int KELVIN = 2;
+    public static final int RANKINE = 3;
+    public static final int DELISLE = 4;
+    public static final int NEWTON = 5;
+    public static final int REAUMUR = 6;
+    public static final int ROMER = 7;
+    public static final int GAS_MARK = 8;
 
     public static final String FROM = "from";
     public static final String TO = "to";
@@ -170,6 +183,7 @@ public class Conversions
         getPowerConversions();
         getPressureConversions();
         getSpeedConversions();
+        getTemperatureConversions();
         getTimeConversions();
         getTorqueConversions();
         getVolumeConversions();
@@ -547,6 +561,21 @@ public class Conversions
         conversions.put(TO + METRES_PER_SECOND, 1.0);
         conversions.put(TO + FEET_PER_SECOND, 3.2808398950131);
         conversions.put(TO + KNOT, 1.9438444924406);
+    }
+
+    private void getTemperatureConversions()
+    {
+        List<Unit> units = new ArrayList<Unit>();
+        units.add(new TemperatureUnit(CELSIUS, R.string.celsius));
+        units.add(new TemperatureUnit(FAHRENHEIT, R.string.fahrenheit));
+        units.add(new TemperatureUnit(KELVIN, R.string.kelvin));
+        units.add(new TemperatureUnit(RANKINE, R.string.rankine));
+        units.add(new TemperatureUnit(DELISLE, R.string.delisle));
+        units.add(new TemperatureUnit(NEWTON, R.string.newton));
+        units.add(new TemperatureUnit(REAUMUR, R.string.reaumur));
+        units.add(new TemperatureUnit(ROMER, R.string.romer));
+        units.add(new TemperatureUnit(GAS_MARK, R.string.gas_mark));
+        mConversions.put(TEMPERATURE, new Conversion(TEMPERATURE, R.string.temperature, units));
     }
 
     private void getTimeConversions()

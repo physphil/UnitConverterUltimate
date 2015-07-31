@@ -392,6 +392,17 @@
     <string name="fps">Foot/second</string>
     <string name="knot">Knot</string>
 
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
     <!-- Time -->
     <string name="year">Year</string>
     <string name="month">Month</string>

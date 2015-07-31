@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -129,7 +130,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         switch(mConversionId)
         {
             case Conversions.TEMPERATURE:
-                // TODO temp conversions
+                mConversionPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
 
             case Conversions.FUEL:
