@@ -27,7 +27,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_swap"
-        fab:fab_colorNormal="@color/color_primary"
-        fab:fab_colorPressed="@color/color_primary_dark" />
+        fab:fab_colorNormal="@color/color_accent"
+        fab:fab_colorPressed="@color/color_accent_dark" />
 
 </RelativeLayout>

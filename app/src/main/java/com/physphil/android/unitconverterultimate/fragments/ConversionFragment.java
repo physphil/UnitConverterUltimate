@@ -120,7 +120,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 convert();
             }
         });
-
         mGrpTo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
@@ -133,6 +132,14 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         ObservableScrollView scrollView = (ObservableScrollView) v.findViewById(R.id.list_conversion);
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab.attachToScrollView(scrollView);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                swapUnits();
+            }
+        });
 
         return v;
     }
@@ -202,20 +209,12 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         for (int i = 0; i < c.getUnits().size(); i++)
         {
             Unit u = c.getUnits().get(i);
-            RadioButton fromUnit = getRadioButton(u);
-            if(i == 0)
-            {
-                fromUnit.setChecked(true);
-            }
-            mGrpFrom.addView(fromUnit, lp);
-
-            RadioButton toUnit = getRadioButton(u);
-            if(i == 1)
-            {
-                toUnit.setChecked(true);
-            }
-            mGrpTo.addView(toUnit, lp);
+            mGrpFrom.addView(getRadioButton(u), lp);
+            mGrpTo.addView(getRadioButton(u), lp);
         }
+
+        mGrpFrom.check(0);
+        mGrpTo.check(1);
     }
 
     /**
@@ -275,6 +274,19 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
         formatter.setDecimalFormatSymbols(symbols);
         return formatter;
+    }
+
+    /**
+     * Swap units between From and To
+     */
+    private void swapUnits()
+    {
+        int fromId = mGrpFrom.getCheckedRadioButtonId();
+        int toId = mGrpTo.getCheckedRadioButtonId();
+
+        // Swap selected units in groups
+        mGrpFrom.check(toId);
+        mGrpTo.check(fromId);
     }
 
     @Override

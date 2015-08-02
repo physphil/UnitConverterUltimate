@@ -28,6 +28,7 @@
 
 	<color name="color_primary">@color/theme_teal</color>
 	<color name="color_primary_dark">@color/theme_teal_dark</color>
-	<color name="color_accent">@color/icsGray</color>
+	<color name="color_accent">@color/theme_purple</color>
+	<color name="color_accent_dark">@color/theme_purple_dark</color>
 </resources>
 
