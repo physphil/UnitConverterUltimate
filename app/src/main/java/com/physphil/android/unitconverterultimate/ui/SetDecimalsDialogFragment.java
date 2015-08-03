@@ -30,7 +30,7 @@ public class SetDecimalsDialogFragment extends DialogFragment {
 		int defaultNoDecimals = Constants.DEFAULT_NO_DECIMALS;
 		selectedNoDecimals = preferences.getInt(Constants.SETTINGS_NUMBER_OF_DECIMALS, defaultNoDecimals);
 		
-		builder.setSingleChoiceItems(R.array.noDecimals, selectedNoDecimals, new DialogInterface.OnClickListener() {			
+		builder.setSingleChoiceItems(R.array.number_decimals, selectedNoDecimals, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				selectedNoDecimals = which;

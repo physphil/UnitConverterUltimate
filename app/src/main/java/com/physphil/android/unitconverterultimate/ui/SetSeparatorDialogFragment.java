@@ -31,7 +31,7 @@ public class SetSeparatorDialogFragment extends DialogFragment{
 		separatorUsed = preferences.getBoolean(Constants.SETTINGS_IS_SEPARATOR_USED, false);
 		currentSeparator = preferences.getInt(Constants.SETTINGS_CURRENT_SEPARATOR, 0);
 		
-		builder.setSingleChoiceItems(R.array.separatorType, currentSeparator, new DialogInterface.OnClickListener() {			
+		builder.setSingleChoiceItems(R.array.group_separators, currentSeparator, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				currentSeparator = which;

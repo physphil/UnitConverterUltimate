@@ -8,6 +8,9 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -62,6 +65,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        setHasOptionsMenu(true);
         mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversions.AREA);
         mConversionPresenter = new ConversionPresenter(this);
         mPrefs = Preferences.getInstance(getActivity());
@@ -294,5 +298,26 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void showResult(double result)
     {
         mTxtResult.setText(getDecimalFormat().format(result));
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_conversion_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.menu_clear:
+                mTxtValue.setText("");
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

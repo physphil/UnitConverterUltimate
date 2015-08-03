@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="default_number_decimals">4</integer>
+    <string name="default_group_separator">""</string>
+    <string name="default_decimal_separator">.</string>
+</resources>

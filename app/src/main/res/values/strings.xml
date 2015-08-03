@@ -270,6 +270,7 @@
     <string name="menuRate">Rate This App!</string>
     <string name="menuRequest">Request A Unit</string>
     <string name="menuClear">Clear Value</string>
+    <string name="menu_clear">Clear Value</string>
     <string name="menuDonate">Donate!</string>
     <string name="errorGooglePlay">Unable to launch the Google Play Store</string>
     <string name="errorNoEmailClient">There are no email clients installed</string>
@@ -438,5 +439,12 @@
     <string name="cubic_inch">Cubic Inch</string>
     <string name="cubic_foot">Cubic Foot</string>
     <string name="cubic_yard">Cubic Yard</string>
+    <string name="prefs_title_formatting">Formatting</string>
+    <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>
+    <string name="prefs_title_number_decimals">Number of Decimals</string>
+    <string name="prefs_summary_group_separator">Set the group separator to be shown in converted value</string>
+    <string name="prefs_title_group_separator">Group Separator</string>
+    <string name="prefs_summary_decimal_separator">Set the decimal separator to be shown in converted value</string>
+    <string name="prefs_title_decimal_separator">Decimal Separator</string>
 
 </resources>

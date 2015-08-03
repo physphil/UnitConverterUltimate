@@ -29,7 +29,7 @@ public class SetDecimalSeparatorDialogFragment extends DialogFragment{
 		SharedPreferences preferences = activity.getPreferences(Context.MODE_PRIVATE);
 		currentDecimalSeparator = preferences.getInt(Constants.SETTINGS_CURRENT_DECIMAL_SEPARATOR, 0);
 		
-		builder.setSingleChoiceItems(R.array.decimalSeparatorType, currentDecimalSeparator, new DialogInterface.OnClickListener() {			
+		builder.setSingleChoiceItems(R.array.decimal_separators, currentDecimalSeparator, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				currentDecimalSeparator = which;

@@ -548,14 +548,14 @@ public class Convert {
 		
 		//Set group and decimal separators
 		DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
-		String[] mDecimalSeparators = activity.getResources().getStringArray(R.array.decimalSeparatorType);
+		String[] mDecimalSeparators = activity.getResources().getStringArray(R.array.decimal_separators);
 		char decimalSeparatorType = mDecimalSeparators[currentDecimalSeparator].charAt(0);
 		symbols.setDecimalSeparator(decimalSeparatorType);
 		
 		formatter.setGroupingUsed(separatorUsed);
 
 		if(separatorUsed){
-			String[] mGroupSeparators = activity.getResources().getStringArray(R.array.separatorType);
+			String[] mGroupSeparators = activity.getResources().getStringArray(R.array.group_separators);
 			char separatorType = mGroupSeparators[currentSeparator].charAt(0);
 			symbols.setGroupingSeparator(separatorType);		
 		}
