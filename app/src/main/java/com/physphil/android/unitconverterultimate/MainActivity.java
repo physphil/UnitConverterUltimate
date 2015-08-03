@@ -11,7 +11,7 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
  * Main activity
  * Created by Phizz on 15-07-28.
  */
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

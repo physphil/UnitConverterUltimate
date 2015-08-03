@@ -1,6 +1,11 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -20,6 +25,7 @@ import android.widget.RadioGroup;
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 import com.physphil.android.unitconverterultimate.Preferences;
+import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
@@ -35,7 +41,8 @@ import java.text.DecimalFormatSymbols;
  * Base fragment to display units to convert
  * Created by Phizz on 15-07-28.
  */
-public final class ConversionFragment extends Fragment implements ConversionPresenter.ConversionView
+public final class ConversionFragment extends Fragment implements ConversionPresenter.ConversionView,
+        SharedPreferences.OnSharedPreferenceChangeListener
 {
     private static final String ARGS_CONVERSION_ID = "conversion_id";
 
@@ -43,11 +50,13 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private RadioGroup mGrpFrom, mGrpTo;
     private EditText mTxtValue, mTxtResult;
     private int mConversionId;
+    private double mResult;
     private Preferences mPrefs;
     private ConversionState mState;
 
     /**
      * Create a new ConversionFragment to display
+     *
      * @param id id of the conversion it will handle
      * @return new ConversionFragment instance
      */
@@ -58,6 +67,20 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         args.putInt(ARGS_CONVERSION_ID, id);
         f.setArguments(args);
         return f;
+    }
+
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        Preferences.getInstance(activity).getPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onDetach()
+    {
+        super.onDetach();
+        Preferences.getInstance(getActivity()).getPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -84,10 +107,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mTxtValue.addTextChangedListener(new TextWatcher()
         {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count){}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s)
@@ -97,7 +120,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         });
 
         // Only allow negative values for temperature
-        if(mConversionId == Conversions.TEMPERATURE)
+        if (mConversionId == Conversions.TEMPERATURE)
         {
             mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         }
@@ -171,7 +194,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         String input = mTxtValue.getText().toString();
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
 
-        switch(mConversionId)
+        switch (mConversionId)
         {
             case Conversions.TEMPERATURE:
                 mConversionPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
@@ -189,6 +212,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
     /**
      * Get the Unit associated with the checked button in a radio group
+     *
      * @param group RadioGroup which contains the button
      * @return Unit associated with checked button
      */
@@ -217,6 +241,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
 
         // Restore previously selected units
+        // TODO is the line below needed?
         ConversionState cs = DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
         mGrpFrom.check(cs.getFromId());
         mGrpTo.check(cs.getToId());
@@ -224,6 +249,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
     /**
      * Create Radio Button to display in group
+     *
      * @param u unit which the button represents
      * @return RadioButton to display
      */
@@ -238,6 +264,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
     /**
      * Checks to see if a string contains a numeric value
+     *
      * @param number string input
      * @return if the input is a numeric value
      */
@@ -248,7 +275,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             double d = Double.parseDouble(number);
             return true;
         }
-        catch(NumberFormatException e)
+        catch (NumberFormatException e)
         {
             return false;
         }
@@ -256,6 +283,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
     /**
      * Get DecimalFormat used to format result
+     *
      * @return DecimalFormat
      */
     private DecimalFormat getDecimalFormat()
@@ -270,9 +298,9 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         symbols.setDecimalSeparator(mPrefs.getDecimalSeparator().charAt(0));
 
         String groupSeparator = mPrefs.getGroupSeparator();
-        boolean isSeparatorUsed = !TextUtils.isEmpty(groupSeparator);
+        boolean isSeparatorUsed = !groupSeparator.equals(getString(R.string.group_separator_none));
         formatter.setGroupingUsed(isSeparatorUsed);
-        if(isSeparatorUsed)
+        if (isSeparatorUsed)
         {
             symbols.setGroupingSeparator(groupSeparator.charAt(0));
         }
@@ -297,7 +325,20 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     @Override
     public void showResult(double result)
     {
+        mResult = result;
         mTxtResult.setText(getDecimalFormat().format(result));
+    }
+
+    // Change in shared preferences
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+    {
+        if (key.equals(Preferences.PREFS_NUMBER_OF_DECIMALS) ||
+                key.equals(Preferences.PREFS_DECIMAL_SEPARATOR) ||
+                key.equals(Preferences.PREFS_GROUP_SEPARATOR))
+        {
+            mTxtResult.setText(getDecimalFormat().format(mResult));
+        }
     }
 
     @Override
@@ -310,10 +351,14 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        switch(item.getItemId())
+        switch (item.getItemId())
         {
             case R.id.menu_clear:
                 mTxtValue.setText("");
+                return true;
+
+            case R.id.menu_settings:
+                PreferencesActivity.start(getActivity());
                 return true;
 
             default:

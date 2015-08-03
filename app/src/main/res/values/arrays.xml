@@ -134,7 +134,7 @@
     </string-array>
     
     <string-array name="group_separators">
-        <item>None</item>
+        <item>@string/group_separator_none</item>
         <item>,</item>
         <item>" "</item>
         <item>.</item>

@@ -8,7 +8,7 @@
             android:key="number_decimals"
             android:title="@string/prefs_title_number_decimals"
             android:summary="@string/prefs_summary_number_decimals"
-            android:defaultValue="@integer/default_number_decimals"
+            android:defaultValue="@string/default_number_decimals"
             android:entries="@array/number_decimals"
             android:entryValues="@array/number_decimals"/>
 
