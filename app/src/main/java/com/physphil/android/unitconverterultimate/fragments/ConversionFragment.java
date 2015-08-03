@@ -1,34 +1,28 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
-import com.physphil.android.unitconverterultimate.util.Constants;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.text.DecimalFormat;
@@ -47,6 +41,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private EditText mTxtValue, mTxtResult;
     private int mConversionId;
     private Preferences mPrefs;
+    private ConversionState mState;
 
     /**
      * Create a new ConversionFragment to display
@@ -67,9 +62,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        mConversionId = getArguments().getInt(ARGS_CONVERSION_ID);
+        mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversions.AREA);
         mConversionPresenter = new ConversionPresenter(this);
         mPrefs = Preferences.getInstance(getActivity());
+        mState = DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
     }
 
     @Nullable
@@ -117,6 +113,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
+                mState.setFromId(checkedId);
                 convert();
             }
         });
@@ -125,6 +122,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
+                mState.setToId(checkedId);
                 convert();
             }
         });
@@ -157,6 +155,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         super.onPause();
         mPrefs.setLastValue(mTxtValue.getText().toString());
         mPrefs.setLastConversion(mConversionId);
+        DataAccess.getInstance(getActivity()).saveConversionState(mState);
     }
 
     /**
@@ -213,8 +212,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             mGrpTo.addView(getRadioButton(u), lp);
         }
 
-        mGrpFrom.check(0);
-        mGrpTo.check(1);
+        // Restore previously selected units
+        ConversionState cs = DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
+        mGrpFrom.check(cs.getFromId());
+        mGrpTo.check(cs.getToId());
     }
 
     /**

@@ -24,11 +24,12 @@
     <color name="theme_purple">#6568C9</color>
     <color name="theme_purple_dark">#5053A0</color>
     <color name="theme_light_gray">#999999</color>
+    <color name="theme_light_gray_dark">#555555</color>
     <color name="theme_white">#E5E5E5</color>
 
 	<color name="color_primary">@color/theme_teal</color>
 	<color name="color_primary_dark">@color/theme_teal_dark</color>
-	<color name="color_accent">@color/theme_purple</color>
-	<color name="color_accent_dark">@color/theme_purple_dark</color>
+	<color name="color_accent">@color/theme_light_gray</color>
+	<color name="color_accent_dark">@color/theme_light_gray_dark</color>
 </resources>
 
