@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,9 +38,11 @@ import java.text.DecimalFormatSymbols;
  * Created by Phizz on 15-07-28.
  */
 public final class ConversionFragment extends Fragment implements ConversionPresenter.ConversionView,
-        SharedPreferences.OnSharedPreferenceChangeListener
+        SharedPreferences.OnSharedPreferenceChangeListener,
+        RadioGroup.OnCheckedChangeListener
 {
     private static final String ARGS_CONVERSION_ID = "conversion_id";
+    private static final String ARGS_CONVERSION_STATE = "conversion_state";
 
     private ConversionPresenter mConversionPresenter;
     private RadioGroup mGrpFrom, mGrpTo;
@@ -120,30 +121,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mGrpTo = (RadioGroup) v.findViewById(R.id.radio_group_to);
         addUnits();
 
-        // Convert when user selects new unit from radio groups
-        mGrpFrom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-                Log.d("PS", "in From onCheckedChanged, checking " + checkedId);
-                mState.setFromId(checkedId);
-                Log.d("PS", "calling convert From onCheckedChange");
-                convert();
-            }
-        });
-        mGrpTo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-                Log.d("PS", "in To onCheckedChanged, checking " + checkedId);
-                mState.setToId(checkedId);
-                Log.d("PS", "calling convert To onCheckedChange");
-                convert();
-            }
-        });
-
         ObservableScrollView scrollView = (ObservableScrollView) v.findViewById(R.id.list_conversion);
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab.attachToScrollView(scrollView);
@@ -163,7 +140,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void onActivityCreated(@Nullable Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-        Log.d("PS", "calling convert from onActivityCreated");
         convert();
     }
 
@@ -184,12 +160,23 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         DataAccess.getInstance(getActivity()).saveConversionState(mState);
     }
 
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState)
+    {
+        super.onViewStateRestored(savedInstanceState);
+
+        // View hierarchy has been restored, set state of radio buttons
+        mGrpFrom.check(mState.getFromId());
+        mGrpFrom.setOnCheckedChangeListener(this);
+        mGrpTo.check(mState.getToId());
+        mGrpTo.setOnCheckedChangeListener(this);
+    }
+
     /**
      * Convert value from one unit to another
      */
     private void convert()
     {
-        Log.d("PS", "in convert()");
         // If input isn't a number yet then set to 0
         String input = mTxtValue.getText().toString();
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
@@ -241,8 +228,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
 
         // Restore previously selected units
-        Log.d("PS", "from id = " + mState.getFromId() + ", to id = " + mState.getToId());
-        Log.d("PS", "from group id = " + mGrpFrom.getId() + ", to group id = " + mGrpTo.getId());
         mGrpFrom.check(mState.getFromId());
         mGrpTo.check(mState.getToId());
     }
@@ -333,7 +318,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         @Override
         public void afterTextChanged(Editable s)
         {
-            Log.d("PS", "calling convert from afterTextChanged");
             convert();
         }
     };
@@ -343,6 +327,24 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     {
         mResult = result;
         mTxtResult.setText(getDecimalFormat().format(result));
+    }
+
+    // Radio Group checked change listener
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId)
+    {
+        switch(group.getId())
+        {
+            case R.id.radio_group_from:
+                mState.setFromId(checkedId);
+                break;
+
+            case R.id.radio_group_to:
+                mState.setToId(checkedId);
+                break;
+        }
+
+        convert();
     }
 
     // Change in shared preferences
