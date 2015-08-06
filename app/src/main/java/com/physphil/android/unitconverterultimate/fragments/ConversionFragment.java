@@ -3,15 +3,12 @@ package com.physphil.android.unitconverterultimate.fragments;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -102,22 +99,11 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
-        mTxtValue.setText(mPrefs.getLastValue());
-        mTxtValue.setSelection(mTxtValue.getText().length());
-        mTxtValue.addTextChangedListener(new TextWatcher()
+        if(savedInstanceState == null)  // TODO - handle rotation properly
         {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                convert();
-            }
-        });
+            mTxtValue.setText(mPrefs.getLastValue());
+            mTxtValue.setSelection(mTxtValue.getText().length());
+        }
 
         // Only allow negative values for temperature
         if (mConversionId == Conversions.TEMPERATURE)
@@ -140,7 +126,9 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
+                Log.d("PS", "in From onCheckedChanged, checking " + checkedId);
                 mState.setFromId(checkedId);
+                Log.d("PS", "calling convert From onCheckedChange");
                 convert();
             }
         });
@@ -149,7 +137,9 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
+                Log.d("PS", "in To onCheckedChanged, checking " + checkedId);
                 mState.setToId(checkedId);
+                Log.d("PS", "calling convert To onCheckedChange");
                 convert();
             }
         });
@@ -173,13 +163,22 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void onActivityCreated(@Nullable Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+        Log.d("PS", "calling convert from onActivityCreated");
         convert();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        mTxtValue.addTextChangedListener(mTextWatcher);
     }
 
     @Override
     public void onPause()
     {
         super.onPause();
+        mTxtValue.removeTextChangedListener(mTextWatcher);
         mPrefs.setLastValue(mTxtValue.getText().toString());
         mPrefs.setLastConversion(mConversionId);
         DataAccess.getInstance(getActivity()).saveConversionState(mState);
@@ -190,6 +189,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
      */
     private void convert()
     {
+        Log.d("PS", "in convert()");
         // If input isn't a number yet then set to 0
         String input = mTxtValue.getText().toString();
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
@@ -241,10 +241,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
 
         // Restore previously selected units
-        // TODO is the line below needed?
-        ConversionState cs = DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
-        mGrpFrom.check(cs.getFromId());
-        mGrpTo.check(cs.getToId());
+        Log.d("PS", "from id = " + mState.getFromId() + ", to id = " + mState.getToId());
+        Log.d("PS", "from group id = " + mGrpFrom.getId() + ", to group id = " + mGrpTo.getId());
+        mGrpFrom.check(mState.getFromId());
+        mGrpTo.check(mState.getToId());
     }
 
     /**
@@ -321,6 +321,22 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mGrpFrom.check(toId);
         mGrpTo.check(fromId);
     }
+
+    private TextWatcher mTextWatcher = new TextWatcher()
+    {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+        @Override
+        public void afterTextChanged(Editable s)
+        {
+            Log.d("PS", "calling convert from afterTextChanged");
+            convert();
+        }
+    };
 
     @Override
     public void showResult(double result)
