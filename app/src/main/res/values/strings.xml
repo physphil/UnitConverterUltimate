@@ -448,5 +448,7 @@
     <string name="prefs_title_group_separator">Group Separator</string>
     <string name="prefs_summary_decimal_separator">Set the decimal separator to be shown in converted value</string>
     <string name="prefs_title_decimal_separator">Decimal Separator</string>
+    <string name="prefs_title_visual">Visual</string>
+    <string name="prefs_title_light_theme">Use Light Theme</string>
 
 </resources>

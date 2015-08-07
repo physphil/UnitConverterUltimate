@@ -51,7 +51,7 @@
     </item>
     <item
         android:id="@+id/menuClear"
-        android:icon="@drawable/ic_action_delete"
+        android:icon="@drawable/ic_delete_white_24dp"
         android:orderInCategory="90"
         app:showAsAction="always"
         android:title="@string/menuClear">

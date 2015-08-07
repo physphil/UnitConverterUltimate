@@ -1,5 +1,6 @@
 package com.physphil.android.unitconverterultimate;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -9,6 +10,18 @@ import android.view.MenuItem;
  */
 public class BaseActivity extends AppCompatActivity
 {
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        // Set theme, must be called before onCreate()
+        if(Preferences.getInstance(this).isLightTheme())
+        {
+            setTheme(R.style.AppThemeLight);
+        }
+
+        super.onCreate(savedInstanceState);
+    }
+
     /**
      * Set backward navigation in toolbar
      * @param upAsHome if back button should close activity

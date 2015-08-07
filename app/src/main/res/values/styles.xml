@@ -12,4 +12,12 @@
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
     </style>
 
+    <style name="AppTheme" parent="AppBaseTheme" >
+
+    </style>
+
+    <style name="AppThemeLight" parent="AppBaseTheme.Light" >
+
+    </style>
+
 </resources>
