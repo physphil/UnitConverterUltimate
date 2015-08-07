@@ -30,7 +30,7 @@ public class BaseActivity extends AppCompatActivity
     {
         if(getSupportActionBar() != null)
         {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(upAsHome);
         }
     }
 
