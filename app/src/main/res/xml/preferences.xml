@@ -40,4 +40,39 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/prefs_title_other">
+
+        <Preference
+            android:title="@string/prefs_title_donate"
+            android:summary="@string/prefs_summary_donate">
+
+            <intent
+                android:targetPackage="com.physphil.android.unitconverterultimate"
+                android:targetClass="com.physphil.android.unitconverterultimate.DonateActivity" />
+
+        </Preference>
+
+        <Preference
+            android:key="unit_request"
+            android:title="@string/prefs_title_unit_request"
+            android:summary="@string/prefs_summary_unit_request"/>
+
+        <Preference
+            android:key="rate_app"
+            android:title="@string/prefs_title_rate"
+            android:summary="@string/prefs_summary_rate" />
+
+        <Preference
+            android:title="@string/prefs_title_source_code"
+            android:summary="@string/pref_summary_source_code">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/physphil/UnitConverterUltimate-Studio" />
+
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

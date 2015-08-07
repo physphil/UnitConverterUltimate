@@ -22,8 +22,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class DonateActivity extends ActionBarActivity {
-
+public class DonateActivity extends BaseActivity
+{
     private static final int DONATE_REQUEST_CODE = 6996;
 
     private List<String> mDonationOptions;
@@ -34,39 +34,45 @@ public class DonateActivity extends ActionBarActivity {
     private String mPurchasePayload;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
 
         mListview = (ListView) findViewById(R.id.billing_listview);
         mProgressBar = (ProgressBar) findViewById(R.id.billing_progress_spinner);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setToolbarHomeNavigation(true);
         setupBilling();
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
 
         // Shut down IAB
-        if(mHelper != null){
+        if (mHelper != null)
+        {
             mHelper.dispose();
         }
         mHelper = null;
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
 
-        if(!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data))
+        {
 
             // Not related to in-app billing, handle normally
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
-    private void setupBilling(){
+    private void setupBilling()
+    {
 
         mDonationOptions = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.donation_options)));
 
@@ -77,28 +83,36 @@ public class DonateActivity extends ActionBarActivity {
 
         mHelper = new IabHelper(this, sb.toString());
 //        mHelper.enableDebugLogging(true, "PS");
-        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener()
+        {
             @Override
-            public void onIabSetupFinished(IabResult result) {
+            public void onIabSetupFinished(IabResult result)
+            {
 
-                if(result.isSuccess()){
+                if (result.isSuccess())
+                {
                     // Try to get available inventory
-                    mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener() {
+                    mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener()
+                    {
                         @Override
-                        public void onQueryInventoryFinished(IabResult result, Inventory inv) {
+                        public void onQueryInventoryFinished(IabResult result, Inventory inv)
+                        {
 
-                            if(result.isSuccess()){
+                            if (result.isSuccess())
+                            {
                                 mInventory = inv;
                                 consumeExistingPurchases();
                                 displayDonationOptions();
                             }
-                            else{
+                            else
+                            {
                                 shutdown(false);
                             }
                         }
                     });
                 }
-                else{
+                else
+                {
                     shutdown(false);
                 }
             }
@@ -108,12 +122,15 @@ public class DonateActivity extends ActionBarActivity {
     /**
      * Display donation options to user
      */
-    private void displayDonationOptions(){
+    private void displayDonationOptions()
+    {
         mProgressBar.setVisibility(View.GONE);
         mListview.setAdapter(new DonationListAdapter(this, mInventory));
-        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Log.d("PS", "spending " + mInventory.getSkuDetails(mDonationOptions.get(position)).getPrice());
                 donate(mInventory.getSkuDetails(mDonationOptions.get(position)).getSku());
             }
@@ -123,27 +140,35 @@ public class DonateActivity extends ActionBarActivity {
     /**
      * Consume any existing purchases
      */
-    private void consumeExistingPurchases(){
+    private void consumeExistingPurchases()
+    {
 
         List<Purchase> purchases = new ArrayList<Purchase>();
 
         // Check each sku, consume if owned
-        for(String sku : mDonationOptions){
+        for (String sku : mDonationOptions)
+        {
             Purchase p = mInventory.getPurchase(sku);
-            if(p != null){
+            if (p != null)
+            {
                 purchases.add(p);
             }
         }
 
-        mHelper.consumeAsync(purchases, new IabHelper.OnConsumeMultiFinishedListener() {
+        mHelper.consumeAsync(purchases, new IabHelper.OnConsumeMultiFinishedListener()
+        {
             @Override
-            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results) {
-                for(int i = 0; i < results.size(); i++){
+            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results)
+            {
+                for (int i = 0; i < results.size(); i++)
+                {
 
-                    if(results.get(i).isSuccess()){
+                    if (results.get(i).isSuccess())
+                    {
                         Log.d("PS", "successfully consumed " + purchases.get(i).getSku());
                     }
-                    else{
+                    else
+                    {
                         Log.d("PS", "error consuming " + purchases.get(i).getSku());
                     }
                 }
@@ -153,9 +178,11 @@ public class DonateActivity extends ActionBarActivity {
 
     /**
      * Start Google Play billing flow, with specified product id (sku)
+     *
      * @param productId product id of donation
      */
-    private void donate(String productId){
+    private void donate(String productId)
+    {
 
         mPurchasePayload = UUID.randomUUID().toString();
         mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
@@ -163,14 +190,18 @@ public class DonateActivity extends ActionBarActivity {
 
     /**
      * Shutdown activity and display user confirmation
+     *
      * @param success if the donation was successful
      */
-    private void shutdown(boolean success){
+    private void shutdown(boolean success)
+    {
 
-        if(success){
+        if (success)
+        {
             Toast.makeText(this, R.string.toast_donation_successful, Toast.LENGTH_LONG).show();
         }
-        else {
+        else
+        {
             Toast.makeText(this, R.string.toast_error_billing, Toast.LENGTH_SHORT).show();
         }
         finish();
@@ -179,13 +210,17 @@ public class DonateActivity extends ActionBarActivity {
     /*
     Listener called when purchase has completed
      */
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener()
+    {
         @Override
-        public void onIabPurchaseFinished(IabResult result, Purchase info) {
+        public void onIabPurchaseFinished(IabResult result, Purchase info)
+        {
 
-            if(result.isFailure()){
+            if (result.isFailure())
+            {
 
-                switch(result.getResponse()){
+                switch (result.getResponse())
+                {
                     case IabHelper.IABHELPER_USER_CANCELLED:
                         break;
 
@@ -194,22 +229,26 @@ public class DonateActivity extends ActionBarActivity {
                         break;
                 }
             }
-            else{
+            else
+            {
                 // Consume purchase so it can be done again and thank user
-//                shutdown(true);
                 mHelper.consumeAsync(info, mConsumeFinishedListener);
             }
         }
     };
 
-    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
+    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener()
+    {
         @Override
-        public void onConsumeFinished(Purchase purchase, IabResult result) {
+        public void onConsumeFinished(Purchase purchase, IabResult result)
+        {
 
-            if(result.isFailure()){
+            if (result.isFailure())
+            {
                 Log.d("PS", "Problem consuming " + purchase.getSku());
             }
-            else{
+            else
+            {
                 Log.d("PS", "Successfully consumed " + purchase.getSku());
             }
 
@@ -217,17 +256,4 @@ public class DonateActivity extends ActionBarActivity {
             shutdown(true);
         }
     };
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case android.R.id.home:
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }
