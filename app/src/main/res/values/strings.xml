@@ -458,7 +458,7 @@
     <string name="prefs_title_rate">Rate on Google Play</string>
     <string name="prefs_summary_rate">Enjoying all this unit conversion? Why not rate it 5 stars?</string>
     <string name="request_unit">Unit Converter Ultimate: New Unit Request</string>
-    <string name="R.string.toast_error_no_email_app">No e-mail app installed</string>
+    <string name="toast_error_no_email_app">No e-mail app installed</string>
     <string name="toast_error_google_play">Error opening Google Play Store, please try again</string>
     <string name="prefs_title_donate">Donate</string>
     <string name="prefs_summary_donate">Support development and make me smile :)</string>

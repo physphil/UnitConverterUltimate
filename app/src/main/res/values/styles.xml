@@ -1,12 +1,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat" >
+    <style name="AppBaseTheme" parent="Theme.AppCompat.NoActionBar" >
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
     </style>
     
-    <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
@@ -18,6 +18,11 @@
 
     <style name="AppThemeLight" parent="AppBaseTheme.Light" >
 
+    </style>
+
+    <style name="toolbar" parent="Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimaryInverse">@android:color/white</item>
     </style>
 
 </resources>

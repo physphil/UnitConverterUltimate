@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.Preferences;
@@ -80,7 +81,8 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         }
         catch(ActivityNotFoundException ex)
         {
-            Toast.makeText(getActivity(), R.string.R_string_toast_error_no_email_app, Toast.LENGTH_SHORT).show();
+            Snackbar.make(getActivity().findViewById(android.R.id.content),
+                    R.string.toast_error_no_email_app, Snackbar.LENGTH_SHORT).show();
         }
     }
 

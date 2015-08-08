@@ -29,7 +29,9 @@ public class PreferencesActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_host);
+        setupToolbar();
         setToolbarHomeNavigation(true);
+
         if(savedInstanceState == null)
         {
             getFragmentManager().beginTransaction()

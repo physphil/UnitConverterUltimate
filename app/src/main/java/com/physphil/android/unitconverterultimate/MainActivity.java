@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
@@ -25,8 +26,10 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         Preferences.getInstance(this).getPreferences().registerOnSharedPreferenceChangeListener(this);
 
         setContentView(R.layout.activity_main);
+        setupToolbar();
         setToolbarHomeNavigation(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        setupDrawer();
 
         if(savedInstanceState == null)
         {
@@ -41,6 +44,21 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     {
         super.onDestroy();
         Preferences.getInstance(this).getPreferences().unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    private void setupDrawer()
+    {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem)
+            {
+                menuItem.setChecked(true);
+                mDrawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override

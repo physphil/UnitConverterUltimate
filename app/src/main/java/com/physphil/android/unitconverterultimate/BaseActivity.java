@@ -2,13 +2,14 @@ package com.physphil.android.unitconverterultimate;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 /**
  * Base Activity class for application
  * Created by Phizz on 15-08-03.
  */
-public class BaseActivity extends AppCompatActivity
+public abstract class BaseActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,10 +24,19 @@ public class BaseActivity extends AppCompatActivity
     }
 
     /**
+     * Set toolbar as app's action bar
+     */
+    protected void setupToolbar()
+    {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    /**
      * Set backward navigation in toolbar
      * @param upAsHome if back button should close activity
      */
-    public void setToolbarHomeNavigation(boolean upAsHome)
+    protected void setToolbarHomeNavigation(boolean upAsHome)
     {
         if(getSupportActionBar() != null)
         {
