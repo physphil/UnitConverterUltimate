@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         setContentView(R.layout.activity_main);
         setupToolbar();
         setToolbarHomeNavigation(true);
+        if(getSupportActionBar() != null) getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
 
         int conversion = Preferences.getInstance(this).getLastConversion();
         setToolbarTitle(Conversions.getInstance().getConversionTitle(conversion));
