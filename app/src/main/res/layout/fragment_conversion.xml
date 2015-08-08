@@ -26,7 +26,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_swap"
+        android:src="@drawable/ic_autorenew_white_24dp"
         fab:fab_colorNormal="@color/color_accent"
         fab:fab_colorPressed="@color/color_accent_dark" />
 
