@@ -81,8 +81,7 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         }
         catch(ActivityNotFoundException ex)
         {
-            Snackbar.make(getActivity().findViewById(android.R.id.content),
-                    R.string.toast_error_no_email_app, Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.toast_error_no_email_app, Toast.LENGTH_SHORT).show();
         }
     }
 

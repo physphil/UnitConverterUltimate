@@ -7,8 +7,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
+import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**
  * Main activity
@@ -28,13 +31,16 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         setContentView(R.layout.activity_main);
         setupToolbar();
         setToolbarHomeNavigation(true);
+
+        int conversion = Preferences.getInstance(this).getLastConversion();
+        setToolbarTitle(Conversions.getInstance().getConversionTitle(conversion));
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        setupDrawer();
+        setupDrawer(conversion);
 
         if(savedInstanceState == null)
         {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, ConversionFragment.newInstance(Preferences.getInstance(this).getLastConversion()))
+                    .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                     .commit();
         }
     }
@@ -46,17 +52,34 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         Preferences.getInstance(this).getPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
 
-    private void setupDrawer()
+    /**
+     * Setup navigation drawer
+     * @param state index of item to be selected initially
+     */
+    private void setupDrawer(int state)
     {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+        navigationView.getMenu().getItem(state).setChecked(true);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem)
             {
-                menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
-                return true;
+                switch (menuItem.getItemId())
+                {
+                    case R.id.drawer_settings:
+                        PreferencesActivity.start(MainActivity.this);
+                        return true;
+
+                    default:
+                        menuItem.setChecked(true);
+                        setToolbarTitle(Conversions.getInstance().getConversionTitle(menuItem.getOrder()));
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, ConversionFragment.newInstance(menuItem.getOrder()))
+                                .commit();
+                        return true;
+                }
             }
         });
     }

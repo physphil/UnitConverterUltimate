@@ -43,6 +43,14 @@ public class Conversions
     public static final int ROMER = 7;
     public static final int GAS_MARK = 8;
 
+    private final int[] mConversionTitles = new int[]
+            {
+                    R.string.area, R.string.cooking, R.string.storage, R.string.energy,
+                    R.string.fuel_consumption, R.string.length, R.string.mass, R.string.power,
+                    R.string.pressure, R.string.speed, R.string.temperature, R.string.time,
+                    R.string.torque, R.string.volume
+            };
+
     private static Conversions instance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
     private HashMap<String, Double> conversions = new HashMap<String, Double>();
@@ -85,6 +93,16 @@ public class Conversions
     public Conversion getById(int id)
     {
         return mConversions.get(id);
+    }
+
+    /**
+     * Get string resource of conversion title
+     * @param id conversion id
+     * @return string resource of conversion
+     */
+    public int getConversionTitle(int id)
+    {
+        return mConversionTitles[id];
     }
 
     public HashMap<String, Double> getConversions()

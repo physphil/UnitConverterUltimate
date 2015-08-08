@@ -24,6 +24,18 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     /**
+     * Set toolbar title
+     * @param resId resource id of string
+     */
+    protected void setToolbarTitle(int resId)
+    {
+        if(getSupportActionBar() != null)
+        {
+            getSupportActionBar().setTitle(resId);
+        }
+    }
+
+    /**
      * Set toolbar as app's action bar
      */
     protected void setupToolbar()
