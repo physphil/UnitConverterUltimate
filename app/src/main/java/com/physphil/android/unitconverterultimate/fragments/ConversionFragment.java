@@ -375,8 +375,8 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 mTxtValue.setText("");
                 return true;
 
-            case R.id.menu_settings:
-                PreferencesActivity.start(getActivity());
+            case R.id.menu_help:
+                HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
                 return true;
 
             default:

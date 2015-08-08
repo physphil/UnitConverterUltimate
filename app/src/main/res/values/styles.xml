@@ -1,23 +1,33 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat.NoActionBar" >
+    <style name="AppBaseTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="alertDialogTheme">@style/alert_dialog</item>
     </style>
-    
+
     <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="alertDialogTheme">@style/alert_dialog_light</item>
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme" >
+    <style name="AppTheme" parent="AppBaseTheme">
 
     </style>
 
-    <style name="AppThemeLight" parent="AppBaseTheme.Light" >
+    <style name="AppThemeLight" parent="AppBaseTheme.Light">
 
+    </style>
+
+    <style name="alert_dialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/color_primary</item>
+    </style>
+
+    <style name="alert_dialog_light" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color_primary</item>
     </style>
 
     <style name="toolbar" parent="Theme.AppCompat.Light">
