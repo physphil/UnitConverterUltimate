@@ -240,7 +240,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
      */
     private RadioButton getRadioButton(Unit u)
     {
-        RadioButton btn = new RadioButton(getActivity());
+        RadioButton btn = (RadioButton) LayoutInflater.from(getActivity()).inflate(R.layout.unit_radio_button, null);
         btn.setId(u.getId());
         btn.setTag(u);
         btn.setText(u.getLabelResource());
