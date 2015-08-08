@@ -1,120 +1,20 @@
-<android.support.v4.widget.DrawerLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:layout_height="match_parent">
 
-    <!-- Main Layout -->
-	<RelativeLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" >
-	
-		<ImageView
-	        android:id="@+id/swapImage"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="@dimen/rowMarginTypical"
-	        android:clickable="true"
-	        android:onClick="swapValues"
-	        android:src="@drawable/ic_swap"
-	        tools:ignore="ContentDescription" />
-		
-		
-	    <TextView
-	        android:id="@+id/swapText"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:layout_centerHorizontal="true"
-	        android:layout_below="@id/swapImage"
-	        android:clickable="true"
-	        android:onClick="swapValues"
-	        android:text="@string/text_swap"
-	        android:textColor="@color/icsWhite"
-	        android:textSize="@dimen/text_size_swap"
-	        android:textStyle="bold" />
-	    
-	    <EditText
-	        android:id="@+id/fromValue"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_alignBottom="@id/swapText"
-	        android:layout_toLeftOf="@id/swapImage"
-	        android:layout_marginRight="@dimen/textMarginTypical"
-	        android:inputType="numberSigned|numberDecimal"
-	        android:maxLength="@integer/num_digits_from"
-	        android:scrollHorizontally="true"
-	        android:text="@string/default_value"
-	        android:textSize="@dimen/fromValueTextSize" >
-	        <requestFocus />
-	    </EditText>
-	    
-	    <!-- Use EditText instead of TextView to allow horizontal scrolling if answer is too long -->
-	    <EditText
-	        android:id="@+id/toValue"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_alignBottom="@id/swapText"
-	        android:layout_marginLeft="@dimen/textMarginTypical"
-	        android:layout_toRightOf="@id/swapImage"
-	        android:clickable="false"
-	        android:cursorVisible="false"
-	        android:focusable="false"
-	        android:focusableInTouchMode="false"
-	        android:gravity="center"
-	        android:inputType="none"
-	        android:longClickable="true"
-	        android:scrollHorizontally="true"
-	        android:textSize="@dimen/toValueTextSize" />
-	    
-	    <TextView
-	        android:id="@+id/fromText"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@id/fromValue"
-	        android:layout_alignLeft="@id/fromValue"
-	        android:layout_marginTop="@dimen/rowMarginTypical"
-	        android:layout_marginLeft="@dimen/textMarginTypical"
-	        android:text="@string/text_from"
-	        android:textSize="@dimen/fromToTextSize" />
-	
-	    <TextView
-	        android:id="@+id/toText"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@id/toValue"
-	        android:layout_alignLeft="@id/toValue"
-	        android:layout_marginTop="@dimen/rowMarginTypical"
-	        android:layout_marginLeft="@dimen/textMarginTypical"
-	        android:text="@string/text_to"
-	        android:textSize="@dimen/fromToTextSize" />
-	
-	    <!-- This is the empty container that will hold the various unit fragments -->
-	    
-	    <android.support.v4.view.ViewPager
-	        android:id="@+id/mainViewPager"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@id/fromText"
-	        android:layout_marginTop="@dimen/rowMarginSmall" />
-	
-	</RelativeLayout>
-    
-    <!-- Navigation Drawer -->
     <include
+        android:id="@+id/fragment_container"
+        layout="@layout/activity_fragment_host" />
+
+    <android.support.design.widget.NavigationView
         android:id="@+id/navigation_drawer"
-        layout="@layout/navigation_drawer"
-        android:layout_width="@dimen/drawerLayoutWidth"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start" />
-    <!--<ListView -->
-        <!--android:id="@+id/nav_drawer"-->
-        <!--android:layout_width="@dimen/drawerLayoutWidth"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@color/icsLightBlack"-->
-        <!--android:layout_gravity="start"-->
-        <!--android:choiceMode="singleChoice" />-->
-    
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_drawer"/>
+
 </android.support.v4.widget.DrawerLayout>

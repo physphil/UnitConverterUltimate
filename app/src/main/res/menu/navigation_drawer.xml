@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_area"
+            android:icon="@drawable/ic_area"
+            android:title="@string/area" />
+
+        <item
+            android:id="@+id/drawer_cooking"
+            android:icon="@drawable/ic_cooking"
+            android:title="@string/cooking" />
+
+        <item
+            android:id="@+id/drawer_storage"
+            android:icon="@drawable/ic_storage"
+            android:title="@string/storage" />
+
+        <item
+            android:id="@+id/drawer_energy"
+            android:icon="@drawable/ic_energy"
+            android:title="@string/energy" />
+
+        <item
+            android:id="@+id/drawer_fuel"
+            android:icon="@drawable/ic_fuel"
+            android:title="@string/fuel_consumption" />
+
+        <item
+            android:id="@+id/drawer_length"
+            android:icon="@drawable/ic_length"
+            android:title="@string/length" />
+
+        <item
+            android:id="@+id/drawer_mass"
+            android:icon="@drawable/ic_mass"
+            android:title="@string/mass" />
+
+        <item
+            android:id="@+id/drawer_power"
+            android:icon="@drawable/ic_power"
+            android:title="@string/power" />
+
+        <item
+            android:id="@+id/drawer_pressure"
+            android:icon="@drawable/ic_pressure"
+            android:title="@string/pressure" />
+
+        <item
+            android:id="@+id/drawer_speed"
+            android:icon="@drawable/ic_speed"
+            android:title="@string/speed" />
+
+        <item
+            android:id="@+id/drawer_temperature"
+            android:icon="@drawable/ic_temperature"
+            android:title="@string/temperature" />
+
+        <item
+            android:id="@+id/drawer_time"
+            android:icon="@drawable/ic_time"
+            android:title="@string/time" />
+
+        <item
+            android:id="@+id/drawer_torque"
+            android:icon="@drawable/ic_torque"
+            android:title="@string/torque" />
+
+        <item
+            android:id="@+id/drawer_volume"
+            android:icon="@drawable/ic_volume"
+            android:title="@string/volume" />
+
+        <item
+            android:id="@+id/drawer_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/title_activity_settings" />
+
+    </group>
+
+</menu>

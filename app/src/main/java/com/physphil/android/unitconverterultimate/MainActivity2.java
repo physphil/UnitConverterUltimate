@@ -78,7 +78,7 @@ public class MainActivity2 extends ActionBarActivity{
 		}
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main2);
 		
 		//If Holo light theme is used, use light icons and change SWAP text color 
 		if(theme == Constants.THEME_LIGHT){			
@@ -547,7 +547,7 @@ public class MainActivity2 extends ActionBarActivity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
-		//getSupportMenuInflater().inflate(R.menu.activity_main, menu);
+		//getSupportMenuInflater().inflate(R.menu.activity_main2, menu);
 		return true;
 	}
 	
