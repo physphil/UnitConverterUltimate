@@ -64,14 +64,9 @@
             android:summary="@string/prefs_summary_rate" />
 
         <Preference
+            android:key="view_source"
             android:title="@string/prefs_title_source_code"
-            android:summary="@string/pref_summary_source_code">
-
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/physphil/UnitConverterUltimate-Studio" />
-
-        </Preference>
+            android:summary="@string/pref_summary_source_code"/>
 
     </PreferenceCategory>
 

@@ -6,8 +6,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -16,7 +14,6 @@ import com.physphil.android.unitconverterultimate.iab.IabResult;
 import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.iab.Purchase;
 import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
-import com.physphil.android.unitconverterultimate.ui.DonationListAdapter;
 import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
 
 import java.util.ArrayList;
@@ -84,38 +81,47 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
                 .append(getString(R.string.license_key_p3));
 
         mHelper = new IabHelper(this, sb.toString());
-        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener()
+        try
         {
-            @Override
-            public void onIabSetupFinished(IabResult result)
+            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener()
             {
-                if (result.isSuccess())
+                @Override
+                public void onIabSetupFinished(IabResult result)
                 {
-                    // Try to get available inventory
-                    mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener()
+                    if (result.isSuccess())
                     {
-                        @Override
-                        public void onQueryInventoryFinished(IabResult result, Inventory inv)
+                        // Try to get available inventory
+                        mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener()
                         {
-                            if (result.isSuccess())
+                            @Override
+                            public void onQueryInventoryFinished(IabResult result, Inventory inv)
                             {
-                                mInventory = inv;
-                                consumeExistingPurchases();
-                                displayDonationOptions();
+                                if (result.isSuccess())
+                                {
+                                    mInventory = inv;
+                                    consumeExistingPurchases();
+                                    displayDonationOptions();
+                                }
+                                else
+                                {
+                                    shutdown(false);
+                                }
                             }
-                            else
-                            {
-                                shutdown(false);
-                            }
-                        }
-                    });
+                        });
+                    }
+                    else
+                    {
+                        shutdown(false);
+                    }
                 }
-                else
-                {
-                    shutdown(false);
-                }
-            }
-        });
+            });
+        }
+        catch(Exception ex)
+        {
+            Toast.makeText(this, R.string.toast_error_billing_general, Toast.LENGTH_SHORT).show();
+            mHelper = null;
+            finish();
+        }
     }
 
     /**
@@ -175,7 +181,7 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         }
         else
         {
-            Toast.makeText(this, R.string.toast_error_billing, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_error_billing_internet, Toast.LENGTH_SHORT).show();
         }
         finish();
     }

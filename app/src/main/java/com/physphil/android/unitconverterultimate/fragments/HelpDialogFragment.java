@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 /**
  * Dialog fragment to display help text to user
@@ -55,9 +56,7 @@ public class HelpDialogFragment extends DialogFragment
                     {
                         try
                         {
-                            Uri uri = Uri.parse("https://github.com/physphil/UnitConverterUltimate-Studio");
-                            Intent i = new Intent(Intent.ACTION_VIEW, uri);
-                            startActivity(i);
+                            startActivity(IntentFactory.getViewSourceIntent());
                         }
                         catch (ActivityNotFoundException ex)
                         {

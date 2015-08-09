@@ -1,21 +1,18 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
 import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
-import com.physphil.android.unitconverterultimate.util.Constants;
-import com.physphil.android.unitconverterultimate.util.Util;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 /**
- * Preference Fragment
+ * Fragment to display preferences screen
  * Created by Phizz on 15-08-02.
  */
 public class PreferencesFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener
@@ -49,7 +46,18 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
             @Override
             public boolean onPreferenceClick(Preference preference)
             {
-                Util.rateApp(getActivity());
+                rateApp();
+                return true;
+            }
+        });
+
+        Preference viewSource = findPreference("view_source");
+        viewSource.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                viewSource();
                 return true;
             }
         });
@@ -73,11 +81,7 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
     {
         try
         {
-            Intent i = new Intent(Intent.ACTION_SEND);
-            i.setType("message/rfc822");
-            i.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.EMAIL_ADDRESS});
-            i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.request_unit));
-            startActivity(i);
+            startActivity(IntentFactory.getRequestUnitIntent(getString(R.string.request_unit)));
         }
         catch(ActivityNotFoundException ex)
         {
@@ -85,6 +89,29 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         }
     }
 
+    private void rateApp()
+    {
+        try
+        {
+            startActivity(IntentFactory.getOpenPlayStoreIntent(getActivity().getPackageName()));
+        }
+        catch(ActivityNotFoundException ex)
+        {
+            Toast.makeText(getActivity(), R.string.toast_error_google_play, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void viewSource()
+    {
+        try
+        {
+            startActivity(IntentFactory.getViewSourceIntent());
+        }
+        catch(ActivityNotFoundException ex)
+        {
+            Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
