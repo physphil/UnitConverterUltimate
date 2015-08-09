@@ -42,6 +42,7 @@ public class DonateActivity extends BaseActivity
         mListview = (ListView) findViewById(R.id.billing_listview);
         mProgressBar = (ProgressBar) findViewById(R.id.billing_progress_spinner);
 
+        setupToolbar();
         setToolbarHomeNavigation(true);
         setupBilling();
     }
