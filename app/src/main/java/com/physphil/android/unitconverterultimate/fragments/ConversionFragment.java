@@ -102,9 +102,16 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
-        if(savedInstanceState == null)  // TODO - handle rotation properly
+        if(savedInstanceState == null)
         {
-            mTxtValue.setText(mPrefs.getLastValue());
+            String value = mPrefs.getLastValue();
+            if(mConversionId != Conversions.TEMPERATURE)
+            {
+                // adjust value if it was negative coming from temperature conversion
+                value = value.replace("-", "");
+                value = value.replace("+", "");
+            }
+            mTxtValue.setText(value);
             mTxtValue.setSelection(mTxtValue.getText().length());
         }
 
