@@ -12,11 +12,23 @@ android {
         versionName '4.0.0'
     }
 
+    signingConfigs{
+        release{
+            def Properties keyProps = new Properties()
+            keyProps.load(new FileInputStream(file('keystore.properties')))
+            storeFile file(keyProps["store"])
+            storePassword keyProps["storePass"]
+            keyAlias keyProps["alias"]
+            keyPassword keyProps["pass"]
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
         }
     }
 }

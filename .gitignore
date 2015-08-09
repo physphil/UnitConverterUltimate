@@ -25,5 +25,9 @@ local.properties
 # Idea non-crucial project files
 *.iws
 
+# Signing info
+app/keystore.properties
+app/physphil
+
 #In-App-Billing constants
 app/src/main/res/values/iab.xml

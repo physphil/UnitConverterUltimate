@@ -84,7 +84,6 @@ public class DonateActivity extends BaseActivity
             @Override
             public void onIabSetupFinished(IabResult result)
             {
-
                 if (result.isSuccess())
                 {
                     // Try to get available inventory
@@ -93,7 +92,6 @@ public class DonateActivity extends BaseActivity
                         @Override
                         public void onQueryInventoryFinished(IabResult result, Inventory inv)
                         {
-
                             if (result.isSuccess())
                             {
                                 mInventory = inv;
@@ -127,7 +125,6 @@ public class DonateActivity extends BaseActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Log.d("PS", "spending " + mInventory.getSkuDetails(mDonationOptions.get(position)).getPrice());
                 donate(mInventory.getSkuDetails(mDonationOptions.get(position)).getSku());
             }
         });
@@ -153,21 +150,7 @@ public class DonateActivity extends BaseActivity
         mHelper.consumeAsync(purchases, new IabHelper.OnConsumeMultiFinishedListener()
         {
             @Override
-            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results)
-            {
-                for (int i = 0; i < results.size(); i++)
-                {
-
-                    if (results.get(i).isSuccess())
-                    {
-                        Log.d("PS", "successfully consumed " + purchases.get(i).getSku());
-                    }
-                    else
-                    {
-                        Log.d("PS", "error consuming " + purchases.get(i).getSku());
-                    }
-                }
-            }
+            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results) {}
         });
     }
 
@@ -200,9 +183,7 @@ public class DonateActivity extends BaseActivity
         finish();
     }
 
-    /*
-    Listener called when purchase has completed
-     */
+    // Listener called when purchase has completed
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener()
     {
         @Override
@@ -234,15 +215,6 @@ public class DonateActivity extends BaseActivity
         @Override
         public void onConsumeFinished(Purchase purchase, IabResult result)
         {
-            if (result.isFailure())
-            {
-                Log.d("PS", "Problem consuming " + purchase.getSku());
-            }
-            else
-            {
-                Log.d("PS", "Successfully consumed " + purchase.getSku());
-            }
-
             // Purchase is successful, thank user and shutdown activity
             shutdown(true);
         }
