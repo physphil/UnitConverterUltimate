@@ -11,9 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Contains HashMaps for all conversions. Key is the name of the radio button ID
+ * Contains all conversion info
  */
-
 public class Conversions
 {
     // Unit conversion categories
@@ -53,7 +52,6 @@ public class Conversions
 
     private static Conversions instance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
-    private HashMap<String, Double> conversions = new HashMap<String, Double>();
 
     private Conversions()
     {
@@ -103,11 +101,6 @@ public class Conversions
     public int getConversionTitle(int id)
     {
         return mConversionTitles[id];
-    }
-
-    public HashMap<String, Double> getConversions()
-    {
-        return conversions;
     }
 
     private void getAreaConversions()

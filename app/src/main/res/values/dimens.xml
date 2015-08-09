@@ -3,23 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="fromValueTextSize">18sp</dimen>
-    <dimen name="toValueTextSize">18sp</dimen>
-    <dimen name="radioButtonTextSize">16sp</dimen>
-    <dimen name="fromToTextSize">14sp</dimen>
-    <dimen name="radioButtonSpacing">32dp</dimen>
-    <dimen name="text_size_swap">9sp</dimen>
-    
-    <dimen name="rowMarginTypical">10dp</dimen>
-    <dimen name="rowMarginSmall">5dp</dimen>
-    <dimen name="textMarginTypical">5dp</dimen>
-    <dimen name="textMarginLarge">10dp</dimen>
-    <dimen name="textPaddingTypical">8dp</dimen>
-    <dimen name="textPaddingSmall">3dp</dimen>
-    
-    <dimen name="drawerLayoutWidth">240dp</dimen>
-    <dimen name="drawerRowHeight">60dp</dimen>
-
     <dimen name="margin_view_small">4dp</dimen>
     <dimen name="margin_view_typical">8dp</dimen>
     <dimen name="margin_view_large">16dp</dimen>

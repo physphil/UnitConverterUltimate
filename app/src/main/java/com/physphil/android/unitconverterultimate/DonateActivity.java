@@ -62,10 +62,8 @@ public class DonateActivity extends BaseActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-
         if (!mHelper.handleActivityResult(requestCode, resultCode, data))
         {
-
             // Not related to in-app billing, handle normally
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -73,7 +71,6 @@ public class DonateActivity extends BaseActivity
 
     private void setupBilling()
     {
-
         mDonationOptions = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.donation_options)));
 
         // Setup google play billing
@@ -82,7 +79,6 @@ public class DonateActivity extends BaseActivity
                 .append(getString(R.string.license_key_p3));
 
         mHelper = new IabHelper(this, sb.toString());
-//        mHelper.enableDebugLogging(true, "PS");
         mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener()
         {
             @Override
@@ -142,7 +138,6 @@ public class DonateActivity extends BaseActivity
      */
     private void consumeExistingPurchases()
     {
-
         List<Purchase> purchases = new ArrayList<Purchase>();
 
         // Check each sku, consume if owned
@@ -183,7 +178,6 @@ public class DonateActivity extends BaseActivity
      */
     private void donate(String productId)
     {
-
         mPurchasePayload = UUID.randomUUID().toString();
         mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
     }
@@ -195,7 +189,6 @@ public class DonateActivity extends BaseActivity
      */
     private void shutdown(boolean success)
     {
-
         if (success)
         {
             Toast.makeText(this, R.string.toast_donation_successful, Toast.LENGTH_LONG).show();
@@ -218,7 +211,6 @@ public class DonateActivity extends BaseActivity
 
             if (result.isFailure())
             {
-
                 switch (result.getResponse())
                 {
                     case IabHelper.IABHELPER_USER_CANCELLED:
@@ -242,7 +234,6 @@ public class DonateActivity extends BaseActivity
         @Override
         public void onConsumeFinished(Purchase purchase, IabResult result)
         {
-
             if (result.isFailure())
             {
                 Log.d("PS", "Problem consuming " + purchase.getSku());

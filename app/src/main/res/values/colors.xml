@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	 <color name="white">#FFFFFF</color>
-	 <color name="black">#000000</color>
-	 <color name="gbGreen">#99C224</color>
-	 <color name="icsGreen">#00CC00</color>
-	 <color name="icsRed">#FF0000</color>
-	 <color name="icsBlack">#222222</color>
-	 <color name="icsLightBlack">#333333</color>
-	 <color name="icsGray">#555555</color>
-	 <color name="icsWhite">#F9F9F9</color>
-	 <color name="icsBlue">#33B5E5</color>
-	 <color name="icsDarkBlue">#177BBD</color>
-	 <color name="icsDarkGray">#333333</color>
-	 <color name="icsShadeLight">#D4D4D4</color>
-	 <color name="icsPressedBlue">#19A2D1</color>
-
     <color name="theme_blue">#199ACA</color>
     <color name="theme_blue_dark">#147BA1</color>
 	<color name="theme_orange">#CA7519</color>
