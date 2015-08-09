@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.View;
@@ -34,13 +35,5 @@ public class HelpDialogFragment extends DialogFragment
                 .setMessage(R.string.dialog_message_help)
                 .setPositiveButton(R.string.dialog_btn_got_it, null)
                 .create();
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState)
-    {
-        super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) view.findViewById(android.R.id.message);
-        tv.setAutoLinkMask(Linkify.ALL);
     }
 }

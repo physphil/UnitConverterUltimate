@@ -466,7 +466,7 @@
 
     <string name="dialog_btn_got_it">Got It</string>
     <string name="dialog_title_help">Help</string>
-    <string name="dialog_message_help">Use the slide-in menu for navigation between conversions and select the units you require.\n\nThe converted value is fully customizable. Use the settings menu to select the number of decimal places required as well as the grouping and decimal separators.\n\nLong-pressing on the converted value copies it to the clipboard.\n\nUnit Converter Ultimate is open source!  <a href="http://www.github.com/">Check out the code on GitHub.</a></string>
+    <string name="dialog_message_help">Use the slide-in menu for navigation between conversions and select the units you require.\n\nThe converted value is fully customizable. Use the settings menu to select the number of decimal places required as well as the grouping and decimal separators.\n\nLong-pressing on the converted value copies it to the clipboard.</string>
 
     <string name="menu_help">Help</string>
 </resources>
