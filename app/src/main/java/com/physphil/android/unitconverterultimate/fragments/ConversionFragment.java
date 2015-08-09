@@ -1,9 +1,12 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
@@ -42,7 +45,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         RadioGroup.OnCheckedChangeListener
 {
     private static final String ARGS_CONVERSION_ID = "conversion_id";
-    private static final String ARGS_CONVERSION_STATE = "conversion_state";
 
     private ConversionPresenter mConversionPresenter;
     private RadioGroup mGrpFrom, mGrpTo;
@@ -117,6 +119,20 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
 
         mTxtResult = (EditText) v.findViewById(R.id.header_value_to);
+        mTxtResult.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                // Copy text to clipboard
+                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Conversion Result", ((EditText) v).getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Snackbar.make(v, R.string.toast_copied_clipboard, Snackbar.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
         mGrpFrom = (RadioGroup) v.findViewById(R.id.radio_group_from);
         mGrpTo = (RadioGroup) v.findViewById(R.id.radio_group_to);
         addUnits();
