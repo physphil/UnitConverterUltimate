@@ -14,16 +14,18 @@
             android:id="@+id/radio_group_from"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginLeft="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_view_small"
             android:layout_marginRight="@dimen/margin_view_typical"
+            android:layout_marginEnd="@dimen/margin_view_typical"
             android:layout_weight="1"/>
 
         <RadioGroup
             android:id="@+id/radio_group_to"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_view_typical"
-            android:layout_marginRight="@dimen/margin_view_typical"
+            android:layout_marginEnd="@dimen/margin_view_small"
+            android:layout_marginRight="@dimen/margin_view_small"
             android:layout_weight="1"/>
 
     </LinearLayout>
