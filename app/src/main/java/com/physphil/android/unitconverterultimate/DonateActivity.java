@@ -2,9 +2,9 @@ package com.physphil.android.unitconverterultimate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.MenuItem;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,21 +15,23 @@ import com.physphil.android.unitconverterultimate.iab.IabHelper;
 import com.physphil.android.unitconverterultimate.iab.IabResult;
 import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.iab.Purchase;
+import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
 import com.physphil.android.unitconverterultimate.ui.DonationListAdapter;
+import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class DonateActivity extends BaseActivity
+public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener
 {
     private static final int DONATE_REQUEST_CODE = 6996;
 
     private List<String> mDonationOptions;
     private IabHelper mHelper;
     private Inventory mInventory;
-    private ListView mListview;
+    private RecyclerView mRecyclerView;
     private ProgressBar mProgressBar;
     private String mPurchasePayload;
 
@@ -39,8 +41,10 @@ public class DonateActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
 
-        mListview = (ListView) findViewById(R.id.billing_listview);
         mProgressBar = (ProgressBar) findViewById(R.id.billing_progress_spinner);
+        mRecyclerView = (RecyclerView) findViewById(R.id.billing_recyclerview);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         setupToolbar();
         setToolbarHomeNavigation(true);
@@ -120,15 +124,7 @@ public class DonateActivity extends BaseActivity
     private void displayDonationOptions()
     {
         mProgressBar.setVisibility(View.GONE);
-        mListview.setAdapter(new DonationListAdapter(this, mInventory));
-        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                donate(mInventory.getSkuDetails(mDonationOptions.get(position)).getSku());
-            }
-        });
+        mRecyclerView.setAdapter(new DonateListAdapter(mInventory, getResources().getStringArray(R.array.donation_options), this));
     }
 
     /**
@@ -220,4 +216,11 @@ public class DonateActivity extends BaseActivity
             shutdown(true);
         }
     };
+
+    // RecyclerView item click listener
+    @Override
+    public void onListItemClicked(Object sku, int position)
+    {
+        donate((String) sku);
+    }
 }
