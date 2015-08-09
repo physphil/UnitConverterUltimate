@@ -1,6 +1,9 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -11,6 +14,7 @@ import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
+import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 
 /**
@@ -33,7 +37,24 @@ public class HelpDialogFragment extends DialogFragment
         return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.dialog_title_help)
                 .setMessage(R.string.dialog_message_help)
-                .setPositiveButton(R.string.dialog_btn_got_it, null)
+                .setPositiveButton(R.string.dialog_btn_got_it, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Preferences.getInstance(getActivity()).setShowHelp(false);
+                    }
+                })
+                .setNeutralButton("View Source", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Uri uri = Uri.parse("https://github.com/physphil/UnitConverterUltimate-Studio");
+                        Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(i);
+                    }
+                })
                 .create();
     }
 }

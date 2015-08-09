@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
+import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
@@ -43,6 +44,18 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                     .commit();
+        }
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+        // Show help dialog if never seen before
+        if(Preferences.getInstance(this).showHelp())
+        {
+            HelpDialogFragment.newInstance().show(getSupportFragmentManager(), HelpDialogFragment.TAG);
         }
     }
 

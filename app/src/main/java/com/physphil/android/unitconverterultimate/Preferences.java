@@ -21,6 +21,7 @@ public class Preferences
     public static final String PREFS_GROUP_SEPARATOR = "group_separator";
     public static final String PREFS_HAS_RATED = "has_rated";
     public static final String PREFS_APP_OPEN_COUNT = "app_open_count";
+    public static final String PREFS_SHOW_HELP = "show_help";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
@@ -94,5 +95,15 @@ public class Preferences
     public String getGroupSeparator()
     {
         return mPrefs.getString(PREFS_GROUP_SEPARATOR, "");
+    }
+
+    public void setShowHelp(boolean showHelp)
+    {
+        mPrefs.edit().putBoolean(PREFS_SHOW_HELP, showHelp).apply();
+    }
+
+    public boolean showHelp()
+    {
+        return mPrefs.getBoolean(PREFS_SHOW_HELP, true);
     }
 }
