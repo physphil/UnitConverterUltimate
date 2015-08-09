@@ -6,17 +6,25 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.TextView;
 
+import com.physphil.android.unitconverterultimate.R;
+
 public class FontFitTextView extends TextView
 {
+    private Paint mTestPaint;
+
     public FontFitTextView(Context context)
     {
-        super(context);
-        initialise();
+        this(context, null);
     }
 
     public FontFitTextView(Context context, AttributeSet attrs)
     {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public FontFitTextView(Context context, AttributeSet attrs, int defStyleAttr)
+    {
+        super(context, attrs, defStyleAttr);
         initialise();
     }
 
@@ -35,7 +43,7 @@ public class FontFitTextView extends TextView
         if (textWidth <= 0)
             return;
         int targetWidth = textWidth - this.getPaddingLeft() - this.getPaddingRight();
-        float hi = 100;
+        float hi = getResources().getDimensionPixelSize(R.dimen.text_size_result);
         float lo = 2;
         final float threshold = 0.5f; // How close we have to be
 
@@ -78,7 +86,4 @@ public class FontFitTextView extends TextView
             refitText(this.getText().toString(), w);
         }
     }
-
-    //Attributes
-    private Paint mTestPaint;
 }

@@ -7,4 +7,5 @@
     <dimen name="margin_view_typical">8dp</dimen>
     <dimen name="margin_view_large">16dp</dimen>
     <dimen name="margin_view_xlarge">32dp</dimen>
+    <dimen name="text_size_result">18sp</dimen>
 </resources>
