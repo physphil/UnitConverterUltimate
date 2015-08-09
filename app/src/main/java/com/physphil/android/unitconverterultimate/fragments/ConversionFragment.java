@@ -403,6 +403,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
                 return true;
 
+            case R.id.menu_settings:
+                PreferencesActivity.start(getActivity());
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
