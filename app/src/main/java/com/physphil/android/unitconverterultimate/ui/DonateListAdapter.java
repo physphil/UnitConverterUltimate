@@ -30,6 +30,7 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
             super(v);
             description = (TextView) v.findViewById(R.id.billing_donation_description);
             price = (TextView) v.findViewById(R.id.billing_donation_price);
+            v.setOnClickListener(this);
         }
 
         @Override
