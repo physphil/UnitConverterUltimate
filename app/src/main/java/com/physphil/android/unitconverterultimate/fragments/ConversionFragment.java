@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
@@ -135,7 +136,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Conversion Result", ((EditText) v).getText().toString());
                 clipboard.setPrimaryClip(clip);
-                Snackbar.make(v, R.string.toast_copied_clipboard, Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.toast_copied_clipboard, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

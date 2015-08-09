@@ -470,4 +470,6 @@
     <string name="dialog_message_help">Use the slide-in menu for navigation between conversions and select the units you require.\n\nThe converted value is fully customizable. Use the settings menu to select the number of decimal places required as well as the grouping and decimal separators.\n\nLong-pressing on the converted value copies it to the clipboard.</string>
 
     <string name="menu_help">Help</string>
+    <string name="toast_error_no_browser">No browser could be found</string>
+    <string name="dialog_btn_view_source">View Source</string>
 </resources>

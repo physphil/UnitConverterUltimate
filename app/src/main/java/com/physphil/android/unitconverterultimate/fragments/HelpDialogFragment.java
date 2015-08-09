@@ -1,11 +1,13 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
@@ -13,6 +15,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
@@ -45,14 +48,21 @@ public class HelpDialogFragment extends DialogFragment
                         Preferences.getInstance(getActivity()).setShowHelp(false);
                     }
                 })
-                .setNeutralButton("View Source", new DialogInterface.OnClickListener()
+                .setNeutralButton(R.string.dialog_btn_view_source, new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        Uri uri = Uri.parse("https://github.com/physphil/UnitConverterUltimate-Studio");
-                        Intent i = new Intent(Intent.ACTION_VIEW, uri);
-                        startActivity(i);
+                        try
+                        {
+                            Uri uri = Uri.parse("https://github.com/physphil/UnitConverterUltimate-Studio");
+                            Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(i);
+                        }
+                        catch (ActivityNotFoundException ex)
+                        {
+                            Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .create();
