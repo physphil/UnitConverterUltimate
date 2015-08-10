@@ -27,7 +27,8 @@ Available unit conversions include:
 - Fuel Consumption (miles per gallon, liters per 100km, etc)
 - Digital Storage (bit, byte, megabytes, gigabytes, etc)
 
-**TIPS**
+Usage
+------
 - Use the slide-in menu for navigation between conversions and select the units you require. To open the slide-in menu, swipe in from the left edge of the app, or press the app icon in the top left corner.
 
 - The converted value is fully customizable. Use the Settings menu to select the number of decimal places required as well as the grouping and decimal separators.
