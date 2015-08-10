@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Contains all conversion info
  */
-public class Conversions
+public final class Conversions
 {
     // Unit conversion categories
     public static final int AREA = 0;
@@ -42,22 +42,30 @@ public class Conversions
     public static final int ROMER = 7;
     public static final int GAS_MARK = 8;
 
-    private static Conversions instance = null;
+    private static Conversions mInstance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
 
     /**
      * Get instance of Conversions objects, which contains mapping of type and Conversion object
-     * @return Conversions instance
+     *
+     * @return Conversions mInstance
      */
     public static Conversions getInstance()
     {
         //Create singleton to contain all conversions
-        if (instance == null)
-        {
-            instance = new Conversions();
-        }
+        initialize();
+        return mInstance;
+    }
 
-        return instance;
+    /**
+     * Initialize singleton mInstance with conversion info
+     */
+    public static void initialize()
+    {
+        if(mInstance == null)
+        {
+            mInstance = new Conversions();
+        }
     }
 
     private Conversions()
