@@ -40,8 +40,8 @@ public final class Conversion
         return units;
     }
 
-    public int getNumberUnits()
+    public Unit getUnitById(int id)
     {
-        return units.size();
+        return units.get(id);
     }
 }
