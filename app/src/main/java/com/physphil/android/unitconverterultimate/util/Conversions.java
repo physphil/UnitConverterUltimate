@@ -72,6 +72,10 @@ public class Conversions
         getVolumeConversions();
     }
 
+    /**
+     * Get instance of Conversions objects, which contains mapping of type and Conversion object
+     * @return Conversions instance
+     */
     public static Conversions getInstance()
     {
         //Create singleton to contain all conversions
