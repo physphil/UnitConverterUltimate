@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Database object which contains state (selected From and To units) of current conversion
  * Created by Phizz on 15-08-02.
  */
-public class ConversionState implements Parcelable
+public final class ConversionState implements Parcelable
 {
     private int conversionId;
     private int fromId;

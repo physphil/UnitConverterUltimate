@@ -7,11 +7,9 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
-import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**
@@ -21,13 +19,15 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 public class MainActivity extends BaseActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
     private DrawerLayout mDrawerLayout;
+    private Conversions mConversions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, false); // TODO move to Application class
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         Preferences.getInstance(this).getPreferences().registerOnSharedPreferenceChangeListener(this);
+        mConversions = Conversions.getInstance();
 
         setContentView(R.layout.activity_main);
         setupToolbar();
@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         if(getSupportActionBar() != null) getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
 
         int conversion = Preferences.getInstance(this).getLastConversion();
-        setToolbarTitle(Conversions.getInstance().getConversionTitle(conversion));
+        setToolbarTitle(mConversions.getById(conversion).getLabelResource());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         setupDrawer(conversion);
 
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
 
                     default:
                         menuItem.setChecked(true);
-                        setToolbarTitle(Conversions.getInstance().getConversionTitle(menuItem.getOrder()));
+                        setToolbarTitle(mConversions.getById(menuItem.getOrder()).getLabelResource());
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, ConversionFragment.newInstance(menuItem.getOrder()))
                                 .commit();

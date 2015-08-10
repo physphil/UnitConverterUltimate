@@ -31,7 +31,7 @@ public class Conversions
     public static final int TORQUE = 12;
     public static final int VOLUME = 13;
 
-    // Temperature units TODO @INTDEF
+    // Temperature units
     public static final int CELSIUS = 0;
     public static final int FAHRENHEIT = 1;
     public static final int KELVIN = 2;
@@ -42,16 +42,23 @@ public class Conversions
     public static final int ROMER = 7;
     public static final int GAS_MARK = 8;
 
-    private final int[] mConversionTitles = new int[]
-            {
-                    R.string.area, R.string.cooking, R.string.storage, R.string.energy,
-                    R.string.fuel_consumption, R.string.length, R.string.mass, R.string.power,
-                    R.string.pressure, R.string.speed, R.string.temperature, R.string.time,
-                    R.string.torque, R.string.volume
-            };
-
     private static Conversions instance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
+
+    /**
+     * Get instance of Conversions objects, which contains mapping of type and Conversion object
+     * @return Conversions instance
+     */
+    public static Conversions getInstance()
+    {
+        //Create singleton to contain all conversions
+        if (instance == null)
+        {
+            instance = new Conversions();
+        }
+
+        return instance;
+    }
 
     private Conversions()
     {
@@ -73,21 +80,6 @@ public class Conversions
     }
 
     /**
-     * Get instance of Conversions objects, which contains mapping of type and Conversion object
-     * @return Conversions instance
-     */
-    public static Conversions getInstance()
-    {
-        //Create singleton to contain all conversions
-        if (instance == null)
-        {
-            instance = new Conversions();
-        }
-
-        return instance;
-    }
-
-    /**
      * Get Conversion object by its id
      * @param id id of conversion
      * @return Conversion object
@@ -95,16 +87,6 @@ public class Conversions
     public Conversion getById(int id)
     {
         return mConversions.get(id);
-    }
-
-    /**
-     * Get string resource of conversion title
-     * @param id conversion id
-     * @return string resource of conversion
-     */
-    public int getConversionTitle(int id)
-    {
-        return mConversionTitles[id];
     }
 
     private void getAreaConversions()
