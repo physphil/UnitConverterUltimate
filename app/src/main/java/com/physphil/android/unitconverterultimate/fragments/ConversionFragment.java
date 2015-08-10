@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
@@ -93,7 +93,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversions.AREA);
         mConversionPresenter = new ConversionPresenter(this);
         mPrefs = Preferences.getInstance(getActivity());
-        mState = DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
     }
 
     @Nullable
@@ -161,13 +160,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState)
-    {
-        super.onActivityCreated(savedInstanceState);
-        convert();
-    }
-
-    @Override
     public void onResume()
     {
         super.onResume();
@@ -188,8 +180,11 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void onViewStateRestored(@Nullable Bundle savedInstanceState)
     {
         super.onViewStateRestored(savedInstanceState);
+        new LoadConversionStateTask().execute();
+    }
 
-        // View hierarchy has been restored, set state of radio buttons
+    private void showConversionState()
+    {
         mGrpFrom.check(mState.getFromId());
         mGrpFrom.setOnCheckedChangeListener(this);
         mGrpTo.check(mState.getToId());
@@ -250,10 +245,6 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             mGrpFrom.addView(getRadioButton(u), lp);
             mGrpTo.addView(getRadioButton(u), lp);
         }
-
-        // Restore previously selected units
-        mGrpFrom.check(mState.getFromId());
-        mGrpTo.check(mState.getToId());
     }
 
     /**
@@ -326,9 +317,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         int fromId = mGrpFrom.getCheckedRadioButtonId();
         int toId = mGrpTo.getCheckedRadioButtonId();
 
-        // Swap selected units in groups
-        mGrpFrom.check(toId);
-        mGrpTo.check(fromId);
+        // Check individual button to avoid calling OnCheckChanged listener 6 times
+        // RadioGroup.check(id) actually fires OnCheckChanged 3 times per each button
+        ((RadioButton) mGrpFrom.findViewById(toId)).setChecked(true);
+        ((RadioButton) mGrpTo.findViewById(fromId)).setChecked(true);
     }
 
     private TextWatcher mTextWatcher = new TextWatcher()
@@ -409,6 +401,28 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /**
+     * AsyncTask to load ConversionState for given fragment from database
+     */
+    private final class LoadConversionStateTask extends AsyncTask<Void, Void, ConversionState>
+    {
+        @Override
+        protected ConversionState doInBackground(Void... params)
+        {
+            // This is okay as DataAccess uses application context
+            return DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
+        }
+
+        @Override
+        protected void onPostExecute(ConversionState conversionState)
+        {
+            // This is okay as fragment instance is retained across config change
+            mState = conversionState;
+            showConversionState();
+            convert();
         }
     }
 }
