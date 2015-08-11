@@ -12,6 +12,7 @@
     <string name="menu_settings">Settings</string>
     <string name="group_separator_none">None</string>
     <string name="request_unit">Unit Converter Ultimate: New Unit Request</string>
+    <string name="header_other_stuff">Other Stuff</string>
 
     <string name="toast_error_billing_internet">Oops, there was a problem. Please make sure you have a working Internet connection and try again.</string>
     <string name="toast_error_billing_general">Oops, there was a problem. Please try again.</string>
