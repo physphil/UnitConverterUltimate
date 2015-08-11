@@ -8,10 +8,6 @@ import android.support.annotation.IntDef;
  */
 public class Unit
 {
-    // make list of units with IntDef. add to getters/setters/db save methods. make radio button id the index of for loop, as unit is already set as tag.
-    // can no longer do radioGroup.check(id) from conversion state, as btn ids wont be synced with conversion state ids.  just find btn in group by id and check. this is probably better anyways.
-    // add annotations to ConversionState
-    // replace toasts
     public static final int SQ_KILOMETRES = 0;
     public static final int SQ_METRES = 1;
     public static final int SQ_CENTIMETRES = 2;
