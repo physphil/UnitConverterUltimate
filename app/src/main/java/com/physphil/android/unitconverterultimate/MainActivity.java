@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
+import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**
@@ -88,14 +89,66 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
 
                     default:
                         menuItem.setChecked(true);
-                        setToolbarTitle(mConversions.getById(menuItem.getOrder()).getLabelResource());
+                        int conversion = getConversionFromDrawer(menuItem.getItemId());
+                        setToolbarTitle(mConversions.getById(conversion).getLabelResource());
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, ConversionFragment.newInstance(menuItem.getOrder()))
+                                .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                                 .commit();
                         return true;
                 }
             }
         });
+    }
+
+    @Conversion.id
+    private int getConversionFromDrawer(int itemId)
+    {
+        switch(itemId)
+        {
+            case R.id.drawer_area:
+                return Conversion.AREA;
+
+            case R.id.drawer_cooking:
+                return Conversion.COOKING;
+
+            case R.id.drawer_storage:
+                return Conversion.STORAGE;
+
+            case R.id.drawer_energy:
+                return Conversion.ENERGY;
+
+            case R.id.drawer_fuel:
+                return Conversion.FUEL;
+
+            case R.id.drawer_length:
+                return Conversion.LENGTH;
+
+            case R.id.drawer_mass:
+                return Conversion.MASS;
+
+            case R.id.drawer_power:
+                return Conversion.POWER;
+
+            case R.id.drawer_pressure:
+                return Conversion.PRESSURE;
+
+            case R.id.drawer_speed:
+                return Conversion.SPEED;
+
+            case R.id.drawer_temperature:
+                return Conversion.TEMPERATURE;
+
+            case R.id.drawer_time:
+                return Conversion.TIME;
+
+            case R.id.drawer_torque:
+                return Conversion.TORQUE;
+
+            case R.id.drawer_volume:
+                return Conversion.VOLUME;
+        }
+
+        return Conversion.AREA;
     }
 
     @Override

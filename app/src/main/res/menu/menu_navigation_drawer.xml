@@ -4,89 +4,74 @@
     <group
         android:checkableBehavior="single">
 
-        <!-- orderInCategory corresponds to conversion id -->
         <item
             android:id="@+id/drawer_area"
             android:icon="@drawable/ic_area"
-            android:orderInCategory="0"
             android:title="@string/area"/>
 
         <item
             android:id="@+id/drawer_cooking"
             android:icon="@drawable/ic_cooking"
-            android:orderInCategory="1"
             android:title="@string/cooking"/>
 
         <item
             android:id="@+id/drawer_storage"
             android:icon="@drawable/ic_storage"
-            android:orderInCategory="2"
             android:title="@string/storage"/>
 
         <item
             android:id="@+id/drawer_energy"
             android:icon="@drawable/ic_energy"
-            android:orderInCategory="3"
             android:title="@string/energy"/>
 
         <item
             android:id="@+id/drawer_fuel"
             android:icon="@drawable/ic_fuel"
-            android:orderInCategory="4"
             android:title="@string/fuel_consumption"/>
 
         <item
             android:id="@+id/drawer_length"
             android:icon="@drawable/ic_length"
-            android:orderInCategory="5"
             android:title="@string/length"/>
 
         <item
             android:id="@+id/drawer_mass"
             android:icon="@drawable/ic_mass"
-            android:orderInCategory="6"
             android:title="@string/mass"/>
 
         <item
             android:id="@+id/drawer_power"
             android:icon="@drawable/ic_power"
-            android:orderInCategory="7"
             android:title="@string/power"/>
 
         <item
             android:id="@+id/drawer_pressure"
             android:icon="@drawable/ic_pressure"
-            android:orderInCategory="8"
             android:title="@string/pressure"/>
 
         <item
             android:id="@+id/drawer_speed"
             android:icon="@drawable/ic_speed"
-            android:orderInCategory="9"
             android:title="@string/speed"/>
 
         <item
             android:id="@+id/drawer_temperature"
             android:icon="@drawable/ic_temperature"
-            android:orderInCategory="10"
             android:title="@string/temperature"/>
 
         <item
             android:id="@+id/drawer_time"
             android:icon="@drawable/ic_time"
-            android:orderInCategory="11"
             android:title="@string/time"/>
 
         <item
             android:id="@+id/drawer_torque"
             android:icon="@drawable/ic_torque"
-            android:orderInCategory="12"
             android:title="@string/torque"/>
 
         <item
             android:id="@+id/drawer_volume"
             android:icon="@drawable/ic_volume"
-            android:orderInCategory="13"
             android:title="@string/volume"/>
 
     </group>
@@ -94,7 +79,6 @@
     <item
         android:id="@+id/drawer_settings"
         android:icon="@drawable/ic_settings"
-        android:orderInCategory="100"
         android:title="@string/title_activity_settings"/>
 
 </menu>
