@@ -61,7 +61,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
      * @param id id of the conversion it will handle
      * @return new ConversionFragment instance
      */
-    public static ConversionFragment newInstance(int id)
+    public static ConversionFragment newInstance(@Conversion.id int id)
     {
         ConversionFragment f = new ConversionFragment();
         Bundle args = new Bundle();
@@ -90,7 +90,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
-        mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversions.AREA);
+        mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversion.AREA);
         mConversionPresenter = new ConversionPresenter(this);
         mPrefs = Preferences.getInstance(getActivity());
     }
@@ -105,7 +105,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         if(savedInstanceState == null)
         {
             String value = mPrefs.getLastValue();
-            if(mConversionId != Conversions.TEMPERATURE)
+            if(mConversionId != Conversion.TEMPERATURE)
             {
                 // adjust value if it was negative coming from temperature conversion
                 value = value.replace("-", "");
@@ -116,7 +116,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         }
 
         // Only allow negative values for temperature
-        if (mConversionId == Conversions.TEMPERATURE)
+        if (mConversionId == Conversion.TEMPERATURE)
         {
             mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         }
@@ -202,11 +202,11 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
         switch (mConversionId)
         {
-            case Conversions.TEMPERATURE:
+            case Conversion.TEMPERATURE:
                 mConversionPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
 
-            case Conversions.FUEL:
+            case Conversion.FUEL:
                 mConversionPresenter.convertFuelValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
 

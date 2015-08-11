@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.models.Conversion;
 
 /**
  * Preferences class
@@ -13,7 +13,6 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 public class Preferences
 {
     public static final String PREFS_THEME = "light_theme";
-    public static final String PREFS_CONVERSION = "conversion";
     public static final String PREFS_FROM_VALUE = "from_value";
     public static final String PREFS_NUMBER_OF_DECIMALS = "number_decimals";
     public static final String PREFS_DECIMAL_SEPARATOR = "decimal_separator";
@@ -21,6 +20,7 @@ public class Preferences
     public static final String PREFS_HAS_RATED = "has_rated";
     public static final String PREFS_APP_OPEN_COUNT = "app_open_count";
     public static final String PREFS_SHOW_HELP = "show_help";
+    private static final String PREFS_CONVERSION = "conversion";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
@@ -56,17 +56,13 @@ public class Preferences
         return mPrefs.getBoolean(PREFS_THEME, false);
     }
 
-    public void setLightTheme(boolean lightTheme)
+    @SuppressWarnings("ResourceType")
+    public @Conversion.id int getLastConversion()
     {
-        mPrefs.edit().putBoolean(PREFS_THEME, lightTheme).apply();
+        return mPrefs.getInt(PREFS_CONVERSION, Conversion.AREA);
     }
 
-    public int getLastConversion()
-    {
-        return mPrefs.getInt(PREFS_CONVERSION, Conversions.AREA);
-    }
-
-    public void setLastConversion(int conversionId)
+    public void setLastConversion(@Conversion.id int conversionId)
     {
         mPrefs.edit().putInt(PREFS_CONVERSION, conversionId).apply();
     }

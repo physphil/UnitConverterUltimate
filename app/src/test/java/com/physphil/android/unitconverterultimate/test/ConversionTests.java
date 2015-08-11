@@ -37,7 +37,7 @@ public class ConversionTests
     @Test
     public void testArea()
     {
-        Conversion area = mConversions.getById(Conversions.AREA);
+        Conversion area = mConversions.getById(Conversion.AREA);
 
         // Test each fromBase and toBase value
         mPresenter.convert(5.5, area.getUnitById(0), area.getUnitById(1));
