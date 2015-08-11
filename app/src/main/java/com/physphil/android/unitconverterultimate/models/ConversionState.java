@@ -13,41 +13,44 @@ public final class ConversionState implements Parcelable
     private int fromId;
     private int toId;
 
-    public ConversionState(int conversionId)
+    public ConversionState(@Conversion.id int conversionId)
     {
         this.conversionId = conversionId;
-        this.fromId = 0;
-        this.toId = 1;
+        this.fromId = -1;
+        this.toId = -1;
     }
 
-    public ConversionState(int conversionId, int fromId, int toId)
+    public ConversionState(@Conversion.id int conversionId, @Unit.id int fromId, @Unit.id int toId)
     {
         this.conversionId = conversionId;
         this.fromId = fromId;
         this.toId = toId;
     }
 
+    @Conversion.id
     public int getConversionId()
     {
         return conversionId;
     }
 
+    @Unit.id
     public int getFromId()
     {
         return fromId;
     }
 
+    @Unit.id
     public int getToId()
     {
         return toId;
     }
 
-    public void setFromId(int fromId)
+    public void setFromId(@Unit.id int fromId)
     {
         this.fromId = fromId;
     }
 
-    public void setToId(int toId)
+    public void setToId(@Unit.id int toId)
     {
         this.toId = toId;
     }

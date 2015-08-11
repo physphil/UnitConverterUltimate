@@ -5,10 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.AsyncTask;
 
+import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
-import com.physphil.android.unitconverterultimate.models.Unit;
 
 /**
  * Extension of SQLiteOpenHelper to access SQLite database
@@ -98,7 +97,8 @@ public class DataAccess extends SQLiteOpenHelper
      * @param conversionId id of conversion
      * @return saved ConversionState
      */
-    public ConversionState getConversionState(int conversionId)
+    @SuppressWarnings("ResourceType")
+    public ConversionState getConversionState(@Conversion.id int conversionId)
     {
         String sql =
                 "SELECT " +

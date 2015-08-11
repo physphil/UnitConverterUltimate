@@ -102,10 +102,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
-        if(savedInstanceState == null)
+        if (savedInstanceState == null)
         {
             String value = mPrefs.getLastValue();
-            if(mConversionId != Conversion.TEMPERATURE)
+            if (mConversionId != Conversion.TEMPERATURE)
             {
                 // adjust value if it was negative coming from temperature conversion
                 value = value.replace("-", "");
@@ -183,11 +183,25 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         new LoadConversionStateTask().execute();
     }
 
-    private void showConversionState()
+    /**
+     * Set radio buttons to their saved state (if any)
+     */
+    private void restoreConversionState()
     {
-        mGrpFrom.check(mState.getFromId());
+        if (mState.getFromId() < 0 || mState.getToId() < 0)
+        {
+            // Empty initial state, set state from default checked buttons
+            mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
+            mState.setToId(mGrpTo.getCheckedRadioButtonId());
+        }
+        else
+        {
+            // Overwrite default checked state with last saved state
+            mGrpFrom.check(mState.getFromId());
+            mGrpTo.check(mState.getToId());
+        }
+
         mGrpFrom.setOnCheckedChangeListener(this);
-        mGrpTo.check(mState.getToId());
         mGrpTo.setOnCheckedChangeListener(this);
     }
 
@@ -242,23 +256,38 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         for (int i = 0; i < c.getUnits().size(); i++)
         {
             Unit u = c.getUnits().get(i);
-            mGrpFrom.addView(getRadioButton(u), lp);
-            mGrpTo.addView(getRadioButton(u), lp);
+            boolean fromChecked = false;
+            boolean toChecked = false;
+
+            // Set default checked state. Will be overridden later on if there is a saved state to restore
+            if (i == 0)
+            {
+                fromChecked = true;
+            }
+            else if (i == 1)
+            {
+                toChecked = true;
+            }
+
+            mGrpFrom.addView(getRadioButton(u, fromChecked), lp);
+            mGrpTo.addView(getRadioButton(u, toChecked), lp);
         }
     }
 
     /**
      * Create Radio Button to display in group
      *
-     * @param u unit which the button represents
+     * @param u       unit which the button represents
+     * @param checked if the button is checked or not
      * @return RadioButton to display
      */
-    private RadioButton getRadioButton(Unit u)
+    private RadioButton getRadioButton(Unit u, boolean checked)
     {
         RadioButton btn = (RadioButton) LayoutInflater.from(getActivity()).inflate(R.layout.unit_radio_button, null);
         btn.setId(u.getId());
         btn.setTag(u);
         btn.setText(u.getLabelResource());
+        btn.setChecked(checked);
         return btn;
     }
 
@@ -326,10 +355,14 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private TextWatcher mTextWatcher = new TextWatcher()
     {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after)
+        {
+        }
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        public void onTextChanged(CharSequence s, int start, int before, int count)
+        {
+        }
 
         @Override
         public void afterTextChanged(Editable s)
@@ -349,7 +382,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId)
     {
-        switch(group.getId())
+        switch (group.getId())
         {
             case R.id.radio_group_from:
                 mState.setFromId(checkedId);
@@ -421,7 +454,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         {
             // This is okay as fragment instance is retained across config change
             mState = conversionState;
-            showConversionState();
+            restoreConversionState();
             convert();
         }
     }

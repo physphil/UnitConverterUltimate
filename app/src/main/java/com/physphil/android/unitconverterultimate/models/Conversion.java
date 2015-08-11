@@ -64,7 +64,7 @@ public final class Conversion
         return units;
     }
 
-    public Unit getUnitById(int id)
+    public Unit getUnitById(@Unit.id int id)
     {
         return units.get(id);
     }
