@@ -15,17 +15,6 @@ import java.util.Map;
  */
 public final class Conversions
 {
-    // Temperature units
-//    public static final int CELSIUS = 0;
-//    public static final int FAHRENHEIT = 1;
-//    public static final int KELVIN = 2;
-//    public static final int RANKINE = 3;
-//    public static final int DELISLE = 4;
-//    public static final int NEWTON = 5;
-//    public static final int REAUMUR = 6;
-//    public static final int ROMER = 7;
-//    public static final int GAS_MARK = 8;
-
     private static Conversions mInstance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
 
