@@ -25,6 +25,9 @@ public class ConversionTests
     @Mock ConversionPresenter.ConversionView view;
 
     private final double DELTA_4 = 0.0001;
+    private final double DELTA_6 = 0.000001;
+    private final double DELTA_7 = 0.0000001;
+    private final double DELTA_9 = 0.000000001;
     private final double DELTA_10 = 0.0000000001;
     private Conversions mConversions;
     private ConversionPresenter mPresenter;
@@ -128,5 +131,117 @@ public class ConversionTests
         verify(view).showResult(AdditionalMatchers.eq(3.4175415522, DELTA_10));
         mPresenter.convertFuelValue(5.5, fuel.getUnitById(MILES_L), fuel.getUnitById(MPG_US));
         verify(view).showResult(AdditionalMatchers.eq(20.8197649, DELTA_10));
+    }
+
+    @Test
+    public void testLength()
+    {
+        Conversion length = mConversions.getById(Conversion.LENGTH);
+
+        mPresenter.convert(5.5, length.getUnitById(KILOMETRE), length.getUnitById(MILE));
+        verify(view).showResult(AdditionalMatchers.eq(3.4175415573, DELTA_10));
+        mPresenter.convert(5.5, length.getUnitById(MILE), length.getUnitById(METRE));
+        verify(view).showResult(eq(8851.392));
+        mPresenter.convert(5.5, length.getUnitById(METRE), length.getUnitById(CENTIMETRE));
+        verify(view).showResult(eq(550.0));
+        mPresenter.convert(5.5, length.getUnitById(CENTIMETRE), length.getUnitById(MILLIMETRE));
+        verify(view).showResult(eq(55.0));
+        mPresenter.convert(5.5, length.getUnitById(MILLIMETRE), length.getUnitById(MICROMETRE));
+        verify(view).showResult(eq(5500.0));
+        mPresenter.convert(5.5, length.getUnitById(MICROMETRE), length.getUnitById(NANOMETRE));
+        verify(view, atLeastOnce()).showResult(eq(5500.0));
+        mPresenter.convert(5558, length.getUnitById(NANOMETRE), length.getUnitById(YARD));
+        verify(view).showResult(AdditionalMatchers.eq(0.0000060783, DELTA_10));
+        mPresenter.convert(5.5, length.getUnitById(YARD), length.getUnitById(FEET));
+        verify(view).showResult(eq(16.5));
+        mPresenter.convert(5.5, length.getUnitById(FEET), length.getUnitById(INCH));
+        verify(view).showResult(AdditionalMatchers.eq(66.0, DELTA_10));
+        mPresenter.convert(5.5, length.getUnitById(MILLIMETRE), length.getUnitById(MICROMETRE));
+        verify(view, atLeastOnce()).showResult(eq(5500.0));
+        mPresenter.convert(5.5, length.getUnitById(INCH), length.getUnitById(NAUTICAL_MILE));
+        verify(view).showResult(AdditionalMatchers.eq(0.000075432, DELTA_10));
+        mPresenter.convert(5.5, length.getUnitById(NAUTICAL_MILE), length.getUnitById(FURLONG));
+        verify(view).showResult(AdditionalMatchers.eq(50.634295713, DELTA_10));
+        mPresenter.convert(123456789.0, length.getUnitById(FURLONG), length.getUnitById(LIGHT_YEAR));
+        verify(view).showResult(AdditionalMatchers.eq(0.0000026251, DELTA_10));
+        mPresenter.convert(5.5, length.getUnitById(LIGHT_YEAR), length.getUnitById(KILOMETRE));
+        verify(view).showResult(eq(52034017599194.41));
+    }
+
+    @Test
+    public void testMass()
+    {
+        Conversion mass = mConversions.getById(Conversion.MASS);
+
+        mPresenter.convert(5.5, mass.getUnitById(KILOGRAM), mass.getUnitById(POUND));
+        verify(view).showResult(AdditionalMatchers.eq(12.1254244202, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(POUND), mass.getUnitById(GRAM));
+        verify(view).showResult(AdditionalMatchers.eq(2494.758035, DELTA_6));
+        mPresenter.convert(5.5, mass.getUnitById(GRAM), mass.getUnitById(MILLIGRAM));
+        verify(view).showResult(eq(5500.0));
+        mPresenter.convert(5.5, mass.getUnitById(MILLIGRAM), mass.getUnitById(OUNCE));
+        verify(view).showResult(AdditionalMatchers.eq(0.0001940068, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(OUNCE), mass.getUnitById(GRAIN));
+        verify(view).showResult(eq(2406.25));
+        mPresenter.convert(5.5, mass.getUnitById(GRAIN), mass.getUnitById(STONE));
+        verify(view).showResult(AdditionalMatchers.eq(0.0000561224, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(STONE), mass.getUnitById(METRIC_TON));
+        verify(view).showResult(AdditionalMatchers.eq(0.0349266125, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(METRIC_TON), mass.getUnitById(SHORT_TON));
+        verify(view).showResult(AdditionalMatchers.eq(6.0627122101, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(SHORT_TON), mass.getUnitById(LONG_TON));
+        verify(view).showResult(AdditionalMatchers.eq(4.9107142857, DELTA_10));
+        mPresenter.convert(5.5, mass.getUnitById(LONG_TON), mass.getUnitById(KILOGRAM));
+        verify(view).showResult(AdditionalMatchers.eq(5588.2579984, DELTA_7));
+    }
+
+    @Test
+    public void testPower()
+    {
+        Conversion power = mConversions.getById(Conversion.POWER);
+
+        mPresenter.convert(5.5, power.getUnitById(WATT), power.getUnitById(KILOWATT));
+        verify(view).showResult(eq(0.0055));
+        mPresenter.convert(5.5, power.getUnitById(KILOWATT), power.getUnitById(MEGAWATT));
+        verify(view, atLeastOnce()).showResult(eq(0.0055));
+        mPresenter.convert(5.5, power.getUnitById(MEGAWATT), power.getUnitById(HP));
+        verify(view).showResult(AdditionalMatchers.eq(7477.9188951715, DELTA_10));
+        mPresenter.convert(5.5, power.getUnitById(HP), power.getUnitById(HP_UK));
+        verify(view).showResult(AdditionalMatchers.eq(5.4247603884, DELTA_10));
+        mPresenter.convert(5.5, power.getUnitById(HP_UK), power.getUnitById(FT_LBF_S));
+        verify(view).showResult(eq(3025.0));
+        mPresenter.convert(5.5, power.getUnitById(FT_LBF_S), power.getUnitById(CALORIE_S));
+        verify(view).showResult(AdditionalMatchers.eq(1.7810735444, DELTA_10));
+        mPresenter.convert(5.5, power.getUnitById(CALORIE_S), power.getUnitById(BTU_S));
+        verify(view).showResult(AdditionalMatchers.eq(0.021825764, DELTA_9));
+        mPresenter.convert(5.5, power.getUnitById(BTU_S), power.getUnitById(KVA));
+        verify(view).showResult(AdditionalMatchers.eq(5.8028071894, DELTA_10));
+        mPresenter.convert(5.5, power.getUnitById(KVA), power.getUnitById(WATT));
+        verify(view).showResult(eq(5500.0));
+    }
+
+    @Test
+    public void testPressure()
+    {
+        Conversion pressure = mConversions.getById(Conversion.PRESSURE);
+
+        mPresenter.convert(5.5, pressure.getUnitById(MEGAPASCAL), pressure.getUnitById(KILOPASCAL));
+        verify(view).showResult(eq(5500.0));
+        mPresenter.convert(5.5, pressure.getUnitById(KILOPASCAL), pressure.getUnitById(PASCAL));
+        verify(view, atLeastOnce()).showResult(eq(5500.0));
+        mPresenter.convert(5.5, pressure.getUnitById(PASCAL), pressure.getUnitById(BAR));
+        verify(view).showResult(eq(0.000055));
+        mPresenter.convert(5.5, pressure.getUnitById(BAR), pressure.getUnitById(PSI));
+        verify(view).showResult(AdditionalMatchers.eq(79.7707557516, DELTA_10));
+        mPresenter.convert(5.5, pressure.getUnitById(PSI), pressure.getUnitById(PSF));
+        verify(view).showResult(eq(792.0));
+        mPresenter.convert(5.5, pressure.getUnitById(PSF), pressure.getUnitById(ATMOSPHERE));
+        verify(view).showResult(AdditionalMatchers.eq(0.0025989778, DELTA_10));
+        mPresenter.convert(5.5, pressure.getUnitById(ATMOSPHERE), pressure.getUnitById(MMHG));
+        verify(view).showResult(AdditionalMatchers.eq(4179.9994044909, DELTA_10));
+        mPresenter.convert(5.5, pressure.getUnitById(MMHG), pressure.getUnitById(TORR));
+        verify(view).showResult(AdditionalMatchers.eq(5.5000007836, DELTA_10));
+        mPresenter.convert(5.5, pressure.getUnitById(TORR), pressure.getUnitById(MEGAPASCAL));
+        verify(view).showResult(AdditionalMatchers.eq(0.000733273, DELTA_9));
     }
 }
