@@ -112,4 +112,21 @@ public class ConversionTests
         mPresenter.convert(5.5, energy.getUnitById(KILOWATT_HOUR), energy.getUnitById(JOULE));
         verify(view).showResult(eq(19800000.0));
     }
+
+    @Test
+    public void testFuelConsumption()
+    {
+        Conversion fuel = mConversions.getById(Conversion.FUEL);
+
+        mPresenter.convertFuelValue(5.5, fuel.getUnitById(MPG_US), fuel.getUnitById(MPG_UK));
+        verify(view).showResult(AdditionalMatchers.eq(6.6052245905, DELTA_10));
+        mPresenter.convertFuelValue(5.5, fuel.getUnitById(MPG_UK), fuel.getUnitById(L_100K));
+        verify(view).showResult(AdditionalMatchers.eq(51.3601699525, DELTA_10));
+        mPresenter.convertFuelValue(5.5, fuel.getUnitById(L_100K), fuel.getUnitById(KM_L));
+        verify(view).showResult(AdditionalMatchers.eq(18.1818180813, DELTA_10));
+        mPresenter.convertFuelValue(5.5, fuel.getUnitById(KM_L), fuel.getUnitById(MILES_L));
+        verify(view).showResult(AdditionalMatchers.eq(3.4175415522, DELTA_10));
+        mPresenter.convertFuelValue(5.5, fuel.getUnitById(MILES_L), fuel.getUnitById(MPG_US));
+        verify(view).showResult(AdditionalMatchers.eq(20.8197649, DELTA_10));
+    }
 }
