@@ -15,7 +15,6 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
-
 /**
  * JUnit tests for unit conversions
  * Created by pshadlyn on 8/10/2015.
@@ -244,4 +243,132 @@ public class ConversionTests
         mPresenter.convert(5.5, pressure.getUnitById(TORR), pressure.getUnitById(MEGAPASCAL));
         verify(view).showResult(AdditionalMatchers.eq(0.000733273, DELTA_9));
     }
+
+    @Test
+    public void testSpeed()
+    {
+        Conversion speed = mConversions.getById(Conversion.SPEED);
+
+        mPresenter.convert(5.5, speed.getUnitById(KM_HR), speed.getUnitById(MPH));
+        verify(view).showResult(AdditionalMatchers.eq(3.4175415573, DELTA_10));
+        mPresenter.convert(5.5, speed.getUnitById(MPH), speed.getUnitById(M_S));
+        verify(view).showResult(eq(2.45872));
+        mPresenter.convert(5.5, speed.getUnitById(M_S), speed.getUnitById(FPS));
+        verify(view).showResult(AdditionalMatchers.eq(18.0446194226, DELTA_10));
+        mPresenter.convert(5.5, speed.getUnitById(FPS), speed.getUnitById(KNOT));
+        verify(view).showResult(AdditionalMatchers.eq(3.2586609071, DELTA_10));
+        mPresenter.convert(5.5, speed.getUnitById(KNOT), speed.getUnitById(KM_HR));
+        verify(view).showResult(AdditionalMatchers.eq(10.1860, DELTA_4));
+    }
+
+    @Test
+    public void testTemperature()
+    {
+        Conversion temp = mConversions.getById(Conversion.TEMPERATURE);
+
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(CELSIUS), temp.getUnitById(FAHRENHEIT));
+        verify(view).showResult(eq(41.9));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(FAHRENHEIT), temp.getUnitById(KELVIN));
+        verify(view).showResult(AdditionalMatchers.eq(258.4277777778, DELTA_10));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(KELVIN), temp.getUnitById(RANKINE));
+        verify(view).showResult(eq(9.9));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(RANKINE), temp.getUnitById(DELISLE));
+        verify(view).showResult(AdditionalMatchers.eq(555.1416666667, DELTA_10));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(DELISLE), temp.getUnitById(NEWTON));
+        verify(view).showResult(eq(31.79));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(NEWTON), temp.getUnitById(REAUMUR));
+        verify(view).showResult(AdditionalMatchers.eq(13.3333333333, DELTA_10));
+        mPresenter.convertTemperatureValue(5.5, temp.getUnitById(REAUMUR), temp.getUnitById(ROMER));
+        verify(view).showResult(eq(11.109375));
+        mPresenter.convertTemperatureValue(10.0, temp.getUnitById(GAS_MARK), temp.getUnitById(CELSIUS));
+        verify(view).showResult(eq(260.0));
+    }
+
+    @Test
+    public void testTime()
+    {
+        Conversion time = mConversions.getById(Conversion.TIME);
+
+        mPresenter.convert(5.0, time.getUnitById(YEAR), time.getUnitById(MONTH));
+        verify(view).showResult(AdditionalMatchers.eq(59.9999994, DELTA_7));
+        mPresenter.convert(5.0, time.getUnitById(MONTH), time.getUnitById(WEEK));
+        verify(view).showResult(AdditionalMatchers.eq(21.7261904762, DELTA_10));
+        mPresenter.convert(5.0, time.getUnitById(WEEK), time.getUnitById(DAY));
+        verify(view).showResult(eq(35.0));
+        mPresenter.convert(5.0, time.getUnitById(DAY), time.getUnitById(HOUR));
+        verify(view).showResult(eq(120.0));
+        mPresenter.convert(5.0, time.getUnitById(HOUR), time.getUnitById(MINUTE));
+        verify(view).showResult(eq(300.0));
+        mPresenter.convert(5.0, time.getUnitById(MINUTE), time.getUnitById(SECOND));
+        verify(view, atLeastOnce()).showResult(eq(300.0));
+        mPresenter.convert(5.0, time.getUnitById(SECOND), time.getUnitById(MILLISECOND));
+        verify(view).showResult(eq(5000.0));
+        mPresenter.convert(5.0, time.getUnitById(MILLISECOND), time.getUnitById(NANOSECOND));
+        verify(view).showResult(eq(5000000.0));
+        mPresenter.convert(5.0, time.getUnitById(NANOSECOND), time.getUnitById(MILLISECOND));
+        verify(view).showResult(AdditionalMatchers.eq(0.000005, DELTA_7));
+        mPresenter.convert(5.0, time.getUnitById(MONTH), time.getUnitById(YEAR));
+        verify(view).showResult(AdditionalMatchers.eq(0.4166666667, DELTA_10));
+    }
+
+    @Test
+    public void testTorque()
+    {
+        Conversion torque = mConversions.getById(Conversion.TORQUE);
+
+        mPresenter.convert(5.5, torque.getUnitById(N_M), torque.getUnitById(FT_LBF));
+        verify(view).showResult(AdditionalMatchers.eq(4.056591822, DELTA_10));
+        mPresenter.convert(5.5, torque.getUnitById(FT_LBF), torque.getUnitById(IN_LBF));
+        verify(view).showResult(AdditionalMatchers.eq(66.0000000161, DELTA_10));
+        mPresenter.convert(5.5, torque.getUnitById(IN_LBF), torque.getUnitById(N_M));
+        verify(view).showResult(AdditionalMatchers.eq(0.6214165597, DELTA_10));
+    }
+
+    @Test
+    public void testVolume()
+    {
+        Conversion volume = mConversions.getById(Conversion.VOLUME);
+
+        mPresenter.convert(5.5, volume.getUnitById(TEASPOON), volume.getUnitById(TABLESPOON));
+        verify(view).showResult(AdditionalMatchers.eq(1.8333333334, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(TABLESPOON), volume.getUnitById(CUP));
+        verify(view).showResult(AdditionalMatchers.eq(0.34375, DELTA_6));
+        mPresenter.convert(5.5, volume.getUnitById(CUP), volume.getUnitById(FLUID_OUNCE));
+        verify(view).showResult(eq(44.0));
+        mPresenter.convert(5.5, volume.getUnitById(FLUID_OUNCE), volume.getUnitById(FLUID_OUNCE_UK));
+        verify(view).showResult(AdditionalMatchers.eq(5.7246350193, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(FLUID_OUNCE_UK), volume.getUnitById(PINT));
+        verify(view).showResult(AdditionalMatchers.eq(0.3302612295, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(PINT), volume.getUnitById(PINT_UK));
+        verify(view).showResult(AdditionalMatchers.eq(4.5797080155, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(PINT_UK), volume.getUnitById(QUART));
+        verify(view).showResult(AdditionalMatchers.eq(3.3026122951, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(QUART), volume.getUnitById(QUART_UK));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(4.5797080155, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(QUART_UK), volume.getUnitById(GALLON));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(1.6513061476, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(GALLON), volume.getUnitById(GALLON_UK));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(4.5797080155, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(GALLON_UK), volume.getUnitById(BARREL));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(0.2096896695, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(BARREL), volume.getUnitById(BARREL_UK));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(4.0072445135, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(BARREL_UK), volume.getUnitById(MILLILITRE));
+        verify(view).showResult(AdditionalMatchers.eq(900125.82, DELTA_6));
+        mPresenter.convert(5.5, volume.getUnitById(MILLILITRE), volume.getUnitById(LITRE));
+        verify(view).showResult(eq(0.0055));
+        mPresenter.convert(5.5, volume.getUnitById(LITRE), volume.getUnitById(CUBIC_CM));
+        verify(view).showResult(eq(5500.0));
+        mPresenter.convert(5.5, volume.getUnitById(CUBIC_CM), volume.getUnitById(CUBIC_M));
+        verify(view).showResult(eq(0.0000055));
+        mPresenter.convert(5.5, volume.getUnitById(CUBIC_M), volume.getUnitById(CUBIC_INCH));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(335630.592521028, DELTA_9));
+        mPresenter.convert(5.5, volume.getUnitById(CUBIC_INCH), volume.getUnitById(CUBIC_FOOT));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(0.0031828704, DELTA_9));
+        mPresenter.convert(5.5, volume.getUnitById(CUBIC_FOOT), volume.getUnitById(CUBIC_YARD));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(0.2037037007, DELTA_10));
+        mPresenter.convert(5.5, volume.getUnitById(CUBIC_YARD), volume.getUnitById(TEASPOON));
+        verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(853138.298312504, DELTA_9));
+    }
+
 }
