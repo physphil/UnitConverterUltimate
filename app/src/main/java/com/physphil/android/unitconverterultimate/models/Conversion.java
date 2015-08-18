@@ -66,6 +66,14 @@ public final class Conversion
 
     public Unit getUnitById(@Unit.id int id)
     {
-        return units.get(id);
+        for (int i = 0; i < units.size(); i++)
+        {
+            if(units.get(i).getId() == id)
+            {
+                return units.get(i);
+            }
+        }
+
+        throw new IllegalArgumentException("Invalid unit id supplied");
     }
 }
