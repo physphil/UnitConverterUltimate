@@ -2,6 +2,8 @@ package com.physphil.android.unitconverterultimate.presenters;
 
 import com.physphil.android.unitconverterultimate.models.Unit;
 
+import java.math.BigDecimal;
+
 /**
  * Presenter to handle unit conversions
  * Created by Phizz on 15-07-29.
@@ -94,16 +96,23 @@ public class ConversionPresenter
         {
             if (from.getId() == Unit.L_100K)   // Litres/100km
             {
-                result = (from.getConversionToBaseUnit() / value) * to.getConversionFromBaseUnit();
+                BigDecimal toBase = new BigDecimal(from.getConversionToBaseUnit());
+                BigDecimal fromBase = new BigDecimal(to.getConversionFromBaseUnit());
+                BigDecimal resultBd = toBase.divide(new BigDecimal(value), BigDecimal.ROUND_UP).multiply(fromBase);
+                result = resultBd.doubleValue();
             }
             else if (to.getId() == Unit.L_100K)   // Litres/100km
             {
-                result = to.getConversionFromBaseUnit() / (value * from.getConversionToBaseUnit());
+                BigDecimal fromBase = new BigDecimal(to.getConversionFromBaseUnit());
+                BigDecimal toBase = new BigDecimal(from.getConversionToBaseUnit());
+                BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), BigDecimal.ROUND_UP);
+                result = resultBd.doubleValue();
             }
             else
             {
-                double multiplier = from.getConversionToBaseUnit() * to.getConversionFromBaseUnit();
-                result = value * multiplier;
+                BigDecimal multiplier = new BigDecimal(from.getConversionToBaseUnit()).multiply(new BigDecimal(to.getConversionFromBaseUnit()));
+                BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
+                result = bdResult.doubleValue();
             }
         }
 
@@ -122,8 +131,10 @@ public class ConversionPresenter
         double result = value;
         if (from.getId() != to.getId())
         {
-            double multiplier = from.getConversionToBaseUnit() * to.getConversionFromBaseUnit();
-            result = value * multiplier;
+            // use BigDecimal to eliminate multiplication rounding errors
+            BigDecimal multiplier = new BigDecimal(from.getConversionToBaseUnit()).multiply(new BigDecimal(to.getConversionFromBaseUnit()));
+            BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
+            result = bdResult.doubleValue();
         }
         mView.showResult(result);
     }

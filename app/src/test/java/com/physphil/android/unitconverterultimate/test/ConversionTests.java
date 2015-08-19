@@ -164,7 +164,7 @@ public class ConversionTests
         mPresenter.convert(123456789.0, length.getUnitById(FURLONG), length.getUnitById(LIGHT_YEAR));
         verify(view).showResult(AdditionalMatchers.eq(0.0000026251, DELTA_10));
         mPresenter.convert(5.5, length.getUnitById(LIGHT_YEAR), length.getUnitById(KILOMETRE));
-        verify(view).showResult(eq(52034017599194.41));
+        verify(view).showResult(eq(52034017599194.4));
     }
 
     @Test
@@ -370,5 +370,4 @@ public class ConversionTests
         mPresenter.convert(5.5, volume.getUnitById(CUBIC_YARD), volume.getUnitById(TEASPOON));
         verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(853138.298312504, DELTA_9));
     }
-
 }
