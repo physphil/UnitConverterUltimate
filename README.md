@@ -35,6 +35,8 @@ Usage
 
 - Long-pressing on the converted value copies it to the clipboard.
 
+- Pressing the swap Floating Action Button switches the selected units
+
 Developed by
 ------------
 Phil Shadlyn - physphil@gmail.com &nbsp;&nbsp;•&nbsp;&nbsp; [Install from Google Play](https://play.google.com/store/apps/details?id=com.physphil.android.unitconverterultimate)
