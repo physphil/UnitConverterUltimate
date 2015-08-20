@@ -165,6 +165,7 @@
     <string name="psi">PSI</string>
     <string name="psf">PSF</string>
     <string name="atmosphere">Atmosphere</string>
+    <string name="technical_atmosphere">Technical Atm</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
 

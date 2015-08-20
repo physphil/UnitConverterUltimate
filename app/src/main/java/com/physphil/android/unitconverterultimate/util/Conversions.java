@@ -251,6 +251,7 @@ public final class Conversions
         units.add(new Unit(PSI, R.string.psi, 6894.757293168361, 0.000145037737730209222));
         units.add(new Unit(PSF, R.string.psf, 47.880258980335840277777777778, 0.020885434233150127968));
         units.add(new Unit(ATMOSPHERE, R.string.atmosphere, 101325.0, 0.0000098692326671601283));
+        units.add(new Unit(TECHNICAL_ATMOSPHERE, R.string.technical_atmosphere, 98066.5, 0.0000101971621297792824257));
         units.add(new Unit(MMHG, R.string.mmhg, 133.322387415, 0.007500615758456563339513));
         units.add(new Unit(TORR, R.string.torr, 133.3223684210526315789, 0.00750061682704169751));
         addConversion(Conversion.PRESSURE, new Conversion(Conversion.PRESSURE, R.string.pressure, units));

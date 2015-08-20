@@ -256,8 +256,10 @@ public class ConversionTests
         verify(view).showResult(AdditionalMatchers.eq(4179.9994044909, DELTA_10));
         mPresenter.convert(5.5, pressure.getUnitById(MMHG), pressure.getUnitById(TORR));
         verify(view).showResult(AdditionalMatchers.eq(5.5000007836, DELTA_10));
-        mPresenter.convert(5.5, pressure.getUnitById(TORR), pressure.getUnitById(MEGAPASCAL));
-        verify(view).showResult(AdditionalMatchers.eq(0.000733273, DELTA_9));
+        mPresenter.convert(5.5, pressure.getUnitById(TORR), pressure.getUnitById(TECHNICAL_ATMOSPHERE));
+        verify(view).showResult(AdditionalMatchers.eq(0.007477303934736015598438, DELTA_10));
+        mPresenter.convert(5.5, pressure.getUnitById(TECHNICAL_ATMOSPHERE), pressure.getUnitById(MEGAPASCAL));
+        verify(view).showResult((0.53936575));
     }
 
     @Test
