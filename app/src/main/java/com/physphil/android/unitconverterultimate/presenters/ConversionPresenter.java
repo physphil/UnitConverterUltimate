@@ -108,7 +108,7 @@ public class ConversionPresenter
     public void convertFuelValue(double value, Unit from, Unit to)
     {
         double result = value;
-        if (from.getId() != to.getId())
+        if (from.getId() != to.getId() && value != 0)
         {
             if (from.getId() == Unit.L_100K)   // Litres/100km
             {

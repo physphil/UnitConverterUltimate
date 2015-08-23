@@ -146,6 +146,10 @@ public class ConversionTests
         verify(view).showResult(AdditionalMatchers.eq(3.4175415522, DELTA_10));
         mPresenter.convertFuelValue(5.5, fuel.getUnitById(MILES_L), fuel.getUnitById(MPG_US));
         verify(view).showResult(AdditionalMatchers.eq(20.8197649, DELTA_10));
+        mPresenter.convertFuelValue(0, fuel.getUnitById(L_100K), fuel.getUnitById(MPG_UK));
+        verify(view, atLeastOnce()).showResult(0.0);
+        mPresenter.convertFuelValue(0, fuel.getUnitById(MPG_UK), fuel.getUnitById(L_100K));
+        verify(view, atLeastOnce()).showResult(0.0);
     }
 
     @Test
