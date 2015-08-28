@@ -143,8 +143,8 @@ public final class Conversions
         units.add(new Unit(BYTE, R.string.Byte, 0.00000095367431640625, 1048576.0));
         units.add(new Unit(KILOBIT, R.string.kilobit, 0.0001220703125, 8192.0));
         units.add(new Unit(KILOBYTE, R.string.kilobyte, 0.0009765625, 1024.0));
-        units.add(new Unit(MEGABIT, R.string.megabit, 1.0, 1.0));
-        units.add(new Unit(MEGABYTE, R.string.megabyte, 0.83612736, 1.19599004630108026));
+        units.add(new Unit(MEGABIT, R.string.megabit, 0.125, 8.0));
+        units.add(new Unit(MEGABYTE, R.string.megabyte, 1.0, 1.0));
         units.add(new Unit(GIGABIT, R.string.gigabit, 128.0, 0.0078125));
         units.add(new Unit(GIGABYTE, R.string.gigabyte, 1024.0, 0.0009765625));
         units.add(new Unit(TERABIT, R.string.terabit, 131072.0, 0.00000762939453125));

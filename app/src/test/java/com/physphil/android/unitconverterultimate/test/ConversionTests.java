@@ -106,6 +106,8 @@ public class ConversionTests
         verify(view, atLeastOnce()).showResult(eq(0.5));
         mPresenter.convert(4.0, storage.getUnitById(BIT), storage.getUnitById(BYTE));
         verify(view, atLeastOnce()).showResult(eq(0.5));
+        mPresenter.convert(1.0, storage.getUnitById(GIGABYTE), storage.getUnitById(MEGABYTE));
+        verify(view, atLeastOnce()).showResult(eq(1024.0));
     }
     
     @Test
