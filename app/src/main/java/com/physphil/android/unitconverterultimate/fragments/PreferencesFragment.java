@@ -33,6 +33,8 @@ import com.physphil.android.unitconverterultimate.util.IntentFactory;
  */
 public class PreferencesFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener
 {
+    private static final String GITHUB_ISSUE = "https://github.com/physphil/UnitConverterUltimate/issues";
+
     public static PreferencesFragment newInstance()
     {
         return new PreferencesFragment();
@@ -63,6 +65,17 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
             public boolean onPreferenceClick(Preference preference)
             {
                 rateApp();
+                return true;
+            }
+        });
+
+        Preference openIssue = findPreference("open_issue");
+        openIssue.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                openIssue();
                 return true;
             }
         });
@@ -121,7 +134,19 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
     {
         try
         {
-            startActivity(IntentFactory.getViewSourceIntent());
+            startActivity(IntentFactory.getOpenUrlIntent(IntentFactory.GITHUB_REPO));
+        }
+        catch(ActivityNotFoundException ex)
+        {
+            Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openIssue()
+    {
+        try
+        {
+            startActivity(IntentFactory.getOpenUrlIntent(GITHUB_ISSUE));
         }
         catch(ActivityNotFoundException ex)
         {

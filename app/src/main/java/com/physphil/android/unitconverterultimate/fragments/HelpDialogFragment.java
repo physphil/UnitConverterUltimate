@@ -64,7 +64,7 @@ public class HelpDialogFragment extends DialogFragment
                     {
                         try
                         {
-                            startActivity(IntentFactory.getViewSourceIntent());
+                            startActivity(IntentFactory.getOpenUrlIntent(IntentFactory.GITHUB_REPO));
                         }
                         catch (ActivityNotFoundException ex)
                         {

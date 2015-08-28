@@ -56,6 +56,8 @@
     <string name="prefs_summary_rate">Enjoying all this unit conversion? Why not rate it 5 stars?</string>
     <string name="prefs_title_donate">Donate</string>
     <string name="prefs_summary_donate">Support development and make me smile :)</string>
+    <string name="prefs_title_open_issue">Found a Bug?</string>
+    <string name="prefs_summary_open_issue">Open an issue on GitHub.</string>
 
     <string name="dialog_btn_got_it">Got It</string>
     <string name="dialog_title_help">Help</string>

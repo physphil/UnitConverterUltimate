@@ -28,16 +28,16 @@ import com.physphil.android.unitconverterultimate.R;
  */
 public class IntentFactory
 {
+    public static final String GITHUB_REPO = "https://github.com/physphil/UnitConverterUltimate-Studio";
     private static final String EMAIL_ADDRESS = "physphil@gmail.com";
-    private static final String GITHUB_REPO = "https://github.com/physphil/UnitConverterUltimate-Studio";
 
     /**
-     * Get VIEW intent to open browser to view source on GitHub
-     * @return intent to view source
+     * Get VIEW intent to open browser to view given url
+     * @return intent to view url
      */
-    public static Intent getViewSourceIntent()
+    public static Intent getOpenUrlIntent(String url)
     {
-        Uri uri = Uri.parse(GITHUB_REPO);
+        Uri uri = Uri.parse(url);
         return new Intent(Intent.ACTION_VIEW, uri);
     }
 

@@ -80,6 +80,11 @@
             android:summary="@string/prefs_summary_rate" />
 
         <Preference
+            android:key="open_issue"
+            android:title="@string/prefs_title_open_issue"
+            android:summary="@string/prefs_summary_open_issue" />
+
+        <Preference
             android:key="view_source"
             android:title="@string/prefs_title_source_code"
             android:summary="@string/pref_summary_source_code"/>
