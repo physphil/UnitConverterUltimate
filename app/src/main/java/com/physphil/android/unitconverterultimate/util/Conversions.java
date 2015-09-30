@@ -165,7 +165,6 @@ public final class Conversions
         units.add(new Unit(FT_LBF, R.string.ft_lbF, 1.3558179483314004, 0.7375621494575464935503));
         units.add(new Unit(IN_LBF, R.string.in_lbF, 0.1129848290276167, 8.850745793490557922604));
         units.add(new Unit(KILOWATT_HOUR, R.string.kilowatt_hour, 3600000.0, 0.0000002777777777777777777778));
-        units.add(new Unit(ELECTRON_VOLT, R.string.electron_volt, 6241509479607718382.9424839, 0.000000000000000000160217653));
         addConversion(Conversion.ENERGY, new Conversion(Conversion.ENERGY, R.string.energy, units));
     }
 
@@ -235,7 +234,6 @@ public final class Conversions
         units.add(new Unit(CALORIE_S, R.string.calorie_s, 4.1868, 0.23884589662749594));
         units.add(new Unit(BTU_S, R.string.btu_s, 1055.05585262, 0.0009478171203133172));
         units.add(new Unit(KVA, R.string.kva, 1000.0, 0.001));
-        units.add(new Unit(ELECTRON_VOLT, R.string.electron_volt, 6241509479607718382.9424839, 0.000000000000000000160217653));
         addConversion(Conversion.POWER, new Conversion(Conversion.POWER, R.string.power, units));
     }
 

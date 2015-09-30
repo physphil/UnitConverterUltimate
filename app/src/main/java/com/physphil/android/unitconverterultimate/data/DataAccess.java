@@ -24,6 +24,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
+import com.physphil.android.unitconverterultimate.models.Unit;
 
 /**
  * Extension of SQLiteOpenHelper to access SQLite database
@@ -133,6 +134,14 @@ public class DataAccess extends SQLiteOpenHelper
                     c.getInt(c.getColumnIndex(COLUMN_CONVERSION_STATE_TO_ID)));
 
             c.close();
+
+            if(isInvalidState(cs))
+            {
+                // Using electron volt which was included in error, delete and return empty state
+                deleteInvalidState();
+                return new ConversionState(conversionId);
+            }
+
             return cs;
         }
         else
@@ -141,5 +150,33 @@ public class DataAccess extends SQLiteOpenHelper
             // No saved state, create new one with first two units selected
             return new ConversionState(conversionId);
         }
+    }
+
+    /**
+     * Checks to see if the returned conversion state is invalid in any way
+     * @param cs ConversionState object
+     * @return if the state is invalid
+     */
+    private boolean isInvalidState(ConversionState cs)
+    {
+        // Invalid if using ElectronVolt, which was included in error
+        return cs.getFromId() == Unit.ELECTRON_VOLT || cs.getToId() == Unit.ELECTRON_VOLT;
+    }
+
+    /**
+     * Remove any invalid state from database
+     */
+    private void deleteInvalidState()
+    {
+        // Delete any state that includes 207 (electron volt, oops)
+        String sql =
+                "DELETE FROM " +
+                        TABLE_CONVERSION_STATE + " " +
+                "WHERE " +
+                        COLUMN_CONVERSION_STATE_FROM_ID + " = 207 " +
+                "OR " +
+                        COLUMN_CONVERSION_STATE_TO_ID + " = 207 ";
+
+        mDb.execSQL(sql);
     }
 }
