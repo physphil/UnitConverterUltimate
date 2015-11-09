@@ -27,6 +27,7 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -189,7 +190,11 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mTxtValue.removeTextChangedListener(mTextWatcher);
         mPrefs.setLastValue(mTxtValue.getText().toString());
         mPrefs.setLastConversion(mConversionId);
-        DataAccess.getInstance(getActivity()).saveConversionState(mState);
+
+        if (mState != null)
+        {
+            DataAccess.getInstance(getActivity()).saveConversionState(mState);
+        }
     }
 
     @Override
