@@ -8,8 +8,7 @@ Unit Converter Ultimate
 <a href="https://play.google.com/store/apps/details?id=com.physphil.android.unitconverterultimate&utm_source=global_co&utm_medium=prtn   r&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
   <img alt="Get it on Google Play" 
     src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-    width="170"
-    align="left"/>
+    width="170"/>
 </a>
 
 The beautiful Material Design user interface allows for quick and easy conversions from a number in one unit to another. The goal is to keep it simple - you won't be overwhelmed with an excess of options and settings, allowing you to perform your desired conversion as quickly as possible. Perfect for work, school or in the kitchen.
