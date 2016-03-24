@@ -100,12 +100,12 @@ public class Preferences
 
     public String getDecimalSeparator()
     {
-        return mPrefs.getString(PREFS_DECIMAL_SEPARATOR, ".");
+        return mPrefs.getString(PREFS_DECIMAL_SEPARATOR, mContext.getString(R.string.default_decimal_separator));
     }
 
     public String getGroupSeparator()
     {
-        return mPrefs.getString(PREFS_GROUP_SEPARATOR, "");
+        return mPrefs.getString(PREFS_GROUP_SEPARATOR, mContext.getString(R.string.default_group_separator));
     }
 
     public void setShowHelp(boolean showHelp)
