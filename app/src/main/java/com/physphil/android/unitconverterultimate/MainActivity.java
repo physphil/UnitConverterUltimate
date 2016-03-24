@@ -16,6 +16,7 @@
 
 package com.physphil.android.unitconverterultimate;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -23,6 +24,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
@@ -54,6 +57,23 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         int conversion = Preferences.getInstance(this).getLastConversion();
         setToolbarTitle(mConversions.getById(conversion).getLabelResource());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener()
+        {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset){}
+
+            @Override
+            public void onDrawerOpened(View drawerView)
+            {
+                hideKeyboard();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView){}
+
+            @Override
+            public void onDrawerStateChanged(int newState){}
+        });
         setupDrawer(conversion);
 
         if(savedInstanceState == null)
@@ -165,6 +185,16 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         }
 
         return Conversion.AREA;
+    }
+
+    private void hideKeyboard()
+    {
+        View v = getCurrentFocus();
+        if (v != null)
+        {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+        }
     }
 
     @Override
