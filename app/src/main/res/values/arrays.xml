@@ -17,7 +17,7 @@
 
 <resources>
 
-    <string-array name="number_decimals">
+    <string-array name="number_decimals" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -31,14 +31,14 @@
         <item>10</item>
     </string-array>
 
-    <string-array name="group_separators">
+    <string-array name="group_separators" translatable="false">
         <item>@string/group_separator_none</item>
         <item>,</item>
         <item>" "</item>
         <item>.</item>
     </string-array>
 
-    <string-array name="decimal_separators">
+    <string-array name="decimal_separators" translatable="false">
         <item>.</item>
         <item>,</item>
     </string-array>
