@@ -28,7 +28,7 @@ Available unit conversions include:
 - Fuel Consumption (miles per gallon, liters per 100km, etc)
 - Digital Storage (bit, byte, megabytes, gigabytes, etc)
 
-If you're interested in helping to translate the app into your language, please e-mail me!
+If you're interested in helping to translate the app into your language, please [e-mail me](mailto:physphil@gmail.com)!
 
 Usage
 ------
