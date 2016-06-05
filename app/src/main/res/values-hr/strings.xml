@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Doniraj?</string>
+    <string name="title_activity_settings">Postavke</string>
+    <string name="text_from">Iz</string>
+    <string name="text_to">U</string>
+    <string name="default_value">1</string>
+    <string name="menu_clear">Očisti vrijednost</string>
+    <string name="menu_help">Pomoć</string>
+    <string name="menu_settings">Postavke</string>
+    <string name="group_separator_none">Nijedan</string>
+    <string name="request_unit">Unit Converter Ultimate: New Unit Request</string>
+    <string name="header_other_stuff">Ostale stvari</string>
+
+    <string name="toast_error_billing_internet">Ups, dogodio se problem. Molimo uvjerite se da imate važeću Internetsku vezu i pokušajte ponovno.</string>
+    <string name="toast_error_billing_general">Ups, dogodio se problem. Molimo pokušajte ponovno.</string>
+    <string name="toast_donation_successful">Hvala vam na donaciji!</string>
+    <string name="toast_error_no_browser">Pretraživač nije pronađen</string>
+    <string name="toast_error_no_email_app">Nije instalirana e-mail aplikacija</string>
+    <string name="toast_error_google_play">Dogodila se pogreška pri otvaranju Google Play Trgovine, molimo pokušajte ponovno</string>
+    <string name="toast_copied_clipboard">Tekst je kopiran u međuspremnik</string>
+
+    <string name="prefs_title_formatting">Oblikovanje</string>
+    <string name="prefs_summary_number_decimals">Postavite broj decimalnih mjesta koja će se prikazati u pretvorenoj vrijednosti</string>
+    <string name="prefs_title_number_decimals">Broj decimala</string>
+    <string name="prefs_summary_group_separator">Postavite separator grupa koji će biti prikazan u pretvorenoj vrijednosti</string>
+    <string name="prefs_title_group_separator">Separator grupa</string>
+    <string name="prefs_summary_decimal_separator">Postavite separator decimala koji će biti prikazan u pretvorenoj vrijednosti</string>
+    <string name="prefs_title_decimal_separator">Separator decimala</string>
+    <string name="prefs_title_visual">Izgled</string>
+    <string name="prefs_title_light_theme">Koristi svijetlu temu</string>
+    <string name="prefs_title_other">Ostale stvari</string>
+    <string name="prefs_title_source_code">Pregledaj izvorni kod</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate je otvorenog koda!  Pregledajte kod na GitHubu.</string>
+    <string name="prefs_title_unit_request">Zatraži jedinicu</string>
+    <string name="prefs_summary_unit_request">Želite li da dodam neku mjernu jedinicu? Pošaljite mi email i dajte mi to na znanje.</string>
+    <string name="prefs_title_rate">Ocijenite na Google Playu</string>
+    <string name="prefs_summary_rate">Uživate li u pretvaranju svih ovih mjernih jedinica? Zašto ne ocijenite aplikaciju sa 5 zvjezdica?</string>
+    <string name="prefs_title_donate">Doniraj</string>
+    <string name="prefs_summary_donate">Podržite razvoj i nasmiješite me :)</string>
+    <string name="prefs_title_open_issue">Pronašli ste pogrešku?</string>
+    <string name="prefs_summary_open_issue">Prijavite ju na GitHubu.</string>
+
+    <string name="dialog_btn_got_it">Shvaćam</string>
+    <string name="dialog_title_help">Pomoć</string>
+    <string name="dialog_message_help">Koristite klizni izbornik za navigaciju između pretvaranja i odabiranja mjernih jedinica koje trebate.\n\nPretvorena vrijednost je potpuno prilagođavajuća. U postavkama odaberite broj potrebnih decimalnih mjesta isto kao separatore grupa i decimala.\n\nDugim pritiskom na pretvorenu vrijednost kopira ju u međuspremnik.</string>
+    <string name="dialog_btn_view_source">Prikaži izvor</string>
+
+    <!-- Conversions -->
+    <string name="area">Područje</string>
+    <string name="cooking">Kuhanje</string>
+    <string name="storage">Digitalni prostor</string>
+    <string name="energy">Energija</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="length">Duljina / Udaljenost</string>
+    <string name="mass">Masa / Težina</string>
+    <string name="power">Snaga</string>
+    <string name="pressure">Pritisak</string>
+    <string name="speed">Brzina</string>
+    <string name="temperature">Temperatura</string>
+    <string name="time">Vrijeme</string>
+    <string name="torque">Moment</string>
+    <string name="volume">Obujam</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Četvorni Kilometar</string>
+    <string name="sq_metre">Četvorni Metar</string>
+    <string name="sq_centimetre">Četvorni Centimetar</string>
+    <string name="hectare">Hektar</string>
+    <string name="sq_mile">Četvorna Milja</string>
+    <string name="sq_yard">Četvorni Jard</string>
+    <string name="sq_foot">Kvadratna Stopa</string>
+    <string name="sq_inch">Četvorni Inč</string>
+    <string name="acre">Jutro</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Bajt</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobajt</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabajt</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabajt</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabajt</string>
+
+    <!-- Energy -->
+    <string name="joule">Džul</string>
+    <string name="kilojoule">Kilodžul</string>
+    <string name="calorie">Kalorija</string>
+    <string name="kilocalorie">Kilokalorija</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilovat-Sat</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Milja/galon (US)</string>
+    <string name="mpg_uk">Milja/galon (UK)</string>
+    <string name="l_100k">Litra/100km</string>
+    <string name="km_l">Kilometar/litra</string>
+    <string name="miles_l">Milja/litra</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometar</string>
+    <string name="mile">Milja</string>
+    <string name="metre">Metar</string>
+    <string name="centimetre">Centimetar (cm)</string>
+    <string name="millimetre">Milimetar (mm)</string>
+    <string name="micrometre">Mikrometar</string>
+    <string name="nanometre">Nanometar</string>
+    <string name="yard">jard</string>
+    <string name="feet">Stopa</string>
+    <string name="inch">Inč</string>
+    <string name="nautical_mile">Nautička Milja</string>
+    <string name="furlong">Osmina milje</string>
+    <string name="light_year">Svijetlosna Godina</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Funta</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Miligram</string>
+    <string name="ounce">Unca</string>
+    <string name="grain">Zrno</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Tona (metrička)</string>
+    <string name="short_ton">Tona (US/kratka)</string>
+    <string name="long_ton">Tona (UK/duga)</string>
+
+    <!-- Power -->
+    <string name="watt">vat</string>
+    <string name="kilowatt">Kilovat</string>
+    <string name="megawatt">Megavat</string>
+    <string name="hp">KS (metrička)</string>
+    <string name="hp_uk">KS (mehanička)</string>
+    <string name="ft_lbf_s">ft-lbf/sekunda</string>
+    <string name="calorie_s">Kalorija/sekunda</string>
+    <string name="btu_s">BTU/sekunda</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapaskal</string>
+    <string name="kilopascal">Kilopaskal</string>
+    <string name="pascal">Paskal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosfera</string>
+    <string name="technical_atmosphere">Technical Atm</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometar/sat</string>
+    <string name="mph">Milja/sat</string>
+    <string name="m_s">Metar/sekunda</string>
+    <string name="fps">Stopa/sekunda</string>
+    <string name="knot">Čvor</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celzijus</string>
+    <string name="fahrenheit">Farenhajt</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Godina</string>
+    <string name="month">Mjesec</string>
+    <string name="week">Tjedan</string>
+    <string name="day">Dan</string>
+    <string name="hour">Sat</string>
+    <string name="minute">Minuta</string>
+    <string name="second">Sekunda</string>
+    <string name="millisecond">MiliSekunda</string>
+    <string name="nanosecond">NanoSekunda</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teaspoon</string>
+    <string name="tablespoon">Tablespoon</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Kvart (US)</string>
+    <string name="pint">Pinta (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barel (US)</string>
+    <string name="fluid_ounce_uk">Unca Tekućine (UK)</string>
+    <string name="quart_uk">Kvart (UK)</string>
+    <string name="pint_uk">Pinta (UK)</string>
+    <string name="gallon_uk">Galon (UK)</string>
+    <string name="barrel_uk">Barel (UK)</string>
+    <string name="millilitre">Mililitar</string>
+    <string name="litre">Litra</string>
+    <string name="cubic_cm">Kubični cm</string>
+    <string name="cubic_m">Kubični Metar</string>
+    <string name="cubic_inch">Kubični Inč</string>
+    <string name="cubic_foot">Kubični Stopa</string>
+    <string name="cubic_yard">Kubični Jard</string>
+
+</resources>
