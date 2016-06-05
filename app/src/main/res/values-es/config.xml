@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Derecho de Autor 2015 Phil Shadlyn
+  ~
+  ~ Licenciado bajo la Licencia Apache, Versión 2.0 (la "Licencia");
+  ~ Usted no puede utilizar este archivo excepto en cumplimiento con la Licencia.
+  ~ Usted puede obtener una copia de la Licencia en
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ A menos que lo requiera la ley aplicable o sea acordado por escrito, programas
+  ~ informaticos distribuidos bajo la Licencia son distribuidos con BASE "TAL CUAL",
+  ~ SIN GARANTIA O CONDICIONES DE ALGUN TIPO, ya sea expreso o implícito.
+  ~ Vea la Licencia para el lenguaje especifico de los permisos gobernantes y las
+  ~ limitaciones bajo la Licencia.
+  -->
+
+<resources>
+    <string name="default_number_decimals">4</string>
+    <string name="default_group_separator">Ninguna</string>
+    <string name="default_decimal_separator">.</string>
+    <integer name="num_digits_from">15</integer>
+</resources>
