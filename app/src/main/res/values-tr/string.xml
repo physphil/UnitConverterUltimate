@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Baðýþ?</string>
+    <string name="title_activity_settings">Ayarlar</string>
+    <string name="text_from">Kaynak</string>
+    <string name="text_to">Hedef</string>
+    <string name="default_value">1</string>
+    <string name="menu_clear">Deðeri Sil</string>
+    <string name="menu_help">Yardým</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="group_separator_none">Hiçbiri</string>
+    <string name="request_unit">Unit Converter Ultimate: Yeni Birim Talebi</string>
+    <string name="header_other_stuff">Diðer Þeyler</string>
+
+    <string name="toast_error_billing_internet">Haydaaa, bir problem oluþtu. Lütfen internet baðlantýnýzýn düzgün çalýþtýðýndan emin olarak tekrar deneyiniz.</string>
+    <string name="toast_error_billing_general">Haydaaa, bir problem oluþtu. Lütfen tekrar deneyiniz.</string>
+    <string name="toast_donation_successful">Baðýþýnýz için teþekkürler!</string>
+    <string name="toast_error_no_browser">Hiçbir tarayýcý bulunamadý</string>
+    <string name="toast_error_no_email_app">Hiçbir mail uygulamasý bulunamadý</string>
+    <string name="toast_error_google_play">Google Play Maðazasý açýlýrken hata oluþtu, lütfen tekrar deneyiniz</string>
+    <string name="toast_copied_clipboard">Metin panoya kopyalandý</string>
+
+    <string name="prefs_title_formatting">Biçimlendiriliyor</string>
+    <string name="prefs_summary_number_decimals">Çevrilen deðerdeki ondalýk kýsmýn kaç basamak olacaðýný belirleyiniz</string>
+    <string name="prefs_title_number_decimals">Ondalýk Basamak Sayisi</string>
+    <string name="prefs_summary_group_separator">Çevrilen deðerdeki grup ayracýný belirleyiniz</string>
+    <string name="prefs_title_group_separator">Grup Ayracý</string>
+    <string name="prefs_summary_decimal_separator">Çevrilen deðerdeki ondalýk ayracýný belirleyiniz</string>
+    <string name="prefs_title_decimal_separator">Ondalýk Ayracý</string>
+    <string name="prefs_title_visual">Görsel</string>
+    <string name="prefs_title_light_theme">Açýk Renk Temayý Kullan</string>
+    <string name="prefs_title_other">Diðer Þeyler</string>
+    <string name="prefs_title_source_code">Kaynak Kodu Görüntüle</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate açýk kaynaklýdýr! Kodlara Github'dan gözat.</string>
+    <string name="prefs_title_unit_request">Birim Talep Et</string>
+    <string name="prefs_summary_unit_request">Yeni bir birim eklememi mi istiyorsun? Bana bir mail atarak bildir.</string>
+    <string name="prefs_title_rate">Google Play'de Oyla</string>
+    <string name="prefs_summary_rate">Tüm bu birim dönüþümleri hoþuna mý gidiyor? Neden 5 yýldýzla oylamýyorsun?</string>
+    <string name="prefs_title_donate">Bagýþ</string>
+    <string name="prefs_summary_donate">Geliþtirmeyi destekle ve beni gülümset :)</string>
+    <string name="prefs_title_open_issue">Bir Hata Mý Buldun?</string>
+    <string name="prefs_summary_open_issue">Github'dan sorunu bildir.</string>
+
+    <string name="dialog_btn_got_it">Anladým</string>
+    <string name="dialog_title_help">Yardým</string>
+    <string name="dialog_message_help">Dönüþümler arasýnda geçiþ yapmak için kayan menüyü kullanýn ve size gerekli olan birimleri seçin.\n\nÇevrilen deðer tamamýyla özelleþtirilebilir. Gereken ondalýk basamak sayýsýný ve ondalýk ayracýný seçmek için ayarlar menüsünü kullanýn.\n\nÇevrilen deðere basýlý tutarak deðeri panoya kopyalayabilirsin.</string>
+    <string name="dialog_btn_view_source">Kaynaði Gör</string>
+
+    <!-- Conversions -->
+    <string name="area">Alan</string>
+    <string name="cooking">Mutfak Ölçüleri</string>
+    <string name="storage">Dijital Depolama</string>
+    <string name="energy">Enerji</string>
+    <string name="fuel_consumption">Yakýt Tüketimi</string>
+    <string name="length">Uzunluk / Mesafe</string>
+    <string name="mass">Kütle / Aðýrlýk</string>
+    <string name="power">Güç</string>
+    <string name="pressure">Basýnç</string>
+    <string name="speed">Hýz</string>
+    <string name="temperature">Sýcaklýk</string>
+    <string name="time">Zaman</string>
+    <string name="torque">Dönme Momenti</string>
+    <string name="volume">Hacim</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Kilometre Kare</string>
+    <string name="sq_metre">Metre Kare</string>
+    <string name="sq_centimetre">Santimetre Kare</string>
+    <string name="hectare">Hektar</string>
+    <string name="sq_mile">Mil Kare</string>
+    <string name="sq_yard">Yarda Kare</string>
+    <string name="sq_foot">Ayak Kare</string>
+    <string name="sq_inch">Ýnç Kare</string>
+    <string name="acre">Dönüm</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Bayt</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobayt</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabayt</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabayt</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabayt</string>
+
+    <!-- Energy -->
+    <string name="joule">Jul</string>
+    <string name="kilojoule">Kilojul</string>
+    <string name="calorie">Kalori</string>
+    <string name="kilocalorie">Kilokalori</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">Ayak libre</string>
+    <string name="in_lbF">Ýnç libre</string>
+    <string name="kilowatt_hour">Kilowatt-Saat</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Mil/galon (US)</string>
+    <string name="mpg_uk">Mil/galon (UK)</string>
+    <string name="l_100k">Litre/100 km</string>
+    <string name="km_l">Kilometre/litre</string>
+    <string name="miles_l">Mil/litre</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometre</string>
+    <string name="mile">Mil</string>
+    <string name="metre">Metre</string>
+    <string name="centimetre">Santimetre (cm)</string>
+    <string name="millimetre">Milimetre (mm)</string>
+    <string name="micrometre">Mikrometre</string>
+    <string name="nanometre">Nanometre</string>
+    <string name="yard">Yarda</string>
+    <string name="feet">Ayak</string>
+    <string name="inch">Ýnç</string>
+    <string name="nautical_mile">Deniz Mili</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Iþýk Yýlý</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pound</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Miligram</string>
+    <string name="ounce">Ons</string>
+    <string name="grain">Granül</string>
+    <string name="stone">Tas</string>
+    <string name="metric_ton">Ton (metrik)</string>
+    <string name="short_ton">Ton (US/kisa)</string>
+    <string name="long_ton">Ton (UK/uzun)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">Beygir Gücü (metrik)</string>
+    <string name="hp_uk">Beygir Gücü (mekanik)</string>
+    <string name="ft_lbf_s">Ayak Libre/saniye</string>
+    <string name="calorie_s">kalori/saniye</string>
+    <string name="btu_s">BTU/saniye</string>
+    <string name="kva">Kilo Volt Amper</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapaskal</string>
+    <string name="kilopascal">Kilopaskal</string>
+    <string name="pascal">Paskal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosfer</string>
+    <string name="technical_atmosphere">Teknik Atmosfer</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometre/saat</string>
+    <string name="mph">Mile/saat</string>
+    <string name="m_s">Metre/saniye</string>
+    <string name="fps">Ayak/saniye</string>
+    <string name="knot">Knot</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Selsius</string>
+    <string name="fahrenheit">Fahrenhayt</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankin</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Reamur</string>
+    <string name="romer">Romer</string>
+    <string name="gas_mark">Gaz Mark</string>
+
+    <!-- Time -->
+    <string name="year">Yýl</string>
+    <string name="month">Ay</string>
+    <string name="week">Hafta</string>
+    <string name="day">Gün</string>
+    <string name="hour">Saat</string>
+    <string name="minute">Dakika</string>
+    <string name="second">Saniye</string>
+    <string name="millisecond">Milisaniye</string>
+    <string name="nanosecond">Nanosaniye</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Çay Kaþýðý</string>
+    <string name="tablespoon">Yemek Kaþýðý</string>
+    <string name="cup">Fincan</string>
+    <string name="fluid_ounce">Sývý Ons (US)</string>
+    <string name="quart">Kuartet (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Galon (US)</string>
+    <string name="barrel">Fýçý (US)</string>
+    <string name="fluid_ounce_uk">Sývý Ons (UK)</string>
+    <string name="quart_uk">Kuartet (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Galon (UK)</string>
+    <string name="barrel_uk">Fýçý (UK)</string>
+    <string name="millilitre">Mililitre</string>
+    <string name="litre">Litre</string>
+    <string name="cubic_cm">Santimetre Küp</string>
+    <string name="cubic_m">Metre Küp</string>
+    <string name="cubic_inch">Ýnç Küp</string>
+    <string name="cubic_foot">Ayak Küp</string>
+    <string name="cubic_yard">Yarda Küp</string>
+
+</resources>
