@@ -179,7 +179,7 @@
     <string name="knot">Knot</string>
 
     <!-- Temperature -->
-    <string name="celsius">Selsius</string>
+    <string name="celsius">Santigrat</string>
     <string name="fahrenheit">Fahrenhayt</string>
     <string name="kelvin">Kelvin</string>
     <string name="rankine">Rankin</string>
@@ -211,12 +211,12 @@
     <string name="quart">Kuartet (US)</string>
     <string name="pint">Pint (US)</string>
     <string name="gallon">Galon (US)</string>
-    <string name="barrel">Fıçı (US)</string>
+    <string name="barrel">Varil (US)</string>
     <string name="fluid_ounce_uk">Sıvı Ons (UK)</string>
     <string name="quart_uk">Kuartet (UK)</string>
     <string name="pint_uk">Pint (UK)</string>
     <string name="gallon_uk">Galon (UK)</string>
-    <string name="barrel_uk">Fıçı (UK)</string>
+    <string name="barrel_uk">Varil (UK)</string>
     <string name="millilitre">Mililitre</string>
     <string name="litre">Litre</string>
     <string name="cubic_cm">Santimetre Küp</string>
