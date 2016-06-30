@@ -18,66 +18,66 @@
 <resources>
 
     <string name="app_name">Unit Converter Ultimate</string>
-    <string name="title_activity_donate">Bağış?</string>
+    <string name="title_activity_donate">BaÄŸÄ±ÅŸ?</string>
     <string name="title_activity_settings">Ayarlar</string>
     <string name="text_from">Kaynak</string>
     <string name="text_to">Hedef</string>
     <string name="default_value">1</string>
-    <string name="menu_clear">Değeri Sil</string>
-    <string name="menu_help">Yardım</string>
+    <string name="menu_clear">DeÄŸeri Sil</string>
+    <string name="menu_help">YardÄ±m</string>
     <string name="menu_settings">Ayarlar</string>
-    <string name="group_separator_none">Hiçbiri</string>
+    <string name="group_separator_none">HiÃ§biri</string>
     <string name="request_unit">Unit Converter Ultimate: Yeni Birim Talebi</string>
-    <string name="header_other_stuff">Diğer Şeyler</string>
+    <string name="header_other_stuff">DiÄŸer Åeyler</string>
 
-    <string name="toast_error_billing_internet">Haydaaa, bir problem oluştu. Lütfen internet bağlantınızın düzgün çalıştığından emin olarak tekrar deneyiniz.</string>
-    <string name="toast_error_billing_general">Haydaaa, bir problem oluştu. Lütfen tekrar deneyiniz.</string>
-    <string name="toast_donation_successful">Bağışınız için teşekkürler!</string>
-    <string name="toast_error_no_browser">Hiçbir tarayıcı bulunamadı</string>
-    <string name="toast_error_no_email_app">Hiçbir mail uygulaması bulunamadı</string>
-    <string name="toast_error_google_play">Google Play Mağazası açılırken hata oluştu, lütfen tekrar deneyiniz</string>
-    <string name="toast_copied_clipboard">Metin panoya kopyalandı</string>
+    <string name="toast_error_billing_internet">Haydaaa, bir problem oluÅŸtu. LÃ¼tfen internet baÄŸlantÄ±nÄ±zÄ±n dÃ¼zgÃ¼n Ã§alÄ±ÅŸtÄ±ÄŸÄ±ndan emin olarak tekrar deneyiniz.</string>
+    <string name="toast_error_billing_general">Haydaaa, bir problem oluÃ¾tu. LÃ¼tfen tekrar deneyiniz.</string>
+    <string name="toast_donation_successful">BaÄŸÄ±ÅŸÄ±nÄ±z iÃ§in teÅŸekkÃ¼rler!</string>
+    <string name="toast_error_no_browser">HiÃ§bir tarayÄ±cÄ± bulunamadÄ±</string>
+    <string name="toast_error_no_email_app">HiÃ§bir mail uygulamasÄ± bulunamadÄ±</string>
+    <string name="toast_error_google_play">Google Play MaÄŸazasÄ± aÃ§Ä±lÄ±rken hata oluÅŸtu, lÃ¼tfen tekrar deneyiniz</string>
+    <string name="toast_copied_clipboard">Metin panoya kopyalandÄ±</string>
 
-    <string name="prefs_title_formatting">Biçimlendiriliyor</string>
-    <string name="prefs_summary_number_decimals">Çevrilen değerdeki ondalık kısmın kaç basamak olacağını belirleyiniz</string>
-    <string name="prefs_title_number_decimals">Ondalık Basamak Sayisi</string>
-    <string name="prefs_summary_group_separator">Çevrilen değerdeki grup ayracını belirleyiniz</string>
-    <string name="prefs_title_group_separator">Grup Ayracı</string>
-    <string name="prefs_summary_decimal_separator">Çevrilen değerdeki ondalık ayracını belirleyiniz</string>
-    <string name="prefs_title_decimal_separator">Ondalık Ayracı</string>
-    <string name="prefs_title_visual">Görsel</string>
-    <string name="prefs_title_light_theme">Açık Renk Temayı Kullan</string>
-    <string name="prefs_title_other">Diğer Şeyler</string>
-    <string name="prefs_title_source_code">Kaynak Kodu Görüntüle</string>
-    <string name="pref_summary_source_code">Unit Converter Ultimate açık kaynaklıdır! Kodlara Github'dan gözat.</string>
+    <string name="prefs_title_formatting">BiÃ§imlendiriliyor</string>
+    <string name="prefs_summary_number_decimals">Ã‡evrilen deÃ°erdeki ondalÄ±k kÄ±smÄ±n kaÃ§ basamak olacaÄŸÄ±nÄ± belirleyiniz</string>
+    <string name="prefs_title_number_decimals">OndalÄ±k Basamak Sayisi</string>
+    <string name="prefs_summary_group_separator">Ã‡evrilen deÃ°erdeki grup ayracÄ±nÄ± belirleyiniz</string>
+    <string name="prefs_title_group_separator">Grup AyracÄ±</string>
+    <string name="prefs_summary_decimal_separator">Ã‡evrilen deÄŸerdeki ondalÄ±k ayracÄ±nÄ± belirleyiniz</string>
+    <string name="prefs_title_decimal_separator">OndalÄ±k AyracÄ±</string>
+    <string name="prefs_title_visual">GÃ¶rsel</string>
+    <string name="prefs_title_light_theme">AÃ§Ä±k Renk TemayÄ± Kullan</string>
+    <string name="prefs_title_other">DiÄŸer Åeyler</string>
+    <string name="prefs_title_source_code">Kaynak Kodu GÃ¶rÃ¼ntÃ¼le</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate aÃ§Ä±k kaynaklÄ±dÄ±r! Kodlara Github'dan gÃ¶zat.</string>
     <string name="prefs_title_unit_request">Birim Talep Et</string>
     <string name="prefs_summary_unit_request">Yeni bir birim eklememi mi istiyorsun? Bana bir mail atarak bildir.</string>
     <string name="prefs_title_rate">Google Play'de Oyla</string>
-    <string name="prefs_summary_rate">Tüm bu birim dönüşümleri hoşuna mı gidiyor? Neden 5 yıldızla oylamıyorsun?</string>
-    <string name="prefs_title_donate">Bagış</string>
-    <string name="prefs_summary_donate">Geliştirmeyi destekle ve beni gülümset :)</string>
-    <string name="prefs_title_open_issue">Bir Hata Mı Buldun?</string>
+    <string name="prefs_summary_rate">TÃ¼m bu birim dÃ¶nÃ¼ÅŸÃ¼mleri hoÅŸuna mÄ± gidiyor? Neden 5 yÄ±ldÄ±zla oylamÄ±yorsun?</string>
+    <string name="prefs_title_donate">BaÄŸÄ±ÅŸ</string>
+    <string name="prefs_summary_donate">GeliÅŸtirmeyi destekle ve beni gÃ¼lÃ¼mset :)</string>
+    <string name="prefs_title_open_issue">Bir Hata MÄ± Buldun?</string>
     <string name="prefs_summary_open_issue">Github'dan sorunu bildir.</string>
 
-    <string name="dialog_btn_got_it">Anladım</string>
-    <string name="dialog_title_help">Yardım</string>
-    <string name="dialog_message_help">Dönüşümler arasında geçiş yapmak için kayan menüyü kullanın ve size gerekli olan birimleri seçin.\n\nÇevrilen değer tamamıyla özelleştirilebilir. Gereken ondalık basamak sayısını ve ondalık ayracını seçmek için ayarlar menüsünü kullanın.\n\nÇevrilen değere basılı tutarak değeri panoya kopyalayabilirsin.</string>
-    <string name="dialog_btn_view_source">Kaynaği Gör</string>
+    <string name="dialog_btn_got_it">AnladÄ±m</string>
+    <string name="dialog_title_help">YardÄ±m</string>
+    <string name="dialog_message_help">DÃ¶nÃ¼ÅŸÃ¼mler arasÄ±nda geÃ§iÅŸ yapmak iÃ§in kayan menÃ¼yÃ¼ kullanÄ±n ve size gerekli olan birimleri seÃ§in.\n\nÃ‡evrilen deÄŸer tamamÄ±yla Ã¶zelleÅŸtirilebilir. Gereken ondalÄ±k basamak sayÄ±sÄ±nÄ± ve ondalÄ±k ayracÄ±nÄ± seÃ§mek iÃ§in ayarlar menÃ¼sÃ¼nÃ¼ kullanÄ±n.\n\nÃ‡evrilen deÄŸere basÄ±lÄ± tutarak deÄŸeri panoya kopyalayabilirsin.</string>
+    <string name="dialog_btn_view_source">KaynaÄŸÄ± GÃ¶r</string>
 
     <!-- Conversions -->
     <string name="area">Alan</string>
-    <string name="cooking">Mutfak Ölçüleri</string>
+    <string name="cooking">Mutfak Ã–lÃ§Ã¼leri</string>
     <string name="storage">Dijital Depolama</string>
     <string name="energy">Enerji</string>
-    <string name="fuel_consumption">Yakıt Tüketimi</string>
+    <string name="fuel_consumption">YakÄ±t TÃ¼ketimi</string>
     <string name="length">Uzunluk / Mesafe</string>
-    <string name="mass">Kütle / Ağırlık</string>
-    <string name="power">Güç</string>
-    <string name="pressure">Basınç</string>
-    <string name="speed">Hız</string>
-    <string name="temperature">Sıcaklık</string>
+    <string name="mass">KÃ¼tle / AÄŸÄ±rlÄ±k</string>
+    <string name="power">GÃ¼Ã§</string>
+    <string name="pressure">BasÄ±nÃ§</string>
+    <string name="speed">HÄ±z</string>
+    <string name="temperature">SÄ±caklÄ±k</string>
     <string name="time">Zaman</string>
-    <string name="torque">Dönme Momenti</string>
+    <string name="torque">DÃ¶nme Momenti</string>
     <string name="volume">Hacim</string>
 
     <!-- Area -->
@@ -88,8 +88,8 @@
     <string name="sq_mile">Mil Kare</string>
     <string name="sq_yard">Yarda Kare</string>
     <string name="sq_foot">Ayak Kare</string>
-    <string name="sq_inch">İnç Kare</string>
-    <string name="acre">Dönüm</string>
+    <string name="sq_inch">Ä°nÃ§ Kare</string>
+    <string name="acre">DÃ¶nÃ¼m</string>
 
     <!-- Digital Storage -->
     <string name="bit">Bit</string>
@@ -110,7 +110,7 @@
     <string name="kilocalorie">Kilokalori</string>
     <string name="btu">BTU</string>
     <string name="ft_lbF">Ayak libre</string>
-    <string name="in_lbF">İnç libre</string>
+    <string name="in_lbF">Ä°nÃ§ libre</string>
     <string name="kilowatt_hour">Kilowatt-Saat</string>
     <string name="electron_volt">eV</string>
 
@@ -131,10 +131,10 @@
     <string name="nanometre">Nanometre</string>
     <string name="yard">Yarda</string>
     <string name="feet">Ayak</string>
-    <string name="inch">İnç</string>
+    <string name="inch">Ä°nÃ§</string>
     <string name="nautical_mile">Deniz Mili</string>
     <string name="furlong">Furlong</string>
-    <string name="light_year">Işık Yılı</string>
+    <string name="light_year">IÅŸÄ±k YÄ±lÄ±</string>
 
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogram</string>
@@ -142,7 +142,7 @@
     <string name="gram">Gram</string>
     <string name="milligram">Miligram</string>
     <string name="ounce">Ons</string>
-    <string name="grain">Granül</string>
+    <string name="grain">GranÃ¼l</string>
     <string name="stone">Tas</string>
     <string name="metric_ton">Ton (metrik)</string>
     <string name="short_ton">Ton (US/kisa)</string>
@@ -152,10 +152,10 @@
     <string name="watt">Watt</string>
     <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Megawatt</string>
-    <string name="hp">Beygir Gücü (metrik)</string>
-    <string name="hp_uk">Beygir Gücü (mekanik)</string>
+    <string name="hp">Beygir GÃ¼cÃ¼ (metrik)</string>
+    <string name="hp_uk">Beygir GÃ¼cÃ¼ (mekanik)</string>
     <string name="ft_lbf_s">Ayak Libre/saniye</string>
-    <string name="calorie_s">kalori/saniye</string>
+    <string name="calorie_s">Kalori/saniye</string>
     <string name="btu_s">BTU/saniye</string>
     <string name="kva">Kilo Volt Amper</string>
 
@@ -190,10 +190,10 @@
     <string name="gas_mark">Gaz Mark</string>
 
     <!-- Time -->
-    <string name="year">Yıl</string>
+    <string name="year">YÄ±l</string>
     <string name="month">Ay</string>
     <string name="week">Hafta</string>
-    <string name="day">Gün</string>
+    <string name="day">GÃ¼n</string>
     <string name="hour">Saat</string>
     <string name="minute">Dakika</string>
     <string name="second">Saniye</string>
@@ -204,25 +204,25 @@
     <string name="n_m">N-m</string>
 
     <!-- Volume -->
-    <string name="teaspoon">Çay Kaşığı</string>
-    <string name="tablespoon">Yemek Kaşığı</string>
+    <string name="teaspoon">Ã‡ay KaÅŸÄ±ÄŸÄ±</string>
+    <string name="tablespoon">Yemek KaÅŸÄ±ÄŸÄ±</string>
     <string name="cup">Fincan</string>
-    <string name="fluid_ounce">Sıvı Ons (US)</string>
+    <string name="fluid_ounce">SÄ±vÄ± Ons (US)</string>
     <string name="quart">Kuartet (US)</string>
     <string name="pint">Pint (US)</string>
     <string name="gallon">Galon (US)</string>
-    <string name="barrel">Fıçı (US)</string>
-    <string name="fluid_ounce_uk">Sıvı Ons (UK)</string>
+    <string name="barrel">FÄ±Ã§Ä± (US)</string>
+    <string name="fluid_ounce_uk">SÄ±vÄ± Ons (UK)</string>
     <string name="quart_uk">Kuartet (UK)</string>
     <string name="pint_uk">Pint (UK)</string>
     <string name="gallon_uk">Galon (UK)</string>
-    <string name="barrel_uk">Fıçı (UK)</string>
+    <string name="barrel_uk">FÄ±Ã§Ä± (UK)</string>
     <string name="millilitre">Mililitre</string>
     <string name="litre">Litre</string>
-    <string name="cubic_cm">Santimetre Küp</string>
-    <string name="cubic_m">Metre Küp</string>
-    <string name="cubic_inch">İnç Küp</string>
-    <string name="cubic_foot">Ayak Küp</string>
-    <string name="cubic_yard">Yarda Küp</string>
+    <string name="cubic_cm">Santimetre KÃ¼p</string>
+    <string name="cubic_m">Metre KÃ¼p</string>
+    <string name="cubic_inch">Ä°nÃ§ KÃ¼p</string>
+    <string name="cubic_foot">Ayak KÃ¼p</string>
+    <string name="cubic_yard">Yarda KÃ¼p</string>
 
 </resources>
