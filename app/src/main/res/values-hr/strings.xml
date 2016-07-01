@@ -27,7 +27,7 @@
     <string name="menu_help">Pomoć</string>
     <string name="menu_settings">Postavke</string>
     <string name="group_separator_none">Nijedan</string>
-    <string name="request_unit">Unit Converter Ultimate: New Unit Request</string>
+    <string name="request_unit">Unit Converter Ultimate: Zahtjev nove jedinice</string>
     <string name="header_other_stuff">Ostale stvari</string>
 
     <string name="toast_error_billing_internet">Ups, dogodio se problem. Molimo uvjerite se da imate važeću Internetsku vezu i pokušajte ponovno.</string>
@@ -69,7 +69,7 @@
     <string name="cooking">Kuhanje</string>
     <string name="storage">Digitalni prostor</string>
     <string name="energy">Energija</string>
-    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="fuel_consumption">Potrošnja goriva</string>
     <string name="length">Duljina / Udaljenost</string>
     <string name="mass">Masa / Težina</string>
     <string name="power">Snaga</string>
@@ -149,7 +149,7 @@
     <string name="long_ton">Tona (UK/duga)</string>
 
     <!-- Power -->
-    <string name="watt">vat</string>
+    <string name="watt">Vat</string>
     <string name="kilowatt">Kilovat</string>
     <string name="megawatt">Megavat</string>
     <string name="hp">KS (metrička)</string>
