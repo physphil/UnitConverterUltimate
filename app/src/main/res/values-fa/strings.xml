@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">مبدل واحد ها</string>
+    <string name="title_activity_donate">پرداخت</string>
+    <string name="title_activity_settings">تنظیمات</string>
+    <string name="text_from">از</string>
+    <string name="text_to">به</string>
+    <string name="default_value">1</string>
+    <string name="menu_clear">پاکسازی ارزش</string>
+    <string name="menu_help">راهنمایی</string>
+    <string name="menu_settings">تنظیمات</string>
+    <string name="group_separator_none">هیچ کدام</string>
+    <string name="request_unit">مبدل واحدها :درخواست واحد جدید</string>
+    <string name="header_other_stuff">سایر گزینه ها</string>
+
+    <string name="toast_error_billing_internet">یک مشکل یافت شد.ابتدا مطمئن شوید که به اینترنت متصل هستید سپس دوباره تلاش کنید</string>
+    <string name="toast_error_billing_general">یک مشکل یافت شد . لطفا دوباره تلاش کنید</string>
+    <string name="toast_donation_successful">برای حمایت مالی از شما ممنونم !</string>
+    <string name="toast_error_no_browser">هیچ مرورگری یافت نشد</string>
+    <string name="toast_error_no_email_app">هیچ برنامه ایمیلی یافت نشد</string>
+    <string name="toast_error_google_play">مشکل در اجرای فروشگاه پلی،لطفا دوباره تلاش کنید</string>
+    <string name="toast_copied_clipboard">در حافظه کپی گردید</string>
+
+    <string name="prefs_title_formatting">در حال پاک کردن</string>
+    <string name="prefs_summary_number_decimals">تنظیم تعداد رقم اعشار برای نمایش در فیلد مبدل</string>
+    <string name="prefs_title_number_decimals">تعداد رقم اعشار</string>
+    <string name="prefs_summary_group_separator">تنظیم جداکننده ی گروهی برای نمایش در فیلد مبدل</string>
+    <string name="prefs_title_group_separator">جدا کننده ی گروه ها</string>
+    <string name="prefs_summary_decimal_separator">تنظیم جدا کننده ی اعشاری برای نمایش در فیلد مبدل</string>
+    <string name="prefs_title_decimal_separator">جدا کننده ی اعشاری</string>
+    <string name="prefs_title_visual">بصری</string>
+    <string name="prefs_title_light_theme">استفاده از تم روشن</string>
+    <string name="prefs_title_other">چیزهای دیگر</string>
+    <string name="prefs_title_source_code">نمایش کد منبع</string>
+    <string name="pref_summary_source_code">مبدل واحد ها یک نرم افزار متن باز است ! برای نمایش کد منبع کلیک کنید</string>
+    <string name="prefs_title_unit_request">درخواست یک واحد</string>
+    <string name="prefs_summary_unit_request">آیا نیازمند یک واحد هستید ؟ پس به من ایمیل بزنید و مرا در جریان بگذارید</string>
+    <string name="prefs_title_rate">امتیاز دادن در فروشگاه پلی</string>
+    <string name="prefs_summary_rate">آیا از این مبدل واحد لذت میبرید ؟ پس لطفا در فروشگاه به آن 5 ستاره دهید </string>
+    <string name="prefs_title_donate">حمایت مالی</string>
+    <string name="prefs_summary_donate">از توسعه دهنده حمایت کنید </string>
+    <string name="prefs_title_open_issue"> یک مشکل یافتید ؟</string>
+    <string name="prefs_summary_open_issue">بازکردن یک مشکل در گیت هاب</string>
+
+    <string name="dialog_btn_got_it">متوجه شدم</string>
+    <string name="dialog_title_help">راهنمایی</string>
+    <string name="dialog_message_help">از منوی کناری برای پیمایش بین مبدل و برای انتخاب واحد های مد نظر استفاده نمایید.ارزش تبدیل گر قابل شخصی سازی است.از منوی تنظیمات تعداد ارقام اعشار و جداکننده ی بین آنها را تنظیم کنید.با نگه داشتن طولانی روی واحد تبدیل شده،آن مقدار در حافظه کلیپ بورد ذخیره میگردد</string>
+    <string name="dialog_btn_view_source">نمایش منبع</string>
+
+    <!-- تبدیل ها -->
+    <string name="area">مساحت</string>
+    <string name="cooking">آشپزی</string>
+    <string name="storage">حافظه دیجیتال</string>
+    <string name="energy">انرژی</string>
+    <string name="fuel_consumption">مصرف سوخت</string>
+    <string name="length">طول / فاصله</string>
+    <string name="mass">جرم / وزن</string>
+    <string name="power">برق</string>
+    <string name="pressure">فشار</string>
+    <string name="speed">سرعت</string>
+    <string name="temperature">دما</string>
+    <string name="time">زمان</string>
+    <string name="torque">گشتاور </string>
+    <string name="volume">حجم</string>
+
+    <!-- مساحت -->
+    <string name="sq_kilometre">کیلومتر مربع</string>
+    <string name="sq_metre">متر مربع</string>
+    <string name="sq_centimetre">سانتی متر مربع</string>
+    <string name="hectare">هکتار</string>
+    <string name="sq_mile">مایل مربع</string>
+    <string name="sq_yard">یارد مربع</string>
+    <string name="sq_foot">فوت مربع</string>
+    <string name="sq_inch">اینچ مربع</string>
+    <string name="acre">آکر</string>
+
+    <!-- حافظه دیجیتال -->
+    <string name="bit">بیت</string>
+    <string name="Byte">بایت</string>
+    <string name="kilobit">کیلوبیت</string>
+    <string name="kilobyte">کیلوبایت</string>
+    <string name="megabit">مگابیت</string>
+    <string name="megabyte">مگابایت</string>
+    <string name="gigabit">گیگابیت</string>
+    <string name="gigabyte">گیگابایت</string>
+    <string name="terabit">ترابیت</string>
+    <string name="terabyte">ترابایت</string>
+
+    <!-- انرژی -->
+    <string name="joule">ژول</string>
+    <string name="kilojoule">کیلو ژول</string>
+    <string name="calorie">کالری</string>
+    <string name="kilocalorie">کیلوکالری</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">کیلو وات بر ساعت</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- مصرف سوخت -->
+    <string name="mpg_us">مایل/گالن (US)</string>
+    <string name="mpg_uk">مایل/گالن (UK)</string>
+    <string name="l_100k">لیتر/100کیلومتر</string>
+    <string name="km_l">کیلومتر/لیتر</string>
+    <string name="miles_l">مایل/لیتر</string>
+
+    <!-- فاصله -->
+    <string name="kilometre">کیلومتر</string>
+    <string name="mile">مایل</string>
+    <string name="metre">متر</string>
+    <string name="centimetre">سانتی متر</string>
+    <string name="millimetre">میلی متر</string>
+    <string name="micrometre">میکرومتر</string>
+    <string name="nanometre">نانو متر</string>
+    <string name="yard">یارد</string>
+    <string name="feet">فیت</string>
+    <string name="inch">اینچ</string>
+    <string name="nautical_mile">مایل دریایی</string>
+    <string name="furlong">فرلانگ</string>
+    <string name="light_year">سال نوری</string>
+
+    <!-- جرم / وزن -->
+    <string name="kilogram">کیلوگرم</string>
+    <string name="pound">پوند</string>
+    <string name="gram">گرم</string>
+    <string name="milligram">میلی گرم</string>
+    <string name="ounce">اونس</string>
+    <string name="grain">دانه</string>
+    <string name="stone">سنگ</string>
+    <string name="metric_ton">تن (metric)</string>
+    <string name="short_ton">تن (US/short)</string>
+    <string name="long_ton">تن (UK/long)</string>
+
+    <!-- برق -->
+    <string name="watt">وات</string>
+    <string name="kilowatt">کیلووات</string>
+    <string name="megawatt">مگاوات</string>
+    <string name="hp">HP (metric)</string>
+    <string name="hp_uk">HP (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">کالری/ثانیه</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
+    <!-- فشار -->
+    <string name="megapascal">مگاپاسکال</string>
+    <string name="kilopascal">کیلوپاسکال</string>
+    <string name="pascal">پاسکال</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">اتمسفر</string>
+    <string name="technical_atmosphere">Technical Atm</string>
+    <string name="mmhg">میلی متر جیوه</string>
+    <string name="torr">Torr</string>
+
+    <!-- سرعت -->
+    <string name="km_h">کیلومتر/ساعت</string>
+    <string name="mph">مایل/ساعت</string>
+    <string name="m_s">متر/ثانیه</string>
+    <string name="fps">فوت/ثانیه</string>
+    <string name="knot">گره دریایی</string>
+
+    <!-- دما -->
+    <string name="celsius">سیلسیوس</string>
+    <string name="fahrenheit">فارنهایت</string>
+    <string name="kelvin">کلوین</string>
+    <string name="rankine">رانكين</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">نیوتون</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- زمان -->
+    <string name="year">سال</string>
+    <string name="month">ماه</string>
+    <string name="week">هفته</string>
+    <string name="day">روز</string>
+    <string name="hour">ساعت</string>
+    <string name="minute">دقیقه</string>
+    <string name="second">ثانیه</string>
+    <string name="millisecond">میلی ثانیه</string>
+    <string name="nanosecond">نانو ثانیه</string>
+
+    <!-- گشتاور -->
+    <string name="n_m">N-m</string>
+
+    <!-- حجم -->
+    <string name="teaspoon">قاشق چای خوری</string>
+    <string name="tablespoon">قاشق غذا خوری</string>
+    <string name="cup">فنجان</string>
+    <string name="fluid_ounce">انس سيال (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">گالن (US)</string>
+    <string name="barrel">بشکه (US)</string>
+    <string name="fluid_ounce_uk">انس سيال (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">گالن (UK)</string>
+    <string name="barrel_uk">بشکه (UK)</string>
+    <string name="millilitre">میلی لیتر</string>
+    <string name="litre">لیتر</string>
+    <string name="cubic_cm">سانتی متر مکعب</string>
+    <string name="cubic_m">متر مکعب</string>
+    <string name="cubic_inch">اینچ مکعب</string>
+    <string name="cubic_foot">فوت مکعب</string>
+    <string name="cubic_yard">یارد مکعب</string>
+
+</resources>
