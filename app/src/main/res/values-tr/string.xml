@@ -49,15 +49,15 @@
     <string name="prefs_title_light_theme">Açık Renk Temayı Kullan</string>
     <string name="prefs_title_other">Diğer Şeyler</string>
     <string name="prefs_title_source_code">Kaynak Kodu Görüntüle</string>
-    <string name="pref_summary_source_code">Unit Converter Ultimate açık kaynaklıdır! Kodlara Github'dan gözat.</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate açık kaynaklıdır! Kodlara Github\'dan gözat.</string>
     <string name="prefs_title_unit_request">Birim Talep Et</string>
     <string name="prefs_summary_unit_request">Yeni bir birim eklememi mi istiyorsun? Bana bir mail atarak bildir.</string>
-    <string name="prefs_title_rate">Google Play'de Oyla</string>
+    <string name="prefs_title_rate">Google Play\'de Oyla</string>
     <string name="prefs_summary_rate">Tüm bu birim dönüşümleri hoşuna mı gidiyor? Neden 5 yıldızla oylamıyorsun?</string>
     <string name="prefs_title_donate">Bağış</string>
     <string name="prefs_summary_donate">Geliştirmeyi destekle ve beni gülümset :)</string>
     <string name="prefs_title_open_issue">Bir Hata Mı Buldun?</string>
-    <string name="prefs_summary_open_issue">Github'dan sorunu bildir.</string>
+    <string name="prefs_summary_open_issue">Github\'dan sorunu bildir.</string>
 
     <string name="dialog_btn_got_it">Anladım</string>
     <string name="dialog_title_help">Yardım</string>
