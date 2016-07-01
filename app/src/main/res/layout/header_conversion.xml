@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_view_typical"
-            android:layout_marginStart="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
             android:layout_marginTop="@dimen/margin_view_typical"
             android:text="@string/text_from"/>
 
@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_view_typical"
-            android:layout_marginStart="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
             android:layout_marginTop="@dimen/margin_view_typical"
             android:text="@string/text_to"/>
 
