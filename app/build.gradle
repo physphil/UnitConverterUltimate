@@ -24,8 +24,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 40200
-        versionName '4.2'
+        versionCode 40300
+        versionName '4.3'
     }
 
     signingConfigs{
