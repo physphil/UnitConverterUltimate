@@ -28,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.FixerService;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
@@ -105,24 +106,20 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         }
 
         // // FIXME: 16-07-26 retrofit2 tests
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.fixer.io/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        FixerService service = retrofit.create(FixerService.class);
-        service.getLatestRates("CAD").enqueue(new Callback<CurrencyResponse>()
+        FixerApi.getInstance().getService()
+                .getLatestRates("CAD")
+                .enqueue(new Callback<CurrencyResponse>()
         {
             @Override
             public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
             {
-
+                Log.d("PS", "in successful response");
             }
 
             @Override
             public void onFailure(Call<CurrencyResponse> call, Throwable t)
             {
-
+                Log.d("PS", "in failed response");
             }
         });
     }
