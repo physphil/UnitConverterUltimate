@@ -31,6 +31,11 @@
             android:title="@string/cooking"/>
 
         <item
+            android:id="@+id/drawer_currency"
+            android:icon="@drawable/ic_currency"
+            android:title="@string/currency"/>
+
+        <item
             android:id="@+id/drawer_storage"
             android:icon="@drawable/ic_storage"
             android:title="@string/storage"/>

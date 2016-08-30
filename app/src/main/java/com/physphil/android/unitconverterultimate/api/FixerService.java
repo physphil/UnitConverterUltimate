@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-package com.physphil.android.unitconverterultimate.models;
+package com.physphil.android.unitconverterultimate.api;
+
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
- * Enum of available conversion types
- * Created by Phizz on 15-08-10.
+ * Retrofit service to consume Fixer.io API
+ * Created by Phizz on 16-07-26.
  */
-public enum ConversionType
+public interface FixerService
 {
-    AREA,
-    COOKING,
-    DIGITAL_STORAGE,
-    ENERGY,
-    FUEL_CONSUMPTION,
-    LENGTH,
-    MASS,
-    POWER,
-    PRESSURE,
-    SPEED,
-    TEMPERATURE,
-    TIME,
-    TORQUE,
-    VOLUME
+    @GET("latest")
+    Call<CurrencyResponse> getLatestRates(@Query("base") String base);
 }

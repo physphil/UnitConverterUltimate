@@ -14,6 +14,7 @@ Unit Converter Ultimate
 The beautiful Material Design user interface allows for quick and easy conversions from a number in one unit to another. The goal is to keep it simple - you won't be overwhelmed with an excess of options and settings, allowing you to perform your desired conversion as quickly as possible. Perfect for work, school or in the kitchen.
 
 Available unit conversions include:
+- Currency (US dollar, CDN dollar, pound, peso, etc)
 - Temperature (celsius, fahrenheit, kelvin, etc)
 - Length (kilometer, miles, meter, yard, feet, etc)
 - Mass/Weight (kilogram, pound, ounce, ton, stone, etc)

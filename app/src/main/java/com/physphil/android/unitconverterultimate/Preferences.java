@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.google.gson.Gson;
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 
 /**
@@ -37,6 +39,7 @@ public class Preferences
     public static final String PREFS_APP_OPEN_COUNT = "app_open_count";
     public static final String PREFS_SHOW_HELP = "show_help";
     private static final String PREFS_CONVERSION = "conversion";
+    private static final String PREFS_CURRENCY = "currency";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
@@ -116,5 +119,23 @@ public class Preferences
     public boolean showHelp()
     {
         return mPrefs.getBoolean(PREFS_SHOW_HELP, true);
+    }
+
+    public void saveLatestCurrency(CurrencyResponse latestCurrency)
+    {
+        mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(latestCurrency)).apply();
+    }
+
+    public CurrencyResponse getLatestCurrency()
+    {
+        if(mPrefs.contains(PREFS_CURRENCY))
+        {
+            String currency = mPrefs.getString(PREFS_CURRENCY, null);
+            return new Gson().fromJson(currency, CurrencyResponse.class);
+        }
+        else
+        {
+            return null;
+        }
     }
 }

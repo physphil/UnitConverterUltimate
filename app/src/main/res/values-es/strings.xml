@@ -67,6 +67,7 @@
     <!-- Conversions -->
     <string name="area">Área</string>
     <string name="cooking">Cocina</string>
+    <string name="currency">Moneda</string>
     <string name="storage">Almacenamiento digital</string>
     <string name="energy">Energía</string>
     <string name="fuel_consumption">Consumo de combustible</string>
@@ -224,5 +225,38 @@
     <string name="cubic_inch">Pulgada cúbica</string>
     <string name="cubic_foot">Pié cúbico</string>
     <string name="cubic_yard">Yarda Cúbica</string>
+
+    <!-- Currency -->
+    <string name="aud">Dólar australiano</string>
+    <string name="bgn">Lev búlgaro</string>
+    <string name="brl">Real brasileño</string>
+    <string name="cdn">Dolar canadiense</string>
+    <string name="chf">Franco suizo</string>
+    <string name="cny">Yuan chino</string>
+    <string name="czk">Corona checa</string>
+    <string name="dkk">Corona danesa</string>
+    <string name="gbp">Libra británica</string>
+    <string name="hkd">Dolar de Hong Kong</string>
+    <string name="hrk">Kuna croata</string>
+    <string name="huf">Florín húngaro</string>
+    <string name="idr">Rupia indonesa</string>
+    <string name="ils">Shekel israelí</string>
+    <string name="inr">Rupia india</string>
+    <string name="jpy">Yen japonés</string>
+    <string name="krw">Won coreano</string>
+    <string name="mxn">Peso mexicano</string>
+    <string name="myr">Ringgit malayo</string>
+    <string name="nok">Corona noruega</string>
+    <string name="nzd">Dolar de Nueva Zelanda</string>
+    <string name="php">Peso filipino</string>
+    <string name="pln">Zloty polaco</string>
+    <string name="ron">Leu rumano</string>
+    <string name="rub">Rublo ruso</string>
+    <string name="sek">Corona sueca</string>
+    <string name="sgd">Dolar de Singapur</string>
+    <string name="thb">Baht tailandés</string>
+    <string name="lira">Lira turca</string>
+    <string name="usd">Dólar estadounidense</string>
+    <string name="zar">Rand sudafricano</string>
 
 </resources>

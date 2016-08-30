@@ -67,6 +67,7 @@
     <!-- Conversions -->
     <string name="area">Area</string>
     <string name="cooking">Cooking</string>
+    <string name="currency">Currency</string>
     <string name="storage">Digital Storage</string>
     <string name="energy">Energy</string>
     <string name="fuel_consumption">Fuel Consumption</string>
@@ -224,5 +225,38 @@
     <string name="cubic_inch">Cubic Inch</string>
     <string name="cubic_foot">Cubic Foot</string>
     <string name="cubic_yard">Cubic Yard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australian Dollar</string>
+    <string name="bgn">Bulgarian Lev</string>
+    <string name="brl">Brazilian Real</string>
+    <string name="cdn">Canadian Dollar</string>
+    <string name="chf">Swiss Franc</string>
+    <string name="cny">Chinese Yuan</string>
+    <string name="czk">Czech Koruna</string>
+    <string name="dkk">Danish Krone</string>
+    <string name="gbp">British Pound</string>
+    <string name="hkd">Hong Kong Dollar</string>
+    <string name="hrk">Croatian Kuna</string>
+    <string name="huf">Hungarian Forint</string>
+    <string name="idr">Indonesian Rupiah</string>
+    <string name="ils">Israeli Shekel</string>
+    <string name="inr">Indian Rupee</string>
+    <string name="jpy">Japanese Yen</string>
+    <string name="krw">Korean Won</string>
+    <string name="mxn">Mexican Peso</string>
+    <string name="myr">Malaysian Ringgit</string>
+    <string name="nok">Norwegian Krone</string>
+    <string name="nzd">New Zealand Dollar</string>
+    <string name="php">Philippine Peso</string>
+    <string name="pln">Polish Zloty</string>
+    <string name="ron">Romanian Leu</string>
+    <string name="rub">Russian Rouble</string>
+    <string name="sek">Swedish Krona</string>
+    <string name="sgd">Singapore Dollar</string>
+    <string name="thb">Thai Baht</string>
+    <string name="lira">Turkish Lira</string>
+    <string name="usd">US Dollar</string>
+    <string name="zar">South African Rand</string>
 
 </resources>
