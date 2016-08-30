@@ -113,7 +113,8 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
             @Override
             public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
             {
-                Log.d("PS", "in successful response");
+                Preferences.getInstance(MainActivity.this).saveLatestCurrency(response.body());
+                Conversions.getInstance().getCurrencyConversions(MainActivity.this);
             }
 
             @Override
@@ -174,6 +175,9 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
 
             case R.id.drawer_cooking:
                 return Conversion.COOKING;
+
+            case R.id.drawer_currency:
+                return Conversion.CURRENCY;
 
             case R.id.drawer_storage:
                 return Conversion.STORAGE;

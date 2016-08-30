@@ -34,6 +34,38 @@ public class Unit
     public static final int SQ_INCH = 7;
     public static final int ACRE = 8;
 
+    public static final int AUD = 1300;
+    public static final int BGN = 1301;
+    public static final int BRL = 1302;
+    public static final int CDN = 1303;
+    public static final int CHF = 1304;
+    public static final int CNY = 1305;
+    public static final int CZK = 1306;
+    public static final int DKK = 1307;
+    public static final int GBP = 1308;
+    public static final int HKD = 1309;
+    public static final int HRK = 1310;
+    public static final int HUF = 1311;
+    public static final int IDR = 1312;
+    public static final int ILS = 1313;
+    public static final int INR = 1314;
+    public static final int JPY = 1315;
+    public static final int KRW = 1316;
+    public static final int MXN = 1317;
+    public static final int MYR = 1318;
+    public static final int NOK = 1319;
+    public static final int NZD = 1320;
+    public static final int PHP = 1321;
+    public static final int PLN = 1322;
+    public static final int RON = 1323;
+    public static final int RUB = 1324;
+    public static final int SEK = 1325;
+    public static final int SGD = 1326;
+    public static final int THB = 1327;
+    public static final int LIRA = 1328;
+    public static final int USD = 1329;
+    public static final int ZAR = 1330;
+
     public static final int BIT = 100;
     public static final int BYTE = 101;
     public static final int KILOBIT = 102;
@@ -157,19 +189,20 @@ public class Unit
     public static final int CUBIC_YARD = 1219;
 
     @IntDef({SQ_KILOMETRES, SQ_METRES, SQ_CENTIMETRES, HECTARE, SQ_MILE, SQ_YARD, SQ_FOOT, SQ_INCH, ACRE,
-    BIT, BYTE, KILOBIT, KILOBYTE, MEGABIT, MEGABYTE, GIGABIT, GIGABYTE, TERABIT, TERABYTE,
-    JOULE, KILOJOULE, CALORIE, KILOCALORIE, BTU, FT_LBF, IN_LBF, KILOWATT_HOUR, ELECTRON_VOLT,
-    MPG_US, MPG_UK, L_100K, KM_L, MILES_L,
-    KILOMETRE, MILE, METRE, CENTIMETRE, MILLIMETRE, MICROMETRE, NANOMETRE, YARD, FEET, INCH, NAUTICAL_MILE, FURLONG, LIGHT_YEAR,
-    KILOGRAM, POUND, GRAM, MILLIGRAM, OUNCE, GRAIN, STONE, METRIC_TON, SHORT_TON, LONG_TON,
-    WATT, KILOWATT, MEGAWATT, HP, HP_UK, FT_LBF_S, CALORIE_S, BTU_S, KVA,
-    MEGAPASCAL, KILOPASCAL, PASCAL, BAR, PSI, PSF, ATMOSPHERE, TECHNICAL_ATMOSPHERE, MMHG, TORR,
-    KM_HR, MPH, M_S, FPS, KNOT,
-    CELSIUS, FAHRENHEIT, KELVIN, RANKINE, DELISLE, NEWTON, REAUMUR, ROMER, GAS_MARK,
-    YEAR, MONTH, WEEK, DAY, HOUR, MINUTE, SECOND, MILLISECOND, NANOSECOND,
-    N_M,
-    TEASPOON, TABLESPOON, CUP, FLUID_OUNCE, QUART, PINT, GALLON, BARREL, FLUID_OUNCE_UK, QUART_UK, PINT_UK,
-    GALLON_UK, BARREL_UK, MILLILITRE, LITRE, CUBIC_CM, CUBIC_M, CUBIC_INCH, CUBIC_FOOT, CUBIC_YARD})
+            AUD, BGN, BRL, CDN, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, LIRA, USD, ZAR,
+            BIT, BYTE, KILOBIT, KILOBYTE, MEGABIT, MEGABYTE, GIGABIT, GIGABYTE, TERABIT, TERABYTE,
+            JOULE, KILOJOULE, CALORIE, KILOCALORIE, BTU, FT_LBF, IN_LBF, KILOWATT_HOUR, ELECTRON_VOLT,
+            MPG_US, MPG_UK, L_100K, KM_L, MILES_L,
+            KILOMETRE, MILE, METRE, CENTIMETRE, MILLIMETRE, MICROMETRE, NANOMETRE, YARD, FEET, INCH, NAUTICAL_MILE, FURLONG, LIGHT_YEAR,
+            KILOGRAM, POUND, GRAM, MILLIGRAM, OUNCE, GRAIN, STONE, METRIC_TON, SHORT_TON, LONG_TON,
+            WATT, KILOWATT, MEGAWATT, HP, HP_UK, FT_LBF_S, CALORIE_S, BTU_S, KVA,
+            MEGAPASCAL, KILOPASCAL, PASCAL, BAR, PSI, PSF, ATMOSPHERE, TECHNICAL_ATMOSPHERE, MMHG, TORR,
+            KM_HR, MPH, M_S, FPS, KNOT,
+            CELSIUS, FAHRENHEIT, KELVIN, RANKINE, DELISLE, NEWTON, REAUMUR, ROMER, GAS_MARK,
+            YEAR, MONTH, WEEK, DAY, HOUR, MINUTE, SECOND, MILLISECOND, NANOSECOND,
+            N_M,
+            TEASPOON, TABLESPOON, CUP, FLUID_OUNCE, QUART, PINT, GALLON, BARREL, FLUID_OUNCE_UK, QUART_UK, PINT_UK,
+            GALLON_UK, BARREL_UK, MILLILITRE, LITRE, CUBIC_CM, CUBIC_M, CUBIC_INCH, CUBIC_FOOT, CUBIC_YARD})
     public @interface id{}
 
     private int id;

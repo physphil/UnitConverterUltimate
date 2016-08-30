@@ -30,6 +30,7 @@ public final class Conversion
     // Use @IntDef for type safety
     public static final int AREA = 0;
     public static final int COOKING = 1;
+    public static final int CURRENCY = 14;
     public static final int STORAGE = 2;
     public static final int ENERGY = 3;
     public static final int FUEL = 4;
@@ -47,7 +48,7 @@ public final class Conversion
     private int labelResource;
     private List<Unit> units;
 
-    @IntDef({AREA, COOKING, STORAGE, ENERGY, FUEL, LENGTH, MASS, POWER, PRESSURE, SPEED,
+    @IntDef({AREA, COOKING, CURRENCY, STORAGE, ENERGY, FUEL, LENGTH, MASS, POWER, PRESSURE, SPEED,
     TEMPERATURE, TIME, TORQUE, VOLUME})
     public @interface id{}
 
