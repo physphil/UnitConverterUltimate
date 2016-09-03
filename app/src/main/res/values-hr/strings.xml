@@ -67,6 +67,7 @@
     <!-- Conversions -->
     <string name="area">Područje</string>
     <string name="cooking">Kuhanje</string>
+    <string name="currency">Valuta</string>
     <string name="storage">Digitalni prostor</string>
     <string name="energy">Energija</string>
     <string name="fuel_consumption">Potrošnja goriva</string>
@@ -224,5 +225,38 @@
     <string name="cubic_inch">Kubični Inč</string>
     <string name="cubic_foot">Kubični Stopa</string>
     <string name="cubic_yard">Kubični Jard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australski dolar</string>
+    <string name="bgn">Bugarski lev</string>
+    <string name="brl">Brazilski real</string>
+    <string name="cdn">Kandaski dolar</string>
+    <string name="chf">Švicarski franak</string>
+    <string name="cny">Kineski yuan</string>
+    <string name="czk">Češka kruna</string>
+    <string name="dkk">Danska kruna</string>
+    <string name="gbp">Britanska funta</string>
+    <string name="hkd">Hong Kong dolar</string>
+    <string name="hrk">Hrvatska kuna</string>
+    <string name="huf">Mađadrska forinta</string>
+    <string name="idr">Indonezijski rupiah</string>
+    <string name="ils">Izraelski šekel</string>
+    <string name="inr">Indijska rupija</string>
+    <string name="jpy">Japanski jen</string>
+    <string name="krw">Korejski won</string>
+    <string name="mxn">Meksički pezo</string>
+    <string name="myr">Malezijski ringgit</string>
+    <string name="nok">Norveška kruna</string>
+    <string name="nzd">Novozelandski dolar</string>
+    <string name="php">Filipinski pezo</string>
+    <string name="pln">Poljski zlot</string>
+    <string name="ron">Rumunjski lei</string>
+    <string name="rub">Ruski rubalj</string>
+    <string name="sek">Švedska kruna</string>
+    <string name="sgd">Singapurski dolar</string>
+    <string name="thb">Tajlandski bat</string>
+    <string name="lira">Turska lira</string>
+    <string name="usd">Američki dolar</string>
+    <string name="zar">Južnoafrički rand</string>
 
 </resources>
