@@ -224,5 +224,6 @@
     <string name="cubic_inch">İnç Küp</string>
     <string name="cubic_foot">Ayak Küp</string>
     <string name="cubic_yard">Yarda Küp</string>
+    <string name="progress_loading">Yükleme</string>
 
 </resources>

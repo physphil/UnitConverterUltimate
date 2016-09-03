@@ -27,7 +27,6 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,9 +34,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
@@ -67,7 +69,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private ConversionPresenter mConversionPresenter;
     private RadioGroup mGrpFrom, mGrpTo;
     private EditText mTxtValue, mTxtResult;
-    private int mConversionId;
+    private ProgressBar mProgressSpinner;
+    private TextView mProgressText;
+    private ViewFlipper mFlipper;
+    private int mConversionId, mIndexConversion, mIndexProgress;
     private double mResult;
     private Preferences mPrefs;
     private ConversionState mState;
@@ -117,6 +122,12 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
+
+        mFlipper = (ViewFlipper) v.findViewById(R.id.viewflipper_conversion);
+        mIndexConversion = mFlipper.indexOfChild(mFlipper.findViewById(R.id.conversion_container));
+        mIndexProgress = mFlipper.indexOfChild(mFlipper.findViewById(R.id.conversion_progress_container));
+        mProgressSpinner = (ProgressBar) v.findViewById(R.id.progress_circle_conversion);
+        mProgressText = (TextView) v.findViewById(R.id.progress_text_conversion);
 
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
         if (savedInstanceState == null)
@@ -193,7 +204,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
 
         if (mState != null)
         {
-            DataAccess.getInstance(getActivity()).saveConversionState(mState);
+            DataAccess.getInstance(getActivity()).saveConversionState(mState);  // todo move to presenter
         }
     }
 
@@ -201,7 +212,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void onViewStateRestored(@Nullable Bundle savedInstanceState)
     {
         super.onViewStateRestored(savedInstanceState);
-        new LoadConversionStateTask().execute();
+        new LoadConversionStateTask().execute();    // todo move to presenter
     }
 
     /**
@@ -376,14 +387,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private TextWatcher mTextWatcher = new TextWatcher()
     {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        {
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {
-        }
+        public void onTextChanged(CharSequence s, int start, int before, int count){}
 
         @Override
         public void afterTextChanged(Editable s)
@@ -397,6 +404,28 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     {
         mResult = result;
         mTxtResult.setText(getDecimalFormat().format(result));
+    }
+
+    @Override
+    public void showUnitsList()
+    {
+        mFlipper.setDisplayedChild(mIndexConversion);
+    }
+
+    @Override
+    public void showProgressCircle()
+    {
+        mFlipper.setDisplayedChild(mIndexProgress);
+        mProgressSpinner.setVisibility(View.VISIBLE);
+        mProgressText.setText(R.string.progress_loading);
+    }
+
+    @Override
+    public void showLoadingError(int message)
+    {
+        mFlipper.setDisplayedChild(mIndexProgress);
+        mProgressSpinner.setVisibility(View.GONE);
+        mProgressText.setText(message);
     }
 
     // Radio Group checked change listener

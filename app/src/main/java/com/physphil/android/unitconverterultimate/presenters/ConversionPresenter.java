@@ -28,6 +28,9 @@ public class ConversionPresenter
 {
     public interface ConversionView
     {
+        void showUnitsList();
+        void showProgressCircle();
+        void showLoadingError(int message);
         void showResult(double result);
     }
 

@@ -258,5 +258,6 @@
     <string name="lira">Türkische Lira</string>
     <string name="usd">US-Dollar</string>
     <string name="zar">Südafrikanischer Rand</string>
+    <string name="progress_loading">Laden</string>
 
 </resources>

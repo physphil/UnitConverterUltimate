@@ -224,5 +224,6 @@
     <string name="cubic_inch">اینچ مکعب</string>
     <string name="cubic_foot">فوت مکعب</string>
     <string name="cubic_yard">یارد مکعب</string>
+    <string name="progress_loading">بارگیری</string>
 
 </resources>

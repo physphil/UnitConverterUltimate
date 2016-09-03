@@ -226,5 +226,6 @@
     <string name="cubic_inch">Polegada Cúbica</string>
     <string name="cubic_foot">Pé Cúbico</string>
     <string name="cubic_yard">Jarda Cúbica</string>
+    <string name="progress_loading"> Carregamento</string>
 
 </resources>
