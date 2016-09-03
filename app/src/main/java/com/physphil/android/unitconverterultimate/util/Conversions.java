@@ -145,36 +145,36 @@ public final class Conversions
         // Base unit - CAD
         Rates currency = Preferences.getInstance(context).getLatestCurrency().getRates();
         List<Unit> units = new ArrayList<>(currency.getSize());
+        units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
         units.add(new Unit(AUD, R.string.aud, 1 / currency.getAud(), currency.getAud()));
-        units.add(new Unit(BGN, R.string.bgn, 1 / currency.getBgn(), currency.getBgn()));
+        units.add(new Unit(GBP, R.string.gbp, 1 / currency.getGbp(), currency.getGbp()));
         units.add(new Unit(BRL, R.string.brl, 1 / currency.getBrl(), currency.getBrl()));
+        units.add(new Unit(BGN, R.string.bgn, 1 / currency.getBgn(), currency.getBgn()));
         units.add(new Unit(CDN, R.string.cdn, 1.0, 1.0));
-        units.add(new Unit(CHF, R.string.chf, 1 / currency.getChf(), currency.getChf()));
+        units.add(new Unit(HRK, R.string.hrk, 1 / currency.getHrk(), currency.getHrk()));
         units.add(new Unit(CZK, R.string.czk, 1 / currency.getCzk(), currency.getCzk()));
         units.add(new Unit(DKK, R.string.dkk, 1 / currency.getDkk(), currency.getDkk()));
-        units.add(new Unit(GBP, R.string.gbp, 1 / currency.getGbp(), currency.getGbp()));
         units.add(new Unit(HKD, R.string.hkd, 1 / currency.getHkd(), currency.getHkd()));
-        units.add(new Unit(HRK, R.string.hrk, 1 / currency.getHrk(), currency.getHrk()));
         units.add(new Unit(HUF, R.string.huf, 1 / currency.getHuf(), currency.getHuf()));
+        units.add(new Unit(INR, R.string.inr, 1 / currency.getInr(), currency.getInr()));
         units.add(new Unit(IDR, R.string.idr, 1 / currency.getIdr(), currency.getIdr()));
         units.add(new Unit(ILS, R.string.ils, 1 / currency.getIls(), currency.getIls()));
-        units.add(new Unit(INR, R.string.inr, 1 / currency.getInr(), currency.getInr()));
         units.add(new Unit(JPY, R.string.jpy, 1 / currency.getJpy(), currency.getJpy()));
         units.add(new Unit(KRW, R.string.krw, 1 / currency.getKrw(), currency.getKrw()));
-        units.add(new Unit(MXN, R.string.mxn, 1 / currency.getMxn(), currency.getMxn()));
         units.add(new Unit(MYR, R.string.myr, 1 / currency.getMyr(), currency.getMyr()));
-        units.add(new Unit(NOK, R.string.nok, 1 / currency.getNok(), currency.getNok()));
+        units.add(new Unit(MXN, R.string.mxn, 1 / currency.getMxn(), currency.getMxn()));
         units.add(new Unit(NZD, R.string.nzd, 1 / currency.getNzd(), currency.getNzd()));
+        units.add(new Unit(NOK, R.string.nok, 1 / currency.getNok(), currency.getNok()));
         units.add(new Unit(PHP, R.string.php, 1 / currency.getPhp(), currency.getPhp()));
         units.add(new Unit(PLN, R.string.pln, 1 / currency.getPln(), currency.getPln()));
         units.add(new Unit(RON, R.string.ron, 1 / currency.getRon(), currency.getRon()));
         units.add(new Unit(RUB, R.string.rub, 1 / currency.getRub(), currency.getRub()));
-        units.add(new Unit(SEK, R.string.sek, 1 / currency.getSek(), currency.getSek()));
         units.add(new Unit(SGD, R.string.sgd, 1 / currency.getSgd(), currency.getSgd()));
+        units.add(new Unit(ZAR, R.string.zar, 1 / currency.getZar(), currency.getZar()));
+        units.add(new Unit(SEK, R.string.sek, 1 / currency.getSek(), currency.getSek()));
+        units.add(new Unit(CHF, R.string.chf, 1 / currency.getChf(), currency.getChf()));
         units.add(new Unit(THB, R.string.thb, 1 / currency.getThb(), currency.getThb()));
         units.add(new Unit(LIRA, R.string.lira, 1 / currency.getLira(), currency.getLira()));
-        units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
-        units.add(new Unit(ZAR, R.string.zar, 1 / currency.getZar(), currency.getZar()));
 
         addConversion(Conversion.CURRENCY, new Conversion(Conversion.CURRENCY, R.string.currency, units));
     }
