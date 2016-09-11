@@ -58,8 +58,8 @@
         android:id="@+id/conversion_progress_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_view_large"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_view_large">
 
         <ProgressBar
             android:id="@+id/progress_circle_conversion"
@@ -75,6 +75,7 @@
             android:layout_marginRight="@dimen/margin_view_typical"
             android:layout_toEndOf="@id/progress_circle_conversion"
             android:layout_toRightOf="@id/progress_circle_conversion"
+            android:gravity="center_horizontal"
             android:text="@string/progress_loading"/>
 
     </RelativeLayout>
