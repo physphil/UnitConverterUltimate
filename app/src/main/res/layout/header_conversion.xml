@@ -25,6 +25,28 @@
 
     <TableRow>
 
+        <TextView
+            android:id="@+id/header_text_unit_from"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            android:text="@string/text_from"/>
+
+        <TextView
+            android:id="@+id/header_text_unit_to"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            android:text="@string/text_to"/>
+
+    </TableRow>
+
+    <TableRow>
+
         <EditText
             android:id="@+id/header_value_from"
             android:layout_width="0px"

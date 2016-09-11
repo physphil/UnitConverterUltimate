@@ -70,7 +70,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     private RadioGroup mGrpFrom, mGrpTo;
     private EditText mTxtValue, mTxtResult;
     private ProgressBar mProgressSpinner;
-    private TextView mProgressText;
+    private TextView mProgressText, mTxtUnitFrom, mTxtUnitTo;
     private ViewFlipper mFlipper;
     private int mConversionId, mIndexConversion, mIndexProgress;
     private double mResult;
@@ -129,6 +129,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mProgressSpinner = (ProgressBar) v.findViewById(R.id.progress_circle_conversion);
         mProgressText = (TextView) v.findViewById(R.id.progress_text_conversion);
 
+        mTxtUnitFrom = (TextView) v.findViewById(R.id.header_text_unit_from);
+        mTxtUnitTo = (TextView) v.findViewById(R.id.header_text_unit_to);
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
         if (savedInstanceState == null)
         {
@@ -183,8 +185,6 @@ public final class ConversionFragment extends Fragment implements ConversionView
             }
         });
 
-        mPresenter.onCreate();
-
         return v;
     }
 
@@ -216,13 +216,6 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mPresenter.onGetUnitsToDisplay(mConversionId);
     }
 
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        mPresenter.onDestroy();
-    }
-
     /**
      * Set radio buttons to their saved state (if any)
      */
@@ -241,6 +234,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
             mGrpTo.check(mState.getToId());
         }
 
+        mTxtUnitFrom.setText(getCheckedUnit(mGrpFrom).getLabelResource());
+        mTxtUnitTo.setText(getCheckedUnit(mGrpTo).getLabelResource());
         mGrpFrom.setOnCheckedChangeListener(this);
         mGrpTo.setOnCheckedChangeListener(this);
     }
@@ -463,14 +458,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId)
     {
+        Unit unit = getCheckedUnit(group);
         switch (group.getId())
         {
             case R.id.radio_group_from:
                 mState.setFromId(checkedId);
+                mTxtUnitFrom.setText(unit.getLabelResource());
                 break;
 
             case R.id.radio_group_to:
                 mState.setToId(checkedId);
+                mTxtUnitTo.setText(unit.getLabelResource());
                 break;
         }
 

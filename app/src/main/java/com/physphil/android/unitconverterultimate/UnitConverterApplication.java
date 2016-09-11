@@ -18,7 +18,6 @@ package com.physphil.android.unitconverterultimate;
 
 import android.app.Application;
 
-import com.physphil.android.unitconverterultimate.api.DownloadCurrencyIntentService;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**

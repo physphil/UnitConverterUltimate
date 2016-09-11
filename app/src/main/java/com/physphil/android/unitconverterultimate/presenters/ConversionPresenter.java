@@ -16,19 +16,13 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
-import android.util.Log;
-
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
-import com.physphil.android.unitconverterultimate.models.DownloadCurrencyEvent;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.util.Conversions;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.math.BigDecimal;
 
@@ -52,16 +46,6 @@ public class ConversionPresenter
     public ConversionPresenter(ConversionView mView)
     {
         this.mView = mView;
-    }
-
-    public void onCreate()
-    {
-        EventBus.getDefault().register(this);
-    }
-
-    public void onDestroy()
-    {
-        EventBus.getDefault().unregister(this);
     }
 
     public void onGetUnitsToDisplay(@Conversion.id int conversionId)
@@ -604,14 +588,5 @@ public class ConversionPresenter
         }
 
         return resultF;
-    }
-
-    @Subscribe
-    public void onEventMainThread(DownloadCurrencyEvent event)
-    {
-        if(event.isSuccess())
-        {
-
-        }
     }
 }

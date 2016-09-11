@@ -43,10 +43,6 @@
             android:name=".PreferencesActivity"
             android:label="@string/title_activity_settings"/>
 
-        <service
-            android:name=".api.DownloadCurrencyIntentService"
-            android:exported="false">
-        </service>
     </application>
 
 </manifest>
