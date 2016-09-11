@@ -44,4 +44,10 @@
         android:title="@string/menu_settings"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/menu_donate"
+        android:orderInCategory="130"
+        android:title="@string/prefs_title_donate"
+        app:showAsAction="never"/>
+
 </menu>

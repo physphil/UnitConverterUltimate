@@ -44,6 +44,7 @@ import android.widget.ViewFlipper;
 
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
+import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
@@ -531,6 +532,9 @@ public final class ConversionFragment extends Fragment implements ConversionView
             case R.id.menu_settings:
                 PreferencesActivity.start(getActivity());
                 return true;
+
+            case R.id.menu_donate:
+                DonateActivity.start(getActivity());
 
             default:
                 return super.onOptionsItemSelected(item);
