@@ -118,6 +118,8 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
         navigationView.getMenu().getItem(state).setChecked(true);
+        navigationView.setItemBackgroundResource(Preferences.getInstance(this).isLightTheme() ?
+                R.drawable.navigation_item_background_light : R.drawable.navigation_item_background);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
