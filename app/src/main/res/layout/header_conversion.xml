@@ -19,6 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="@dimen/margin_view_typical"
     android:paddingBottom="@dimen/margin_view_small"
     android:stretchColumns="*">
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_view_typical"
             android:layout_marginRight="@dimen/margin_view_typical"
-            android:text="@string/text_from"/>
+            tools:text="Canadian Dollar"/>
 
         <TextView
             android:id="@+id/header_text_unit_to"
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_view_typical"
             android:layout_marginRight="@dimen/margin_view_typical"
-            android:text="@string/text_to"/>
+            tools:text="Euro"/>
 
     </TableRow>
 

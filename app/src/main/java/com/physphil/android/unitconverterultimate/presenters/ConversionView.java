@@ -17,4 +17,5 @@ public interface ConversionView
     void showResult(double result);
     void updateCurrencyConversion();
     void showToast(int message);
+    void showToastError(int message);
 }

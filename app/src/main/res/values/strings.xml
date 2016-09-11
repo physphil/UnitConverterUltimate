@@ -41,6 +41,7 @@
     <string name="toast_error_google_play">Error opening Google Play Store, please try again</string>
     <string name="toast_copied_clipboard">Text copied to clipboard</string>
     <string name="toast_currency_updated">Currency conversions updated</string>
+    <string name="toast_error_updating_currency">There was an error updating the currency conversions.</string>
 
     <string name="prefs_title_formatting">Formatting</string>
     <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>

@@ -107,6 +107,10 @@ public class ConversionPresenter
                         {
                             mView.showLoadingError(R.string.error_loading_currency);
                         }
+                        else if (showResult)
+                        {
+                            mView.showToastError(R.string.toast_error_updating_currency);
+                        }
                     }
                 });
     }

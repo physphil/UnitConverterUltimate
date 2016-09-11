@@ -23,6 +23,8 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -42,8 +44,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.melnykov.fab.FloatingActionButton;
-import com.melnykov.fab.ObservableScrollView;
 import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
@@ -74,6 +74,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     private ProgressBar mProgressSpinner;
     private TextView mProgressText, mTxtUnitFrom, mTxtUnitTo;
     private ViewFlipper mFlipper;
+    private CoordinatorLayout mCoordinatorLayout;
     private int mConversionId, mIndexConversion, mIndexProgress;
     private double mResult;
     private Preferences mPrefs;
@@ -175,9 +176,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mGrpFrom = (RadioGroup) v.findViewById(R.id.radio_group_from);
         mGrpTo = (RadioGroup) v.findViewById(R.id.radio_group_to);
 
-        ObservableScrollView scrollView = (ObservableScrollView) v.findViewById(R.id.list_conversion);
-        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
-        fab.attachToScrollView(scrollView);
+        mCoordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.list_coordinator_layout);
+        FloatingActionButton fab = (FloatingActionButton) mCoordinatorLayout.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -453,8 +453,16 @@ public final class ConversionFragment extends Fragment implements ConversionView
     @Override
     public void showToast(int message)
     {
-        Snackbar sb = Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
+        Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
         sb.getView().setBackgroundResource(R.color.color_primary);
+        sb.show();
+    }
+
+    @Override
+    public void showToastError(int message)
+    {
+        Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
+        sb.getView().setBackgroundResource(R.color.theme_red);
         sb.show();
     }
 
