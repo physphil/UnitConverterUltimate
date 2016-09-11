@@ -15,5 +15,6 @@ public interface ConversionView
     void showProgressCircle();
     void showLoadingError(int message);
     void showResult(double result);
-    void refreshCurrencyConversion();
+    void updateCurrencyConversion();
+    void showToast(int message);
 }

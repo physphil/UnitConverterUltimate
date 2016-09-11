@@ -16,6 +16,8 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
+import android.util.Log;
+
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
@@ -53,7 +55,7 @@ public class ConversionPresenter
         switch(conversionId)
         {
             case Conversion.CURRENCY:
-                refreshCurrencyConversions();
+                onUpdateCurrencyConversions(false);
                 if(Conversions.getInstance().hasCurrency())
                 {
                     mView.showUnitsList(Conversions.getInstance().getById(conversionId));
@@ -70,7 +72,7 @@ public class ConversionPresenter
         }
     }
 
-    private void refreshCurrencyConversions()
+    public void onUpdateCurrencyConversions(final boolean showResult)
     {
         FixerApi.getInstance()
                 .getService()
@@ -85,7 +87,12 @@ public class ConversionPresenter
                         Conversions.getInstance().updateCurrencyConversions(mView.getContext());
                         if(hadCurrency)
                         {
-                            mView.refreshCurrencyConversion();
+                            mView.updateCurrencyConversion();
+                            if(showResult)
+                            {
+                                Log.d("PS", "showing toast");
+                                mView.showToast(R.string.toast_currency_updated);
+                            }
                         }
                         else
                         {

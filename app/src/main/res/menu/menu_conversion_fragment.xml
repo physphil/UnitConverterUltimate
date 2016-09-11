@@ -19,22 +19,29 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_download"
+        android:icon="@drawable/ic_download_white_24dp"
+        android:orderInCategory="90"
+        android:title="@string/menu_download"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/menu_clear"
         android:icon="@drawable/ic_delete_white_24dp"
         android:orderInCategory="100"
         android:title="@string/menu_clear"
-        app:showAsAction="always" />
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/menu_help"
         android:orderInCategory="110"
         android:title="@string/menu_help"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/menu_settings"
         android:orderInCategory="120"
         android:title="@string/menu_settings"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 
 </menu>

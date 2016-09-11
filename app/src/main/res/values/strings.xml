@@ -23,6 +23,7 @@
     <string name="text_from">From</string>
     <string name="text_to">To</string>
     <string name="default_value">1</string>
+    <string name="menu_download">Download</string>
     <string name="menu_clear">Clear Value</string>
     <string name="menu_help">Help</string>
     <string name="menu_settings">Settings</string>
@@ -39,6 +40,7 @@
     <string name="toast_error_no_email_app">No e-mail app installed</string>
     <string name="toast_error_google_play">Error opening Google Play Store, please try again</string>
     <string name="toast_copied_clipboard">Text copied to clipboard</string>
+    <string name="toast_currency_updated">Currency conversions updated</string>
 
     <string name="prefs_title_formatting">Formatting</string>
     <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>

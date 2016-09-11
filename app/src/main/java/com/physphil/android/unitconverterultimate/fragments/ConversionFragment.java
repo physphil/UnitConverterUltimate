@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
@@ -443,9 +444,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
-    public void refreshCurrencyConversion()
+    public void updateCurrencyConversion()
     {
         convert();
+    }
+
+    @Override
+    public void showToast(int message)
+    {
+        Snackbar sb = Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
+        sb.getView().setBackgroundResource(R.color.color_primary);
+        sb.show();
     }
 
     @Override
@@ -495,10 +504,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu)
+    {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem download = menu.findItem(R.id.menu_download);
+        download.setVisible(mConversionId == Conversion.CURRENCY);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId())
         {
+            case R.id.menu_download:
+                mPresenter.onUpdateCurrencyConversions(true);
+                return true;
+
             case R.id.menu_clear:
                 mTxtValue.setText("");
                 return true;
