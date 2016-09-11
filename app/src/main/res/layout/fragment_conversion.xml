@@ -36,7 +36,7 @@
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/list_coordinator_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/header_conversion">
 
             <android.support.v4.widget.NestedScrollView
@@ -79,7 +79,8 @@
                 android:layout_margin="@dimen/margin_view_large"
                 android:src="@drawable/ic_autorenew_white_24dp"
                 app:layout_anchor="@id/list_coordinator_layout"
-                app:layout_anchorGravity="bottom|right|end"/>
+                app:layout_anchorGravity="bottom|right|end"
+                app:layout_behavior="com.physphil.android.unitconverterultimate.ui.ScrollAwareFabBehaviour"/>
 
         </android.support.design.widget.CoordinatorLayout>
 
