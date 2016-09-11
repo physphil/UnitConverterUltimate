@@ -121,6 +121,11 @@ public class Preferences
         return mPrefs.getBoolean(PREFS_SHOW_HELP, true);
     }
 
+    public boolean hasLatestCurrency()
+    {
+        return mPrefs.contains(PREFS_CURRENCY);
+    }
+
     public void saveLatestCurrency(CurrencyResponse latestCurrency)
     {
         mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(latestCurrency)).apply();

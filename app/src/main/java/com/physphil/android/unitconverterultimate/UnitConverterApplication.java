@@ -18,6 +18,7 @@ package com.physphil.android.unitconverterultimate;
 
 import android.app.Application;
 
+import com.physphil.android.unitconverterultimate.api.DownloadCurrencyIntentService;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 /**
@@ -30,6 +31,7 @@ public class UnitConverterApplication extends Application
     public void onCreate()
     {
         super.onCreate();
-        Conversions.initialize();
+        // Initialize conversions object, and load currency if stored
+        Conversions.getInstance().updateCurrencyConversions(this);
     }
 }

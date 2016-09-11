@@ -30,19 +30,19 @@ public final class Conversion
     // Use @IntDef for type safety
     public static final int AREA = 0;
     public static final int COOKING = 1;
-    public static final int CURRENCY = 14;
-    public static final int STORAGE = 2;
-    public static final int ENERGY = 3;
-    public static final int FUEL = 4;
-    public static final int LENGTH = 5;
-    public static final int MASS = 6;
-    public static final int POWER = 7;
-    public static final int PRESSURE = 8;
-    public static final int SPEED = 9;
-    public static final int TEMPERATURE = 10;
-    public static final int TIME = 11;
-    public static final int TORQUE = 12;
-    public static final int VOLUME = 13;
+    public static final int CURRENCY = 2;
+    public static final int STORAGE = 3;
+    public static final int ENERGY = 4;
+    public static final int FUEL = 5;
+    public static final int LENGTH = 6;
+    public static final int MASS = 7;
+    public static final int POWER = 8;
+    public static final int PRESSURE = 9;
+    public static final int SPEED = 10;
+    public static final int TEMPERATURE = 11;
+    public static final int TIME = 12;
+    public static final int TORQUE = 13;
+    public static final int VOLUME = 14;
 
     private int id;
     private int labelResource;

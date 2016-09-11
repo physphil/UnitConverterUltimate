@@ -238,6 +238,7 @@
     <string name="cny">Chinese Yuan</string>
     <string name="czk">Czech Koruna</string>
     <string name="dkk">Danish Krone</string>
+    <string name="eur">Euro</string>
     <string name="gbp">British Pound</string>
     <string name="hkd">Hong Kong Dollar</string>
     <string name="hrk">Croatian Kuna</string>

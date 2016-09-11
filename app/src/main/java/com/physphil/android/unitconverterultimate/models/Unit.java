@@ -42,6 +42,7 @@ public class Unit
     public static final int CNY = 1305;
     public static final int CZK = 1306;
     public static final int DKK = 1307;
+    public static final int EUR = 1331;
     public static final int GBP = 1308;
     public static final int HKD = 1309;
     public static final int HRK = 1310;
@@ -189,7 +190,7 @@ public class Unit
     public static final int CUBIC_YARD = 1219;
 
     @IntDef({SQ_KILOMETRES, SQ_METRES, SQ_CENTIMETRES, HECTARE, SQ_MILE, SQ_YARD, SQ_FOOT, SQ_INCH, ACRE,
-            AUD, BGN, BRL, CDN, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, LIRA, USD, ZAR,
+            AUD, BGN, BRL, CDN, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, LIRA, USD, ZAR,
             BIT, BYTE, KILOBIT, KILOBYTE, MEGABIT, MEGABYTE, GIGABIT, GIGABYTE, TERABIT, TERABYTE,
             JOULE, KILOJOULE, CALORIE, KILOCALORIE, BTU, FT_LBF, IN_LBF, KILOWATT_HOUR, ELECTRON_VOLT,
             MPG_US, MPG_UK, L_100K, KM_L, MILES_L,

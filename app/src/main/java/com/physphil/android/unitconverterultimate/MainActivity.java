@@ -29,7 +29,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.physphil.android.unitconverterultimate.api.FixerApi;
-import com.physphil.android.unitconverterultimate.api.FixerService;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
@@ -39,8 +38,6 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Main activity
@@ -104,25 +101,6 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         {
             HelpDialogFragment.newInstance().show(getSupportFragmentManager(), HelpDialogFragment.TAG);
         }
-
-        // // FIXME: 16-07-26 retrofit2 tests
-        FixerApi.getInstance().getService()
-                .getLatestRates("CAD")
-                .enqueue(new Callback<CurrencyResponse>()
-        {
-            @Override
-            public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
-            {
-                Preferences.getInstance(MainActivity.this).saveLatestCurrency(response.body());
-                Conversions.getInstance().getCurrencyConversions(MainActivity.this);
-            }
-
-            @Override
-            public void onFailure(Call<CurrencyResponse> call, Throwable t)
-            {
-                Log.d("PS", "in failed response");
-            }
-        });
     }
 
     @Override

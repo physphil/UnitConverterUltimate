@@ -16,9 +16,25 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
+import android.util.Log;
+
+import com.physphil.android.unitconverterultimate.Preferences;
+import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.api.FixerApi;
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.DownloadCurrencyEvent;
 import com.physphil.android.unitconverterultimate.models.Unit;
+import com.physphil.android.unitconverterultimate.util.Conversions;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.math.BigDecimal;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Presenter to handle unit conversions
@@ -26,14 +42,6 @@ import java.math.BigDecimal;
  */
 public class ConversionPresenter
 {
-    public interface ConversionView
-    {
-        void showUnitsList();
-        void showProgressCircle();
-        void showLoadingError(int message);
-        void showResult(double result);
-    }
-
     private ConversionView mView;
 
     /**
@@ -44,6 +52,72 @@ public class ConversionPresenter
     public ConversionPresenter(ConversionView mView)
     {
         this.mView = mView;
+    }
+
+    public void onCreate()
+    {
+        EventBus.getDefault().register(this);
+    }
+
+    public void onDestroy()
+    {
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void onGetUnitsToDisplay(@Conversion.id int conversionId)
+    {
+        switch(conversionId)
+        {
+            case Conversion.CURRENCY:
+                refreshCurrencyConversions();
+                if(Conversions.getInstance().hasCurrency())
+                {
+                    mView.showUnitsList(Conversions.getInstance().getById(conversionId));
+                }
+                else
+                {
+                    mView.showProgressCircle();
+                }
+                break;
+
+            default:
+                mView.showUnitsList(Conversions.getInstance().getById(conversionId));
+                break;
+        }
+    }
+
+    private void refreshCurrencyConversions()
+    {
+        FixerApi.getInstance()
+                .getService()
+                .getLatestRates()
+                .enqueue(new Callback<CurrencyResponse>()
+                {
+                    @Override
+                    public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
+                    {
+                        boolean hadCurrency = Conversions.getInstance().hasCurrency();
+                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(response.body());
+                        Conversions.getInstance().updateCurrencyConversions(mView.getContext());
+                        if(hadCurrency)
+                        {
+                            mView.refreshCurrencyConversion();
+                        }
+                        else
+                        {
+                            mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CurrencyResponse> call, Throwable t)
+                    {
+                        if(!Conversions.getInstance().hasCurrency())
+                        {
+                            mView.showLoadingError(R.string.error_loading_currency);
+                        }
+                    }
+                });
     }
 
     /**
@@ -530,5 +604,14 @@ public class ConversionPresenter
         }
 
         return resultF;
+    }
+
+    @Subscribe
+    public void onEventMainThread(DownloadCurrencyEvent event)
+    {
+        if(event.isSuccess())
+        {
+
+        }
     }
 }

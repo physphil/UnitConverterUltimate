@@ -29,5 +29,5 @@ import retrofit2.http.Query;
 public interface FixerService
 {
     @GET("latest")
-    Call<CurrencyResponse> getLatestRates(@Query("base") String base);
+    Call<CurrencyResponse> getLatestRates();
 }

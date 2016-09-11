@@ -24,8 +24,6 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Rates
 {
-    private static final int SIZE = 31;
-
     @SerializedName("AUD") double aud;
     @SerializedName("BGN") double bgn;
     @SerializedName("BRL") double brl;
@@ -57,11 +55,6 @@ public class Rates
     @SerializedName("TRY") double lira;
     @SerializedName("USD") double usd;
     @SerializedName("ZAR") double zar;
-
-    public int getSize()
-    {
-        return SIZE;
-    }
 
     public double getAud()
     {
