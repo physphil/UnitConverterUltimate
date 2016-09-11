@@ -90,7 +90,6 @@ public class ConversionPresenter
                             mView.updateCurrencyConversion();
                             if(showResult)
                             {
-                                Log.d("PS", "showing toast");
                                 mView.showToast(R.string.toast_currency_updated);
                             }
                         }

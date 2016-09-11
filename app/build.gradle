@@ -17,16 +17,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
-
-    defaultConfig {
-        applicationId "com.physphil.android.unitconverterultimate"
-        minSdkVersion 14
-        targetSdkVersion 22
-        versionCode 40300
-        versionName '4.3'
-    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     signingConfigs{
         release{
@@ -39,6 +31,15 @@ android {
         }
     }
 
+    defaultConfig {
+        applicationId "com.physphil.android.unitconverterultimate"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 40300
+        versionName '4.3'
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -50,9 +51,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.android.support:design:24.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.google.code.gson:gson:2.7'

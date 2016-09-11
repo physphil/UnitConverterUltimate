@@ -168,7 +168,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Conversion Result", ((EditText) v).getText().toString());
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(getActivity(), R.string.toast_copied_clipboard, Toast.LENGTH_SHORT).show();
+                showToast(R.string.toast_copied_clipboard);
                 return true;
             }
         });

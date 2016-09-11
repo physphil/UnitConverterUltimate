@@ -18,6 +18,7 @@ package com.physphil.android.unitconverterultimate.test;
 
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
+import com.physphil.android.unitconverterultimate.presenters.ConversionView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import org.junit.Before;
@@ -37,7 +38,8 @@ import static org.mockito.Mockito.verify;
  */
 public class ConversionTests
 {
-    @Mock ConversionPresenter.ConversionView view;
+    @Mock
+    ConversionView view;
 
     private final double DELTA_4 = 0.0001;
     private final double DELTA_6 = 0.000001;
