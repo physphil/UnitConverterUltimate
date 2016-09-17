@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2015 Phil Shadlyn
   ~
@@ -23,12 +23,15 @@
     <string name="text_from">De</string>
     <string name="text_to">A</string>
     <string name="default_value">1</string>
+    <string name="menu_download">Descargar</string>
     <string name="menu_clear">Borrar Valor</string>
     <string name="menu_help">Ayuda</string>
     <string name="menu_settings">Ajustes</string>
     <string name="group_separator_none">Ninguno</string>
     <string name="request_unit">Unit Converter Ultimate: Nueva solicitud de Unidad</string>
     <string name="header_other_stuff">Otras cosas</string>
+    <string name="progress_loading">Cargando&#8230;</string>
+    <string name="error_loading_currency">Se ha producido un error al actualizar las conversiones de moneda.\n\nPor favor, compruebe su conexión a Internet y vuelva a intentarlo.</string>
 
     <string name="toast_error_billing_internet">Ups, Se ha producido un problema. Por favor asegúrese de que tiene una conexión a Internet y vuelve a intentarlo.</string>
     <string name="toast_error_billing_general">Ups, Se ha producido un problema. Por favor, inténtelo de nuevo.</string>
@@ -37,6 +40,8 @@
     <string name="toast_error_no_email_app">No hay una aplicación de correco electrónico instalado</string>
     <string name="toast_error_google_play">Error al abrir Google Play Store, por favor intente de nuevo</string>
     <string name="toast_copied_clipboard">Texto copiado al portapapeles</string>
+    <string name="toast_currency_updated">Conversor de divisas actualizado</string>
+    <string name="toast_error_updating_currency">Se ha producido un error al actualizar las conversiones de moneda.</string>
 
     <string name="prefs_title_formatting">Formato</string>
     <string name="prefs_summary_number_decimals">Establecer el número de decimales que se muestra en valor convertido</string>
@@ -235,6 +240,7 @@
     <string name="cny">Yuan chino</string>
     <string name="czk">Corona checa</string>
     <string name="dkk">Corona danesa</string>
+    <string name="eur">Euro</string>
     <string name="gbp">Libra británica</string>
     <string name="hkd">Dolar de Hong Kong</string>
     <string name="hrk">Kuna croata</string>
