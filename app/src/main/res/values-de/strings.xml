@@ -26,9 +26,12 @@
     <string name="menu_clear">Wert löschen</string>
     <string name="menu_help">Hilfe</string>
     <string name="menu_settings">Einstellungen</string>
+    <string name="menu_download">Herunterladen</string>
     <string name="group_separator_none">Keiner</string>
     <string name="request_unit">Unit Converter Ultimate: Neue Einheit anfragen</string>
     <string name="header_other_stuff">Diverses</string>
+    <string name="progress_loading">Lade &#8230;</string>
+    <string name="error_loading_currency">Fehler beim Aktualisieren der Währungsumrechnungen\n\nBitte überprüfen sie ihre Internetverbindung und versuchen sie es erneut.</string>
 
     <string name="toast_error_billing_internet">Hoppla, es gab ein Problem. Bitte stellen sie sicher, dass eine funktionierende Internetverbindung besteht, und versuchen sie es erneut.</string>
     <string name="toast_error_billing_general">Hopple, es hab ein Problem. Bitte versuchen sie es erneut.</string>
@@ -37,6 +40,8 @@
     <string name="toast_error_no_email_app">Keine E-Mail-App installiert</string>
     <string name="toast_error_google_play">Fehler beim Öffnen des Play Stores, bitte versuchen sie es erneut</string>
     <string name="toast_copied_clipboard">Text in Zwischenablage kopiert</string>
+    <string name="toast_currency_updated">Währungsumrechungen aktualisiert</string>
+    <string name="toast_error_updating_currency">Fehler beim Aktualisieren der Währungsumrechnungen</string>
 
     <string name="prefs_title_formatting">Formatierung</string>
     <string name="prefs_summary_number_decimals">Anzahl der Nachkommastellen, die bei dem umgewandelten Wert angezeigt werden</string>
@@ -235,6 +240,7 @@
     <string name="cny">Chinesischer Yuán</string>
     <string name="czk">Tschechische Krone</string>
     <string name="dkk">Dänische Krone</string>
+    <string name="eur">Euro</string>
     <string name="gbp">Britischer Pfund</string>
     <string name="hkd">Hongkong-Dollar</string>
     <string name="hrk">Kroatische Kuna</string>
@@ -258,6 +264,5 @@
     <string name="lira">Türkische Lira</string>
     <string name="usd">US-Dollar</string>
     <string name="zar">Südafrikanischer Rand</string>
-    <string name="progress_loading">Laden</string>
 
 </resources>
