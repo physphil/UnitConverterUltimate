@@ -30,7 +30,7 @@
     <string name="group_separator_none">Keiner</string>
     <string name="request_unit">Unit Converter Ultimate: Neue Einheit anfragen</string>
     <string name="header_other_stuff">Diverses</string>
-    <string name="progress_loading">Lade &#8230;</string>
+    <string name="progress_loading">Lade&#8230;</string>
     <string name="error_loading_currency">Fehler beim Aktualisieren der Währungsumrechnungen\n\nBitte überprüfen sie ihre Internetverbindung und versuchen sie es erneut.</string>
 
     <string name="toast_error_billing_internet">Hoppla, es gab ein Problem. Bitte stellen sie sicher, dass eine funktionierende Internetverbindung besteht, und versuchen sie es erneut.</string>

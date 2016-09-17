@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2015 Phil Shadlyn
   ~
@@ -264,6 +264,5 @@
     <string name="lira">Lira turca</string>
     <string name="usd">Dólar estadounidense</string>
     <string name="zar">Rand sudafricano</string>
-    <string name="progress_loading">Cargando</string>
 
 </resources>
