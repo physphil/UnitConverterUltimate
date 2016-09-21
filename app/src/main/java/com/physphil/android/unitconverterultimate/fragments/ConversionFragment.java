@@ -41,7 +41,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.physphil.android.unitconverterultimate.DonateActivity;
@@ -54,6 +53,7 @@ import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
+import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -275,9 +275,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
      */
     private Unit getCheckedUnit(RadioGroup group)
     {
-        int index = group.getCheckedRadioButtonId();
-        RadioButton btn = (RadioButton) group.findViewById(index);
-        return (Unit) btn.getTag();
+        int id = group.getCheckedRadioButtonId();
+        Conversion c = Conversions.getInstance().getById(mConversionId);
+        for (Unit unit : c.getUnits())
+        {
+            if(unit.getId() == id)
+            {
+                return unit;
+            }
+        }
+
+        return c.getUnits().get(0);
     }
 
     /**
@@ -526,7 +534,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
         switch (item.getItemId())
         {
             case R.id.menu_download:
-                mPresenter.onUpdateCurrencyConversions(true);
+                mPresenter.onUpdateCurrencyConversions();
                 return true;
 
             case R.id.menu_clear:

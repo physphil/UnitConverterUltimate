@@ -16,13 +16,12 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
-import android.util.Log;
-
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
@@ -55,7 +54,6 @@ public class ConversionPresenter
         switch(conversionId)
         {
             case Conversion.CURRENCY:
-                onUpdateCurrencyConversions(false);
                 if(Conversions.getInstance().hasCurrency())
                 {
                     mView.showUnitsList(Conversions.getInstance().getById(conversionId));
@@ -63,6 +61,12 @@ public class ConversionPresenter
                 else
                 {
                     mView.showProgressCircle();
+                }
+
+                // Only update the conversions the first time the user views them per session
+                if(!Conversions.getInstance().isCurrencyUpdated())
+                {
+                    onUpdateCurrencyConversions();
                 }
                 break;
 
@@ -72,7 +76,7 @@ public class ConversionPresenter
         }
     }
 
-    public void onUpdateCurrencyConversions(final boolean showResult)
+    public void onUpdateCurrencyConversions()
     {
         FixerApi.getInstance()
                 .getService()
@@ -85,13 +89,11 @@ public class ConversionPresenter
                         boolean hadCurrency = Conversions.getInstance().hasCurrency();
                         Preferences.getInstance(mView.getContext()).saveLatestCurrency(response.body());
                         Conversions.getInstance().updateCurrencyConversions(mView.getContext());
+                        Conversions.getInstance().setCurrencyUpdated(true);
+                        mView.showToast(R.string.toast_currency_updated);
                         if(hadCurrency)
                         {
                             mView.updateCurrencyConversion();
-                            if(showResult)
-                            {
-                                mView.showToast(R.string.toast_currency_updated);
-                            }
                         }
                         else
                         {
@@ -106,7 +108,7 @@ public class ConversionPresenter
                         {
                             mView.showLoadingError(R.string.error_loading_currency);
                         }
-                        else if (showResult)
+                        else
                         {
                             mView.showToastError(R.string.toast_error_updating_currency);
                         }

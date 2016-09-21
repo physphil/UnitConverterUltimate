@@ -39,6 +39,7 @@ public final class Conversions
 {
     private static Conversions mInstance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<>();
+    private boolean mCurrencyUpdated;
 
     /**
      * Get instance of Conversions objects, which contains mapping of type and Conversion object
@@ -72,6 +73,7 @@ public final class Conversions
         getTimeConversions();
         getTorqueConversions();
         getVolumeConversions();
+        mCurrencyUpdated = false;
     }
 
     /**
@@ -379,5 +381,15 @@ public final class Conversions
     public boolean hasCurrency()
     {
         return mConversions.get(Conversion.CURRENCY).getUnits().size() > 0;
+    }
+
+    public void setCurrencyUpdated(final boolean currencyUpdated)
+    {
+        mCurrencyUpdated = currencyUpdated;
+    }
+
+    public boolean isCurrencyUpdated()
+    {
+        return mCurrencyUpdated;
     }
 }
