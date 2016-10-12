@@ -26,9 +26,11 @@
     <string name="menu_clear">Limpar Valor</string>
     <string name="menu_help">Ajuda</string>
     <string name="menu_settings">Configuração</string>
+    <string name="menu_download">Baixar</string>
     <string name="group_separator_none">Nenhum</string>
     <string name="request_unit">Unit Converter Ultimate: Novo pedido de Unidade</string>
     <string name="header_other_stuff">Outros</string>
+    <string name="error_loading_currency">Houve um erro ao atualizar as conversões de moeda.\n\nPor favor, verifique sua conexão com a Internet e tente novamente.</string>
 
     <string name="toast_error_billing_internet">Ops, ocorreu um problema. Por favor, verifique se você tem uma conexão de Internet e tente novamente.</string>
     <string name="toast_error_billing_general">Ops, ocorreu um problema. Por favor, tente novamente.</string>
@@ -37,6 +39,8 @@
     <string name="toast_error_no_email_app">Nenhum aplicativo de e-mail instalado</string>
     <string name="toast_error_google_play">Erro ao abrir a Google Play Store, por favor, tente novamente</string>
     <string name="toast_copied_clipboard">Texto copiado para área de transferência</string>
+    <string name="toast_currency_updated">Conversões de moeda atualizada</string>
+    <string name="toast_error_updating_currency">Houve um erro ao atualizar as conversões de moeda.</string>
 
     <string name="prefs_title_formatting">Formatação</string>
     <string name="prefs_summary_number_decimals">Defina o número de casas decimais a serem mostrados no valor convertido</string>
@@ -238,6 +242,7 @@
     <string name="cny">Yuan Chinês</string>
     <string name="czk">Coroa Checa</string>
     <string name="dkk">Coroa Dinamarquesa</string>
+    <string name="eur">Euro</string>
     <string name="gbp">Libra Esterlina</string>
     <string name="hkd">Dólar de Hong Kong</string>
     <string name="hrk">Kuna Croata</string>
