@@ -23,12 +23,15 @@
     <string name="text_from">از</string>
     <string name="text_to">به</string>
     <string name="default_value">1</string>
+    <string name="menu_download">دانلود</string>
     <string name="menu_clear">پاکسازی ارزش</string>
     <string name="menu_help">راهنمایی</string>
     <string name="menu_settings">تنظیمات</string>
     <string name="group_separator_none">هیچ کدام</string>
     <string name="request_unit">مبدل واحدها :درخواست واحد جدید</string>
     <string name="header_other_stuff">سایر گزینه ها</string>
+    <string name="progress_loading">بارگیری</string>
+    <string name="error_loading_currency">خطایی هنگام تبدیل ارز وجود ندارد. لطفا اتصال به اینترنت خود را چک کنید و دوباره امتحان کنید.</string>
 
     <string name="toast_error_billing_internet">یک مشکل یافت شد.ابتدا مطمئن شوید که به اینترنت متصل هستید سپس دوباره تلاش کنید</string>
     <string name="toast_error_billing_general">یک مشکل یافت شد . لطفا دوباره تلاش کنید</string>
@@ -37,6 +40,8 @@
     <string name="toast_error_no_email_app">هیچ برنامه ایمیلی یافت نشد</string>
     <string name="toast_error_google_play">مشکل در اجرای فروشگاه پلی،لطفا دوباره تلاش کنید</string>
     <string name="toast_copied_clipboard">در حافظه کپی گردید</string>
+    <string name="toast_currency_updated">تبدیل ارز به روز</string>
+    <string name="toast_error_updating_currency">خطایی هنگام تبدیل ارز وجود ندارد.</string>
 
     <string name="prefs_title_formatting">در حال پاک کردن</string>
     <string name="prefs_summary_number_decimals">تنظیم تعداد رقم اعشار برای نمایش در فیلد مبدل</string>
@@ -67,6 +72,7 @@
     <!-- تبدیل ها -->
     <string name="area">مساحت</string>
     <string name="cooking">آشپزی</string>
+    <string name="currency">واحد پول</string>
     <string name="storage">حافظه دیجیتال</string>
     <string name="energy">انرژی</string>
     <string name="fuel_consumption">مصرف سوخت</string>
@@ -224,6 +230,39 @@
     <string name="cubic_inch">اینچ مکعب</string>
     <string name="cubic_foot">فوت مکعب</string>
     <string name="cubic_yard">یارد مکعب</string>
-    <string name="progress_loading">بارگیری</string>
+
+    <!-- Currency -->
+    <string name="aud">دلار استرالیا</string>
+    <string name="bgn">بلغاری لو</string>
+    <string name="brl">برزیل واقعی</string>
+    <string name="cdn">دلار کانادایی</string>
+    <string name="chf">فرانک سوئیس</string>
+    <string name="cny">یوان چین</string>
+    <string name="czk">چک Koruna</string>
+    <string name="dkk">کرون دانمارک</string>
+    <string name="eur">یورو</string>
+    <string name="gbp">پوند انگلیس</string>
+    <string name="hkd">دلار هنگ کنگ</string>
+    <string name="hrk">کرواتی Kuna</string>
+    <string name="huf">فورینت مجارستان</string>
+    <string name="idr">روپیه اندونزی</string>
+    <string name="ils">شکل اسرائیل</string>
+    <string name="inr">روپیه هند</string>
+    <string name="jpy">ین ژاپن</string>
+    <string name="krw">وون کره</string>
+    <string name="mxn">پزوی مکزیک</string>
+    <string name="myr">نرخ رینگیت مالزی</string>
+    <string name="nok">نروژی قرن</string>
+    <string name="nzd">دلار نیوزیلند</string>
+    <string name="php">پزوی فیلیپین</string>
+    <string name="pln">لهستانی زلوتی</string>
+    <string name="ron">رومانیایی ل</string>
+    <string name="rub">روبل روسیه</string>
+    <string name="sek">کرون سوئد</string>
+    <string name="sgd">دلار سنگاپور</string>
+    <string name="thb">بات تایلند</string>
+    <string name="lira">لیره ترکیه</string>
+    <string name="usd">دلار آمریکا</string>
+    <string name="zar">رند آفریقای جنوبی</string>
 
 </resources>
