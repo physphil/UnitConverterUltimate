@@ -21,14 +21,17 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
-    signingConfigs{
-        release{
-            def Properties keyProps = new Properties()
-            keyProps.load(new FileInputStream(file('keystore.properties')))
-            storeFile file(keyProps["store"])
-            storePassword keyProps["storePass"]
-            keyAlias keyProps["alias"]
-            keyPassword keyProps["pass"]
+    signingConfigs {
+        release {
+            def keystore = file('keystore.properties');
+            if (keystore.exists()) {
+                def Properties keyProps = new Properties()
+                keyProps.load(new FileInputStream(keystore))
+                storeFile file(keyProps["store"])
+                storePassword keyProps["storePass"]
+                keyAlias keyProps["alias"]
+                keyPassword keyProps["pass"]
+            }
         }
     }
 
