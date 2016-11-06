@@ -31,3 +31,6 @@ app/physphil
 
 #In-App-Billing constants
 app/src/main/res/values/iab.xml
+
+# Firebase config
+app/google-services.json

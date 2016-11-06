@@ -28,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
