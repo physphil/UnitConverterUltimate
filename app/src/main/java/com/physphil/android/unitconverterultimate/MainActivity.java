@@ -90,8 +90,6 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
                     .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                     .commit();
         }
-
-        FirebaseCrash.report(new Exception("Phil is testing!"));
     }
 
     @Override
