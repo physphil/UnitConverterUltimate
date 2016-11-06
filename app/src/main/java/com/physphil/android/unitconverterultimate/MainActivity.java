@@ -23,14 +23,21 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.physphil.android.unitconverterultimate.api.FixerApi;
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Main activity
@@ -111,6 +118,8 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
         navigationView.getMenu().getItem(state).setChecked(true);
+        navigationView.setItemBackgroundResource(Preferences.getInstance(this).isLightTheme() ?
+                R.drawable.navigation_item_background_light : R.drawable.navigation_item_background);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -146,6 +155,9 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
 
             case R.id.drawer_cooking:
                 return Conversion.COOKING;
+
+            case R.id.drawer_currency:
+                return Conversion.CURRENCY;
 
             case R.id.drawer_storage:
                 return Conversion.STORAGE;

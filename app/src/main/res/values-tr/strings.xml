@@ -23,12 +23,15 @@
     <string name="text_from">Kaynak</string>
     <string name="text_to">Hedef</string>
     <string name="default_value">1</string>
+    <string name="menu_download">Indir</string>
     <string name="menu_clear">Değeri Sil</string>
     <string name="menu_help">Yardım</string>
     <string name="menu_settings">Ayarlar</string>
     <string name="group_separator_none">Hiçbiri</string>
     <string name="request_unit">Unit Converter Ultimate: Yeni Birim Talebi</string>
     <string name="header_other_stuff">Diğer Şeyler</string>
+    <string name="progress_loading">Yükleme&#8230;</string>
+    <string name="error_loading_currency">Birimi dönüştürme güncellenirken bir hata oluştu. İnternet bağlantınızı kontrol edin ve tekrar deneyin.</string>
 
     <string name="toast_error_billing_internet">Haydaaa, bir problem oluştu. Lütfen internet bağlantınızın düzgün çalıştığından emin olarak tekrar deneyiniz.</string>
     <string name="toast_error_billing_general">Haydaaa, bir problem oluþtu. Lütfen tekrar deneyiniz.</string>
@@ -37,6 +40,8 @@
     <string name="toast_error_no_email_app">Hiçbir mail uygulaması bulunamadı</string>
     <string name="toast_error_google_play">Google Play Mağazası açılırken hata oluştu, lütfen tekrar deneyiniz</string>
     <string name="toast_copied_clipboard">Metin panoya kopyalandı</string>
+    <string name="toast_currency_updated">Para dönüşümleri güncellendi</string>
+    <string name="toast_error_updating_currency">Birimi dönüştürme güncellenirken bir hata oluştu.</string>
 
     <string name="prefs_title_formatting">Biçimlendiriliyor</string>
     <string name="prefs_summary_number_decimals">Çevrilen deðerdeki ondalık kısmın kaç basamak olacağını belirleyiniz</string>
@@ -67,6 +72,7 @@
     <!-- Conversions -->
     <string name="area">Alan</string>
     <string name="cooking">Mutfak Ölçüleri</string>
+    <string name="currency">Para birimi</string>
     <string name="storage">Dijital Depolama</string>
     <string name="energy">Enerji</string>
     <string name="fuel_consumption">Yakıt Tüketimi</string>
@@ -224,5 +230,39 @@
     <string name="cubic_inch">İnç Küp</string>
     <string name="cubic_foot">Ayak Küp</string>
     <string name="cubic_yard">Yarda Küp</string>
+
+    <!-- Currency -->
+    <string name="aud">Avustralya Doları</string>
+    <string name="bgn">Bulgar Levası</string>
+    <string name="brl">Brezilya Gerçek</string>
+    <string name="cdn">Kanada Doları</string>
+    <string name="chf">İsviçre Frangı</string>
+    <string name="cny">Çin Yuanı</string>
+    <string name="czk">Çek Korunası</string>
+    <string name="dkk">Danimarka Kronu</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">İngiliz Sterlini</string>
+    <string name="hkd">Hong Kong Doları</string>
+    <string name="hrk">Hırvat Kunası</string>
+    <string name="huf">Macar Forinti</string>
+    <string name="idr">Endonezya Rupiah</string>
+    <string name="ils">İsrail Şekeli</string>
+    <string name="inr">Hindistan Rupisi</string>
+    <string name="jpy">Japon Yeni</string>
+    <string name="krw">Kore Wonu</string>
+    <string name="mxn">Meksika Pezosu</string>
+    <string name="myr">Malezya Ringiti</string>
+    <string name="nok">Norveç Kronu</string>
+    <string name="nzd">Yeni Zelanda Doları</string>
+    <string name="php">Filipinler Pezosu</string>
+    <string name="pln">Polonya Zlotisi</string>
+    <string name="ron">Romen Leyi</string>
+    <string name="rub">Rus Rublesi</string>
+    <string name="sek">İsveç Kronu</string>
+    <string name="sgd">Singapur Doları</string>
+    <string name="thb">Tayland Bahtı</string>
+    <string name="lira">Türk Lirası</string>
+    <string name="usd">Amerikan Doları</string>
+    <string name="zar">Güney Afrika Randı</string>
 
 </resources>

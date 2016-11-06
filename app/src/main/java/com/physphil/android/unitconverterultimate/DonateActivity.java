@@ -16,6 +16,7 @@
 
 package com.physphil.android.unitconverterultimate;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -47,6 +48,11 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     private RecyclerView mRecyclerView;
     private ProgressBar mProgressBar;
     private String mPurchasePayload;
+
+    public static void start(Context context)
+    {
+        context.startActivity(new Intent(context, DonateActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

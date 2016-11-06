@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,30 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-    }
-}
+package com.physphil.android.unitconverterultimate.api.models;
 
-allprojects {
-    repositories {
-        mavenCentral()
+/**
+ * Response object sent from Fixer.io API
+ * Created by Phizz on 16-07-26.
+ */
+public class CurrencyResponse
+{
+    private String base;
+    private String date;
+    private Rates rates;
+
+    public String getBase()
+    {
+        return base;
+    }
+
+    public String getDate()
+    {
+        return date;
+    }
+
+    public Rates getRates()
+    {
+        return rates;
     }
 }

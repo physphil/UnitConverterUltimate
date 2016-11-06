@@ -16,7 +16,11 @@
 
 package com.physphil.android.unitconverterultimate.util;
 
+import android.content.Context;
+
+import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.api.models.Rates;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.TemperatureUnit;
 import com.physphil.android.unitconverterultimate.models.Unit;
@@ -34,7 +38,8 @@ import static com.physphil.android.unitconverterultimate.models.Unit.*;
 public final class Conversions
 {
     private static Conversions mInstance = null;
-    private Map<Integer, Conversion> mConversions = new HashMap<Integer, Conversion>();
+    private Map<Integer, Conversion> mConversions = new HashMap<>();
+    private boolean mCurrencyUpdated;
 
     /**
      * Get instance of Conversions objects, which contains mapping of type and Conversion object
@@ -44,19 +49,11 @@ public final class Conversions
     public static Conversions getInstance()
     {
         //Create singleton to contain all conversions
-        initialize();
-        return mInstance;
-    }
-
-    /**
-     * Initialize singleton mInstance with conversion info
-     */
-    public static void initialize()
-    {
-        if(mInstance == null)
+        if (mInstance == null)
         {
             mInstance = new Conversions();
         }
+        return mInstance;
     }
 
     private Conversions()
@@ -76,6 +73,7 @@ public final class Conversions
         getTimeConversions();
         getTorqueConversions();
         getVolumeConversions();
+        mCurrencyUpdated = false;
     }
 
     /**
@@ -133,6 +131,50 @@ public final class Conversions
         units.add(new Unit(MILLILITRE, R.string.millilitre, 0.000001, 1000000.0));
         units.add(new Unit(LITRE, R.string.litre, 0.001, 1000.0));
         addConversion(Conversion.COOKING, new Conversion(Conversion.COOKING, R.string.cooking, units));
+    }
+
+    public void updateCurrencyConversions(Context context)
+    {
+        // Base unit - Euro
+        List<Unit> units = new ArrayList<>();
+        if(Preferences.getInstance(context).hasLatestCurrency())
+        {
+            Rates currency = Preferences.getInstance(context).getLatestCurrency().getRates();
+            units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
+            units.add(new Unit(AUD, R.string.aud, 1 / currency.getAud(), currency.getAud()));
+            units.add(new Unit(GBP, R.string.gbp, 1 / currency.getGbp(), currency.getGbp()));
+            units.add(new Unit(BRL, R.string.brl, 1 / currency.getBrl(), currency.getBrl()));
+            units.add(new Unit(BGN, R.string.bgn, 1 / currency.getBgn(), currency.getBgn()));
+            units.add(new Unit(CDN, R.string.cdn, 1 / currency.getCad(), currency.getCad()));
+            units.add(new Unit(CNY, R.string.cny, 1 / currency.getCny(), currency.getCny()));
+            units.add(new Unit(HRK, R.string.hrk, 1 / currency.getHrk(), currency.getHrk()));
+            units.add(new Unit(CZK, R.string.czk, 1 / currency.getCzk(), currency.getCzk()));
+            units.add(new Unit(DKK, R.string.dkk, 1 / currency.getDkk(), currency.getDkk()));
+            units.add(new Unit(EUR, R.string.eur, 1.0, 1.0));
+            units.add(new Unit(HKD, R.string.hkd, 1 / currency.getHkd(), currency.getHkd()));
+            units.add(new Unit(HUF, R.string.huf, 1 / currency.getHuf(), currency.getHuf()));
+            units.add(new Unit(INR, R.string.inr, 1 / currency.getInr(), currency.getInr()));
+            units.add(new Unit(IDR, R.string.idr, 1 / currency.getIdr(), currency.getIdr()));
+            units.add(new Unit(ILS, R.string.ils, 1 / currency.getIls(), currency.getIls()));
+            units.add(new Unit(JPY, R.string.jpy, 1 / currency.getJpy(), currency.getJpy()));
+            units.add(new Unit(KRW, R.string.krw, 1 / currency.getKrw(), currency.getKrw()));
+            units.add(new Unit(MYR, R.string.myr, 1 / currency.getMyr(), currency.getMyr()));
+            units.add(new Unit(MXN, R.string.mxn, 1 / currency.getMxn(), currency.getMxn()));
+            units.add(new Unit(NZD, R.string.nzd, 1 / currency.getNzd(), currency.getNzd()));
+            units.add(new Unit(NOK, R.string.nok, 1 / currency.getNok(), currency.getNok()));
+            units.add(new Unit(PHP, R.string.php, 1 / currency.getPhp(), currency.getPhp()));
+            units.add(new Unit(PLN, R.string.pln, 1 / currency.getPln(), currency.getPln()));
+            units.add(new Unit(RON, R.string.ron, 1 / currency.getRon(), currency.getRon()));
+            units.add(new Unit(RUB, R.string.rub, 1 / currency.getRub(), currency.getRub()));
+            units.add(new Unit(SGD, R.string.sgd, 1 / currency.getSgd(), currency.getSgd()));
+            units.add(new Unit(ZAR, R.string.zar, 1 / currency.getZar(), currency.getZar()));
+            units.add(new Unit(SEK, R.string.sek, 1 / currency.getSek(), currency.getSek()));
+            units.add(new Unit(CHF, R.string.chf, 1 / currency.getChf(), currency.getChf()));
+            units.add(new Unit(THB, R.string.thb, 1 / currency.getThb(), currency.getThb()));
+            units.add(new Unit(LIRA, R.string.lira, 1 / currency.getLira(), currency.getLira()));
+        }
+
+        addConversion(Conversion.CURRENCY, new Conversion(Conversion.CURRENCY, R.string.currency, units));
     }
 
     private void getStorageConversions()
@@ -334,5 +376,20 @@ public final class Conversions
         units.add(new Unit(CUBIC_FOOT, R.string.cubic_foot, 0.028316846592, 35.3146667214885903));
         units.add(new Unit(CUBIC_YARD, R.string.cubic_yard, 0.7645548692741148, 1.3079506));
         addConversion(Conversion.VOLUME, new Conversion(Conversion.VOLUME, R.string.volume, units));
+    }
+
+    public boolean hasCurrency()
+    {
+        return mConversions.get(Conversion.CURRENCY).getUnits().size() > 0;
+    }
+
+    public void setCurrencyUpdated(final boolean currencyUpdated)
+    {
+        mCurrencyUpdated = currencyUpdated;
+    }
+
+    public boolean isCurrencyUpdated()
+    {
+        return mCurrencyUpdated;
     }
 }

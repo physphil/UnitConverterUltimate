@@ -26,17 +26,22 @@
     <string name="menu_clear">Očisti vrijednost</string>
     <string name="menu_help">Pomoć</string>
     <string name="menu_settings">Postavke</string>
+    <string name="menu_download">Preuzimanje</string>
     <string name="group_separator_none">Nijedan</string>
     <string name="request_unit">Unit Converter Ultimate: Zahtjev nove jedinice</string>
     <string name="header_other_stuff">Ostale stvari</string>
+    <string name="progress_loading">Učitavanje&#8230;</string>
+    <string name="error_loading_currency">Dogodila se pogreška pri ažuriranju valuta.\n\nMolimo provjerite svoju internetsku vezu i pokušajte ponovno.</string>
 
     <string name="toast_error_billing_internet">Ups, dogodio se problem. Molimo uvjerite se da imate važeću Internetsku vezu i pokušajte ponovno.</string>
     <string name="toast_error_billing_general">Ups, dogodio se problem. Molimo pokušajte ponovno.</string>
     <string name="toast_donation_successful">Hvala vam na donaciji!</string>
     <string name="toast_error_no_browser">Pretraživač nije pronađen</string>
-    <string name="toast_error_no_email_app">Nije instalirana e-mail aplikacija</string>
+    <string name="toast_error_no_email_app">E-mail aplikacija nije instalirana</string>
     <string name="toast_error_google_play">Dogodila se pogreška pri otvaranju Google Play Trgovine, molimo pokušajte ponovno</string>
     <string name="toast_copied_clipboard">Tekst je kopiran u međuspremnik</string>
+    <string name="toast_currency_updated">Valute su ažurirane</string>
+    <string name="toast_error_updating_currency">Dogodila se pogreška pri ažuriranju valuta.</string>
 
     <string name="prefs_title_formatting">Oblikovanje</string>
     <string name="prefs_summary_number_decimals">Postavite broj decimalnih mjesta koja će se prikazati u pretvorenoj vrijednosti</string>
@@ -49,10 +54,10 @@
     <string name="prefs_title_light_theme">Koristi svijetlu temu</string>
     <string name="prefs_title_other">Ostale stvari</string>
     <string name="prefs_title_source_code">Pregledaj izvorni kod</string>
-    <string name="pref_summary_source_code">Unit Converter Ultimate je otvorenog koda!  Pregledajte kod na GitHubu.</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate je otvorenog koda! Pregledajte kod na GitHubu.</string>
     <string name="prefs_title_unit_request">Zatraži jedinicu</string>
-    <string name="prefs_summary_unit_request">Želite li da dodam neku mjernu jedinicu? Pošaljite mi email i dajte mi to na znanje.</string>
-    <string name="prefs_title_rate">Ocijenite na Google Playu</string>
+    <string name="prefs_summary_unit_request">Želite da dodam neku mjernu jedinicu? Pošaljite mi email i dajte mi to na znanje.</string>
+    <string name="prefs_title_rate">Ocijeni na Google Playu</string>
     <string name="prefs_summary_rate">Uživate li u pretvaranju svih ovih mjernih jedinica? Zašto ne ocijenite aplikaciju sa 5 zvjezdica?</string>
     <string name="prefs_title_donate">Doniraj</string>
     <string name="prefs_summary_donate">Podržite razvoj i nasmiješite me :)</string>
@@ -61,13 +66,14 @@
 
     <string name="dialog_btn_got_it">Shvaćam</string>
     <string name="dialog_title_help">Pomoć</string>
-    <string name="dialog_message_help">Koristite klizni izbornik za navigaciju između pretvaranja i odabiranja mjernih jedinica koje trebate.\n\nPretvorena vrijednost je potpuno prilagođavajuća. U postavkama odaberite broj potrebnih decimalnih mjesta isto kao separatore grupa i decimala.\n\nDugim pritiskom na pretvorenu vrijednost kopira ju u međuspremnik.</string>
+    <string name="dialog_message_help">Koristite klizni izbornik za navigaciju između pretvaranja i odabiranja mjernih jedinica koje trebate.\n\nPretvorena vrijednost je potpuno prilagođavajuća. U postavkama odaberite broj potrebnih decimalnih mjesta isto kao separatore grupa i decimala.\n\nDugim pritiskom na pretvorenu vrijednost kopirat ćete ju u međuspremnik.</string>
     <string name="dialog_btn_view_source">Prikaži izvor</string>
 
     <!-- Conversions -->
     <string name="area">Područje</string>
     <string name="cooking">Kuhanje</string>
-    <string name="storage">Digitalni prostor</string>
+    <string name="currency">Valuta</string>
+    <string name="storage">Digitalni pohrana</string>
     <string name="energy">Energija</string>
     <string name="fuel_consumption">Potrošnja goriva</string>
     <string name="length">Duljina / Udaljenost</string>
@@ -224,5 +230,39 @@
     <string name="cubic_inch">Kubični Inč</string>
     <string name="cubic_foot">Kubični Stopa</string>
     <string name="cubic_yard">Kubični Jard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australski dolar</string>
+    <string name="bgn">Bugarski lev</string>
+    <string name="brl">Brazilski real</string>
+    <string name="cdn">Kandaski dolar</string>
+    <string name="chf">Švicarski franak</string>
+    <string name="cny">Kineski yuan</string>
+    <string name="czk">Češka kruna</string>
+    <string name="dkk">Danska kruna</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">Britanska funta</string>
+    <string name="hkd">Hong Kong dolar</string>
+    <string name="hrk">Hrvatska kuna</string>
+    <string name="huf">Mađadrska forinta</string>
+    <string name="idr">Indonezijski rupiah</string>
+    <string name="ils">Izraelski šekel</string>
+    <string name="inr">Indijska rupija</string>
+    <string name="jpy">Japanski jen</string>
+    <string name="krw">Korejski won</string>
+    <string name="mxn">Meksički pezo</string>
+    <string name="myr">Malezijski ringgit</string>
+    <string name="nok">Norveška kruna</string>
+    <string name="nzd">Novozelandski dolar</string>
+    <string name="php">Filipinski pezo</string>
+    <string name="pln">Poljski zlot</string>
+    <string name="ron">Rumunjski lei</string>
+    <string name="rub">Ruski rubalj</string>
+    <string name="sek">Švedska kruna</string>
+    <string name="sgd">Singapurski dolar</string>
+    <string name="thb">Tajlandski bat</string>
+    <string name="lira">Turska lira</string>
+    <string name="usd">Američki dolar</string>
+    <string name="zar">Južnoafrički rand</string>
 
 </resources>

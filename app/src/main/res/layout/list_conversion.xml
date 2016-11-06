@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<com.melnykov.fab.ObservableScrollView
+<android.support.v4.widget.NestedScrollView
     android:id="@+id/unit_list_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -30,10 +30,10 @@
             android:id="@+id/radio_group_from"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_view_small"
-            android:layout_marginStart="@dimen/margin_view_small"
-            android:layout_marginRight="@dimen/margin_view_typical"
             android:layout_marginEnd="@dimen/margin_view_typical"
+            android:layout_marginLeft="@dimen/margin_view_small"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            android:layout_marginStart="@dimen/margin_view_small"
             android:layout_weight="1"/>
 
         <RadioGroup
@@ -46,4 +46,4 @@
 
     </LinearLayout>
 
-</com.melnykov.fab.ObservableScrollView>
+</android.support.v4.widget.NestedScrollView>

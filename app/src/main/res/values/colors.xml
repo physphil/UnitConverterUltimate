@@ -16,12 +16,15 @@
   -->
 
 <resources>
-    <color name="theme_blue">#199ACA</color>
-    <color name="theme_blue_dark">#147BA1</color>
-	<color name="theme_orange">#CA7519</color>
+    <color name="theme_blue">#3b73af</color>
+    <color name="theme_blue_dark">#326295</color>
 	<color name="theme_silver">#4A525A</color>
 	<color name="theme_silver_dark">#353B40</color>
     <color name="theme_white">#E5E5E5</color>
+	<color name="theme_red">#F44336</color>
+
+	<color name="navigation_item_background">#444444</color>
+	<color name="navigation_item_background_light">#DDDDDD</color>
 
 	<color name="color_primary">@color/theme_blue</color>
 	<color name="color_primary_dark">@color/theme_blue_dark</color>

@@ -30,6 +30,7 @@ public class UnitConverterApplication extends Application
     public void onCreate()
     {
         super.onCreate();
-        Conversions.initialize();
+        // Initialize conversions object, and load currency if stored
+        Conversions.getInstance().updateCurrencyConversions(this);
     }
 }
