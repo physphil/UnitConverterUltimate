@@ -28,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
@@ -89,6 +90,8 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
                     .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                     .commit();
         }
+
+        FirebaseCrash.report(new Exception("Phil is testing!"));
     }
 
     @Override
