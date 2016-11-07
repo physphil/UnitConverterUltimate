@@ -18,19 +18,9 @@
 <resources>
     <color name="theme_blue">#3b73af</color>
     <color name="theme_blue_dark">#326295</color>
-    <color name="theme_silver">#4A525A</color>
-    <color name="theme_silver_dark">#353B40</color>
+    <color name="theme_silver">#626265</color>
     <color name="theme_white">#E5E5E5</color>
     <color name="theme_red">#F44336</color>
-
-    <color name="pixel_blue">#5e97f6</color>
-    <color name="pixel_blue_dark">#5487DC</color>
-    <color name="score_blue">#2d77db</color>
-    <color name="score_blue_dark">#2869C1</color>
-    <color name="messenger_blue1">#1993e7</color>
-    <color name="messenger_blue1_dark">#1683CD</color>
-    <color name="messenger_blue2">#1789ce</color>
-    <color name="messenger_blue2_dark">#1478B4</color>
 
     <color name="navigation_item_background">#444444</color>
     <color name="navigation_item_background_light">#DDDDDD</color>
@@ -38,6 +28,5 @@
     <color name="color_primary">@color/theme_blue</color>
     <color name="color_primary_dark">@color/theme_blue_dark</color>
     <color name="color_accent">@color/theme_silver</color>
-    <color name="color_accent_dark">@color/theme_silver_dark</color>
 </resources>
 

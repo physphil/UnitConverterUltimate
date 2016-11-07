@@ -78,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_view_large"
                 android:src="@drawable/ic_autorenew_white_24dp"
+                app:backgroundTint="@color/color_accent"
                 app:layout_anchor="@id/unit_list_container"
                 app:layout_anchorGravity="bottom|right|end"
                 app:layout_behavior="com.physphil.android.unitconverterultimate.ui.ScrollAwareFabBehaviour"/>
