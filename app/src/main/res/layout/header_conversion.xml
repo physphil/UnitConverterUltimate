@@ -19,9 +19,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="@dimen/margin_view_typical"
     android:paddingBottom="@dimen/margin_view_small"
     android:stretchColumns="*">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/header_text_unit_from"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            tools:text="Canadian Dollar"/>
+
+        <TextView
+            android:id="@+id/header_text_unit_to"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_view_typical"
+            android:layout_marginRight="@dimen/margin_view_typical"
+            tools:text="Euro"/>
+
+    </TableRow>
 
     <TableRow>
 

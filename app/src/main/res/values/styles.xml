@@ -18,15 +18,15 @@
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_primary</item>
         <item name="alertDialogTheme">@style/alert_dialog</item>
     </style>
 
     <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorAccent">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_primary</item>
         <item name="alertDialogTheme">@style/alert_dialog_light</item>
     </style>
 

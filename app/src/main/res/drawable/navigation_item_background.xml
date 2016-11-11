@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2015 Phil Shadlyn
+  ~ Copyright 2016 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,19 +14,6 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
-<resources>
-    <color name="theme_blue">#3b73af</color>
-    <color name="theme_blue_dark">#326295</color>
-    <color name="theme_silver">#626265</color>
-    <color name="theme_white">#E5E5E5</color>
-    <color name="theme_red">#F44336</color>
-
-    <color name="navigation_item_background">#444444</color>
-    <color name="navigation_item_background_light">#DDDDDD</color>
-
-    <color name="color_primary">@color/theme_blue</color>
-    <color name="color_primary_dark">@color/theme_blue_dark</color>
-    <color name="color_accent">@color/theme_silver</color>
-</resources>
-
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/navigation_item_background_drawable" android:state_checked="true"/>
+</selector>

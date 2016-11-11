@@ -23,11 +23,13 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,12 +37,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
-import com.melnykov.fab.FloatingActionButton;
-import com.melnykov.fab.ObservableScrollView;
+import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
@@ -49,6 +52,7 @@ import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
+import com.physphil.android.unitconverterultimate.presenters.ConversionView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.text.DecimalFormat;
@@ -58,16 +62,20 @@ import java.text.DecimalFormatSymbols;
  * Base fragment to display units to convert
  * Created by Phizz on 15-07-28.
  */
-public final class ConversionFragment extends Fragment implements ConversionPresenter.ConversionView,
+public final class ConversionFragment extends Fragment implements ConversionView,
         SharedPreferences.OnSharedPreferenceChangeListener,
         RadioGroup.OnCheckedChangeListener
 {
     private static final String ARGS_CONVERSION_ID = "conversion_id";
 
-    private ConversionPresenter mConversionPresenter;
+    private ConversionPresenter mPresenter;
     private RadioGroup mGrpFrom, mGrpTo;
     private EditText mTxtValue, mTxtResult;
-    private int mConversionId;
+    private ProgressBar mProgressSpinner;
+    private TextView mProgressText, mTxtUnitFrom, mTxtUnitTo;
+    private ViewFlipper mFlipper;
+    private CoordinatorLayout mCoordinatorLayout;
+    private int mConversionId, mIndexConversion, mIndexProgress;
     private double mResult;
     private Preferences mPrefs;
     private ConversionState mState;
@@ -108,7 +116,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         setRetainInstance(true);
         setHasOptionsMenu(true);
         mConversionId = getArguments().getInt(ARGS_CONVERSION_ID, Conversion.AREA);
-        mConversionPresenter = new ConversionPresenter(this);
+        mPresenter = new ConversionPresenter(this);
         mPrefs = Preferences.getInstance(getActivity());
     }
 
@@ -118,6 +126,14 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     {
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
+        mFlipper = (ViewFlipper) v.findViewById(R.id.viewflipper_conversion);
+        mIndexConversion = mFlipper.indexOfChild(mFlipper.findViewById(R.id.conversion_container));
+        mIndexProgress = mFlipper.indexOfChild(mFlipper.findViewById(R.id.conversion_progress_container));
+        mProgressSpinner = (ProgressBar) v.findViewById(R.id.progress_circle_conversion);
+        mProgressText = (TextView) v.findViewById(R.id.progress_text_conversion);
+
+        mTxtUnitFrom = (TextView) v.findViewById(R.id.header_text_unit_from);
+        mTxtUnitTo = (TextView) v.findViewById(R.id.header_text_unit_to);
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
         if (savedInstanceState == null)
         {
@@ -152,18 +168,16 @@ public final class ConversionFragment extends Fragment implements ConversionPres
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Conversion Result", ((EditText) v).getText().toString());
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(getActivity(), R.string.toast_copied_clipboard, Toast.LENGTH_SHORT).show();
+                showToast(R.string.toast_copied_clipboard);
                 return true;
             }
         });
 
         mGrpFrom = (RadioGroup) v.findViewById(R.id.radio_group_from);
         mGrpTo = (RadioGroup) v.findViewById(R.id.radio_group_to);
-        addUnits();
 
-        ObservableScrollView scrollView = (ObservableScrollView) v.findViewById(R.id.list_conversion);
-        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
-        fab.attachToScrollView(scrollView);
+        mCoordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.list_coordinator_layout);
+        FloatingActionButton fab = (FloatingActionButton) mCoordinatorLayout.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -201,7 +215,7 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     public void onViewStateRestored(@Nullable Bundle savedInstanceState)
     {
         super.onViewStateRestored(savedInstanceState);
-        new LoadConversionStateTask().execute();
+        mPresenter.onGetUnitsToDisplay(mConversionId);
     }
 
     /**
@@ -222,6 +236,8 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             mGrpTo.check(mState.getToId());
         }
 
+        mTxtUnitFrom.setText(getCheckedUnit(mGrpFrom).getLabelResource());
+        mTxtUnitTo.setText(getCheckedUnit(mGrpTo).getLabelResource());
         mGrpFrom.setOnCheckedChangeListener(this);
         mGrpTo.setOnCheckedChangeListener(this);
     }
@@ -238,15 +254,15 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         switch (mConversionId)
         {
             case Conversion.TEMPERATURE:
-                mConversionPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+                mPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
 
             case Conversion.FUEL:
-                mConversionPresenter.convertFuelValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+                mPresenter.convertFuelValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
 
             default:
-                mConversionPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
+                mPresenter.convert(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
         }
     }
@@ -259,17 +275,26 @@ public final class ConversionFragment extends Fragment implements ConversionPres
      */
     private Unit getCheckedUnit(RadioGroup group)
     {
-        int index = group.getCheckedRadioButtonId();
-        RadioButton btn = (RadioButton) group.findViewById(index);
-        return (Unit) btn.getTag();
+        int id = group.getCheckedRadioButtonId();
+        Conversion c = Conversions.getInstance().getById(mConversionId);
+        for (Unit unit : c.getUnits())
+        {
+            if(unit.getId() == id)
+            {
+                return unit;
+            }
+        }
+
+        return c.getUnits().get(0);
     }
 
     /**
      * Add units to From and To radio groups
      */
-    private void addUnits()
+    private void addUnits(Conversion c)
     {
-        Conversion c = Conversions.getInstance().getById(mConversionId);
+        mGrpFrom.removeAllViews();
+        mGrpTo.removeAllViews();
         RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
         lp.bottomMargin = getResources().getDimensionPixelSize(R.dimen.margin_view_small);
         lp.topMargin = getResources().getDimensionPixelSize(R.dimen.margin_view_small);
@@ -293,6 +318,14 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             mGrpFrom.addView(getRadioButton(u, fromChecked), lp);
             mGrpTo.addView(getRadioButton(u, toChecked), lp);
         }
+    }
+
+    /**
+     * Retrieve the last saved ConversionState for this conversion
+     */
+    private void getLastConversionState()
+    {
+        new LoadConversionStateTask().execute();
     }
 
     /**
@@ -376,14 +409,10 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     private TextWatcher mTextWatcher = new TextWatcher()
     {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        {
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {
-        }
+        public void onTextChanged(CharSequence s, int start, int before, int count){}
 
         @Override
         public void afterTextChanged(Editable s)
@@ -399,18 +428,73 @@ public final class ConversionFragment extends Fragment implements ConversionPres
         mTxtResult.setText(getDecimalFormat().format(result));
     }
 
+    @Override
+    public void showUnitsList(Conversion conversion)
+    {
+        mFlipper.setDisplayedChild(mIndexConversion);
+        addUnits(conversion);
+        getLastConversionState();
+    }
+
+    @Override
+    public void showProgressCircle()
+    {
+        mFlipper.setDisplayedChild(mIndexProgress);
+        mProgressSpinner.setVisibility(View.VISIBLE);
+        mProgressText.setText(R.string.progress_loading);
+    }
+
+    @Override
+    public void showLoadingError(int message)
+    {
+        mFlipper.setDisplayedChild(mIndexProgress);
+        mProgressSpinner.setVisibility(View.GONE);
+        mProgressText.setText(message);
+    }
+
+    @Override
+    public void updateCurrencyConversion()
+    {
+        convert();
+    }
+
+    @Override
+    public void showToast(int message)
+    {
+        Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
+        sb.getView().setBackgroundResource(R.color.color_primary);
+        sb.show();
+    }
+
+    @Override
+    public void showToastError(int message)
+    {
+        Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
+        sb.getView().setBackgroundResource(R.color.theme_red);
+        sb.show();
+    }
+
+    @Override
+    public Context getContext()
+    {
+        return getActivity();
+    }
+
     // Radio Group checked change listener
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId)
     {
+        Unit unit = getCheckedUnit(group);
         switch (group.getId())
         {
             case R.id.radio_group_from:
                 mState.setFromId(checkedId);
+                mTxtUnitFrom.setText(unit.getLabelResource());
                 break;
 
             case R.id.radio_group_to:
                 mState.setToId(checkedId);
+                mTxtUnitTo.setText(unit.getLabelResource());
                 break;
         }
 
@@ -437,10 +521,22 @@ public final class ConversionFragment extends Fragment implements ConversionPres
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu)
+    {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem download = menu.findItem(R.id.menu_download);
+        download.setVisible(mConversionId == Conversion.CURRENCY);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId())
         {
+            case R.id.menu_download:
+                mPresenter.onUpdateCurrencyConversions();
+                return true;
+
             case R.id.menu_clear:
                 mTxtValue.setText("");
                 return true;
@@ -452,6 +548,9 @@ public final class ConversionFragment extends Fragment implements ConversionPres
             case R.id.menu_settings:
                 PreferencesActivity.start(getActivity());
                 return true;
+
+            case R.id.menu_donate:
+                DonateActivity.start(getActivity());
 
             default:
                 return super.onOptionsItemSelected(item);

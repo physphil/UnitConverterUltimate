@@ -16,9 +16,20 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
+import com.physphil.android.unitconverterultimate.Preferences;
+import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.api.FixerApi;
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
+import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.math.BigDecimal;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Presenter to handle unit conversions
@@ -26,11 +37,6 @@ import java.math.BigDecimal;
  */
 public class ConversionPresenter
 {
-    public interface ConversionView
-    {
-        void showResult(double result);
-    }
-
     private ConversionView mView;
 
     /**
@@ -41,6 +47,73 @@ public class ConversionPresenter
     public ConversionPresenter(ConversionView mView)
     {
         this.mView = mView;
+    }
+
+    public void onGetUnitsToDisplay(@Conversion.id int conversionId)
+    {
+        switch(conversionId)
+        {
+            case Conversion.CURRENCY:
+                if(Conversions.getInstance().hasCurrency())
+                {
+                    mView.showUnitsList(Conversions.getInstance().getById(conversionId));
+                }
+                else
+                {
+                    mView.showProgressCircle();
+                }
+
+                // Only update the conversions the first time the user views them per session
+                if(!Conversions.getInstance().isCurrencyUpdated())
+                {
+                    onUpdateCurrencyConversions();
+                }
+                break;
+
+            default:
+                mView.showUnitsList(Conversions.getInstance().getById(conversionId));
+                break;
+        }
+    }
+
+    public void onUpdateCurrencyConversions()
+    {
+        FixerApi.getInstance()
+                .getService()
+                .getLatestRates()
+                .enqueue(new Callback<CurrencyResponse>()
+                {
+                    @Override
+                    public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
+                    {
+                        boolean hadCurrency = Conversions.getInstance().hasCurrency();
+                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(response.body());
+                        Conversions.getInstance().updateCurrencyConversions(mView.getContext());
+                        Conversions.getInstance().setCurrencyUpdated(true);
+                        mView.showToast(R.string.toast_currency_updated);
+                        if(hadCurrency)
+                        {
+                            mView.updateCurrencyConversion();
+                        }
+                        else
+                        {
+                            mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CurrencyResponse> call, Throwable t)
+                    {
+                        if(!Conversions.getInstance().hasCurrency())
+                        {
+                            mView.showLoadingError(R.string.error_loading_currency);
+                        }
+                        else
+                        {
+                            mView.showToastError(R.string.toast_error_updating_currency);
+                        }
+                    }
+                });
     }
 
     /**

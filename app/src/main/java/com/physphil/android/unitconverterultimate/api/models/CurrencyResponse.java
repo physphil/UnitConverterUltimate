@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,30 @@
  * limitations under the License.
  */
 
-package com.physphil.android.unitconverterultimate;
-
-import android.app.Application;
-
-import com.physphil.android.unitconverterultimate.util.Conversions;
+package com.physphil.android.unitconverterultimate.api.models;
 
 /**
- * Application class
- * Created by pshadlyn on 8/10/2015.
+ * Response object sent from Fixer.io API
+ * Created by Phizz on 16-07-26.
  */
-public class UnitConverterApplication extends Application
+public class CurrencyResponse
 {
-    @Override
-    public void onCreate()
+    private String base;
+    private String date;
+    private Rates rates;
+
+    public String getBase()
     {
-        super.onCreate();
-        // Initialize conversions object, and load currency if stored
-        Conversions.getInstance().updateCurrencyConversions(this);
+        return base;
+    }
+
+    public String getDate()
+    {
+        return date;
+    }
+
+    public Rates getRates()
+    {
+        return rates;
     }
 }
