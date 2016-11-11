@@ -15,7 +15,11 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+
+// Only apply the google-service plugin if we can configure it
+if (file('app/google-services.json').exists()) {
+    apply plugin: 'com.google.gms.google-services'
+}
 
 android {
     compileSdkVersion 24
@@ -52,16 +56,27 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    productFlavors {
+        base {
+            // Basic build
+        }
+        google {
+            // Adds the option to donate to the developer
+            // Adds Firebase crash analytics
+        }
+    }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'
-    compile 'com.google.firebase:firebase-crash:9.8.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
+
+    googleCompile 'com.google.firebase:firebase-crash:9.8.0'
 
     debugCompile 'com.facebook.stetho:stetho:1.1.1'
 
