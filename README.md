@@ -9,9 +9,7 @@ Unit Converter Ultimate
   <img alt="Get it on Google Play" 
     src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
     width="170"/>
-</a>
-
-<a href="https://f-droid.org/app/com.physphil.android.unitconverterultimate">
+</a><a href="https://f-droid.org/app/com.physphil.android.unitconverterultimate">
     <img src="https://f-droid.org/badge/get-it-on.png"
          alt="Get it on F-Droid" height="80">
 </a>
