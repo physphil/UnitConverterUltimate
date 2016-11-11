@@ -23,12 +23,15 @@
     <string name="text_from">変換元</string>
     <string name="text_to">変換先</string>
     <string name="default_value">1</string>
+    <string name="menu_download">ダウンロード</string>
     <string name="menu_clear">値をクリア</string>
     <string name="menu_help">ヘルプ</string>
     <string name="menu_settings">設定</string>
     <string name="group_separator_none">なし</string>
     <string name="request_unit">Unit Converter Ultimate: 新しい単位のリクエスト</string>
     <string name="header_other_stuff">他のスタッフ</string>
+    <string name="progress_loading">ロード中&#8230;</string>
+    <string name="error_loading_currency">通貨換算の更新中にエラーが発生しました。\n\nインターネットに接続されていることを確認して、もう一度やり直してください。</string>
 
     <string name="toast_error_billing_internet">問題が発生しました。インターネットに接続されていることを確認して、もう一度やり直してください。</string>
     <string name="toast_error_billing_general">問題が発生しました。もう一度やり直してください。</string>
@@ -37,6 +40,8 @@
     <string name="toast_error_no_email_app">メールアプリがインストールされていません</string>
     <string name="toast_error_google_play">Google Play ストアを開くときにエラー。もう一度やり直してください</string>
     <string name="toast_copied_clipboard">テキストをクリップボードにコピーしました</string>
+    <string name="toast_currency_updated">通貨換算を更新しました</string>
+    <string name="toast_error_updating_currency">通貨換算の更新中にエラーが発生しました。</string>
 
     <string name="prefs_title_formatting">書式</string>
     <string name="prefs_summary_number_decimals">変換された値を表示する小数点以下の桁数を設定します</string>
@@ -67,6 +72,7 @@
     <!-- Conversions -->
     <string name="area">面積</string>
     <string name="cooking">調理</string>
+    <string name="currency">通貨</string>
     <string name="storage">デジタルストレージ</string>
     <string name="energy">エネルギー</string>
     <string name="fuel_consumption">燃費</string>
@@ -224,5 +230,39 @@
     <string name="cubic_inch">立方インチ</string>
     <string name="cubic_foot">立方フィート</string>
     <string name="cubic_yard">立方ヤード</string>
+
+    <!-- Currency -->
+    <string name="aud">豪ドル</string>
+    <string name="bgn">ブルガリア・レフ</string>
+    <string name="brl">ブラジル・レアル</string>
+    <string name="cdn">カナダ・ドル</string>
+    <string name="chf">スイス・フラン</string>
+    <string name="cny">中国人民元</string>
+    <string name="czk">チェコ・コルナ</string>
+    <string name="dkk">デンマーク・クローネ</string>
+    <string name="eur">ユーロ</string>
+    <string name="gbp">英国ポンド</string>
+    <string name="hkd">香港ドル</string>
+    <string name="hrk">クロアチア・クナ</string>
+    <string name="huf">ハンガリー・フォリント</string>
+    <string name="idr">インドネシア・ルピア</string>
+    <string name="ils">イスラエル・シェケル</string>
+    <string name="inr">インド・ルピー</string>
+    <string name="jpy">日本円</string>
+    <string name="krw">韓国ウォン</string>
+    <string name="mxn">メキシコ・ペソ</string>
+    <string name="myr">マレーシア・リンギット</string>
+    <string name="nok">ノルウェー・クローネ</string>
+    <string name="nzd">ニュージーランド・ドル</string>
+    <string name="php">フィリピン・ペソ</string>
+    <string name="pln">ポーランド・ズローティ</string>
+    <string name="ron">ルーマニア・レウ</string>
+    <string name="rub">ロシア・ルーブル</string>
+    <string name="sek">スウェーデン・クローナ</string>
+    <string name="sgd">シンガポール・ドル</string>
+    <string name="thb">タイ・バーツ</string>
+    <string name="lira">トルコ・リラ</string>
+    <string name="usd">米ドル</string>
+    <string name="zar">南アフリカ・ランド</string>
 
 </resources>
