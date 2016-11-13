@@ -33,8 +33,6 @@ Available unit conversions include:
 - Fuel Consumption (miles per gallon, liters per 100km, etc)
 - Digital Storage (bit, byte, megabytes, gigabytes, etc)
 
-If you're interested in helping to translate the app into your language, please [e-mail me](mailto:physphil@gmail.com) or create a Pull Request!  Please create all Pull Requests against the 'develop' branch.
-
 Usage
 ------
 - Use the slide-in menu for navigation between conversions and select the units you require. To open the slide-in menu, swipe in from the left edge of the app, or press the app icon in the top left corner.
@@ -44,6 +42,14 @@ Usage
 - Long-pressing on the converted value copies it to the clipboard.
 
 - Pressing the swap Floating Action Button switches the selected units.
+
+Building Yourself
+-----------------
+When building the project yourself, make sure to use the `base` build variant.  This will avoid using any of the Google services (such as Firebase or In-app billing) that contain my own private information.
+
+Contributing
+------------
+Contributions are more than welcome and very appreciated!  Please create all Pull Requests against the 'develop' branch.  If you're interested in helping to translate the app into your language, please [e-mail me](mailto:physphil@gmail.com) or create a Pull Request!
 
 Developed by
 ------------
