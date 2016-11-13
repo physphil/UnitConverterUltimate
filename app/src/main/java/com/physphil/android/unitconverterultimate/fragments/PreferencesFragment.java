@@ -20,11 +20,15 @@ import android.content.ActivityNotFoundException;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.widget.Toast;
 
+import com.physphil.android.unitconverterultimate.BuildConfig;
+import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 /**
@@ -90,6 +94,24 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
                 return true;
             }
         });
+
+        Preference donate = findPreference("donate");
+        if(BuildConfig.FLAVOR.equals(UnitConverterApplication.BUILD_FLAVOUR_GOOGLE))
+        {
+            donate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+            {
+                @Override
+                public boolean onPreferenceClick(Preference preference)
+                {
+                    startActivity(IntentFactory.getDonateIntent(getActivity()));
+                    return true;
+                }
+            });
+        }
+        else
+        {
+            ((PreferenceCategory) findPreference("other")).removePreference(donate);
+        }
     }
 
     @Override

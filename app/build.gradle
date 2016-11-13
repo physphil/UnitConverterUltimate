@@ -16,7 +16,7 @@
 
 apply plugin: 'com.android.application'
 
-// Only apply the google-service plugin if we can configure it
+// Only apply the google-service plugin if the config file exists
 if (file('app/google-services.json').exists()) {
     apply plugin: 'com.google.gms.google-services'
 }

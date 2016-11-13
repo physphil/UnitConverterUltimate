@@ -16,17 +16,15 @@
 
 package com.physphil.android.unitconverterultimate.util;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.physphil.android.unitconverterultimate.R;
 
 /**
  * Class to handle creation of commonly used intents
  * Created by Phizz on 15-08-09.
  */
-public class IntentFactory
+public abstract class BaseIntentFactory
 {
     public static final String GITHUB_REPO = "https://github.com/physphil/UnitConverterUltimate-Studio";
     private static final String EMAIL_ADDRESS = "physphil@gmail.com";

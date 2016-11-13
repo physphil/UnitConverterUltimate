@@ -17,6 +17,7 @@
 package com.physphil.android.unitconverterultimate.fragments;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -43,10 +44,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
@@ -526,6 +529,9 @@ public final class ConversionFragment extends Fragment implements ConversionView
         super.onPrepareOptionsMenu(menu);
         MenuItem download = menu.findItem(R.id.menu_download);
         download.setVisible(mConversionId == Conversion.CURRENCY);
+
+        MenuItem donate = menu.findItem(R.id.menu_donate);
+        donate.setVisible(BuildConfig.FLAVOR.equals(UnitConverterApplication.BUILD_FLAVOUR_GOOGLE));
     }
 
     @Override

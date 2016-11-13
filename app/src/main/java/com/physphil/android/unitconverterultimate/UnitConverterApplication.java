@@ -26,6 +26,9 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
  */
 public class UnitConverterApplication extends Application
 {
+    public static final String BUILD_FLAVOUR_GOOGLE = "google";
+    public static final String BUILD_FLAVOUR_BASE = "base";
+
     @Override
     public void onCreate()
     {

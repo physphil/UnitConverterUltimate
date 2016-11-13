@@ -89,6 +89,8 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
                     .replace(R.id.fragment_container, ConversionFragment.newInstance(conversion))
                     .commit();
         }
+
+        Log.d("PS", "build flavour is " + BuildConfig.FLAVOR);
     }
 
     @Override
