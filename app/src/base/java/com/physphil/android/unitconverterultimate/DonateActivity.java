@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'com.google.gms:google-services:3.0.0'
-    }
-}
+package com.physphil.android.unitconverterultimate;
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
+import android.content.Context;
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+/**
+ * This class is a stub. It only exists so ConversionFragment.java will compile.
+ * The version of this file in the 'google' build flavor is where the functionality is.
+ */
+public class DonateActivity
+{
+    public static void start(Context context) {
+    }
 }
