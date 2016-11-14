@@ -82,7 +82,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
             @Override
             public void onDrawerStateChanged(int newState){}
         });
-        setupDrawer(conversion);
+        setupDrawer(getMenuPositionOfConversion(conversion));
 
         if(savedInstanceState == null)
         {
@@ -198,6 +198,45 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         }
 
         return Conversion.AREA;
+    }
+
+    private int getMenuPositionOfConversion(@Conversion.id final int conversion)
+    {
+        switch (conversion)
+        {
+            case Conversion.AREA:
+                return 0;
+            case Conversion.COOKING:
+                return 1;
+            case Conversion.CURRENCY:
+                return 2;
+            case Conversion.STORAGE:
+                return 3;
+            case Conversion.ENERGY:
+                return 4;
+            case Conversion.FUEL:
+                return 5;
+            case Conversion.LENGTH:
+                return 6;
+            case Conversion.MASS:
+                return 7;
+            case Conversion.POWER:
+                return 8;
+            case Conversion.PRESSURE:
+                return 9;
+            case Conversion.SPEED:
+                return 10;
+            case Conversion.TEMPERATURE:
+                return 11;
+            case Conversion.TIME:
+                return 12;
+            case Conversion.TORQUE:
+                return 13;
+            case Conversion.VOLUME:
+                return 14;
+            default:
+                return 0;
+        }
     }
 
     private void hideKeyboard()
