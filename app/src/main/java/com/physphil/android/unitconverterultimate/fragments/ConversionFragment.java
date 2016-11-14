@@ -16,7 +16,6 @@
 
 package com.physphil.android.unitconverterultimate.fragments;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -79,6 +78,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     private double mResult;
     private Preferences mPrefs;
     private ConversionState mState;
+    private Context mAppContext;
 
     /**
      * Create a new ConversionFragment to display
@@ -96,10 +96,11 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
-    public void onAttach(Activity activity)
+    public void onAttach(Context context)
     {
-        super.onAttach(activity);
-        Preferences.getInstance(activity).getPreferences().registerOnSharedPreferenceChangeListener(this);
+        super.onAttach(context);
+        Preferences.getInstance(context).getPreferences().registerOnSharedPreferenceChangeListener(this);
+        mAppContext = context.getApplicationContext();
     }
 
     @Override
@@ -218,6 +219,13 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mPresenter.onGetUnitsToDisplay(mConversionId);
     }
 
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        mPresenter.onDestroy();
+    }
+
     /**
      * Set radio buttons to their saved state (if any)
      */
@@ -296,8 +304,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mGrpFrom.removeAllViews();
         mGrpTo.removeAllViews();
         RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
-        lp.bottomMargin = getResources().getDimensionPixelSize(R.dimen.margin_view_small);
-        lp.topMargin = getResources().getDimensionPixelSize(R.dimen.margin_view_small);
+        lp.bottomMargin = mAppContext.getResources().getDimensionPixelSize(R.dimen.margin_view_small);
+        lp.topMargin = mAppContext.getResources().getDimensionPixelSize(R.dimen.margin_view_small);
 
         for (int i = 0; i < c.getUnits().size(); i++)
         {
@@ -381,7 +389,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
         symbols.setDecimalSeparator(mPrefs.getDecimalSeparator().charAt(0));
 
         String groupSeparator = mPrefs.getGroupSeparator();
-        boolean isSeparatorUsed = !groupSeparator.equals(getString(R.string.group_separator_none));
+        boolean isSeparatorUsed = !groupSeparator.equals(mAppContext.getString(R.string.group_separator_none));
         formatter.setGroupingUsed(isSeparatorUsed);
         if (isSeparatorUsed)
         {
@@ -477,7 +485,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     @Override
     public Context getContext()
     {
-        return getActivity();
+        return mAppContext;
     }
 
     // Radio Group checked change listener
@@ -573,9 +581,12 @@ public final class ConversionFragment extends Fragment implements ConversionView
         protected void onPostExecute(ConversionState conversionState)
         {
             // This is okay as fragment instance is retained across config change
-            mState = conversionState;
-            restoreConversionState();
-            convert();
+            if(isAdded())
+            {
+                mState = conversionState;
+                restoreConversionState();
+                convert();
+            }
         }
     }
 }
