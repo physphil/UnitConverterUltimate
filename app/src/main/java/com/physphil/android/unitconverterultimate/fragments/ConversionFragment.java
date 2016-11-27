@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -65,8 +65,8 @@ import java.text.DecimalFormatSymbols;
  */
 public final class ConversionFragment extends Fragment implements ConversionView,
         SharedPreferences.OnSharedPreferenceChangeListener,
-        RadioGroup.OnCheckedChangeListener
-{
+        RadioGroup.OnCheckedChangeListener {
+
     private static final String ARGS_CONVERSION_ID = "conversion_id";
 
     private ConversionPresenter mPresenter;
@@ -88,8 +88,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
      * @param id id of the conversion it will handle
      * @return new ConversionFragment instance
      */
-    public static ConversionFragment newInstance(@Conversion.id int id)
-    {
+    public static ConversionFragment newInstance(@Conversion.id int id) {
         ConversionFragment f = new ConversionFragment();
         Bundle args = new Bundle();
         args.putInt(ARGS_CONVERSION_ID, id);
@@ -98,23 +97,20 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
-    public void onAttach(Context context)
-    {
+    public void onAttach(Context context) {
         super.onAttach(context);
         Preferences.getInstance(context).getPreferences().registerOnSharedPreferenceChangeListener(this);
         mAppContext = context.getApplicationContext();
     }
 
     @Override
-    public void onDetach()
-    {
+    public void onDetach() {
         super.onDetach();
         Preferences.getInstance(getActivity()).getPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -125,8 +121,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         mFlipper = (ViewFlipper) v.findViewById(R.id.viewflipper_conversion);
@@ -138,11 +133,9 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mTxtUnitFrom = (TextView) v.findViewById(R.id.header_text_unit_from);
         mTxtUnitTo = (TextView) v.findViewById(R.id.header_text_unit_to);
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
-        if (savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             String value = mPrefs.getLastValue();
-            if (mConversionId != Conversion.TEMPERATURE)
-            {
+            if (mConversionId != Conversion.TEMPERATURE) {
                 // adjust value if it was negative coming from temperature conversion
                 value = value.replace("-", "");
                 value = value.replace("+", "");
@@ -152,21 +145,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
         }
 
         // Only allow negative values for temperature
-        if (mConversionId == Conversion.TEMPERATURE)
-        {
+        if (mConversionId == Conversion.TEMPERATURE) {
             mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         }
-        else
-        {
+        else {
             mTxtValue.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         }
 
         mTxtResult = (EditText) v.findViewById(R.id.header_value_to);
-        mTxtResult.setOnLongClickListener(new View.OnLongClickListener()
-        {
+        mTxtResult.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v)
-            {
+            public boolean onLongClick(View v) {
                 // Copy text to clipboard
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Conversion Result", ((EditText) v).getText().toString());
@@ -181,11 +170,9 @@ public final class ConversionFragment extends Fragment implements ConversionView
 
         mCoordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.list_coordinator_layout);
         FloatingActionButton fab = (FloatingActionButton) mCoordinatorLayout.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 swapUnits();
             }
         });
@@ -194,36 +181,31 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         mTxtValue.addTextChangedListener(mTextWatcher);
     }
 
     @Override
-    public void onPause()
-    {
+    public void onPause() {
         super.onPause();
         mTxtValue.removeTextChangedListener(mTextWatcher);
         mPrefs.setLastValue(mTxtValue.getText().toString());
         mPrefs.setLastConversion(mConversionId);
 
-        if (mState != null)
-        {
+        if (mState != null) {
             DataAccess.getInstance(getActivity()).saveConversionState(mState);
         }
     }
 
     @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState)
-    {
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         mPresenter.onGetUnitsToDisplay(mConversionId);
     }
 
     @Override
-    public void onDestroyView()
-    {
+    public void onDestroyView() {
         super.onDestroyView();
         mPresenter.onDestroy();
     }
@@ -231,16 +213,13 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Set radio buttons to their saved state (if any)
      */
-    private void restoreConversionState()
-    {
-        if (mState.getFromId() < 0 || mState.getToId() < 0)
-        {
+    private void restoreConversionState() {
+        if (mState.getFromId() < 0 || mState.getToId() < 0) {
             // Empty initial state, set state from default checked buttons
             mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
             mState.setToId(mGrpTo.getCheckedRadioButtonId());
         }
-        else
-        {
+        else {
             // Overwrite default checked state with last saved state
             mGrpFrom.check(mState.getFromId());
             mGrpTo.check(mState.getToId());
@@ -255,14 +234,12 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Convert value from one unit to another
      */
-    private void convert()
-    {
+    private void convert() {
         // If input isn't a number yet then set to 0
         String input = mTxtValue.getText().toString();
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
 
-        switch (mConversionId)
-        {
+        switch (mConversionId) {
             case Conversion.TEMPERATURE:
                 mPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;
@@ -283,14 +260,11 @@ public final class ConversionFragment extends Fragment implements ConversionView
      * @param group RadioGroup which contains the button
      * @return Unit associated with checked button
      */
-    private Unit getCheckedUnit(RadioGroup group)
-    {
+    private Unit getCheckedUnit(RadioGroup group) {
         int id = group.getCheckedRadioButtonId();
         Conversion c = Conversions.getInstance().getById(mConversionId);
-        for (Unit unit : c.getUnits())
-        {
-            if(unit.getId() == id)
-            {
+        for (Unit unit : c.getUnits()) {
+            if (unit.getId() == id) {
                 return unit;
             }
         }
@@ -301,27 +275,23 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Add units to From and To radio groups
      */
-    private void addUnits(Conversion c)
-    {
+    private void addUnits(Conversion c) {
         mGrpFrom.removeAllViews();
         mGrpTo.removeAllViews();
         RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
         lp.bottomMargin = mAppContext.getResources().getDimensionPixelSize(R.dimen.margin_view_small);
         lp.topMargin = mAppContext.getResources().getDimensionPixelSize(R.dimen.margin_view_small);
 
-        for (int i = 0; i < c.getUnits().size(); i++)
-        {
+        for (int i = 0; i < c.getUnits().size(); i++) {
             Unit u = c.getUnits().get(i);
             boolean fromChecked = false;
             boolean toChecked = false;
 
             // Set default checked state. Will be overridden later on if there is a saved state to restore
-            if (i == 0)
-            {
+            if (i == 0) {
                 fromChecked = true;
             }
-            else if (i == 1)
-            {
+            else if (i == 1) {
                 toChecked = true;
             }
 
@@ -333,8 +303,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Retrieve the last saved ConversionState for this conversion
      */
-    private void getLastConversionState()
-    {
+    private void getLastConversionState() {
         new LoadConversionStateTask().execute();
     }
 
@@ -345,8 +314,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
      * @param checked if the button is checked or not
      * @return RadioButton to display
      */
-    private RadioButton getRadioButton(Unit u, boolean checked)
-    {
+    private RadioButton getRadioButton(Unit u, boolean checked) {
         RadioButton btn = (RadioButton) LayoutInflater.from(getActivity()).inflate(R.layout.unit_radio_button, null);
         btn.setId(u.getId());
         btn.setTag(u);
@@ -361,15 +329,12 @@ public final class ConversionFragment extends Fragment implements ConversionView
      * @param number string input
      * @return if the input is a numeric value
      */
-    private boolean isNumeric(String number)
-    {
-        try
-        {
+    private boolean isNumeric(String number) {
+        try {
             double d = Double.parseDouble(number);
             return true;
         }
-        catch (NumberFormatException e)
-        {
+        catch (NumberFormatException e) {
             return false;
         }
     }
@@ -379,8 +344,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
      *
      * @return DecimalFormat
      */
-    private DecimalFormat getDecimalFormat()
-    {
+    private DecimalFormat getDecimalFormat() {
         DecimalFormat formatter = new DecimalFormat();
 
         //Set maximum number of decimal places
@@ -393,8 +357,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
         String groupSeparator = mPrefs.getGroupSeparator();
         boolean isSeparatorUsed = !groupSeparator.equals(mAppContext.getString(R.string.group_separator_none));
         formatter.setGroupingUsed(isSeparatorUsed);
-        if (isSeparatorUsed)
-        {
+        if (isSeparatorUsed) {
             symbols.setGroupingSeparator(groupSeparator.charAt(0));
         }
 
@@ -405,8 +368,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Swap units between From and To
      */
-    private void swapUnits()
-    {
+    private void swapUnits() {
         int fromId = mGrpFrom.getCheckedRadioButtonId();
         int toId = mGrpTo.getCheckedRadioButtonId();
 
@@ -416,87 +378,75 @@ public final class ConversionFragment extends Fragment implements ConversionView
         ((RadioButton) mGrpTo.findViewById(fromId)).setChecked(true);
     }
 
-    private TextWatcher mTextWatcher = new TextWatcher()
-    {
+    private TextWatcher mTextWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count){}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
         @Override
-        public void afterTextChanged(Editable s)
-        {
+        public void afterTextChanged(Editable s) {
             convert();
         }
     };
 
     @Override
-    public void showResult(double result)
-    {
+    public void showResult(double result) {
         mResult = result;
         mTxtResult.setText(getDecimalFormat().format(result));
     }
 
     @Override
-    public void showUnitsList(Conversion conversion)
-    {
+    public void showUnitsList(Conversion conversion) {
         mFlipper.setDisplayedChild(mIndexConversion);
         addUnits(conversion);
         getLastConversionState();
     }
 
     @Override
-    public void showProgressCircle()
-    {
+    public void showProgressCircle() {
         mFlipper.setDisplayedChild(mIndexProgress);
         mProgressSpinner.setVisibility(View.VISIBLE);
         mProgressText.setText(R.string.progress_loading);
     }
 
     @Override
-    public void showLoadingError(int message)
-    {
+    public void showLoadingError(int message) {
         mFlipper.setDisplayedChild(mIndexProgress);
         mProgressSpinner.setVisibility(View.GONE);
         mProgressText.setText(message);
     }
 
     @Override
-    public void updateCurrencyConversion()
-    {
+    public void updateCurrencyConversion() {
         convert();
     }
 
     @Override
-    public void showToast(int message)
-    {
+    public void showToast(int message) {
         Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
         sb.getView().setBackgroundResource(R.color.color_primary);
         sb.show();
     }
 
     @Override
-    public void showToastError(int message)
-    {
+    public void showToastError(int message) {
         Snackbar sb = Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG);
         sb.getView().setBackgroundResource(R.color.theme_red);
         sb.show();
     }
 
     @Override
-    public Context getContext()
-    {
+    public Context getContext() {
         return mAppContext;
     }
 
     // Radio Group checked change listener
     @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId)
-    {
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
         Unit unit = getCheckedUnit(group);
-        switch (group.getId())
-        {
+        switch (group.getId()) {
             case R.id.radio_group_from:
                 mState.setFromId(checkedId);
                 mTxtUnitFrom.setText(unit.getLabelResource());
@@ -513,26 +463,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
 
     // Change in shared preferences
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
-    {
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(Preferences.PREFS_NUMBER_OF_DECIMALS) ||
                 key.equals(Preferences.PREFS_DECIMAL_SEPARATOR) ||
-                key.equals(Preferences.PREFS_GROUP_SEPARATOR))
-        {
+                key.equals(Preferences.PREFS_GROUP_SEPARATOR)) {
             mTxtResult.setText(getDecimalFormat().format(mResult));
         }
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_conversion_fragment, menu);
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu)
-    {
+    public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         MenuItem download = menu.findItem(R.id.menu_download);
         download.setVisible(mConversionId == Conversion.CURRENCY);
@@ -542,10 +488,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.menu_download:
                 mPresenter.onUpdateCurrencyConversions();
                 return true;
@@ -573,21 +517,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * AsyncTask to load ConversionState for given fragment from database
      */
-    private final class LoadConversionStateTask extends AsyncTask<Void, Void, ConversionState>
-    {
+    private final class LoadConversionStateTask extends AsyncTask<Void, Void, ConversionState> {
         @Override
-        protected ConversionState doInBackground(Void... params)
-        {
+        protected ConversionState doInBackground(Void... params) {
             // This is okay as DataAccess uses application context
             return DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
         }
 
         @Override
-        protected void onPostExecute(ConversionState conversionState)
-        {
+        protected void onPostExecute(ConversionState conversionState) {
             // This is okay as fragment instance is retained across config change
-            if(isAdded())
-            {
+            if (isAdded()) {
                 mState = conversionState;
                 restoreConversionState();
                 convert();

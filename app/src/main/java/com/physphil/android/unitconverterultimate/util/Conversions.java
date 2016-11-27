@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,8 +35,8 @@ import static com.physphil.android.unitconverterultimate.models.Unit.*;
 /**
  * Contains all conversion info
  */
-public final class Conversions
-{
+public final class Conversions {
+
     private static Conversions mInstance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<>();
     private boolean mCurrencyUpdated;
@@ -46,18 +46,15 @@ public final class Conversions
      *
      * @return Conversions mInstance
      */
-    public static Conversions getInstance()
-    {
+    public static Conversions getInstance() {
         //Create singleton to contain all conversions
-        if (mInstance == null)
-        {
+        if (mInstance == null) {
             mInstance = new Conversions();
         }
         return mInstance;
     }
 
-    private Conversions()
-    {
+    private Conversions() {
         //Fill conversions HashMap
         getAreaConversions();
         getCookingConversions();
@@ -78,26 +75,25 @@ public final class Conversions
 
     /**
      * Get Conversion object by its id
+     *
      * @param id id of conversion
      * @return Conversion object
      */
-    public Conversion getById(@Conversion.id int id)
-    {
+    public Conversion getById(@Conversion.id int id) {
         return mConversions.get(id);
     }
 
     /**
      * Method to add conversion to hashmap, encapsulated in a separate method for type safety
-     * @param id conversion id
+     *
+     * @param id         conversion id
      * @param conversion Conversion object
      */
-    private void addConversion(@Conversion.id int id, Conversion conversion)
-    {
+    private void addConversion(@Conversion.id int id, Conversion conversion) {
         mConversions.put(id, conversion);
     }
 
-    private void getAreaConversions()
-    {
+    private void getAreaConversions() {
         //Base unit: square metre
 
         List<Unit> units = new ArrayList<Unit>();
@@ -113,8 +109,7 @@ public final class Conversions
         addConversion(Conversion.AREA, new Conversion(Conversion.AREA, R.string.area, units));
     }
 
-    private void getCookingConversions()
-    {
+    private void getCookingConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
@@ -133,12 +128,10 @@ public final class Conversions
         addConversion(Conversion.COOKING, new Conversion(Conversion.COOKING, R.string.cooking, units));
     }
 
-    public void updateCurrencyConversions(Context context)
-    {
+    public void updateCurrencyConversions(Context context) {
         // Base unit - Euro
         List<Unit> units = new ArrayList<>();
-        if(Preferences.getInstance(context).hasLatestCurrency())
-        {
+        if (Preferences.getInstance(context).hasLatestCurrency()) {
             Rates currency = Preferences.getInstance(context).getLatestCurrency().getRates();
             units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
             units.add(new Unit(AUD, R.string.aud, 1 / currency.getAud(), currency.getAud()));
@@ -177,8 +170,7 @@ public final class Conversions
         addConversion(Conversion.CURRENCY, new Conversion(Conversion.CURRENCY, R.string.currency, units));
     }
 
-    private void getStorageConversions()
-    {
+    private void getStorageConversions() {
         //Base Unit = megabyte
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(BIT, R.string.bit, 0.00000011920928955078, 8388608.0));
@@ -194,8 +186,7 @@ public final class Conversions
         addConversion(Conversion.STORAGE, new Conversion(Conversion.STORAGE, R.string.storage, units));
     }
 
-    private void getEnergyConversions()
-    {
+    private void getEnergyConversions() {
         //Base unit Joules
 
         List<Unit> units = new ArrayList<Unit>();
@@ -210,8 +201,7 @@ public final class Conversions
         addConversion(Conversion.ENERGY, new Conversion(Conversion.ENERGY, R.string.energy, units));
     }
 
-    private void getFuelConversions()
-    {
+    private void getFuelConversions() {
         //Base Unit - Miles per Gallon US
 
         List<Unit> units = new ArrayList<Unit>();
@@ -223,8 +213,7 @@ public final class Conversions
         addConversion(Conversion.FUEL, new Conversion(Conversion.FUEL, R.string.fuel_consumption, units));
     }
 
-    private void getLengthConversions()
-    {
+    private void getLengthConversions() {
         //Base unit - Metres
 
         List<Unit> units = new ArrayList<Unit>();
@@ -244,8 +233,7 @@ public final class Conversions
         addConversion(Conversion.LENGTH, new Conversion(Conversion.LENGTH, R.string.length, units));
     }
 
-    private void getMassConversions()
-    {
+    private void getMassConversions() {
         //Base unit - Kilograms
 
         List<Unit> units = new ArrayList<Unit>();
@@ -262,8 +250,7 @@ public final class Conversions
         addConversion(Conversion.MASS, new Conversion(Conversion.MASS, R.string.mass, units));
     }
 
-    private void getPowerConversions()
-    {
+    private void getPowerConversions() {
         //Base unit - Watt
 
         List<Unit> units = new ArrayList<Unit>();
@@ -279,8 +266,7 @@ public final class Conversions
         addConversion(Conversion.POWER, new Conversion(Conversion.POWER, R.string.power, units));
     }
 
-    private void getPressureConversions()
-    {
+    private void getPressureConversions() {
         //Base unit - Pa
 
         List<Unit> units = new ArrayList<Unit>();
@@ -297,8 +283,7 @@ public final class Conversions
         addConversion(Conversion.PRESSURE, new Conversion(Conversion.PRESSURE, R.string.pressure, units));
     }
 
-    private void getSpeedConversions()
-    {
+    private void getSpeedConversions() {
         //base unit - m/s
 
         List<Unit> units = new ArrayList<Unit>();
@@ -310,8 +295,7 @@ public final class Conversions
         addConversion(Conversion.SPEED, new Conversion(Conversion.SPEED, R.string.speed, units));
     }
 
-    private void getTemperatureConversions()
-    {
+    private void getTemperatureConversions() {
         List<Unit> units = new ArrayList<Unit>();
         units.add(new TemperatureUnit(CELSIUS, R.string.celsius));
         units.add(new TemperatureUnit(FAHRENHEIT, R.string.fahrenheit));
@@ -325,8 +309,7 @@ public final class Conversions
         addConversion(Conversion.TEMPERATURE, new Conversion(Conversion.TEMPERATURE, R.string.temperature, units));
     }
 
-    private void getTimeConversions()
-    {
+    private void getTimeConversions() {
         //Base unit - seconds
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(YEAR, R.string.year, 31536000.0, 0.0000000317097919837645865));
@@ -341,8 +324,7 @@ public final class Conversions
         addConversion(Conversion.TIME, new Conversion(Conversion.TIME, R.string.time, units));
     }
 
-    private void getTorqueConversions()
-    {
+    private void getTorqueConversions() {
         // Base unit - Newton-metres
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(N_M, R.string.n_m, 1.0, 1.0));
@@ -351,8 +333,7 @@ public final class Conversions
         addConversion(Conversion.TORQUE, new Conversion(Conversion.TORQUE, R.string.torque, units));
     }
 
-    private void getVolumeConversions()
-    {
+    private void getVolumeConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
@@ -378,18 +359,15 @@ public final class Conversions
         addConversion(Conversion.VOLUME, new Conversion(Conversion.VOLUME, R.string.volume, units));
     }
 
-    public boolean hasCurrency()
-    {
+    public boolean hasCurrency() {
         return mConversions.get(Conversion.CURRENCY).getUnits().size() > 0;
     }
 
-    public void setCurrencyUpdated(final boolean currencyUpdated)
-    {
+    public void setCurrencyUpdated(final boolean currencyUpdated) {
         mCurrencyUpdated = currencyUpdated;
     }
 
-    public boolean isCurrencyUpdated()
-    {
+    public boolean isCurrencyUpdated() {
         return mCurrencyUpdated;
     }
 }

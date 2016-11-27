@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,8 +22,8 @@ import com.google.gson.annotations.SerializedName;
  * List of currency rates from Fixer.io API
  * Created by Phizz on 16-07-26.
  */
-public class Rates
-{
+public class Rates {
+
     @SerializedName("AUD") double aud;
     @SerializedName("BGN") double bgn;
     @SerializedName("BRL") double brl;
@@ -56,158 +56,127 @@ public class Rates
     @SerializedName("USD") double usd;
     @SerializedName("ZAR") double zar;
 
-    public double getAud()
-    {
+    public double getAud() {
         return aud;
     }
 
-    public double getBgn()
-    {
+    public double getBgn() {
         return bgn;
     }
 
-    public double getBrl()
-    {
+    public double getBrl() {
         return brl;
     }
 
-    public double getCad()
-    {
+    public double getCad() {
         return cad;
     }
 
-    public double getChf()
-    {
+    public double getChf() {
         return chf;
     }
 
-    public double getCny()
-    {
+    public double getCny() {
         return cny;
     }
 
-    public double getCzk()
-    {
+    public double getCzk() {
         return czk;
     }
 
-    public double getDkk()
-    {
+    public double getDkk() {
         return dkk;
     }
 
-    public double getGbp()
-    {
+    public double getGbp() {
         return gbp;
     }
 
-    public double getHkd()
-    {
+    public double getHkd() {
         return hkd;
     }
 
-    public double getHrk()
-    {
+    public double getHrk() {
         return hrk;
     }
 
-    public double getHuf()
-    {
+    public double getHuf() {
         return huf;
     }
 
-    public double getIdr()
-    {
+    public double getIdr() {
         return idr;
     }
 
-    public double getIls()
-    {
+    public double getIls() {
         return ils;
     }
 
-    public double getInr()
-    {
+    public double getInr() {
         return inr;
     }
 
-    public double getJpy()
-    {
+    public double getJpy() {
         return jpy;
     }
 
-    public double getKrw()
-    {
+    public double getKrw() {
         return krw;
     }
 
-    public double getMxn()
-    {
+    public double getMxn() {
         return mxn;
     }
 
-    public double getMyr()
-    {
+    public double getMyr() {
         return myr;
     }
 
-    public double getNok()
-    {
+    public double getNok() {
         return nok;
     }
 
-    public double getNzd()
-    {
+    public double getNzd() {
         return nzd;
     }
 
-    public double getPhp()
-    {
+    public double getPhp() {
         return php;
     }
 
-    public double getPln()
-    {
+    public double getPln() {
         return pln;
     }
 
-    public double getRon()
-    {
+    public double getRon() {
         return ron;
     }
 
-    public double getRub()
-    {
+    public double getRub() {
         return rub;
     }
 
-    public double getSek()
-    {
+    public double getSek() {
         return sek;
     }
 
-    public double getSgd()
-    {
+    public double getSgd() {
         return sgd;
     }
 
-    public double getThb()
-    {
+    public double getThb() {
         return thb;
     }
 
-    public double getLira()
-    {
+    public double getLira() {
         return lira;
     }
 
-    public double getUsd()
-    {
+    public double getUsd() {
         return usd;
     }
 
-    public double getZar()
-    {
+    public double getZar() {
         return zar;
     }
 }

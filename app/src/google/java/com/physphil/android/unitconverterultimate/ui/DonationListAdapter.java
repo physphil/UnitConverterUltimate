@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,12 +36,12 @@ public class DonationListAdapter extends BaseAdapter {
     private String[] mDonationOptions;
     private Context mContext;
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView description;
         TextView price;
     }
 
-    public DonationListAdapter(Context context, Inventory inventory){
+    public DonationListAdapter(Context context, Inventory inventory) {
         mContext = context;
         mInventory = inventory;
         mDonationOptions = mContext.getResources().getStringArray(R.array.donation_options);
@@ -65,7 +65,7 @@ public class DonationListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if(convertView == null){
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.row_donation, parent, false);
 
