@@ -25,7 +25,6 @@ import android.preference.PreferenceFragment;
 import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.BuildConfig;
-import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;

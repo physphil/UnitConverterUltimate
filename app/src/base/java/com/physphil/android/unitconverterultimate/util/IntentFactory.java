@@ -1,6 +1,9 @@
 package com.physphil.android.unitconverterultimate.util;
 
 
+import android.content.Context;
+import android.content.Intent;
+
 /**
  * 'base' implementation of IntentFactory
  * Created by Phizz on 2016-11-13.

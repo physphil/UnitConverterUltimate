@@ -16,7 +16,6 @@
 
 package com.physphil.android.unitconverterultimate.fragments;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -44,7 +43,6 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.physphil.android.unitconverterultimate.BuildConfig;
-import com.physphil.android.unitconverterultimate.DonateActivity;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
@@ -56,6 +54,7 @@ import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -564,7 +563,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
                 return true;
 
             case R.id.menu_donate:
-                DonateActivity.start(getActivity());
+                startActivity(IntentFactory.getDonateIntent(getActivity()));
 
             default:
                 return super.onOptionsItemSelected(item);
