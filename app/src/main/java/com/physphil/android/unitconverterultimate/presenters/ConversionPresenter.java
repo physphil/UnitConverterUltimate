@@ -36,8 +36,8 @@ import retrofit2.Response;
  * Presenter to handle unit conversions
  * Created by Phizz on 15-07-29.
  */
-public class ConversionPresenter
-{
+public class ConversionPresenter {
+
     private Set<Call<CurrencyResponse>> mCalls;
     private ConversionView mView;
 
@@ -46,19 +46,15 @@ public class ConversionPresenter
      *
      * @param mView ConversionView callback
      */
-    public ConversionPresenter(ConversionView mView)
-    {
+    public ConversionPresenter(ConversionView mView) {
         this.mView = mView;
         this.mCalls = new HashSet<>();
     }
 
-    public void onDestroy()
-    {
+    public void onDestroy() {
         // Cancel any running currency updates
-        for (Call<CurrencyResponse> call : mCalls)
-        {
-            if(call != null && call.isExecuted() && !call.isCanceled())
-            {
+        for (Call<CurrencyResponse> call : mCalls) {
+            if (call != null && call.isExecuted() && !call.isCanceled()) {
                 call.cancel();
             }
         }
@@ -66,65 +62,52 @@ public class ConversionPresenter
         mCalls.clear();
     }
 
-    public void onUpdateCurrencyConversions()
-    {
+    public void onUpdateCurrencyConversions() {
         final Call<CurrencyResponse> call = FixerApi.getInstance()
                 .getService()
                 .getLatestRates();
 
         mCalls.add(call);
-        call.enqueue(new Callback<CurrencyResponse>()
-        {
+        call.enqueue(new Callback<CurrencyResponse>() {
             @Override
-            public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response)
-            {
+            public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response) {
                 boolean hadCurrency = Conversions.getInstance().hasCurrency();
                 Preferences.getInstance(mView.getContext()).saveLatestCurrency(response.body());
                 Conversions.getInstance().updateCurrencyConversions(mView.getContext());
                 Conversions.getInstance().setCurrencyUpdated(true);
                 mView.showToast(R.string.toast_currency_updated);
-                if (hadCurrency)
-                {
+                if (hadCurrency) {
                     mView.updateCurrencyConversion();
                 }
-                else
-                {
+                else {
                     mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
                 }
             }
 
             @Override
-            public void onFailure(Call<CurrencyResponse> call, Throwable t)
-            {
-                if (!Conversions.getInstance().hasCurrency())
-                {
+            public void onFailure(Call<CurrencyResponse> call, Throwable t) {
+                if (!Conversions.getInstance().hasCurrency()) {
                     mView.showLoadingError(R.string.error_loading_currency);
                 }
-                else
-                {
+                else {
                     mView.showToastError(R.string.toast_error_updating_currency);
                 }
             }
         });
     }
 
-    public void onGetUnitsToDisplay(@Conversion.id int conversionId)
-    {
-        switch(conversionId)
-        {
+    public void onGetUnitsToDisplay(@Conversion.id int conversionId) {
+        switch (conversionId) {
             case Conversion.CURRENCY:
-                if(Conversions.getInstance().hasCurrency())
-                {
+                if (Conversions.getInstance().hasCurrency()) {
                     mView.showUnitsList(Conversions.getInstance().getById(conversionId));
                 }
-                else
-                {
+                else {
                     mView.showProgressCircle();
                 }
 
                 // Only update the conversions the first time the user views them per session
-                if(!Conversions.getInstance().isCurrencyUpdated())
-                {
+                if (!Conversions.getInstance().isCurrencyUpdated()) {
                     onUpdateCurrencyConversions();
                 }
                 break;
@@ -142,13 +125,10 @@ public class ConversionPresenter
      * @param from  the unit to be converted from
      * @param to    the unit to be converted to
      */
-    public void convertTemperatureValue(double value, Unit from, Unit to)
-    {
+    public void convertTemperatureValue(double value, Unit from, Unit to) {
         double result = value;
-        if (from.getId() != to.getId())
-        {
-            switch (to.getId())
-            {
+        if (from.getId() != to.getId()) {
+            switch (to.getId()) {
                 case (Unit.CELSIUS):
                     result = toCelsius(from.getId(), value);
                     break;
@@ -197,11 +177,9 @@ public class ConversionPresenter
      * @param from  the unit to be converted from
      * @param to    the unit to be converted to
      */
-    public void convertFuelValue(double value, Unit from, Unit to)
-    {
+    public void convertFuelValue(double value, Unit from, Unit to) {
         double result = value;
-        if (from.getId() != to.getId() && value != 0)
-        {
+        if (from.getId() != to.getId() && value != 0) {
             if (from.getId() == Unit.L_100K)   // Litres/100km
             {
                 BigDecimal toBase = new BigDecimal(from.getConversionToBaseUnit());
@@ -216,8 +194,7 @@ public class ConversionPresenter
                 BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), BigDecimal.ROUND_UP);
                 result = resultBd.doubleValue();
             }
-            else
-            {
+            else {
                 BigDecimal multiplier = new BigDecimal(from.getConversionToBaseUnit()).multiply(new BigDecimal(to.getConversionFromBaseUnit()));
                 BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
                 result = bdResult.doubleValue();
@@ -234,11 +211,9 @@ public class ConversionPresenter
      * @param from  the unit to be converted from
      * @param to    the unit to be converted to
      */
-    public void convert(double value, Unit from, Unit to)
-    {
+    public void convert(double value, Unit from, Unit to) {
         double result = value;
-        if (from.getId() != to.getId())
-        {
+        if (from.getId() != to.getId()) {
             // use BigDecimal to eliminate multiplication rounding errors
             BigDecimal multiplier = new BigDecimal(from.getConversionToBaseUnit()).multiply(new BigDecimal(to.getConversionFromBaseUnit()));
             BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
@@ -247,12 +222,10 @@ public class ConversionPresenter
         mView.showResult(result);
     }
 
-    private double toCelsius(int fromId, double value)
-    {
+    private double toCelsius(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.FAHRENHEIT):    // F to C
                 result = (value - 32) * 5 / 9;
                 break;
@@ -290,12 +263,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toFahrenheit(int fromId, double value)
-    {
+    private double toFahrenheit(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to F
                 result = value * 9 / 5 + 32;
                 break;
@@ -332,12 +303,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toKelvin(int fromId, double value)
-    {
+    private double toKelvin(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to K
                 result = value + 273.15;
                 break;
@@ -374,12 +343,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toRankine(int fromId, double value)
-    {
+    private double toRankine(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to R
                 result = (value + 273.15) * 9 / 5;
                 break;
@@ -416,12 +383,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toDelisle(int fromId, double value)
-    {
+    private double toDelisle(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to D
                 result = (100 - value) * 1.5;
                 break;
@@ -458,12 +423,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toNewton(int fromId, double value)
-    {
+    private double toNewton(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to N
                 result = value * 33 / 100;
                 break;
@@ -500,12 +463,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toReaumur(int fromId, double value)
-    {
+    private double toReaumur(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to Re
                 result = value * 4 / 5;
                 break;
@@ -542,12 +503,10 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toRomer(int fromId, double value)
-    {
+    private double toRomer(int fromId, double value) {
         double result = value;
 
-        switch (fromId)
-        {
+        switch (fromId) {
             case (Unit.CELSIUS):    // C to Ro
                 result = value * 21 / 40 + 7.5;
                 break;
@@ -584,18 +543,15 @@ public class ConversionPresenter
         return result;
     }
 
-    private double toGasMark(int fromId, double value)
-    {
+    private double toGasMark(int fromId, double value) {
         //Convert incoming temperature to Fahrenheit, then convert from F to Gas Mark
         double resultF = toFahrenheit(fromId, value);
         double resultGM = 0;
 
-        if (resultF >= 275)
-        {
+        if (resultF >= 275) {
             resultGM = 0.04 * resultF - 10;
         }
-        else if (resultF < 275)
-        {
+        else if (resultF < 275) {
             resultGM = 0.01 * resultF - 2;
         }
 
@@ -604,17 +560,14 @@ public class ConversionPresenter
         return resultGM;
     }
 
-    private double fromGasMark(double value)
-    {
+    private double fromGasMark(double value) {
         double resultF = 0;
 
         //Convert incoming Gas Mark to Fahrenheit, which will then be subequently converted to desired unit
-        if (value >= 1)
-        {
+        if (value >= 1) {
             resultF = 25 * value + 250;
         }
-        else if (value < 1)
-        {
+        else if (value < 1) {
             resultF = 100 * value + 200;
         }
 

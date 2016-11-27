@@ -24,14 +24,13 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
  * Application class
  * Created by pshadlyn on 8/10/2015.
  */
-public class UnitConverterApplication extends Application
-{
+public class UnitConverterApplication extends Application {
+
     public static final String BUILD_FLAVOUR_GOOGLE = "google";
     public static final String BUILD_FLAVOUR_BASE = "base";
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         // Initialize conversions object, and load currency if stored
         Conversions.getInstance().updateCurrencyConversions(this);

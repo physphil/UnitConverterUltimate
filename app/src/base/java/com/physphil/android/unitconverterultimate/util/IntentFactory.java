@@ -9,15 +9,15 @@ import android.content.Intent;
  * Created by Phizz on 2016-11-13.
  */
 
-public class IntentFactory extends BaseIntentFactory
-{
+public class IntentFactory extends BaseIntentFactory {
+
     /**
      * Base implementation of method, will not be used so returns null.
+     *
      * @param context context
      * @return null
      */
-    public static Intent getDonateIntent(final Context context)
-    {
+    public static Intent getDonateIntent(final Context context) {
         return null;
     }
 }

@@ -26,8 +26,7 @@ import retrofit2.http.Query;
  * Retrofit service to consume Fixer.io API
  * Created by Phizz on 16-07-26.
  */
-public interface FixerService
-{
+public interface FixerService {
     @GET("latest")
     Call<CurrencyResponse> getLatestRates();
 }

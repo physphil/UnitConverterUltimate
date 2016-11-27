@@ -28,28 +28,26 @@ import com.physphil.android.unitconverterultimate.fragments.PreferencesFragment;
  * Activity to host preferences fragment
  * Created by Phizz on 15-08-03.
  */
-public class PreferencesActivity extends BaseActivity
-{
+public class PreferencesActivity extends BaseActivity {
+
     /**
      * Start PreferencesActivity to host an instance of PreferencesFragment
+     *
      * @param context context
      */
-    public static void start(Context context)
-    {
+    public static void start(Context context) {
         Intent i = new Intent(context, PreferencesActivity.class);
         context.startActivity(i);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_host);
         setupToolbar();
         setToolbarHomeNavigation(true);
 
-        if(savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, PreferencesFragment.newInstance())
                     .commit();
@@ -57,10 +55,8 @@ public class PreferencesActivity extends BaseActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch(item.getItemId())
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;

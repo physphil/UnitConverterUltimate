@@ -10,15 +10,15 @@ import com.physphil.android.unitconverterultimate.DonateActivity;
  * Created by Phizz on 2016-11-13.
  */
 
-public class IntentFactory extends BaseIntentFactory
-{
+public class IntentFactory extends BaseIntentFactory {
+
     /**
      * Get an Intent to start DonateActivity.  This is only included in the 'google' build flavour.
+     *
      * @param context context
      * @return an Intent to start DonateActivity
      */
-    public static Intent getDonateIntent(final Context context)
-    {
+    public static Intent getDonateIntent(final Context context) {
         return new Intent(context, DonateActivity.class);
     }
 }

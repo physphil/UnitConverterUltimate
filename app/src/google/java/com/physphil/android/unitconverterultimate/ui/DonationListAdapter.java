@@ -36,12 +36,12 @@ public class DonationListAdapter extends BaseAdapter {
     private String[] mDonationOptions;
     private Context mContext;
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView description;
         TextView price;
     }
 
-    public DonationListAdapter(Context context, Inventory inventory){
+    public DonationListAdapter(Context context, Inventory inventory) {
         mContext = context;
         mInventory = inventory;
         mDonationOptions = mContext.getResources().getStringArray(R.array.donation_options);
@@ -65,7 +65,7 @@ public class DonationListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if(convertView == null){
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.row_donation, parent, false);
 
