@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">寄付しますか?</string>
+    <string name="title_activity_settings">設定</string>
+    <string name="text_from">変換元</string>
+    <string name="text_to">変換先</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">ダウンロード</string>
+    <string name="menu_clear">値をクリア</string>
+    <string name="menu_help">ヘルプ</string>
+    <string name="menu_settings">設定</string>
+    <string name="group_separator_none">なし</string>
+    <string name="request_unit">Unit Converter Ultimate: 新しい単位のリクエスト</string>
+    <string name="header_other_stuff">他のスタッフ</string>
+    <string name="progress_loading">ロード中&#8230;</string>
+    <string name="error_loading_currency">通貨換算の更新中にエラーが発生しました。\n\nインターネットに接続されていることを確認して、もう一度やり直してください。</string>
+
+    <string name="toast_error_billing_internet">問題が発生しました。インターネットに接続されていることを確認して、もう一度やり直してください。</string>
+    <string name="toast_error_billing_general">問題が発生しました。もう一度やり直してください。</string>
+    <string name="toast_donation_successful">寄付をありがとうございます!</string>
+    <string name="toast_error_no_browser">ブラウザーが見つかりません</string>
+    <string name="toast_error_no_email_app">メールアプリがインストールされていません</string>
+    <string name="toast_error_google_play">Google Play ストアを開くときにエラー。もう一度やり直してください</string>
+    <string name="toast_copied_clipboard">テキストをクリップボードにコピーしました</string>
+    <string name="toast_currency_updated">通貨換算を更新しました</string>
+    <string name="toast_error_updating_currency">通貨換算の更新中にエラーが発生しました。</string>
+
+    <string name="prefs_title_formatting">書式</string>
+    <string name="prefs_summary_number_decimals">変換された値を表示する小数点以下の桁数を設定します</string>
+    <string name="prefs_title_number_decimals">小数点以下の桁数</string>
+    <string name="prefs_summary_group_separator">変換された値を表示するけた区切り記号を設定します</string>
+    <string name="prefs_title_group_separator">けた区切り記号</string>
+    <string name="prefs_summary_decimal_separator">変換された値を表示する小数点の記号を設定します</string>
+    <string name="prefs_title_decimal_separator">小数点の記号</string>
+    <string name="prefs_title_visual">外観</string>
+    <string name="prefs_title_light_theme">ライトテーマを使用する</string>
+    <string name="prefs_title_other">他のスタッフ</string>
+    <string name="prefs_title_source_code">ソースコードを表示</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate はオープンソースです! GitHub でコードをチェックアウトしてください。</string>
+    <string name="prefs_title_unit_request">単位のリクエスト</string>
+    <string name="prefs_summary_unit_request">単位を追加してほしいですか? メールを送って知らせてください。</string>
+    <string name="prefs_title_rate">Google Play で評価する</string>
+    <string name="prefs_summary_rate">単位の変換をお楽しみいただけましたでしょうか? 5 スターで評価してください?</string>
+    <string name="prefs_title_donate">寄付</string>
+    <string name="prefs_summary_donate">開発をご支援ください :)</string>
+    <string name="prefs_title_open_issue">バグを見つけましたか?</string>
+    <string name="prefs_summary_open_issue">GitHub でイシューを開いてください。</string>
+
+    <string name="dialog_btn_got_it">了解</string>
+    <string name="dialog_title_help">ヘルプ</string>
+    <string name="dialog_message_help">変換をナビゲーションするスライドインメニューを使用して、必要な単位を選択し、必要な単位を選択します。\n\n変換された値は、自由にカスタマイズすることが可能です。 設定メニューを使用して、小数点が必要な場所だけでなく、けた区切り記号と小数点の記号も選択します。\n\n変換された値を長押しするとそれをクリップボードにコピーします。</string>
+    <string name="dialog_btn_view_source">ソースを表示</string>
+
+    <!-- Conversions -->
+    <string name="area">面積</string>
+    <string name="cooking">調理</string>
+    <string name="currency">通貨</string>
+    <string name="storage">デジタルストレージ</string>
+    <string name="energy">エネルギー</string>
+    <string name="fuel_consumption">燃費</string>
+    <string name="length">長さ / 距離</string>
+    <string name="mass">質量 / 重量</string>
+    <string name="power">電力</string>
+    <string name="pressure">圧力</string>
+    <string name="speed">速度</string>
+    <string name="temperature">温度</string>
+    <string name="time">時間</string>
+    <string name="torque">トルク</string>
+    <string name="volume">体積</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">平方キロメートル</string>
+    <string name="sq_metre">平方メートル</string>
+    <string name="sq_centimetre">平方センチメートル</string>
+    <string name="hectare">ヘクタール</string>
+    <string name="sq_mile">平方マイル</string>
+    <string name="sq_yard">平方ヤード</string>
+    <string name="sq_foot">平方フィート</string>
+    <string name="sq_inch">平方インチ</string>
+    <string name="acre">エーカー</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">ビット</string>
+    <string name="Byte">バイト</string>
+    <string name="kilobit">キロビット</string>
+    <string name="kilobyte">キロバイト</string>
+    <string name="megabit">メガビット</string>
+    <string name="megabyte">メガバイト</string>
+    <string name="gigabit">ギガビット</string>
+    <string name="gigabyte">ギガバイト</string>
+    <string name="terabit">テラビット</string>
+    <string name="terabyte">テラバイト</string>
+
+    <!-- Energy -->
+    <string name="joule">ジュール</string>
+    <string name="kilojoule">キロジュール</string>
+    <string name="calorie">カロリー</string>
+    <string name="kilocalorie">キロカロリー</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">フィート重量ポンド</string>
+    <string name="in_lbF">インチ重量ポンド</string>
+    <string name="kilowatt_hour">キロワット時</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">マイル/ガロン (米)</string>
+    <string name="mpg_uk">マイル/ガロン (英)</string>
+    <string name="l_100k">リットル/100km</string>
+    <string name="km_l">キロメートル/リットル</string>
+    <string name="miles_l">マイル/リットル</string>
+
+    <!-- Distance -->
+    <string name="kilometre">キロメートル</string>
+    <string name="mile">マイル</string>
+    <string name="metre">メートル</string>
+    <string name="centimetre">センチメートル (cm)</string>
+    <string name="millimetre">ミリメートル (mm)</string>
+    <string name="micrometre">マイクロメートル</string>
+    <string name="nanometre">ナノメートル</string>
+    <string name="yard">ヤード</string>
+    <string name="feet">フィート</string>
+    <string name="inch">インチ</string>
+    <string name="nautical_mile">海里</string>
+    <string name="furlong">ハロン</string>
+    <string name="light_year">光年</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">キログラム</string>
+    <string name="pound">ポンド</string>
+    <string name="gram">グラム</string>
+    <string name="milligram">ミリグラム</string>
+    <string name="ounce">オンス</string>
+    <string name="grain">グレーン</string>
+    <string name="stone">ストーン</string>
+    <string name="metric_ton">トン (メートル)</string>
+    <string name="short_ton">トン (米/ショート)</string>
+    <string name="long_ton">トン (英/ロング)</string>
+
+    <!-- Power -->
+    <string name="watt">ワット</string>
+    <string name="kilowatt">キロワット</string>
+    <string name="megawatt">メガワット</string>
+    <string name="hp">馬力 (メートル)</string>
+    <string name="hp_uk">馬力 (機械)</string>
+    <string name="ft_lbf_s">フィート重量ポンド/秒</string>
+    <string name="calorie_s">カロリー/秒</string>
+    <string name="btu_s">BTU/秒</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">メガパスカル</string>
+    <string name="kilopascal">キロパスカル</string>
+    <string name="pascal">パスカル</string>
+    <string name="bar">バール</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">標準気圧</string>
+    <string name="technical_atmosphere">工学気圧</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">トル</string>
+
+    <!-- Speed -->
+    <string name="km_h">キロメートル/時</string>
+    <string name="mph">マイル/時</string>
+    <string name="m_s">メートル/秒</string>
+    <string name="fps">フィート/秒</string>
+    <string name="knot">ノット</string>
+
+    <!-- Temperature -->
+    <string name="celsius">摂氏</string>
+    <string name="fahrenheit">華氏</string>
+    <string name="kelvin">ケルビン</string>
+    <string name="rankine">ランキン</string>
+    <string name="delisle">ドリール</string>
+    <string name="newton">ニュートン</string>
+    <string name="reaumur">レオミュール</string>
+    <string name="romer">レーマー</string>
+    <string name="gas_mark">ガス・マーク</string>
+
+    <!-- Time -->
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="week">週</string>
+    <string name="day">日</string>
+    <string name="hour">時間</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="millisecond">ミリ秒</string>
+    <string name="nanosecond">ナノ秒</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">小さじ/ティースプーン</string>
+    <string name="tablespoon">大さじ/テーブルスプーン</string>
+    <string name="cup">カップ</string>
+    <string name="fluid_ounce">液量オンス (米)</string>
+    <string name="quart">クォート (米)</string>
+    <string name="pint">パイント (米)</string>
+    <string name="gallon">ガロン (米)</string>
+    <string name="barrel">バレル (米)</string>
+    <string name="fluid_ounce_uk">液量オンス (英)</string>
+    <string name="quart_uk">クォート (英)</string>
+    <string name="pint_uk">パイント (英)</string>
+    <string name="gallon_uk">ガロン (英)</string>
+    <string name="barrel_uk">バレル (英)</string>
+    <string name="millilitre">ミリリットル</string>
+    <string name="litre">リットル</string>
+    <string name="cubic_cm">立方cm</string>
+    <string name="cubic_m">立方メートル</string>
+    <string name="cubic_inch">立方インチ</string>
+    <string name="cubic_foot">立方フィート</string>
+    <string name="cubic_yard">立方ヤード</string>
+
+    <!-- Currency -->
+    <string name="aud">豪ドル</string>
+    <string name="bgn">ブルガリア・レフ</string>
+    <string name="brl">ブラジル・レアル</string>
+    <string name="cdn">カナダ・ドル</string>
+    <string name="chf">スイス・フラン</string>
+    <string name="cny">中国人民元</string>
+    <string name="czk">チェコ・コルナ</string>
+    <string name="dkk">デンマーク・クローネ</string>
+    <string name="eur">ユーロ</string>
+    <string name="gbp">英国ポンド</string>
+    <string name="hkd">香港ドル</string>
+    <string name="hrk">クロアチア・クナ</string>
+    <string name="huf">ハンガリー・フォリント</string>
+    <string name="idr">インドネシア・ルピア</string>
+    <string name="ils">イスラエル・シェケル</string>
+    <string name="inr">インド・ルピー</string>
+    <string name="jpy">日本円</string>
+    <string name="krw">韓国ウォン</string>
+    <string name="mxn">メキシコ・ペソ</string>
+    <string name="myr">マレーシア・リンギット</string>
+    <string name="nok">ノルウェー・クローネ</string>
+    <string name="nzd">ニュージーランド・ドル</string>
+    <string name="php">フィリピン・ペソ</string>
+    <string name="pln">ポーランド・ズローティ</string>
+    <string name="ron">ルーマニア・レウ</string>
+    <string name="rub">ロシア・ルーブル</string>
+    <string name="sek">スウェーデン・クローナ</string>
+    <string name="sgd">シンガポール・ドル</string>
+    <string name="thb">タイ・バーツ</string>
+    <string name="lira">トルコ・リラ</string>
+    <string name="usd">米ドル</string>
+    <string name="zar">南アフリカ・ランド</string>
+
+</resources>

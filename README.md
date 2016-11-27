@@ -5,13 +5,14 @@ Unit Converter Ultimate
 
 *A simple, lightweight, Material Design themed unit converter for Android.*
 
-<a href="https://play.google.com/store/apps/details?id=com.physphil.android.unitconverterultimate&utm_source=global_co&utm_medium=prtn   r&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
-  <img alt="Get it on Google Play" 
-    src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-    width="170"/>
+<a href="https://play.google.com/store/apps/details?id=com.physphil.android.unitconverterultimate&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+  <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+       alt="Get it on Google Play" 
+       height="80"/>
 </a><a href="https://f-droid.org/app/com.physphil.android.unitconverterultimate">
-    <img src="https://f-droid.org/badge/get-it-on.png"
-         alt="Get it on F-Droid" height="80">
+  <img src="https://f-droid.org/badge/get-it-on.png"
+       alt="Get it on F-Droid"
+       height="80">
 </a>
 
 
