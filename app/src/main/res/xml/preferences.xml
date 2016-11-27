@@ -57,17 +57,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="other"
         android:title="@string/prefs_title_other">
 
         <Preference
+            android:key="donate"
             android:title="@string/prefs_title_donate"
-            android:summary="@string/prefs_summary_donate">
-
-            <intent
-                android:targetPackage="com.physphil.android.unitconverterultimate"
-                android:targetClass="com.physphil.android.unitconverterultimate.DonateActivity" />
-
-        </Preference>
+            android:summary="@string/prefs_summary_donate"/>
 
         <Preference
             android:key="unit_request"

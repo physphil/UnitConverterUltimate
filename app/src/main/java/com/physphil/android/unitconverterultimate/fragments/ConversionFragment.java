@@ -42,10 +42,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.physphil.android.unitconverterultimate.DonateActivity;
+import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
@@ -53,6 +54,7 @@ import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -534,6 +536,9 @@ public final class ConversionFragment extends Fragment implements ConversionView
         super.onPrepareOptionsMenu(menu);
         MenuItem download = menu.findItem(R.id.menu_download);
         download.setVisible(mConversionId == Conversion.CURRENCY);
+
+        MenuItem donate = menu.findItem(R.id.menu_donate);
+        donate.setVisible(BuildConfig.FLAVOR.equals(UnitConverterApplication.BUILD_FLAVOUR_GOOGLE));
     }
 
     @Override
@@ -558,7 +563,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
                 return true;
 
             case R.id.menu_donate:
-                DonateActivity.start(getActivity());
+                startActivity(IntentFactory.getDonateIntent(getActivity()));
 
             default:
                 return super.onOptionsItemSelected(item);
