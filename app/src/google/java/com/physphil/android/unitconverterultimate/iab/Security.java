@@ -1,10 +1,11 @@
-/* Copyright (c) 2012 Google Inc.
+/*
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,8 +18,6 @@ package com.physphil.android.unitconverterultimate.iab;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.physphil.android.unitconverterultimate.iab.Base64DecoderException;
 
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;

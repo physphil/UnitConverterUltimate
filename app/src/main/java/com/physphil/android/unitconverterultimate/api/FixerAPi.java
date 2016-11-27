@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,15 +23,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Singleton to access the Fixer.io API
  * Created by Phizz on 16-07-26.
  */
-public class FixerApi
-{
+public class FixerApi {
+
     private static final String BASE_URL = "http://api.fixer.io";
     private static FixerApi mInstance;
 
     private FixerService mService;
 
-    private FixerApi()
-    {
+    private FixerApi() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -40,18 +39,15 @@ public class FixerApi
         mService = retrofit.create(FixerService.class);
     }
 
-    public static FixerApi getInstance()
-    {
-        if (mInstance == null)
-        {
+    public static FixerApi getInstance() {
+        if (mInstance == null) {
             mInstance = new FixerApi();
         }
 
         return mInstance;
     }
 
-    public FixerService getService()
-    {
+    public FixerService getService() {
         return mService;
     }
 }
