@@ -37,36 +37,36 @@
     <string name="toast_error_billing_general">Hoppá, probléma történt. Kérlek, próbáld újra.</string>
     <string name="toast_donation_successful">Köszönöm, hogy adományoztál!</string>
     <string name="toast_error_no_browser">Nem található böngésző</string>
-    <string name="toast_error_no_email_app">Nem található telepített e-mail alkalmazás</string>
-    <string name="toast_error_google_play">A Google Play Store-t nem lehetett megnyitni, kérlek, próbáld újra</string>
+    <string name="toast_error_no_email_app">Nem található telepített e-mail-alkalmazás</string>
+    <string name="toast_error_google_play">Nem sikerült megnyitni a Google Play Áruházat, kérlek, próbáld újra</string>
     <string name="toast_copied_clipboard">Szöveg a vágólapra másolva</string>
     <string name="toast_currency_updated">Valutaárfolyamok frissítve</string>
-    <string name="toast_error_updating_currency">Hiba történt a valutaárfolyamok frissítésénél.</string>
+    <string name="toast_error_updating_currency">Hiba történt a valutaárfolyamok frissítése közben.</string>
 
     <string name="prefs_title_formatting">Formátum</string>
     <string name="prefs_summary_number_decimals">Az átváltott értékben mutatott helyiértékek számának beállítása</string>
     <string name="prefs_title_number_decimals">Helyiértékek száma</string>
     <string name="prefs_summary_group_separator">Az átváltott értékben mutatott csoportelválasztó jel beállítása</string>
-    <string name="prefs_title_group_separator">Csoportelválasztó jel</string>
+    <string name="prefs_title_group_separator">Ezres elválasztó</string>
     <string name="prefs_summary_decimal_separator">Az átváltott értékben mutatott tizedesvessző beállítása</string>
-    <string name="prefs_title_decimal_separator">Tizedesvessző</string>
+    <string name="prefs_title_decimal_separator">Tizedes elválasztó</string>
     <string name="prefs_title_visual">Megjelenés</string>
     <string name="prefs_title_light_theme">Világos téma használata</string>
-    <string name="prefs_title_other">Továbbiak</string>
+    <string name="prefs_title_other">Egyéb</string>
     <string name="prefs_title_source_code">Forráskód megtekintése</string>
-    <string name="pref_summary_source_code">A Unit Converter Ultimate nyílt forráskódú!  GitHub-on megtekinthető.</string>
-    <string name="prefs_title_unit_request">Mértékegységek kérése</string>
-    <string name="prefs_summary_unit_request">Szeretnéd, hogy további mértékegységek legyenek támogatva? Küldj egy e-mailt!</string>
-    <string name="prefs_title_rate">Értékelés Google Play-en</string>
+    <string name="pref_summary_source_code">A Unit Converter Ultimate nyílt forráskódú! Megtalálod a GitHubon.</string>
+    <string name="prefs_title_unit_request">Javaslat új egységre</string>
+    <string name="prefs_summary_unit_request">Szeretnél egy új egységet? Küldj egy e-mailt!</string>
+    <string name="prefs_title_rate">Értékelés Google Playen</string>
     <string name="prefs_summary_rate">Szívesen használod ezt az alkalmazást? Értékeld 5 csillagra!</string>
     <string name="prefs_title_donate">Adományozás</string>
     <string name="prefs_summary_donate">Támogasd a fejlesztést és varázsolj mosolyt az arcomra :)</string>
-    <string name="prefs_title_open_issue">Bug-ot találtál?</string>
-    <string name="prefs_summary_open_issue">Jelezz problémát GitHub-on.</string>
+    <string name="prefs_title_open_issue">Hibát találtál?</string>
+    <string name="prefs_summary_open_issue">Nyiss egy hibajelentést a GitHubon.</string>
 
     <string name="dialog_btn_got_it">Rendben</string>
     <string name="dialog_title_help">Súgó</string>
-    <string name="dialog_message_help">Használd a becsúszó menüt az átváltások közti válogatásra, és válaszd ki a mértékegységeket, amiket használnál.\n\nAz átalakított érték teljesen személyre szabható. A beállítások menüpontban kiválaszthatod a megjelenített helyiértékek számát, a csoportelválasztó jelt és a használt tizedesvesszőt is.\n\nAz átalakított értékre hosszan rányomva az a vágólapra lesz másolva.</string>
+    <string name="dialog_message_help">Használd a becsúszó menüt az átváltások közti válogatásra, és válaszd ki a mértékegységeket, amiket használnál.\n\nAz átalakított érték teljesen személyre szabható. A beállítások menüpontban kiválaszthatod a megjelenített helyiértékek számát, valamint az ezres és a tizedes elválasztót is.\n\nAz átalakított értékre hosszan rányomva az a vágólapra kerül.</string>
     <string name="dialog_btn_view_source">Forráskód megtekintése</string>
 
     <!-- Conversions -->
@@ -83,7 +83,7 @@
     <string name="speed">Sebesség</string>
     <string name="temperature">Hőmérséklet</string>
     <string name="time">Idő</string>
-    <string name="torque">Nyomaték</string>
+    <string name="torque">Forgatónyomaték</string>
     <string name="volume">Térfogat</string>
 
     <!-- Area -->
@@ -123,9 +123,9 @@
     <!-- Fuel Consumption -->
     <string name="mpg_us">Mérföld/gallon (US)</string>
     <string name="mpg_uk">Mérföld/gallon (UK)</string>
-    <string name="l_100k">Liter/100km</string>
-    <string name="km_l">Kilométer/litre</string>
-    <string name="miles_l">Mérföld/litre</string>
+    <string name="l_100k">Liter/100 km</string>
+    <string name="km_l">Kilométer/liter</string>
+    <string name="miles_l">Mérföld/liter</string>
 
     <!-- Distance -->
     <string name="kilometre">Kilométer</string>
@@ -143,7 +143,7 @@
     <string name="light_year">Fényév</string>
 
     <!-- Mass/Weight -->
-    <string name="kilogram">Kilogram</string>
+    <string name="kilogram">Kilogramm</string>
     <string name="pound">Font</string>
     <string name="gram">Gramm</string>
     <string name="milligram">Milligramm</string>
@@ -158,8 +158,8 @@
     <string name="watt">Watt</string>
     <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Megawatt</string>
-    <string name="hp">HP (metrikus)</string>
-    <string name="hp_uk">HP (mechanikus)</string>
+    <string name="hp">LE (metrikus)</string><!-- horse power = lóerő -->
+    <string name="hp_uk">LE (mechanikai)</string>
     <string name="ft_lbf_s">ft-lbf/másodperc</string>
     <string name="calorie_s">Kalória/másodperc</string>
     <string name="btu_s">BTU/másodperc</string>
@@ -170,17 +170,17 @@
     <string name="kilopascal">Kilopascal</string>
     <string name="pascal">Pascal</string>
     <string name="bar">Bar</string>
-    <string name="psi">PSI</string>
-    <string name="psf">PSF</string>
+    <string name="psi">Font/négyzethüvelyk (PSI)</string>
+    <string name="psf">Font/négyzetláb (PSF)</string>
     <string name="atmosphere">Atmoszféra</string>
-    <string name="technical_atmosphere">Technikai Atm</string>
+    <string name="technical_atmosphere">Technikai atmoszféra</string>
     <string name="mmhg">mmHg</string>
     <string name="torr">Torr</string>
 
     <!-- Speed -->
     <string name="km_h">Kilométer/óra</string>
     <string name="mph">Mérföld/óra</string>
-    <string name="m_s">Méter/másodperc</string>
+    <string name="m_s">Méter/szekundum</string>
     <string name="fps">Láb/másodperc</string>
     <string name="knot">Csomó</string>
 
@@ -232,37 +232,37 @@
     <string name="cubic_yard">Köbyard</string>
 
     <!-- Currency -->
-    <string name="aud">Ausztrál Dollár</string>
-    <string name="bgn">Bolgár Lev</string>
-    <string name="brl">Brazil Reál</string>
-    <string name="cdn">Kanadai Dollár</string>
-    <string name="chf">Svájci Frank</string>
-    <string name="cny">Kínai Yuan</string>
-    <string name="czk">Cseh Korona</string>
-    <string name="dkk">Dán Korona</string>
+    <string name="aud">Ausztrál dollár</string>
+    <string name="bgn">Bolgár leva</string>
+    <string name="brl">Brazil real</string>
+    <string name="cdn">Kanadai dollár</string>
+    <string name="chf">Svájci frank</string>
+    <string name="cny">Kínai jüan</string>
+    <string name="czk">Cseh korona</string>
+    <string name="dkk">Dán korona</string>
     <string name="eur">Euró</string>
-    <string name="gbp">Brit Font</string>
-    <string name="hkd">Hong Kong-i Dollár</string>
-    <string name="hrk">Horvát Kuna</string>
-    <string name="huf">Magyar Forint</string>
-    <string name="idr">Indonéz Rúpia</string>
-    <string name="ils">Izraeli Sékel</string>
-    <string name="inr">Indiai Rúpia</string>
-    <string name="jpy">Japán Yen</string>
-    <string name="krw">Koreai Won</string>
-    <string name="mxn">Mexikói Pezó</string>
-    <string name="myr">Maláj Ringgit</string>
-    <string name="nok">Norvég Korona</string>
-    <string name="nzd">Új-zélandi Dollár</string>
-    <string name="php">Fülöp-szigeteki Pezó</string>
-    <string name="pln">Lengyel Złoty</string>
-    <string name="ron">Román Leu</string>
-    <string name="rub">Orosz Rubel</string>
-    <string name="sek">Svéd Korona</string>
-    <string name="sgd">Szingapúri Dollár</string>
-    <string name="thb">Thaiföldi Baht</string>
-    <string name="lira">Török Líra</string>
-    <string name="usd">Amerikai Dollár</string>
-    <string name="zar">Dél-afrikai Rand</string>
+    <string name="gbp">Brit font</string>
+    <string name="hkd">Hongkongi dollár</string>
+    <string name="hrk">Horvát kuna</string>
+    <string name="huf">Magyar forint</string>
+    <string name="idr">Indonéz rúpia</string>
+    <string name="ils">Izraeli sékel</string>
+    <string name="inr">Indiai rúpia</string>
+    <string name="jpy">Japán jen</string>
+    <string name="krw">Koreai von</string>
+    <string name="mxn">Mexikói peso</string>
+    <string name="myr">Maláj ringgit</string>
+    <string name="nok">Norvég korona</string>
+    <string name="nzd">Új-zélandi dollár</string>
+    <string name="php">Fülöp-szigeteki peso</string>
+    <string name="pln">Lengyel złoty</string>
+    <string name="ron">Román lej</string>
+    <string name="rub">Orosz rubel</string>
+    <string name="sek">Svéd korona</string>
+    <string name="sgd">Szingapúri dollár</string>
+    <string name="thb">Thaiföldi bát</string>
+    <string name="lira">Török líra</string>
+    <string name="usd">Amerikai dollár</string>
+    <string name="zar">Dél-afrikai rand</string>
 
 </resources>
