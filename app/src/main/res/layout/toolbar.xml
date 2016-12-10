@@ -25,5 +25,4 @@
     android:elevation="@dimen/toolbar_elevation"
     app:elevation="@dimen/toolbar_elevation"
     app:layout_scrollFlags="scroll|enterAlways"
-    app:popupTheme="@style/ThemeOverlay.AppCompat"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
