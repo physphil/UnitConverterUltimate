@@ -33,7 +33,8 @@
     <string name="progress_loading">Chargement&#8230;</string>
     <string name="error_loading_currency">Échec de la mise à jour des taux de change.n\nVeuillez vérifier votre connexion internet et réessayer.</string>
 
-    <string name="toast_error_billing_internet">Oops, il y a eut un problème. Vérifiez que votre connexion internet fonctionne et réessayez SVP.</string name="toast_error_billing_general">Oops, there was a problem. Please try again.</string>
+    <string name="toast_error_billing_internet">Oops, il y a eut un problème. Vérifiez que votre connexion internet fonctionne et réessayez SVP.</string>
+    <string name="toast_error_billing_general">Oops, il y a eut un problème. Réessayez SVP.</string>
     <string name="toast_donation_successful">Merci pour votre don!</string>
     <string name="toast_error_no_browser">Aucun navigateur internet trouvé</string>
     <string name="toast_error_no_email_app">Aucune application de mail trouvée</string>
