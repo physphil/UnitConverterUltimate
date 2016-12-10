@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,8 +22,8 @@ import android.support.annotation.IntDef;
  * A unit that can be converted to/from
  * Created by Phizz on 15-07-25.
  */
-public class Unit
-{
+public class Unit {
+
     public static final int SQ_KILOMETRES = 0;
     public static final int SQ_METRES = 1;
     public static final int SQ_CENTIMETRES = 2;
@@ -204,7 +204,7 @@ public class Unit
             N_M,
             TEASPOON, TABLESPOON, CUP, FLUID_OUNCE, QUART, PINT, GALLON, BARREL, FLUID_OUNCE_UK, QUART_UK, PINT_UK,
             GALLON_UK, BARREL_UK, MILLILITRE, LITRE, CUBIC_CM, CUBIC_M, CUBIC_INCH, CUBIC_FOOT, CUBIC_YARD})
-    public @interface id{}
+    public @interface id {}
 
     private int id;
     private int labelResource;
@@ -213,13 +213,13 @@ public class Unit
 
     /**
      * Create a unit object
-     * @param id id of the unit
-     * @param labelResource string resource id of the label
-     * @param conversionToBase the value to convert to the base unit of the conversion
+     *
+     * @param id                 id of the unit
+     * @param labelResource      string resource id of the label
+     * @param conversionToBase   the value to convert to the base unit of the conversion
      * @param conversionFromBase the value to convert from the base unit of the conversion
      */
-    public Unit(@id int id, int labelResource, double conversionToBase, double conversionFromBase)
-    {
+    public Unit(@id int id, int labelResource, double conversionToBase, double conversionFromBase) {
         this.id = id;
         this.labelResource = labelResource;
         this.conversionToBase = conversionToBase;
@@ -227,23 +227,19 @@ public class Unit
     }
 
     @id
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public double getConversionToBaseUnit()
-    {
+    public double getConversionToBaseUnit() {
         return conversionToBase;
     }
 
-    public double getConversionFromBaseUnit()
-    {
+    public double getConversionFromBaseUnit() {
         return conversionFromBase;
     }
 
-    public int getLabelResource()
-    {
+    public int getLabelResource() {
         return labelResource;
     }
 }

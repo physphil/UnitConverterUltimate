@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,8 +24,8 @@ import java.util.List;
  * Object representing a conversion type, ie Area, Power, Time, etc.
  * Created by Phizz on 15-07-25.
  */
-public final class Conversion
-{
+public final class Conversion {
+
     // Conversion types. Use integer over enum as value is stored in database and shared prefs
     // Use @IntDef for type safety
     public static final int AREA = 0;
@@ -49,44 +49,39 @@ public final class Conversion
     private List<Unit> units;
 
     @IntDef({AREA, COOKING, CURRENCY, STORAGE, ENERGY, FUEL, LENGTH, MASS, POWER, PRESSURE, SPEED,
-    TEMPERATURE, TIME, TORQUE, VOLUME})
-    public @interface id{}
+            TEMPERATURE, TIME, TORQUE, VOLUME})
+    public @interface id {
+    }
 
     /**
      * Create a Conversion object
-     * @param id id of the conversion
+     *
+     * @param id            id of the conversion
      * @param labelResource string resource id for the conversion
-     * @param units list of units contained in conversion
+     * @param units         list of units contained in conversion
      */
-    public Conversion(@id int id, int labelResource, List<Unit> units)
-    {
+    public Conversion(@id int id, int labelResource, List<Unit> units) {
         this.id = id;
         this.labelResource = labelResource;
         this.units = units;
     }
 
     @id
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public int getLabelResource()
-    {
+    public int getLabelResource() {
         return labelResource;
     }
 
-    public List<Unit> getUnits()
-    {
+    public List<Unit> getUnits() {
         return units;
     }
 
-    public Unit getUnitById(@Unit.id int id)
-    {
-        for (int i = 0; i < units.size(); i++)
-        {
-            if(units.get(i).getId() == id)
-            {
+    public Unit getUnitById(@Unit.id int id) {
+        for (int i = 0; i < units.size(); i++) {
+            if (units.get(i).getId() == id) {
                 return units.get(i);
             }
         }

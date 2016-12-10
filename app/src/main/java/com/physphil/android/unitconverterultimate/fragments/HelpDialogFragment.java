@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,41 +33,33 @@ import com.physphil.android.unitconverterultimate.util.IntentFactory;
  * Dialog fragment to display help text to user
  * Created by Phizz on 15-08-08.
  */
-public class HelpDialogFragment extends DialogFragment
-{
+public class HelpDialogFragment extends DialogFragment {
+
     public static final String TAG = HelpDialogFragment.class.getName();
 
-    public static HelpDialogFragment newInstance()
-    {
+    public static HelpDialogFragment newInstance() {
         return new HelpDialogFragment();
     }
 
     @NonNull
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState)
-    {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.dialog_title_help)
                 .setMessage(R.string.dialog_message_help)
-                .setPositiveButton(R.string.dialog_btn_got_it, new DialogInterface.OnClickListener()
-                {
+                .setPositiveButton(R.string.dialog_btn_got_it, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
+                    public void onClick(DialogInterface dialog, int which) {
                         Preferences.getInstance(getActivity()).setShowHelp(false);
                     }
                 })
-                .setNeutralButton(R.string.dialog_btn_view_source, new DialogInterface.OnClickListener()
-                {
+                .setNeutralButton(R.string.dialog_btn_view_source, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        try
-                        {
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
                             startActivity(IntentFactory.getOpenUrlIntent(IntentFactory.GITHUB_REPO));
                         }
-                        catch (ActivityNotFoundException ex)
-                        {
+                        catch (ActivityNotFoundException ex) {
                             Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
                         }
                     }

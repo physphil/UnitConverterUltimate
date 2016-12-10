@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,20 +15,27 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+
+// Only apply the google-service plugin if the config file exists
+if (file('app/google-services.json').exists()) {
+    apply plugin: 'com.google.gms.google-services'
+}
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
-    signingConfigs{
-        release{
-            def Properties keyProps = new Properties()
-            keyProps.load(new FileInputStream(file('keystore.properties')))
-            storeFile file(keyProps["store"])
-            storePassword keyProps["storePass"]
-            keyAlias keyProps["alias"]
-            keyPassword keyProps["pass"]
+    signingConfigs {
+        release {
+            def keystore = file('keystore.properties');
+            if (keystore.exists()) {
+                def Properties keyProps = new Properties()
+                keyProps.load(new FileInputStream(keystore))
+                storeFile file(keyProps["store"])
+                storePassword keyProps["storePass"]
+                keyAlias keyProps["alias"]
+                keyPassword keyProps["pass"]
+            }
         }
     }
 
@@ -36,8 +43,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 50001
-        versionName '5.0.1'
+        versionCode 50100
+        versionName '5.1'
     }
 
 
@@ -49,16 +56,27 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    productFlavors {
+        base {
+            // Basic build
+        }
+        google {
+            // Adds the option to donate to the developer
+            // Adds Firebase crash analytics
+        }
+    }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'
-    compile 'com.google.firebase:firebase-crash:9.8.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
+
+    googleCompile 'com.google.firebase:firebase-crash:9.8.0'
 
     debugCompile 'com.facebook.stetho:stetho:1.1.1'
 
