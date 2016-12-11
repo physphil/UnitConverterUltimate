@@ -27,12 +27,7 @@ import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -47,7 +42,6 @@ import rx.subscriptions.CompositeSubscription;
 public class ConversionPresenter {
 
     private CompositeSubscription mCompositeSubscription;
-    private Set<Call<CurrencyResponse>> mCalls;
     private ConversionView mView;
 
     /**
@@ -57,20 +51,10 @@ public class ConversionPresenter {
      */
     public ConversionPresenter(ConversionView mView) {
         this.mView = mView;
-        this.mCalls = new HashSet<>();
         this.mCompositeSubscription = new CompositeSubscription();
     }
 
     public void onDestroy() {
-        // Cancel any running currency updates
-        for (Call<CurrencyResponse> call : mCalls) {
-            if (call != null && call.isExecuted() && !call.isCanceled()) {
-                call.cancel();
-            }
-        }
-
-        mCalls.clear();
-
         // Clear all observable subscriptions
         mCompositeSubscription.unsubscribe();
     }
@@ -102,37 +86,36 @@ public class ConversionPresenter {
     }
 
     public void onUpdateCurrencyConversions() {
-        final Call<CurrencyResponse> call = FixerApi.getInstance()
-                .getService()
-                .getLatestRates();
-
-        mCalls.add(call);
-        call.enqueue(new Callback<CurrencyResponse>() {
-            @Override
-            public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response) {
-                boolean hadCurrency = Conversions.getInstance().hasCurrency();
-                Preferences.getInstance(mView.getContext()).saveLatestCurrency(response.body());
-                Conversions.getInstance().updateCurrencyConversions(mView.getContext());
-                Conversions.getInstance().setCurrencyUpdated(true);
-                mView.showToast(R.string.toast_currency_updated);
-                if (hadCurrency) {
-                    mView.updateCurrencyConversion();
-                }
-                else {
-                    mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CurrencyResponse> call, Throwable t) {
-                if (!Conversions.getInstance().hasCurrency()) {
-                    mView.showLoadingError(R.string.error_loading_currency);
-                }
-                else {
-                    mView.showToastError(R.string.toast_error_updating_currency);
-                }
-            }
-        });
+        mCompositeSubscription.add(FixerApi.getInstance().getService()
+                .getLatestRates()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<CurrencyResponse>() {
+                    @Override
+                    public void call(CurrencyResponse response) {
+                        boolean hadCurrency = Conversions.getInstance().hasCurrency();
+                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(response);
+                        Conversions.getInstance().updateCurrencyConversions(mView.getContext());
+                        Conversions.getInstance().setCurrencyUpdated(true);
+                        mView.showToast(R.string.toast_currency_updated);
+                        if (hadCurrency) {
+                            mView.updateCurrencyConversion();
+                        }
+                        else {
+                            mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
+                        }
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        if (!Conversions.getInstance().hasCurrency()) {
+                            mView.showLoadingError(R.string.error_loading_currency);
+                        }
+                        else {
+                            mView.showToastError(R.string.toast_error_updating_currency);
+                        }
+                    }
+                }));
     }
 
     public void onGetUnitsToDisplay(@Conversion.id int conversionId) {
