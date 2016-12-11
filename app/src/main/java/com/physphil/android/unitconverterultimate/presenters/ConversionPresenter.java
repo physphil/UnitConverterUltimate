@@ -20,7 +20,9 @@ import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
@@ -31,6 +33,12 @@ import java.util.Set;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func0;
+import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * Presenter to handle unit conversions
@@ -38,6 +46,7 @@ import retrofit2.Response;
  */
 public class ConversionPresenter {
 
+    private CompositeSubscription mCompositeSubscription;
     private Set<Call<CurrencyResponse>> mCalls;
     private ConversionView mView;
 
@@ -49,6 +58,7 @@ public class ConversionPresenter {
     public ConversionPresenter(ConversionView mView) {
         this.mView = mView;
         this.mCalls = new HashSet<>();
+        this.mCompositeSubscription = new CompositeSubscription();
     }
 
     public void onDestroy() {
@@ -60,6 +70,35 @@ public class ConversionPresenter {
         }
 
         mCalls.clear();
+
+        // Clear all observable subscriptions
+        mCompositeSubscription.unsubscribe();
+    }
+
+    public void getLastConversionState(@Conversion.id final int conversionId) {
+        mCompositeSubscription.add(getConversionStateObservable(conversionId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<ConversionState>() {
+                    @Override
+                    public void call(ConversionState conversionState) {
+                        mView.restoreConversionState(conversionState);
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        // This should never happen
+                    }
+                }));
+    }
+
+    private Observable<ConversionState> getConversionStateObservable(@Conversion.id final int conversionId) {
+        return Observable.defer(new Func0<Observable<ConversionState>>() {
+            @Override
+            public Observable<ConversionState> call() {
+                return Observable.just(DataAccess.getInstance(mView.getContext()).getConversionState(conversionId));
+            }
+        });
     }
 
     public void onUpdateCurrencyConversions() {

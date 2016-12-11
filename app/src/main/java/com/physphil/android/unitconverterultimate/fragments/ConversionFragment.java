@@ -19,7 +19,6 @@ package com.physphil.android.unitconverterultimate.fragments;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -213,7 +212,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
     /**
      * Set radio buttons to their saved state (if any)
      */
-    private void restoreConversionState() {
+    public void restoreConversionState(final ConversionState state) {
+        mState = state;
         if (mState.getFromId() < 0 || mState.getToId() < 0) {
             // Empty initial state, set state from default checked buttons
             mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
@@ -229,6 +229,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mTxtUnitTo.setText(getCheckedUnit(mGrpTo).getLabelResource());
         mGrpFrom.setOnCheckedChangeListener(this);
         mGrpTo.setOnCheckedChangeListener(this);
+        convert();
     }
 
     /**
@@ -304,7 +305,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
      * Retrieve the last saved ConversionState for this conversion
      */
     private void getLastConversionState() {
-        new LoadConversionStateTask().execute();
+        mPresenter.getLastConversionState(mConversionId);
     }
 
     /**
@@ -511,27 +512,6 @@ public final class ConversionFragment extends Fragment implements ConversionView
 
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /**
-     * AsyncTask to load ConversionState for given fragment from database
-     */
-    private final class LoadConversionStateTask extends AsyncTask<Void, Void, ConversionState> {
-        @Override
-        protected ConversionState doInBackground(Void... params) {
-            // This is okay as DataAccess uses application context
-            return DataAccess.getInstance(getActivity()).getConversionState(mConversionId);
-        }
-
-        @Override
-        protected void onPostExecute(ConversionState conversionState) {
-            // This is okay as fragment instance is retained across config change
-            if (isAdded()) {
-                mState = conversionState;
-                restoreConversionState();
-                convert();
-            }
         }
     }
 }
