@@ -18,8 +18,8 @@ package com.physphil.android.unitconverterultimate.api;
 
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
+import rx.Observable;
 
 /**
  * Retrofit service to consume Fixer.io API
@@ -27,5 +27,5 @@ import retrofit2.http.GET;
  */
 public interface FixerService {
     @GET("latest")
-    Call<CurrencyResponse> getLatestRates();
+    Observable<CurrencyResponse> getLatestRates();
 }

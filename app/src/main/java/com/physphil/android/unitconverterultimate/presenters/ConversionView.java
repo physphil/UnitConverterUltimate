@@ -19,6 +19,7 @@ package com.physphil.android.unitconverterultimate.presenters;
 import android.content.Context;
 
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.ConversionState;
 
 /**
  * View methods to be implemented for Conversion Fragment
@@ -29,6 +30,7 @@ public interface ConversionView {
     void showUnitsList(Conversion conversion);
     void showProgressCircle();
     void showLoadingError(int message);
+    void restoreConversionState(final ConversionState state);
     void showResult(double result);
     void updateCurrencyConversion();
     void showToast(int message);
