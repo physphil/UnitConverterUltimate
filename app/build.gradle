@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 apply plugin: 'com.android.application'
 
 // Only apply the google-service plugin if the config file exists
-if (file('app/google-services.json').exists()) {
+if (file('google-services.json').exists()) {
     apply plugin: 'com.google.gms.google-services'
 }
 
@@ -43,8 +43,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 50100
-        versionName '5.1'
+        versionCode 50200
+        versionName '5.2'
     }
 
 
@@ -74,9 +74,12 @@ dependencies {
     compile 'com.android.support:design:24.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.3'
 
-    googleCompile 'com.google.firebase:firebase-crash:9.8.0'
+    googleCompile 'com.google.firebase:firebase-crash:10.2.1'
 
     debugCompile 'com.facebook.stetho:stetho:1.1.1'
 

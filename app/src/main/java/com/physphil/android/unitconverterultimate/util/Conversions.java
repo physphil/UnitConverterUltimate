@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import android.content.Context;
 
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
+import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.api.models.Rates;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.TemperatureUnit;
@@ -130,9 +131,10 @@ public final class Conversions {
 
     public void updateCurrencyConversions(Context context) {
         // Base unit - Euro
-        List<Unit> units = new ArrayList<>();
-        if (Preferences.getInstance(context).hasLatestCurrency()) {
-            Rates currency = Preferences.getInstance(context).getLatestCurrency().getRates();
+        final List<Unit> units = new ArrayList<>();
+        final CurrencyResponse response = Preferences.getInstance(context).getLatestCurrency();
+        if (Preferences.getInstance(context).hasLatestCurrency() && response != null) {
+            Rates currency = response.getRates();
             units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
             units.add(new Unit(AUD, R.string.aud, 1 / currency.getAud(), currency.getAud()));
             units.add(new Unit(GBP, R.string.gbp, 1 / currency.getGbp(), currency.getGbp()));

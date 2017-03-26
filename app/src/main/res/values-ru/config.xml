@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,14 +15,9 @@
   ~ limitations under the License.
   -->
 
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:elevation="@dimen/toolbar_elevation"
-    app:elevation="@dimen/toolbar_elevation"
-    app:layout_scrollFlags="scroll|enterAlways"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+<resources>
+    <string name="default_number_decimals">4</string>
+    <string name="default_group_separator">.</string>
+    <string name="default_decimal_separator">,</string>
+    <integer name="num_digits_from">15</integer>
+</resources>

@@ -21,6 +21,7 @@
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="alertDialogTheme">@style/alert_dialog</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat</item>
     </style>
 
     <style name="AppBaseTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
@@ -28,6 +29,7 @@
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_primary</item>
         <item name="alertDialogTheme">@style/alert_dialog_light</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
