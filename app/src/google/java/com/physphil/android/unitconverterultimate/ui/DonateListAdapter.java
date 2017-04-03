@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 package com.physphil.android.unitconverterultimate.ui;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,9 @@ import android.widget.TextView;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.iab.SkuDetails;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Adapter to hold list of donation options
@@ -37,13 +41,16 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
     private RecyclerViewItemClickListener mListener;
 
     public final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView description;
-        public TextView price;
+
+        @BindView(R.id.billing_donation_description)
+        TextView description;
+
+        @BindView(R.id.billing_donation_price)
+        TextView price;
 
         public ViewHolder(View v) {
             super(v);
-            description = (TextView) v.findViewById(R.id.billing_donation_description);
-            price = (TextView) v.findViewById(R.id.billing_donation_price);
+            ButterKnife.bind(this, v);
             v.setOnClickListener(this);
         }
 
@@ -72,6 +79,7 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
         SkuDetails details = mInventory.getSkuDetails(mDonationOptions[position]);
         vh.description.setText(details.getDescription());
         vh.price.setText(details.getPrice());
+        Log.d("PS", "details = " + details);
     }
 
     @Override

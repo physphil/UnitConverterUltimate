@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -27,22 +27,25 @@
         android:id="@+id/billing_donation_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        tools:text="$9.99"/>
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_view_typical"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="$20"/>
 
     <TextView
         android:id="@+id/billing_donation_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="@dimen/margin_view_typical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_view_typical"
         android:layout_marginRight="@dimen/margin_view_typical"
-        android:layout_toLeftOf="@id/billing_donation_price"
-        android:layout_toStartOf="@id/billing_donation_price"
+        android:layout_toEndOf="@id/billing_donation_price"
+        android:layout_toRightOf="@id/billing_donation_price"
+        android:textSize="16sp"
         tools:text="Donation Option"/>
 
 </RelativeLayout>
