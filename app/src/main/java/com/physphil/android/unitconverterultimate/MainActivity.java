@@ -233,17 +233,19 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
             recreate();
         }
         else if (key.equals(Preferences.PREFS_LANGUAGE)) {
-            String choice = "en";
-            String language = "def";
+            final String language = Preferences.getInstance(this).getLanguage();
+            int position = 0;
             final String[] languages = getResources().getStringArray(R.array.language_values);
             for (int i = 0, size = languages.length; i < size; i++) {
-                if (languages[i].equals(choice)) {
-                    language = languages[i];
+                if (languages[i].equals(language)) {
+                    position = i;
                     break;
                 }
             }
 
-            // Now set language using variable `language`
+            // Now set language and restart app to take effect
+            Preferences.getInstance(this).setLanguage(languages[position]);
+            recreate();
         }
     }
 

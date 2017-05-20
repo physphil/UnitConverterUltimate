@@ -128,4 +128,12 @@ public class Preferences {
             return null;
         }
     }
+
+    public void setLanguage(final String language) {
+        mPrefs.edit().putString(PREFS_LANGUAGE, language).apply();
+    }
+
+    public String getLanguage() {
+        return mPrefs.getString(PREFS_LANGUAGE, mContext.getString(R.string.language_default));
+    }
 }
