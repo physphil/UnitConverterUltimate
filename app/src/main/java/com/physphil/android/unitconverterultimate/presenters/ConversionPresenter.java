@@ -27,6 +27,7 @@ import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -206,14 +207,14 @@ public class ConversionPresenter {
             {
                 BigDecimal toBase = new BigDecimal(from.getConversionToBaseUnit());
                 BigDecimal fromBase = new BigDecimal(to.getConversionFromBaseUnit());
-                BigDecimal resultBd = toBase.divide(new BigDecimal(value), BigDecimal.ROUND_UP).multiply(fromBase);
+                BigDecimal resultBd = toBase.divide(new BigDecimal(value), RoundingMode.UP).multiply(fromBase);
                 result = resultBd.doubleValue();
             }
             else if (to.getId() == Unit.L_100K)   // Litres/100km
             {
                 BigDecimal fromBase = new BigDecimal(to.getConversionFromBaseUnit());
                 BigDecimal toBase = new BigDecimal(from.getConversionToBaseUnit());
-                BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), BigDecimal.ROUND_UP);
+                BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), RoundingMode.UP);
                 result = resultBd.doubleValue();
             }
             else {
