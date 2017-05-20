@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -231,6 +231,19 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(Preferences.PREFS_THEME)) {
             recreate();
+        }
+        else if (key.equals(Preferences.PREFS_LANGUAGE)) {
+            String choice = "en";
+            String language = "def";
+            final String[] languages = getResources().getStringArray(R.array.language_values);
+            for (int i = 0, size = languages.length; i < size; i++) {
+                if (languages[i].equals(choice)) {
+                    language = languages[i];
+                    break;
+                }
+            }
+
+            // Now set language using variable `language`
         }
     }
 

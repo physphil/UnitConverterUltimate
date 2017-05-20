@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -20,4 +20,18 @@
     <string name="default_group_separator">None</string>
     <string name="default_decimal_separator">.</string>
     <integer name="num_digits_from">15</integer>
+
+    <!-- Language values -->
+    <string name="language_default">def</string>
+    <string name="language_english">en</string>
+    <string name="language_croatian">hr</string>
+    <string name="language_farsi">fa</string>
+    <string name="language_french">fr</string>
+    <string name="language_german">de</string>
+    <string name="language_hungarian">hu</string>
+    <string name="language_japanese">ja</string>
+    <string name="language_portuguese_brazil">pt-rBR</string>
+    <string name="language_russian">ru</string>
+    <string name="language_spanish">es</string>
+    <string name="language_turkish">tr</string>
 </resources>

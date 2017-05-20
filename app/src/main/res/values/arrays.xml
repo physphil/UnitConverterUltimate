@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -41,6 +41,36 @@
     <string-array name="decimal_separators" translatable="false">
         <item>.</item>
         <item>,</item>
+    </string-array>
+
+    <string-array name="languages" translatable="false">
+        <item>System Default</item>
+        <item>Croatian</item>
+        <item>English</item>
+        <item>Farsi</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Hungarian</item>
+        <item>Japanese</item>
+        <item>Portuguese (Brazil)</item>
+        <item>Russian</item>
+        <item>Spanish</item>
+        <item>Turkish</item>
+    </string-array>
+
+    <string-array name="language_values" translatable="false">
+        <item>@string/language_default</item>
+        <item>@string/language_croatian</item>
+        <item>@string/language_english</item>
+        <item>@string/language_farsi</item>
+        <item>@string/language_french</item>
+        <item>@string/language_german</item>
+        <item>@string/language_hungarian</item>
+        <item>@string/language_japanese</item>
+        <item>@string/language_portuguese_brazil</item>
+        <item>@string/language_russian</item>
+        <item>@string/language_spanish</item>
+        <item>@string/language_turkish</item>
     </string-array>
 
 </resources>

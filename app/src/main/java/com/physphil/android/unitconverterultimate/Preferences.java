@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ public class Preferences {
     public static final String PREFS_SHOW_HELP = "show_help";
     private static final String PREFS_CONVERSION = "conversion";
     private static final String PREFS_CURRENCY = "currency";
+    public static final String PREFS_LANGUAGE = "language";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
