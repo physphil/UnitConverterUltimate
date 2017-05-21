@@ -30,24 +30,34 @@ import android.view.inputmethod.InputMethodManager;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.presenters.MainActivityPresenter;
+import com.physphil.android.unitconverterultimate.presenters.MainActivityView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 
 /**
  * Main activity
  * Created by Phizz on 15-07-28.
  */
-public class MainActivity extends BaseActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends BaseActivity implements MainActivityView, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private DrawerLayout mDrawerLayout;
     private Conversions mConversions;
+    private MainActivityPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        // TODO - replace with Dagger2 injection
+        mPresenter = new MainActivityPresenter(this, this, Preferences.getInstance(this));
+
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
         Preferences.getInstance(this).getPreferences().registerOnSharedPreferenceChangeListener(this);
         mConversions = Conversions.getInstance();
+
+        // setup language
+        mPresenter.setLanguageToDisplay();
 
         setContentView(R.layout.activity_main);
         setupToolbar();
@@ -233,19 +243,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
             recreate();
         }
         else if (key.equals(Preferences.PREFS_LANGUAGE)) {
-            final String language = Preferences.getInstance(this).getLanguage();
-            int position = 0;
-            final String[] languages = getResources().getStringArray(R.array.language_values);
-            for (int i = 0, size = languages.length; i < size; i++) {
-                if (languages[i].equals(language)) {
-                    position = i;
-                    break;
-                }
-            }
-
-            // Now set language and restart app to take effect
-            Preferences.getInstance(this).setLanguage(languages[position]);
-            recreate();
+            mPresenter.onLanguageChanged();
         }
     }
 
@@ -260,4 +258,11 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // region MainActivityView implementation
+    @Override
+    public void restartApp() {
+        startActivity(IntentFactory.getRestartAppIntent(this));
+    }
+    // endregion
 }

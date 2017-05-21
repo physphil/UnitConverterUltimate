@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 package com.physphil.android.unitconverterultimate.util;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -62,5 +63,11 @@ public abstract class BaseIntentFactory {
     public static Intent getOpenPlayStoreIntent(String packageName) {
         Uri uri = Uri.parse("market://details?id=" + packageName);
         return new Intent(Intent.ACTION_VIEW, uri);
+    }
+
+    public static Intent getRestartAppIntent(final Context context) {
+        final Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return i;
     }
 }
