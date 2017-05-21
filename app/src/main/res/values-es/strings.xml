@@ -201,8 +201,8 @@
     <string name="week">Semana</string>
     <string name="day">Día</string>
     <string name="hour">Hora</string>
-    <string name="minute">Minuta</string>
-    <string name="second">Segunda</string>
+    <string name="minute">Minuto</string>
+    <string name="second">Segundo</string>
     <string name="millisecond">Millisegundo</string>
     <string name="nanosecond">Nanosegundo</string>
 
