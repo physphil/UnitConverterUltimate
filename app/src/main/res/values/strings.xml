@@ -54,7 +54,7 @@
     <string name="prefs_title_light_theme">Use Light Theme</string>
     <string name="prefs_title_other">Other Stuff</string>
     <string name="prefs_title_source_code">View Source Code</string>
-    <string name="pref_summary_source_code">Unit Converter Ultimate is open source!  Check out the code on GitHub.</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate is open source! Check out the code on GitHub.</string>
     <string name="prefs_title_unit_request">Request A Unit</string>
     <string name="prefs_summary_unit_request">Would you like me to add a unit? Send me an email and let me know.</string>
     <string name="prefs_title_rate">Rate on Google Play</string>
@@ -121,15 +121,15 @@
     <string name="electron_volt">eV</string>
 
     <!-- Fuel Consumption -->
-    <string name="mpg_us">Miles/gallon (US)</string>
-    <string name="mpg_uk">Miles/gallon (UK)</string>
-    <string name="l_100k">Litres/100km</string>
-    <string name="km_l">Kilometres/litre</string>
-    <string name="miles_l">Miles/litre</string>
+    <string name="mpg_us">Mile/gallon (US)</string>
+    <string name="mpg_uk">Mile/gallon (UK)</string>
+    <string name="l_100k">Litre/100km</string>
+    <string name="km_l">Kilometre/litre</string>
+    <string name="miles_l">Mile/litre</string>
 
     <!-- Distance -->
     <string name="kilometre">Kilometre</string>
-    <string name="mile">Miles</string>
+    <string name="mile">Mile</string>
     <string name="metre">Metre</string>
     <string name="centimetre">Centimetre (cm)</string>
     <string name="millimetre">Millimetre (mm)</string>
