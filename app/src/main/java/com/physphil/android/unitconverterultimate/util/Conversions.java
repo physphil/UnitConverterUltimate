@@ -113,6 +113,8 @@ public final class Conversions {
     private void getCookingConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(MILLILITRE, R.string.millilitre, 0.000001, 1000000.0));
+        units.add(new Unit(LITRE, R.string.litre, 0.001, 1000.0));
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
         units.add(new Unit(TABLESPOON, R.string.tablespoon, 0.0000147867647812, 67628.045403686));
         units.add(new Unit(CUP, R.string.cup, 0.0002365882365, 4226.7528377304));
@@ -124,8 +126,6 @@ public final class Conversions {
         units.add(new Unit(QUART_UK, R.string.quart_uk, 0.0011365225, 879.8769931963511501092));
         units.add(new Unit(GALLON, R.string.gallon, 0.003785411784, 264.172052358148415));
         units.add(new Unit(GALLON_UK, R.string.gallon_uk, 0.00454609, 219.9692482990877875273));
-        units.add(new Unit(MILLILITRE, R.string.millilitre, 0.000001, 1000000.0));
-        units.add(new Unit(LITRE, R.string.litre, 0.001, 1000.0));
         addConversion(Conversion.COOKING, new Conversion(Conversion.COOKING, R.string.cooking, units));
     }
 
@@ -207,11 +207,11 @@ public final class Conversions {
         //Base Unit - Miles per Gallon US
 
         List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(KM_L, R.string.km_l, 2.352145833, 0.42514370749052));
         units.add(new Unit(MPG_US, R.string.mpg_us, 1.0, 1.0));
         units.add(new Unit(MPG_UK, R.string.mpg_uk, 0.83267418460479, 1.2009499255398));
-        units.add(new Unit(L_100K, R.string.l_100k, 235.214582, 235.214582));
-        units.add(new Unit(KM_L, R.string.km_l, 2.352145833, 0.42514370749052));
         units.add(new Unit(MILES_L, R.string.miles_l, 3.7854118, 0.264172052));
+        units.add(new Unit(L_100K, R.string.l_100k, 235.214582, 235.214582));
         addConversion(Conversion.FUEL, new Conversion(Conversion.FUEL, R.string.fuel_consumption, units));
     }
 
@@ -220,12 +220,12 @@ public final class Conversions {
 
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(KILOMETRE, R.string.kilometre, 1000.0, 0.001));
-        units.add(new Unit(MILE, R.string.mile, 1609.344, 0.00062137119223733397));
         units.add(new Unit(METRE, R.string.metre, 1.0, 1.0));
         units.add(new Unit(CENTIMETRE, R.string.centimetre, 0.01, 100.0));
         units.add(new Unit(MILLIMETRE, R.string.millimetre, 0.001, 1000.0));
         units.add(new Unit(MICROMETRE, R.string.micrometre, 0.000001, 1000000.0));
         units.add(new Unit(NANOMETRE, R.string.nanometre, 0.000000001, 1000000000.0));
+        units.add(new Unit(MILE, R.string.mile, 1609.344, 0.00062137119223733397));
         units.add(new Unit(YARD, R.string.yard, 0.9144, 1.09361329833770779));
         units.add(new Unit(FEET, R.string.feet, 0.3048, 3.28083989501312336));
         units.add(new Unit(INCH, R.string.inch, 0.0254, 39.3700787401574803));
@@ -240,9 +240,9 @@ public final class Conversions {
 
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(KILOGRAM, R.string.kilogram, 1.0, 1.0));
-        units.add(new Unit(POUND, R.string.pound, 0.45359237, 2.20462262184877581));
         units.add(new Unit(GRAM, R.string.gram, 0.001, 1000.0));
         units.add(new Unit(MILLIGRAM, R.string.milligram, 0.000001, 1000000.0));
+         units.add(new Unit(POUND, R.string.pound, 0.45359237, 2.20462262184877581));
         units.add(new Unit(OUNCE, R.string.ounce, 0.028349523125, 35.27396194958041291568));
         units.add(new Unit(GRAIN, R.string.grain, 0.00006479891, 15432.35835294143065061));
         units.add(new Unit(STONE, R.string.stone, 6.35029318, 0.15747304441777));
@@ -338,6 +338,8 @@ public final class Conversions {
     private void getVolumeConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
+        units.add(new Unit(MILLILITRE, R.string.millilitre, 0.000001, 1000000.0));
+        units.add(new Unit(LITRE, R.string.litre, 0.001, 1000.0));
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
         units.add(new Unit(TABLESPOON, R.string.tablespoon, 0.0000147867647812, 67628.045403686));
         units.add(new Unit(CUP, R.string.cup, 0.0002365882365, 4226.7528377304));
@@ -351,8 +353,6 @@ public final class Conversions {
         units.add(new Unit(GALLON_UK, R.string.gallon_uk, 0.00454609, 219.9692482990877875273));
         units.add(new Unit(BARREL, R.string.barrel, 0.119240471196, 8.38641436057614017079));
         units.add(new Unit(BARREL_UK, R.string.barrel_uk, 0.16365924, 6.11025689719688298687));
-        units.add(new Unit(MILLILITRE, R.string.millilitre, 0.000001, 1000000.0));
-        units.add(new Unit(LITRE, R.string.litre, 0.001, 1000.0));
         units.add(new Unit(CUBIC_CM, R.string.cubic_cm, 0.000001, 1000000.0));
         units.add(new Unit(CUBIC_M, R.string.cubic_m, 1.0, 1.0));
         units.add(new Unit(CUBIC_INCH, R.string.cubic_inch, 0.000016387064, 61023.744094732284));
