@@ -27,7 +27,7 @@
     <string name="menu_help">Pomoć</string>
     <string name="menu_settings">Postavke</string>
     <string name="menu_download">Preuzimanje</string>
-    <string name="group_separator_none">Nijedan</string>
+    <string name="group_separator_none">Nijedno</string>
     <string name="request_unit">Unit Converter Ultimate: Zahtjev nove jedinice</string>
     <string name="header_other_stuff">Ostale stvari</string>
     <string name="progress_loading">Učitavanje&#8230;</string>
