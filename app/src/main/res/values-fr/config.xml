@@ -17,7 +17,7 @@
 
 <resources>
     <string name="default_number_decimals">4</string>
-    <string name="default_group_separator">None</string>
+    <string name="default_group_separator">Aucun</string>
     <string name="default_decimal_separator">,</string>
     <integer name="num_digits_from">15</integer>
 </resources>
