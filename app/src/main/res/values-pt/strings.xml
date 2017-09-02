@@ -266,5 +266,7 @@
     <string name="lira">Lira Turca</string>
     <string name="usd">Dólar dos Estados Unidos</string>
     <string name="zar">Rand Sul Africano</string>
+    <string name="prefs_summary_language">Escolha o idioma a ser usado em todo o aplicativo</string>
+    <string name="prefs_title_language">Idioma</string>
 
 </resources>
