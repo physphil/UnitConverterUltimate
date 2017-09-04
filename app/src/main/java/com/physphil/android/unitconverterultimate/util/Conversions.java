@@ -71,6 +71,7 @@ public final class Conversions {
         getTimeConversions();
         getTorqueConversions();
         getVolumeConversions();
+        getElectricPotential();
         mCurrencyUpdated = false;
     }
 
@@ -359,6 +360,22 @@ public final class Conversions {
         units.add(new Unit(CUBIC_FOOT, R.string.cubic_foot, 0.028316846592, 35.3146667214885903));
         units.add(new Unit(CUBIC_YARD, R.string.cubic_yard, 0.7645548692741148, 1.3079506));
         addConversion(Conversion.VOLUME, new Conversion(Conversion.VOLUME, R.string.volume, units));
+    }
+
+    private void getElectricPotential(){
+        //Base unit - Volt
+        List<Unit> units = new ArrayList<>();
+        units.add(new Unit(VOLT, R.string.volt, 1.0, 1.0));
+        units.add(new Unit(MILLIVOLT, R.string.millivolt, 0.001, 1000.0));
+        units.add(new Unit(MICROVOLT, R.string.microvolt, 0.000001, 1000000.0));
+        units.add(new Unit(NANOVOLT, R.string.nanovolt, 0.000000001, 1000000000.0));
+        units.add(new Unit(KILOVOLT, R.string.kilovolt, 1000.0, 0.001));
+        units.add(new Unit(MEGAVOLT, R.string.megavolt, 1000000.0, 0.000001));
+        units.add(new Unit(GIGAVOLT, R.string.gigavolt, 1000000000.0, 0.000000001));
+        units.add(new Unit(ABVOLT, R.string.abvolt, 0.00000001, 100000000.0));
+        units.add(new Unit(STATVOLT, R.string.statvolt, 299.792458, 0.003335640952));
+        units.add(new Unit(WATT_AMPERE, R.string.watt_ampere, 1.0, 1.0));
+        addConversion(Conversion.ELECTRIC_POTENTIAL, new Conversion(Conversion.ELECTRIC_POTENTIAL, R.string.electric_potential, units));
     }
 
     public boolean hasCurrency() {

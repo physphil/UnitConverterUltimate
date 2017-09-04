@@ -41,6 +41,11 @@
             android:title="@string/storage"/>
 
         <item
+            android:id="@+id/drawer_electric_potential"
+            android:icon="@drawable/ic_electric_potential"
+            android:title="@string/electric_potential"/>
+
+        <item
             android:id="@+id/drawer_energy"
             android:icon="@drawable/ic_energy"
             android:title="@string/energy"/>
