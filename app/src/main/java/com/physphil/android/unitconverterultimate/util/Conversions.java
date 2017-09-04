@@ -173,18 +173,18 @@ public final class Conversions {
     }
 
     private void getStorageConversions() {
-        //Base Unit = megabyte
+        //Base Unit = bit
         List<Unit> units = new ArrayList<Unit>();
-        units.add(new Unit(BIT, R.string.bit, 0.00000011920928955078, 8388608.0));
-        units.add(new Unit(BYTE, R.string.Byte, 0.00000095367431640625, 1048576.0));
-        units.add(new Unit(KILOBIT, R.string.kilobit, 0.0001220703125, 8192.0));
-        units.add(new Unit(KILOBYTE, R.string.kilobyte, 0.0009765625, 1024.0));
-        units.add(new Unit(MEGABIT, R.string.megabit, 0.125, 8.0));
-        units.add(new Unit(MEGABYTE, R.string.megabyte, 1.0, 1.0));
-        units.add(new Unit(GIGABIT, R.string.gigabit, 128.0, 0.0078125));
-        units.add(new Unit(GIGABYTE, R.string.gigabyte, 1024.0, 0.0009765625));
-        units.add(new Unit(TERABIT, R.string.terabit, 131072.0, 0.00000762939453125));
-        units.add(new Unit(TERABYTE, R.string.terabyte, 1048576.0, 0.00000095367431640625));
+        units.add(new Unit(BIT,      R.string.bit,      1.0*1,                   1.0/(1.0*1)));
+        units.add(new Unit(BYTE,     R.string.Byte,     8.0*1,                   1.0/(8.0*1)));
+        units.add(new Unit(KILOBIT,  R.string.kilobit,  1.0*1000,                1.0/(1.0*1000)));
+        units.add(new Unit(KILOBYTE, R.string.kilobyte, 8.0*1000,                1.0/(8.0*1000)));
+        units.add(new Unit(MEGABIT,  R.string.megabit,  1.0*1000*1000,           1.0/(1.0*1000*1000)));
+        units.add(new Unit(MEGABYTE, R.string.megabyte, 8.0*1000*1000,           1.0/(8.0*1000*1000)));
+        units.add(new Unit(GIGABIT,  R.string.gigabit,  1.0*1000*1000*1000,      1.0/(1.0*1000*1000*1000)));
+        units.add(new Unit(GIGABYTE, R.string.gigabyte, 8.0*1000*1000*1000,      1.0/(8.0*1000*1000*1000)));
+        units.add(new Unit(TERABIT,  R.string.terabit,  1.0*1000*1000*1000*1000, 1.0/(1.0*1000*1000*1000*1000)));
+        units.add(new Unit(TERABYTE, R.string.terabyte, 8.0*1000*1000*1000*1000, 1.0/(8.0*1000*1000*1000*1000)));
         addConversion(Conversion.STORAGE, new Conversion(Conversion.STORAGE, R.string.storage, units));
     }
 
