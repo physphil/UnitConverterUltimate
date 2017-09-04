@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">جدا کننده ی اعشاری</string>
     <string name="prefs_title_visual">بصری</string>
     <string name="prefs_title_light_theme">استفاده از تم روشن</string>
+    <string name="prefs_title_language">زبان</string>
+    <string name="prefs_summary_language">زبان مورد استفاده را در سراسر برنامه انتخاب کنید</string>
     <string name="prefs_title_other">چیزهای دیگر</string>
     <string name="prefs_title_source_code">نمایش کد منبع</string>
     <string name="pref_summary_source_code">مبدل واحد ها یک نرم افزار متن باز است ! برای نمایش کد منبع کلیک کنید</string>
