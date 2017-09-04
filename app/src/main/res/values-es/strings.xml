@@ -102,12 +102,20 @@
     <string name="Byte">Byte</string>
     <string name="kilobit">Kilobit</string>
     <string name="kilobyte">Kilobyte</string>
+    <string name="kibibit">Kibibit</string>
+    <string name="kibibyte">Kibibyte</string>
     <string name="megabit">Megabit</string>
     <string name="megabyte">Megabyte</string>
+    <string name="mebibit">Mebibit</string>
+    <string name="mebibyte">Mebibyte</string>
     <string name="gigabit">Gigabit</string>
     <string name="gigabyte">Gigabyte</string>
+    <string name="gibibit">Gibibit</string>
+    <string name="gibibyte">Gibibyte</string>
     <string name="terabit">Terabit</string>
     <string name="terabyte">Terabyte</string>
+    <string name="tebibit">Tebibit</string>
+    <string name="tebibyte">Tebibyte</string>
 
     <!-- Energy -->
     <string name="joule">Julio</string>

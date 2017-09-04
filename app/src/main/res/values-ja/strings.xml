@@ -102,12 +102,20 @@
     <string name="Byte">バイト</string>
     <string name="kilobit">キロビット</string>
     <string name="kilobyte">キロバイト</string>
+    <string name="kibibit">Kibibit</string>
+    <string name="kibibyte">Kibibyte</string>
     <string name="megabit">メガビット</string>
     <string name="megabyte">メガバイト</string>
+    <string name="mebibit">Mebibit</string>
+    <string name="mebibyte">Mebibyte</string>
     <string name="gigabit">ギガビット</string>
     <string name="gigabyte">ギガバイト</string>
+    <string name="gibibit">Gibibit</string>
+    <string name="gibibyte">Gibibyte</string>
     <string name="terabit">テラビット</string>
     <string name="terabyte">テラバイト</string>
+    <string name="tebibit">Tebibit</string>
+    <string name="tebibyte">Tebibyte</string>
 
     <!-- Energy -->
     <string name="joule">ジュール</string>
