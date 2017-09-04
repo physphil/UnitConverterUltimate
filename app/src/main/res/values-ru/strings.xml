@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">Десятичный разделитель</string>
     <string name="prefs_title_visual">Оформление</string>
     <string name="prefs_title_light_theme">Светлая тема</string>
+    <string name="prefs_title_language">Язык</string>
+    <string name="prefs_summary_language">Выберите язык, который будет использоваться в приложении</string>
     <string name="prefs_title_other">Другое</string>
     <string name="prefs_title_source_code">Просмотр исходного кода</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate - программа с открытым исходным кодом! Вы можете посмотреть исходный код на GitHub.</string>
