@@ -22,16 +22,16 @@
     <integer name="num_digits_from">15</integer>
 
     <!-- Language values -->
-    <string name="language_default">def</string>
-    <string name="language_english">en</string>
-    <string name="language_croatian">hr</string>
-    <string name="language_farsi">fa</string>
-    <string name="language_french">fr</string>
-    <string name="language_german">de</string>
-    <string name="language_hungarian">hu</string>
-    <string name="language_japanese">ja</string>
-    <string name="language_portuguese_brazil">pt</string>
-    <string name="language_russian">ru</string>
-    <string name="language_spanish">es</string>
-    <string name="language_turkish">tr</string>
+    <string name="language_default" translatable="false">def</string>
+    <string name="language_english" translatable="false">en</string>
+    <string name="language_croatian" translatable="false">hr</string>
+    <string name="language_farsi" translatable="false">fa</string>
+    <string name="language_french" translatable="false">fr</string>
+    <string name="language_german" translatable="false">de</string>
+    <string name="language_hungarian" translatable="false">hu</string>
+    <string name="language_japanese" translatable="false">ja</string>
+    <string name="language_portuguese_brazil" translatable="false">pt</string>
+    <string name="language_russian" translatable="false">ru</string>
+    <string name="language_spanish" translatable="false">es</string>
+    <string name="language_turkish" translatable="false">tr</string>
 </resources>
