@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">小数点の記号</string>
     <string name="prefs_title_visual">外観</string>
     <string name="prefs_title_light_theme">ライトテーマを使用する</string>
+    <string name="prefs_title_language">言語</string>
+    <string name="prefs_summary_language">アプリ全体で使用する言語を選択します</string>
     <string name="prefs_title_other">他のスタッフ</string>
     <string name="prefs_title_source_code">ソースコードを表示</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate はオープンソースです! GitHub でコードをチェックアウトしてください。</string>
