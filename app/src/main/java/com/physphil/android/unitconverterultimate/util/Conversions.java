@@ -179,12 +179,20 @@ public final class Conversions {
         units.add(new Unit(BYTE,     R.string.Byte,     8.0*1,                   1.0/(8.0*1)));
         units.add(new Unit(KILOBIT,  R.string.kilobit,  1.0*1000,                1.0/(1.0*1000)));
         units.add(new Unit(KILOBYTE, R.string.kilobyte, 8.0*1000,                1.0/(8.0*1000)));
+        units.add(new Unit(KIBIBIT,  R.string.kibibit,  1.0*1024,                1.0/(1.0*1024)));
+        units.add(new Unit(KIBIBYTE, R.string.kibibyte, 8.0*1024,                1.0/(8.0*1024)));
         units.add(new Unit(MEGABIT,  R.string.megabit,  1.0*1000*1000,           1.0/(1.0*1000*1000)));
         units.add(new Unit(MEGABYTE, R.string.megabyte, 8.0*1000*1000,           1.0/(8.0*1000*1000)));
+        units.add(new Unit(MEBIBIT,  R.string.mebibit,  1.0*1024*1024,           1.0/(1.0*1024*1024)));
+        units.add(new Unit(MEBIBYTE, R.string.mebibyte, 8.0*1024*1024,           1.0/(8.0*1024*1024)));
         units.add(new Unit(GIGABIT,  R.string.gigabit,  1.0*1000*1000*1000,      1.0/(1.0*1000*1000*1000)));
         units.add(new Unit(GIGABYTE, R.string.gigabyte, 8.0*1000*1000*1000,      1.0/(8.0*1000*1000*1000)));
+        units.add(new Unit(GIBIBIT,  R.string.gibibit,  1.0*1024*1024*1024,      1.0/(1.0*1024*1024*1024)));
+        units.add(new Unit(GIBIBYTE, R.string.gibibyte, 8.0*1024*1024*1024,      1.0/(8.0*1024*1024*1024)));
         units.add(new Unit(TERABIT,  R.string.terabit,  1.0*1000*1000*1000*1000, 1.0/(1.0*1000*1000*1000*1000)));
         units.add(new Unit(TERABYTE, R.string.terabyte, 8.0*1000*1000*1000*1000, 1.0/(8.0*1000*1000*1000*1000)));
+        units.add(new Unit(TEBIBIT,  R.string.tebibit,  1.0*1024*1024*1024*1024, 1.0/(1.0*1024*1024*1024*1024)));
+        units.add(new Unit(TEBIBYTE, R.string.tebibyte, 8.0*1024*1024*1024*1024, 1.0/(8.0*1024*1024*1024*1024)));
         addConversion(Conversion.STORAGE, new Conversion(Conversion.STORAGE, R.string.storage, units));
     }
 
