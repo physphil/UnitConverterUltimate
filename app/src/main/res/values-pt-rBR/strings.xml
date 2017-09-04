@@ -86,6 +86,7 @@
     <string name="time">Tempo</string>
     <string name="torque">Torque</string>
     <string name="volume">Volume</string>
+    <string name="electric_potential">Potencial elétrico</string>
 
     <!-- Área -->
     <string name="sq_kilometre">Quilômetro Quadrado</string>
@@ -266,5 +267,18 @@
     <string name="lira">Lira Turca</string>
     <string name="usd">Dólar dos Estados Unidos</string>
     <string name="zar">Rand Sul Africano</string>
+
+    <!-- Potencial eletrico -->
+    <string name="volt">Volt</string>
+    <string name="millivolt">Milivolt</string>
+    <string name="microvolt">Microvolt</string>
+    <string name="nanovolt">Nanovolt</string>
+    <string name="kilovolt">Quilovolt</string>
+    <string name="megavolt">Megavolt</string>
+    <string name="gigavolt">Gigavolt</string>
+    <string name="abvolt">Abvolt</string>
+    <string name="statvolt">Statvolt</string>
+    <string name="watt_ampere">Watt por ampère</string>
+
 
 </resources>
