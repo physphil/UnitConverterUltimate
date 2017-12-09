@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package com.physphil.android.unitconverterultimate.fragments;
 import android.content.ActivityNotFoundException;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
@@ -28,7 +29,11 @@ import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;
+import com.physphil.android.unitconverterultimate.models.Language;
 import com.physphil.android.unitconverterultimate.util.IntentFactory;
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Fragment to display preferences screen
@@ -97,6 +102,9 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         else {
             ((PreferenceCategory) findPreference("other")).removePreference(donate);
         }
+
+        final ListPreference language = (ListPreference) findPreference("language");
+        sortLanguageOptions(language);
     }
 
     @Override
@@ -145,6 +153,38 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         catch (ActivityNotFoundException ex) {
             Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void sortLanguageOptions(final ListPreference preference) {
+        // Sort language options so they're always alphabetical, no matter what language the user has chosen
+        final Language[] languages = Language.values();
+        Arrays.sort(languages, new Comparator<Language>() {
+            @Override
+            public int compare(Language lang1, Language lang2) {
+                // Always put DEFAULT at top of list, then sort the rest alphabetically
+                if (lang1 == Language.DEFAULT) {
+                    return Integer.MIN_VALUE;
+                }
+                else if (lang2 == Language.DEFAULT) {
+                    return Integer.MAX_VALUE;
+                }
+                else {
+                    return getString(lang1.getDisplayStringId()).compareTo(getString(lang2.getDisplayStringId()));
+                }
+            }
+        });
+
+        // Create CharSequence[] arrays from the sorted list of Languages to supply to ListPreference
+        final int size = languages.length;
+        final CharSequence[] entries = new CharSequence[size];
+        final CharSequence[] entryValues = new CharSequence[size];
+        for (int i = 0; i < size; i++) {
+            entries[i] = getString(languages[i].getDisplayStringId());
+            entryValues[i] = languages[i].getId();
+        }
+
+        preference.setEntries(entries);
+        preference.setEntryValues(entryValues);
     }
 
     @Override

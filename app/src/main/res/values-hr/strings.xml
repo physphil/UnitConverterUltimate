@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">Separator decimala</string>
     <string name="prefs_title_visual">Izgled</string>
     <string name="prefs_title_light_theme">Koristi svijetlu temu</string>
+    <string name="prefs_title_language">Jezik</string>
+    <string name="prefs_summary_language">Odaberite jezik koji želite koristiti kroz aplikaciju</string>
     <string name="prefs_title_other">Ostale stvari</string>
     <string name="prefs_title_source_code">Pregledaj izvorni kod</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate je otvorenog koda! Pregledajte kod na GitHubu.</string>

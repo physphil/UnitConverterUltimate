@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,12 @@ package com.physphil.android.unitconverterultimate;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.Language;
 
 /**
  * Preferences class
@@ -40,6 +42,7 @@ public class Preferences {
     public static final String PREFS_SHOW_HELP = "show_help";
     private static final String PREFS_CONVERSION = "conversion";
     private static final String PREFS_CURRENCY = "currency";
+    public static final String PREFS_LANGUAGE = "language";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
@@ -126,5 +129,15 @@ public class Preferences {
         else {
             return null;
         }
+    }
+
+    public void setLanguage(final Language language) {
+        mPrefs.edit().putString(PREFS_LANGUAGE, language.getId()).apply();
+    }
+
+    @NonNull
+    public Language getLanguage() {
+        final String id = mPrefs.getString(PREFS_LANGUAGE, Language.DEFAULT.getId());
+        return Language.fromId(id);
     }
 }

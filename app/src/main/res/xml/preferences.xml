@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -53,6 +53,12 @@
             android:key="light_theme"
             android:title="@string/prefs_title_light_theme"
             android:defaultValue="false" />
+
+        <ListPreference
+            android:key="language"
+            android:title="@string/prefs_title_language"
+            android:summary="@string/prefs_summary_language"
+            android:defaultValue="@string/language_code_default"/>
 
     </PreferenceCategory>
 

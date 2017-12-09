@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">Dezimaltrenner</string>
     <string name="prefs_title_visual">Erscheinungsbild</string>
     <string name="prefs_title_light_theme">Helles Farbschema verwenden</string>
+    <string name="prefs_title_language">Sprache</string>
+    <string name="prefs_summary_language">Wähle die Sprache, die in der App verwendet werden soll</string>
     <string name="prefs_title_other">Diverses</string>
     <string name="prefs_title_source_code">Quellcode ansehen</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate ist Open Source! Schau dir den Quellcode auf GitHub an!</string>
