@@ -19,10 +19,12 @@ package com.physphil.android.unitconverterultimate;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.models.Language;
 
 /**
  * Preferences class
@@ -129,11 +131,13 @@ public class Preferences {
         }
     }
 
-    public void setLanguage(final String language) {
-        mPrefs.edit().putString(PREFS_LANGUAGE, language).apply();
+    public void setLanguage(final Language language) {
+        mPrefs.edit().putString(PREFS_LANGUAGE, language.getId()).apply();
     }
 
-    public String getLanguage() {
-        return mPrefs.getString(PREFS_LANGUAGE, mContext.getString(R.string.language_default));
+    @NonNull
+    public Language getLanguage() {
+        final String id = mPrefs.getString(PREFS_LANGUAGE, Language.DEFAULT.getId());
+        return Language.fromId(id);
     }
 }

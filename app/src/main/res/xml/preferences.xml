@@ -58,9 +58,7 @@
             android:key="language"
             android:title="@string/prefs_title_language"
             android:summary="@string/prefs_summary_language"
-            android:defaultValue="@string/language_default"
-            android:entries="@array/languages"
-            android:entryValues="@array/language_values"/>
+            android:defaultValue="@string/language_code_default"/>
 
     </PreferenceCategory>
 
