@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2017 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,24 +30,34 @@ import android.view.inputmethod.InputMethodManager;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.presenters.MainActivityPresenter;
+import com.physphil.android.unitconverterultimate.presenters.MainActivityView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
+import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 
 /**
  * Main activity
  * Created by Phizz on 15-07-28.
  */
-public class MainActivity extends BaseActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends BaseActivity implements MainActivityView, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private DrawerLayout mDrawerLayout;
     private Conversions mConversions;
+    private MainActivityPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        // TODO - replace with Dagger2 injection
+        mPresenter = new MainActivityPresenter(this, this, Preferences.getInstance(this));
+
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
         Preferences.getInstance(this).getPreferences().registerOnSharedPreferenceChangeListener(this);
         mConversions = Conversions.getInstance();
+
+        // setup language
+        mPresenter.setLanguageToDisplay();
 
         setContentView(R.layout.activity_main);
         setupToolbar();
@@ -232,6 +242,9 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
         if (key.equals(Preferences.PREFS_THEME)) {
             recreate();
         }
+        else if (key.equals(Preferences.PREFS_LANGUAGE)) {
+            mPresenter.onLanguageChanged();
+        }
     }
 
     @Override
@@ -245,4 +258,11 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // region MainActivityView implementation
+    @Override
+    public void restartApp() {
+        startActivity(IntentFactory.getRestartAppIntent(this));
+    }
+    // endregion
 }

@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 // Only apply the google-service plugin if the config file exists
 if (file('google-services.json').exists()) {
@@ -23,7 +24,7 @@ if (file('google-services.json').exists()) {
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion '25.0.0'
 
     signingConfigs {
         release {
@@ -43,8 +44,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 50200
-        versionName '5.2'
+        versionCode 50300
+        versionName '5.3'
     }
 
 
@@ -69,6 +70,7 @@ android {
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'

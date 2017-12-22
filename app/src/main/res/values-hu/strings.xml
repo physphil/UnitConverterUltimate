@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2016 Phil Shadlyn
+  ~ Copyright 2017 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -52,6 +52,8 @@
     <string name="prefs_title_decimal_separator">Tizedes elválasztó</string>
     <string name="prefs_title_visual">Megjelenés</string>
     <string name="prefs_title_light_theme">Világos téma használata</string>
+    <string name="prefs_title_language">Nyelv</string>
+    <string name="prefs_summary_language">Válassza ki az alkalmazásban használt nyelvet</string>
     <string name="prefs_title_other">Egyéb</string>
     <string name="prefs_title_source_code">Forráskód megtekintése</string>
     <string name="pref_summary_source_code">A Unit Converter Ultimate nyílt forráskódú! Megtalálod a GitHubon.</string>

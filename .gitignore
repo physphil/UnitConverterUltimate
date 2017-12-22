@@ -24,6 +24,7 @@ local.properties
 
 # Idea non-crucial project files
 *.iws
+.navigation
 
 # Signing info
 app/keystore.properties
