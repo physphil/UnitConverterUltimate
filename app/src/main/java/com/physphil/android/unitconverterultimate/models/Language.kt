@@ -26,6 +26,7 @@ private const val LANG_FARSI = "fa"
 private const val LANG_FRENCH = "fr"
 private const val LANG_GERMAN = "de"
 private const val LANG_HUNGARIAN = "hu"
+private const val LANG_ITALIAN = "it"
 private const val LANG_JAPANESE = "ja"
 private const val LANG_PORTUGUESE_BR = "pt_BR"
 private const val LANG_RUSSIAN = "ru"
@@ -44,6 +45,7 @@ enum class Language(val id: String) {
     FRENCH(LANG_FRENCH),
     GERMAN(LANG_GERMAN),
     HUNGARIAN(LANG_HUNGARIAN),
+    ITALIAN(LANG_ITALIAN),
     JAPANESE(LANG_JAPANESE),
     PORTUGUESE_BR(LANG_PORTUGUESE_BR),
     RUSSIAN(LANG_RUSSIAN),
@@ -57,6 +59,7 @@ enum class Language(val id: String) {
         LANG_FRENCH -> R.string.language_french
         LANG_GERMAN -> R.string.language_german
         LANG_HUNGARIAN -> R.string.language_hungarian
+        LANG_ITALIAN -> R.string.language_italian
         LANG_JAPANESE -> R.string.language_japanese
         LANG_PORTUGUESE_BR -> R.string.language_portuguese_brazil
         LANG_RUSSIAN -> R.string.language_russian
