@@ -85,6 +85,7 @@
     <string name="language_russian" translatable="false">Russian</string>
     <string name="language_spanish" translatable="false">Spanish</string>
     <string name="language_turkish" translatable="false">Turkish</string>
+    <string name="language_ukrainian" translatable="false">Ukrainian</string>
 
     <!-- Conversions -->
     <string name="area">Area</string>
