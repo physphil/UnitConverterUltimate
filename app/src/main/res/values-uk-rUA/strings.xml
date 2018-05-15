@@ -68,7 +68,7 @@
 
     <string name="dialog_btn_got_it">Закрити</string>
     <string name="dialog_title_help">Допомога</string>
-    <string name="dialog_message_help">Використовуйте бокове слайд-меню для вибору типу вхідної величини, після чого виберіть необхідні одиниці виміру.\n\nВигляд конвертованого значення моживо повністю налаштувати. В меню налаштувань можливо задати кількість десяткових знаків для відображення, а також вибрати десятковий розділювач і розділювач груп розрядів.\n\nУтримування вихідного значення зкопіює його в буфер обміна.</string>
+    <string name="dialog_message_help">Відкрийте бокове меню для вибору типу вхідної величини та одиниці виміру.\n\nВи можете повністю налаштувати вигляд конвертованого значення. В меню налаштувань можна задати кількість десяткових знаків, а також десятковий розділювач і розділювач груп розрядів.\n\nУтримуючи вихідне значення ви зкопіюєте його в буфер обміну.</string>
     <string name="dialog_btn_view_source">Сирцевий код</string>
 
     <!-- Conversions -->
@@ -266,8 +266,5 @@
     <string name="lira">Турецька ліра</string>
     <string name="usd">Долар США</string>
     <string name="zar">Південно-африканський ренд</string>
-    <string name="default_number_decimals">4</string>
-    <string name="default_group_separator">.</string>
-    <string name="default_decimal_separator">,</string>
 
 </resources>
