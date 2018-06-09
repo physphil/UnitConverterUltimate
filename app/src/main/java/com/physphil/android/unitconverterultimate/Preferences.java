@@ -41,7 +41,7 @@ public class Preferences {
     public static final String PREFS_APP_OPEN_COUNT = "app_open_count";
     public static final String PREFS_SHOW_HELP = "show_help";
     private static final String PREFS_CONVERSION = "conversion";
-    private static final String PREFS_CURRENCY = "currency";
+    private static final String PREFS_CURRENCY_V2 = "currency_v2";
     public static final String PREFS_LANGUAGE = "language";
 
     private static Preferences mInstance;
@@ -114,16 +114,16 @@ public class Preferences {
     }
 
     public boolean hasLatestCurrency() {
-        return mPrefs.contains(PREFS_CURRENCY);
+        return mPrefs.contains(PREFS_CURRENCY_V2);
     }
 
     public void saveLatestCurrency(Currencies currencies) {
-        mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(currencies)).apply();
+        mPrefs.edit().putString(PREFS_CURRENCY_V2, new Gson().toJson(currencies)).apply();
     }
 
     public Currencies getLatestCurrency() {
-        if (mPrefs.contains(PREFS_CURRENCY)) {
-            String currencies = mPrefs.getString(PREFS_CURRENCY, null);
+        if (mPrefs.contains(PREFS_CURRENCY_V2)) {
+            String currencies = mPrefs.getString(PREFS_CURRENCY_V2, null);
             return new Gson().fromJson(currencies, Currencies.class);
         }
         else {

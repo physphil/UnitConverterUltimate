@@ -132,10 +132,8 @@ public final class Conversions {
     public void updateCurrencyConversions(Context context) {
         // Base unit - Euro
         final List<Unit> units = new ArrayList<>();
-//        final CurrencyResponse response = Preferences.getInstance(context).getLatestCurrency();
         final Currencies currencies = Preferences.getInstance(context).getLatestCurrency();
         if (Preferences.getInstance(context).hasLatestCurrency() && currencies != null) {
-//            Rates currency = response.getRates();
             Map<Country, Double> map = currencies.toMap();
             units.add(new Unit(USD, R.string.usd, 1 / map.get(Country.USD), map.get(Country.USD)));
             units.add(new Unit(AUD, R.string.aud, 1 / map.get(Country.AUD), map.get(Country.AUD)));
