@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.physphil.android.unitconverterultimate.api;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
  * Singleton to access the Fixer.io API
@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class FixerApi {
 
-    private static final String BASE_URL = "http://api.fixer.io";
+    private static final String BASE_URL = "http://www.ecb.europa.eu/stats/eurofxref/";
     private static FixerApi mInstance;
 
     private FixerService mService;
@@ -34,7 +34,7 @@ public class FixerApi {
     private FixerApi() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(SimpleXmlConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 

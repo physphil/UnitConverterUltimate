@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package com.physphil.android.unitconverterultimate.api;
 
-import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+import com.physphil.android.unitconverterultimate.api.models.Envelope;
 
 import retrofit2.http.GET;
 import rx.Observable;
@@ -26,6 +26,6 @@ import rx.Observable;
  * Created by Phizz on 16-07-26.
  */
 public interface FixerService {
-    @GET("latest")
-    Observable<CurrencyResponse> getLatestRates();
+    @GET("eurofxref-daily.xml")
+    Observable<Envelope> getLatestRates();
 }

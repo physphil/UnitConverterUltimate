@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
+import com.physphil.android.unitconverterultimate.api.models.Currencies;
 import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.Language;
@@ -121,15 +122,29 @@ public class Preferences {
         mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(latestCurrency)).apply();
     }
 
-    public CurrencyResponse getLatestCurrency() {
+    public void saveLatestCurrency(Currencies currencies) {
+        mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(currencies)).apply();
+    }
+
+    public Currencies getLatestCurrency() {
         if (mPrefs.contains(PREFS_CURRENCY)) {
-            String currency = mPrefs.getString(PREFS_CURRENCY, null);
-            return new Gson().fromJson(currency, CurrencyResponse.class);
+            String currencies = mPrefs.getString(PREFS_CURRENCY, null);
+            return new Gson().fromJson(currencies, Currencies.class);
         }
         else {
             return null;
         }
     }
+
+//    public CurrencyResponse getLatestCurrency() {
+//        if (mPrefs.contains(PREFS_CURRENCY)) {
+//            String currency = mPrefs.getString(PREFS_CURRENCY, null);
+//            return new Gson().fromJson(currency, CurrencyResponse.class);
+//        }
+//        else {
+//            return null;
+//        }
+//    }
 
     public void setLanguage(final Language language) {
         mPrefs.edit().putString(PREFS_LANGUAGE, language.getId()).apply();

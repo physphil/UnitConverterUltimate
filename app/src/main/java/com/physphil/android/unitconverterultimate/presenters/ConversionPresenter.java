@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,9 @@ package com.physphil.android.unitconverterultimate.presenters;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.FixerApi;
-import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
+import com.physphil.android.unitconverterultimate.api.models.Currencies;
+import com.physphil.android.unitconverterultimate.api.models.Currency;
+import com.physphil.android.unitconverterultimate.api.models.Envelope;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
@@ -28,6 +30,8 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -91,11 +95,16 @@ public class ConversionPresenter {
                 .getLatestRates()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<CurrencyResponse>() {
+                .subscribe(new Action1<Envelope>() {
                     @Override
-                    public void call(CurrencyResponse response) {
+                    public void call(Envelope envelope) {
+                        List<Currency> currencies = new ArrayList<>();
+                        for (Envelope.Cube cube : envelope.getCube().getCube().get(0).getCube()) {
+                            currencies.add(new Currency(cube.getCurrency(), cube.getRate()));
+                        }
+
                         boolean hadCurrency = Conversions.getInstance().hasCurrency();
-                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(response);
+                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(new Currencies(currencies));
                         Conversions.getInstance().updateCurrencyConversions(mView.getContext());
                         Conversions.getInstance().setCurrencyUpdated(true);
                         mView.showToast(R.string.toast_currency_updated);
@@ -117,6 +126,36 @@ public class ConversionPresenter {
                         }
                     }
                 }));
+//        mCompositeSubscription.add(FixerApi.getInstance().getService()
+//                .getLatestRates()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<CurrencyResponse>() {
+//                    @Override
+//                    public void call(CurrencyResponse response) {
+//                        boolean hadCurrency = Conversions.getInstance().hasCurrency();
+//                        Preferences.getInstance(mView.getContext()).saveLatestCurrency(response);
+//                        Conversions.getInstance().updateCurrencyConversions(mView.getContext());
+//                        Conversions.getInstance().setCurrencyUpdated(true);
+//                        mView.showToast(R.string.toast_currency_updated);
+//                        if (hadCurrency) {
+//                            mView.updateCurrencyConversion();
+//                        }
+//                        else {
+//                            mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
+//                        }
+//                    }
+//                }, new Action1<Throwable>() {
+//                    @Override
+//                    public void call(Throwable throwable) {
+//                        if (!Conversions.getInstance().hasCurrency()) {
+//                            mView.showLoadingError(R.string.error_loading_currency);
+//                        }
+//                        else {
+//                            mView.showToastError(R.string.toast_error_updating_currency);
+//                        }
+//                    }
+//                }));
     }
 
     public void onGetUnitsToDisplay(@Conversion.id int conversionId) {

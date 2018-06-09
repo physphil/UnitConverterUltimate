@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,6 +76,7 @@ dependencies {
     implementation 'com.android.support:design:27.0.2'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
