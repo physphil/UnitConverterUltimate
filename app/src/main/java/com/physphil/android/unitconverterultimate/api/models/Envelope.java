@@ -23,6 +23,9 @@ import org.simpleframework.xml.Root;
 
 import java.util.List;
 
+/**
+ * Model for XML returned from currency API
+ */
 @Root(name="Envelope")
 public class Envelope {
 

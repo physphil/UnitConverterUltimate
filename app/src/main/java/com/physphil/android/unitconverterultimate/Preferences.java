@@ -23,7 +23,6 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;
-import com.physphil.android.unitconverterultimate.api.models.CurrencyResponse;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.Language;
 
@@ -118,10 +117,6 @@ public class Preferences {
         return mPrefs.contains(PREFS_CURRENCY);
     }
 
-    public void saveLatestCurrency(CurrencyResponse latestCurrency) {
-        mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(latestCurrency)).apply();
-    }
-
     public void saveLatestCurrency(Currencies currencies) {
         mPrefs.edit().putString(PREFS_CURRENCY, new Gson().toJson(currencies)).apply();
     }
@@ -135,16 +130,6 @@ public class Preferences {
             return null;
         }
     }
-
-//    public CurrencyResponse getLatestCurrency() {
-//        if (mPrefs.contains(PREFS_CURRENCY)) {
-//            String currency = mPrefs.getString(PREFS_CURRENCY, null);
-//            return new Gson().fromJson(currency, CurrencyResponse.class);
-//        }
-//        else {
-//            return null;
-//        }
-//    }
 
     public void setLanguage(final Language language) {
         mPrefs.edit().putString(PREFS_LANGUAGE, language.getId()).apply();

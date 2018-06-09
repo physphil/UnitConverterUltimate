@@ -21,35 +21,34 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
- * Singleton to access the Fixer.io API
- * Created by Phizz on 16-07-26.
+ * Singleton to access the Currency API
  */
-public class FixerApi {
+public class CurrencyApi {
 
     private static final String BASE_URL = "http://www.ecb.europa.eu/stats/eurofxref/";
-    private static FixerApi mInstance;
+    private static CurrencyApi mInstance;
 
-    private FixerService mService;
+    private CurrencyService mService;
 
-    private FixerApi() {
+    private CurrencyApi() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        mService = retrofit.create(FixerService.class);
+        mService = retrofit.create(CurrencyService.class);
     }
 
-    public static FixerApi getInstance() {
+    public static CurrencyApi getInstance() {
         if (mInstance == null) {
-            mInstance = new FixerApi();
+            mInstance = new CurrencyApi();
         }
 
         return mInstance;
     }
 
-    public FixerService getService() {
+    public CurrencyService getService() {
         return mService;
     }
 }

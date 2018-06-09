@@ -22,10 +22,9 @@ import retrofit2.http.GET;
 import rx.Observable;
 
 /**
- * Retrofit service to consume Fixer.io API
- * Created by Phizz on 16-07-26.
+ * Retrofit service to consume Currency API
  */
-public interface FixerService {
+public interface CurrencyService {
     @GET("eurofxref-daily.xml")
     Observable<Envelope> getLatestRates();
 }
