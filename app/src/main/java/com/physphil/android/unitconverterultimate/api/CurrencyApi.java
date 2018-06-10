@@ -25,7 +25,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
  */
 public class CurrencyApi {
 
-    private static final String BASE_URL = "http://www.ecb.europa.eu/stats/eurofxref/";
+    private static final String BASE_URL = "https://www.ecb.europa.eu/stats/eurofxref/";
     private static CurrencyApi mInstance;
 
     private CurrencyService mService;
