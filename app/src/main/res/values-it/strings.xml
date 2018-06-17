@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Vuoi Donare?</string>
+    <string name="title_activity_settings">Impostazioni</string>
+    <string name="text_from">Da</string>
+    <string name="text_to">A</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Scarica</string>
+    <string name="menu_clear">Azzera</string>
+    <string name="menu_help">Aiuto</string>
+    <string name="menu_settings">Impostazioni</string>
+    <string name="group_separator_none">Nessuno</string>
+    <string name="request_unit">Unit Converter Ultimate: Richiedi un\'unità di misura</string>
+    <string name="header_other_stuff">Altro</string>
+    <string name="progress_loading">Caricamento&#8230;</string>
+    <string name="error_loading_currency">C\'è stato un errore durante l\'aggiornamento dei tassi di cambio.\n\nControlla la tua connessione e riprova.</string>
+
+    <string name="toast_error_billing_internet">Oops, c\'è stato un problema. Controlla se la connessione è attiva e riprova.</string>
+    <string name="toast_error_billing_general">Oops, c\'è stato un problema. Per favore, prova di nuovo.</string>
+    <string name="toast_donation_successful">Grazie per la donazione!</string>
+    <string name="toast_error_no_browser">Nessun browser trovato</string>
+    <string name="toast_error_no_email_app">Nessuna app email installata</string>
+    <string name="toast_error_google_play">Errore all\'apertura di Google Play Store, prova di nuovo</string>
+    <string name="toast_copied_clipboard">Testo copiato negli appunti</string>
+    <string name="toast_currency_updated">Tassi di cambio aggiornati</string>
+    <string name="toast_error_updating_currency">C\'è stato un errore durante l\'aggiornamento dei tassi di cambio.</string>
+
+    <string name="prefs_title_formatting">Formattazione</string>
+    <string name="prefs_summary_number_decimals">Imposta il numero di posizioni decimali preferito per la conversione della valuta</string>
+    <string name="prefs_title_number_decimals">Numero di Decimali</string>
+    <string name="prefs_summary_group_separator">Imposta il tipo di simbolo di raggruppamento preferito per la conversione della valuta</string>
+    <string name="prefs_title_group_separator">Simbolo di Raggruppamento</string>
+    <string name="prefs_summary_decimal_separator">Imposta il separatore decimale preferito per la conversione della valuta</string>
+    <string name="prefs_title_decimal_separator">Separatore Decimale</string>
+    <string name="prefs_title_visual">Aspetto</string>
+    <string name="prefs_title_light_theme">Usa Tema Chiaro</string>
+    <string name="prefs_title_language">Linguaggio</string>
+    <string name="prefs_summary_language">Scegli la lingua da utilizzare in tutta l\'app</string>
+    <string name="prefs_title_other">Altro</string>
+    <string name="prefs_title_source_code">Controlla Codice Sorgente</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate è open source! Dai un\'occhiata al codice su GitHub.</string>
+    <string name="prefs_title_unit_request">Richiedi Unità Mancante</string>
+    <string name="prefs_summary_unit_request">Vorresti aggiungere altre unità di misura? Inviami una email.</string>
+    <string name="prefs_title_rate">Vota su Google Play</string>
+    <string name="prefs_summary_rate">Ti piace Unit Converter Ultimate? Allora perché non ci dai 5 stelle?</string>
+    <string name="prefs_title_donate">Dona</string>
+    <string name="prefs_summary_donate">Regalaci un sorriso sostenendo il team di sviluppo :)</string>
+    <string name="prefs_title_open_issue">Trovato un Bug?</string>
+    <string name="prefs_summary_open_issue">Inviaci una segnalazione su GitHub.</string>
+
+    <string name="dialog_btn_got_it">OK</string>
+    <string name="dialog_title_help">Aiuto</string>
+    <string name="dialog_message_help">Usa il menu a comparsa per navigare fra le varie tipologie di conversione e seleziona quella che ti interessa.\n\nIl valore convertito è completamente personalizzabile. Usa il menu delle impostazioni per selezionare il numero di posizioni decimali, il simbolo di ragruppamento e il separatore decimale.\n\nTieni premuto sul valore convertito per copiarlo.</string>
+    <string name="dialog_btn_view_source">Vedi Sorgente</string>
+
+    <!-- Conversions -->
+    <string name="area">Area</string>
+    <string name="cooking">Cucina</string>
+    <string name="currency">Valuta</string>
+    <string name="storage">Dimensione Dati</string>
+    <string name="energy">Energia</string>
+    <string name="fuel_consumption">Carburante</string>
+    <string name="length">Lunghezza / Distanza</string>
+    <string name="mass">Massa / Peso</string>
+    <string name="power">Potenza</string>
+    <string name="pressure">Pressione</string>
+    <string name="speed">Velocità</string>
+    <string name="temperature">Temperatura</string>
+    <string name="time">Tempo</string>
+    <string name="torque">Coppia</string>
+    <string name="volume">Volume</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Chilometro Quadrato</string>
+    <string name="sq_metre">Metro Quadrato</string>
+    <string name="sq_centimetre">Centimetro Quadrato</string>
+    <string name="hectare">Ettaro</string>
+    <string name="sq_mile">Miglio Quadrato</string>
+    <string name="sq_yard">Iarda Quadrata</string>
+    <string name="sq_foot">Piede Quadrato</string>
+    <string name="sq_inch">Pollice Quadrato</string>
+    <string name="acre">Acro</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Chilojoule</string>
+    <string name="calorie">Caloria</string>
+    <string name="kilocalorie">Chilocaloria</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">Piede per libbra</string>
+    <string name="in_lbF">Pollice per libbra</string>
+    <string name="kilowatt_hour">Chilowattora</string>
+    <string name="electron_volt">Elettronvolt</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Miglio/gallone (USA)</string>
+    <string name="mpg_uk">Miglio/gallone (GB)</string>
+    <string name="l_100k">Litro/100km</string>
+    <string name="km_l">Chilometro/litro</string>
+    <string name="miles_l">Miglio/litro</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Chilometro</string>
+    <string name="mile">Miglio</string>
+    <string name="metre">Metro</string>
+    <string name="centimetre">Centimetro</string>
+    <string name="millimetre">Millimetro</string>
+    <string name="micrometre">Micrometro</string>
+    <string name="nanometre">Nanometro</string>
+    <string name="yard">Iarda</string>
+    <string name="feet">Piede</string>
+    <string name="inch">Pollice</string>
+    <string name="nautical_mile">Miglio Nautico</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Anno Luce</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Chilogrammo</string>
+    <string name="pound">Libbra</string>
+    <string name="gram">Grammo</string>
+    <string name="milligram">Milligrammo</string>
+    <string name="ounce">Oncia</string>
+    <string name="grain">Grano</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Tonnellata</string>
+    <string name="short_ton">Tonnellata Corta</string>
+    <string name="long_ton">Tonnellata Lunga</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Chilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HP (metrico)</string>
+    <string name="hp_uk">HP (mecccanico)</string>
+    <string name="ft_lbf_s">Piede per libbra/sec</string>
+    <string name="calorie_s">Caloria/sec</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">Kilovolt-ampere</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Chilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosfera</string>
+    <string name="technical_atmosphere">Atmosfera Tecnica</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Km/h</string>
+    <string name="mph">mph</string>
+    <string name="m_s">m/s</string>
+    <string name="fps">ft/s</string>
+    <string name="knot">Nodo</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Anno</string>
+    <string name="month">Mese</string>
+    <string name="week">Settimana</string>
+    <string name="day">Giorno</string>
+    <string name="hour">Ora</string>
+    <string name="minute">Minuto</string>
+    <string name="second">Secondo</string>
+    <string name="millisecond">Millisecondo</string>
+    <string name="nanosecond">Nanosecondo</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Cucchiaino</string>
+    <string name="tablespoon">Cucchiaio</string>
+    <string name="cup">Tazza</string>
+    <string name="fluid_ounce">Oncia Fluida Americana</string>
+    <string name="quart">Quarto Americano</string>
+    <string name="pint">Pinta Americana</string>
+    <string name="gallon">Gallone Americano</string>
+    <string name="barrel">Barile Americano</string>
+    <string name="fluid_ounce_uk">Oncia Fluida Inglese</string>
+    <string name="quart_uk">Quarto Inglese</string>
+    <string name="pint_uk">Pinta Inglese</string>
+    <string name="gallon_uk">Gallone Inglese</string>
+    <string name="barrel_uk">Barile Inglese</string>
+    <string name="millilitre">Millilitro</string>
+    <string name="litre">Litro</string>
+    <string name="cubic_cm">Centimetro Cubo</string>
+    <string name="cubic_m">Metro Cubo</string>
+    <string name="cubic_inch">Piede Cubo</string>
+    <string name="cubic_foot">Pollice Cubo</string>
+    <string name="cubic_yard">Iarda Cubica</string>
+
+    <!-- Currency -->
+    <string name="aud">Dollaro Australiano</string>
+    <string name="bgn">Lev Bulgaro</string>
+    <string name="brl">Real Brasiliano</string>
+    <string name="cdn">Dollaro Canadese</string>
+    <string name="chf">Franco Svizzero</string>
+    <string name="cny">Yuan Cinese</string>
+    <string name="czk">Corona Ceca</string>
+    <string name="dkk">Corona Danese</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">Sterlina Inglese</string>
+    <string name="hkd">Dollaro Hong Kong</string>
+    <string name="hrk">Kuna Croata</string>
+    <string name="huf">Fiorino Ungherese</string>
+    <string name="idr">Rupia Indonesiana</string>
+    <string name="ils">Siclo Israeliano</string>
+    <string name="inr">Rupia Indiana</string>
+    <string name="jpy">Yen Giapponese</string>
+    <string name="krw">Won Sudcoreano</string>
+    <string name="mxn">Peso Messicano</string>
+    <string name="myr">Ringgit Malese</string>
+    <string name="nok">Corona Norvegese</string>
+    <string name="nzd">Dollaro Neozelandese</string>
+    <string name="php">Peso Filippino</string>
+    <string name="pln">Zloty Polacco</string>
+    <string name="ron">Leu Romeno</string>
+    <string name="rub">Rublo Russo</string>
+    <string name="sek">Corona Svedese</string>
+    <string name="sgd">Dollaro Singapore</string>
+    <string name="thb">Baht Thailandese</string>
+    <string name="lira">Lira Turca</string>
+    <string name="usd">Dollaro Americano</string>
+    <string name="zar">Rand Sudafricano</string>
+
+</resources>
