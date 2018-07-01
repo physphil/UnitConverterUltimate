@@ -33,6 +33,7 @@ public class Unit {
     public static final int SQ_FOOT = 6;
     public static final int SQ_INCH = 7;
     public static final int ACRE = 8;
+    public static final int ARE = 9;
 
     public static final int AUD = 1300;
     public static final int BGN = 1301;
@@ -189,7 +190,7 @@ public class Unit {
     public static final int CUBIC_FOOT = 1218;
     public static final int CUBIC_YARD = 1219;
 
-    @IntDef({SQ_KILOMETRES, SQ_METRES, SQ_CENTIMETRES, HECTARE, SQ_MILE, SQ_YARD, SQ_FOOT, SQ_INCH, ACRE,
+    @IntDef({SQ_KILOMETRES, SQ_METRES, SQ_CENTIMETRES, HECTARE, SQ_MILE, SQ_YARD, SQ_FOOT, SQ_INCH, ACRE, ARE,
             AUD, BGN, BRL, CDN, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, LIRA, USD, ZAR,
             BIT, BYTE, KILOBIT, KILOBYTE, MEGABIT, MEGABYTE, GIGABIT, GIGABYTE, TERABIT, TERABYTE,
             JOULE, KILOJOULE, CALORIE, KILOCALORIE, BTU, FT_LBF, IN_LBF, KILOWATT_HOUR, ELECTRON_VOLT,
