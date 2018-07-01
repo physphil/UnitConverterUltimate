@@ -98,6 +98,7 @@
     <string name="sq_foot">Pied carré</string>
     <string name="sq_inch">Pouce Carré</string>
     <string name="acre">Acre</string>
+    <string name="are">Are</string>
 
     <!-- Digital Storage -->
     <string name="bit">Bit</string>
