@@ -189,6 +189,10 @@ public class ConversionTests
         verify(view).showResult(AdditionalMatchers.eq(0.0000026251, DELTA_10));
         mPresenter.convert(5.5, length.getUnitById(LIGHT_YEAR), length.getUnitById(KILOMETRE));
         verify(view).showResult(eq(52034017599194.4));
+        mPresenter.convert(5.5, length.getUnitById(MILE), length.getUnitById(ASTRONOMICAL_UNIT));
+        verify(view).showResult(eq(5.91679009773499403156946130719936E-8));
+        mPresenter.convert(5.5, length.getUnitById(ASTRONOMICAL_UNIT), length.getUnitById(FURLONG));
+        verify(view).showResult(eq(4090055520.014216222415));
     }
 
     @Test

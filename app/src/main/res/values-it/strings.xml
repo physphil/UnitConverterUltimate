@@ -142,6 +142,7 @@
     <string name="inch">Pollice</string>
     <string name="nautical_mile">Miglio Nautico</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Unità astronomica</string>
     <string name="light_year">Anno Luce</string>
 
     <!-- Mass/Weight -->

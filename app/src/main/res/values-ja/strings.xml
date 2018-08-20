@@ -142,6 +142,7 @@
     <string name="inch">インチ</string>
     <string name="nautical_mile">海里</string>
     <string name="furlong">ハロン</string>
+    <string name="astronomical_unit">天文単位</string>
     <string name="light_year">光年</string>
 
     <!-- Mass/Weight -->

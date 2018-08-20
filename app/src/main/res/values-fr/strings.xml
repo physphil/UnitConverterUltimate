@@ -142,6 +142,7 @@
     <string name="inch">Pouce</string>
     <string name="nautical_mile">Mille Marin</string>
     <string name="furlong">Stade</string>
+    <string name="astronomical_unit">Unité astronomique</string>
     <string name="light_year">Année Lumière</string>
 
     <!-- Mass/Weight -->

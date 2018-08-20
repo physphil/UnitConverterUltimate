@@ -142,6 +142,7 @@
     <string name="inch">Дюйм</string>
     <string name="nautical_mile">Морская миля</string>
     <string name="furlong">Фурлонг</string>
+    <string name="astronomical_unit">Астрономическая единица</string>
     <string name="light_year">Световой год</string>
 
     <!-- Mass/Weight -->

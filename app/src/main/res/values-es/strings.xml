@@ -142,6 +142,7 @@
     <string name="inch">Pulgada</string>
     <string name="nautical_mile">Milla Náutica</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Unidad astronómica</string>
     <string name="light_year">Año Luz</string>
 
     <!-- Mass/Weight -->

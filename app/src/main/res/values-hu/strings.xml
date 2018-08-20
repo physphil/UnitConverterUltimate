@@ -142,6 +142,7 @@
     <string name="inch">Hüvelyk</string>
     <string name="nautical_mile">Tengeri Mérföld</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Csillagászati egység</string>
     <string name="light_year">Fényév</string>
 
     <!-- Mass/Weight -->

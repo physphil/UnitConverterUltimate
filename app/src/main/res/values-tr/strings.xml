@@ -142,6 +142,7 @@
     <string name="inch">İnç</string>
     <string name="nautical_mile">Deniz Mili</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Astronomik birim</string>
     <string name="light_year">Işık Yılı</string>
 
     <!-- Mass/Weight -->

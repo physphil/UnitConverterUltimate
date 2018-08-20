@@ -142,6 +142,7 @@
     <string name="inch">اینچ</string>
     <string name="nautical_mile">مایل دریایی</string>
     <string name="furlong">فرلانگ</string>
+    <string name="astronomical_unit">وحدة فلكية</string>
     <string name="light_year">سال نوری</string>
 
     <!-- جرم / وزن -->

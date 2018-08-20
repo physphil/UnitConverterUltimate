@@ -142,6 +142,7 @@
     <string name="inch">Zoll (in)</string>
     <string name="nautical_mile">Seemeile</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Astronomische Einheit</string>
     <string name="light_year">Lichtjahr</string>
 
     <!-- Mass/Weight -->
