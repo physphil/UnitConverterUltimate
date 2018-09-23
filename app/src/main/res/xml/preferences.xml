@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2017 Phil Shadlyn
+  ~ Copyright 2018 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -90,6 +90,11 @@
             android:key="view_source"
             android:title="@string/prefs_title_source_code"
             android:summary="@string/pref_summary_source_code"/>
+
+        <Preference
+            android:key="privacy_policy"
+            android:title="@string/prefs_title_privacy_policy"
+            android:summary="@string/prefs_summary_privacy_policy"/>
 
     </PreferenceCategory>
 
