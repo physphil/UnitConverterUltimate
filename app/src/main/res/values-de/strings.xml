@@ -40,7 +40,7 @@
     <string name="toast_error_no_email_app">Keine E-Mail-App installiert</string>
     <string name="toast_error_google_play">Fehler beim Öffnen des Play Stores, bitte versuchen sie es erneut</string>
     <string name="toast_copied_clipboard">Text in Zwischenablage kopiert</string>
-    <string name="toast_currency_updated">Währungsumrechungen aktualisiert</string>
+    <string name="toast_currency_updated">Währungsumrechnungen aktualisiert</string>
     <string name="toast_error_updating_currency">Fehler beim Aktualisieren der Währungsumrechnungen</string>
 
     <string name="prefs_title_formatting">Formatierung</string>
@@ -151,7 +151,7 @@
     <string name="pound">Pfund (Imperial)</string>
     <string name="gram">Gramm</string>
     <string name="milligram">Milligramm</string>
-    <string name="ounce">Unte</string>
+    <string name="ounce">Unze</string>
     <string name="grain">Gran</string>
     <string name="stone">Stone</string>
     <string name="metric_ton">Tonne (metrisch)</string>
@@ -176,7 +176,7 @@
     <string name="bar">Bar</string>
     <string name="psi">PSI</string>
     <string name="psf">PSF</string>
-    <string name="atmosphere">Atmosphären</string>
+    <string name="atmosphere">Atmosphäre</string>
     <string name="technical_atmosphere">Technische Atm.</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
@@ -245,7 +245,7 @@
     <string name="czk">Tschechische Krone</string>
     <string name="dkk">Dänische Krone</string>
     <string name="eur">Euro</string>
-    <string name="gbp">Britischer Pfund</string>
+    <string name="gbp">Britisches Pfund</string>
     <string name="hkd">Hongkong-Dollar</string>
     <string name="hrk">Kroatische Kuna</string>
     <string name="huf">Ungarischer Forint</string>
@@ -255,7 +255,7 @@
     <string name="jpy">Japanischer Yen</string>
     <string name="krw">Koreanischer Won</string>
     <string name="mxn">Mexikanischer Peso</string>
-    <string name="myr">Malayischer Ringgit</string>
+    <string name="myr">Malaysischer Ringgit</string>
     <string name="nok">Norwegische Krone</string>
     <string name="nzd">Neuseeland-Dollar</string>
     <string name="php">Philippinischer Peso</string>
