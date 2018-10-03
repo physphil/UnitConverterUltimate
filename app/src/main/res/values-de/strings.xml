@@ -176,8 +176,8 @@
     <string name="bar">Bar</string>
     <string name="psi">PSI</string>
     <string name="psf">PSF</string>
-    <string name="atmosphere">Atmosphäre</string>
-    <string name="technical_atmosphere">Technische Atm.</string>
+    <string name="atmosphere">Physikal. Atmosphäre (atm)</string>
+    <string name="technical_atmosphere">Techn. Atmosphäre (at)</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
 
