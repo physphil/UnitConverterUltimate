@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2017 Phil Shadlyn
+  ~ Copyright 2018 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -62,6 +62,8 @@
     <string name="prefs_summary_donate">Apoiar o desenvolvimento e me fazer sorrir :)</string>
     <string name="prefs_title_open_issue">Encontrou um erro?</string>
     <string name="prefs_summary_open_issue">Abrir um problema no GitHub.</string>
+    <string name="prefs_title_privacy_policy">Política de Privacidade</string>
+    <string name="prefs_summary_privacy_policy">Sua privacidade é importante.</string>
 
     <string name="dialog_btn_got_it">Entendi</string>
     <string name="dialog_title_help">Ajuda</string>

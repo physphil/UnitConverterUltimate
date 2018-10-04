@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ import java.util.Comparator;
 public class PreferencesFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String GITHUB_ISSUE = "https://github.com/physphil/UnitConverterUltimate/issues";
+    private static final String PRIVACY_POLICY = "https://privacypolicies.com/privacy/view/f7a41d67f1b0081f249c2ff0a3123136";
 
     public static PreferencesFragment newInstance() {
         return new PreferencesFragment();
@@ -85,6 +86,15 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 viewSource();
+                return true;
+            }
+        });
+
+        Preference privacy = findPreference("privacy_policy");
+        privacy.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                openPrivacyPolicy();
                 return true;
             }
         });
@@ -149,6 +159,15 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
     private void openIssue() {
         try {
             startActivity(IntentFactory.getOpenUrlIntent(GITHUB_ISSUE));
+        }
+        catch (ActivityNotFoundException ex) {
+            Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openPrivacyPolicy() {
+        try {
+            startActivity(IntentFactory.getOpenUrlIntent(PRIVACY_POLICY));
         }
         catch (ActivityNotFoundException ex) {
             Toast.makeText(getActivity(), R.string.toast_error_no_browser, Toast.LENGTH_SHORT).show();
