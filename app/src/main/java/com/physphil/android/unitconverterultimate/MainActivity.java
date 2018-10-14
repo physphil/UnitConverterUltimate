@@ -155,6 +155,9 @@ public class MainActivity extends BaseActivity implements MainActivityView, Shar
             case R.id.drawer_storage:
                 return Conversion.STORAGE;
 
+            case  R.id.drawer_electric_potential:
+                return Conversion.ELECTRIC_POTENTIAL;
+
             case R.id.drawer_energy:
                 return Conversion.ENERGY;
 
@@ -202,28 +205,30 @@ public class MainActivity extends BaseActivity implements MainActivityView, Shar
                 return 2;
             case Conversion.STORAGE:
                 return 3;
-            case Conversion.ENERGY:
+            case Conversion.ELECTRIC_POTENTIAL:
                 return 4;
-            case Conversion.FUEL:
+            case Conversion.ENERGY:
                 return 5;
-            case Conversion.LENGTH:
+            case Conversion.FUEL:
                 return 6;
-            case Conversion.MASS:
+            case Conversion.LENGTH:
                 return 7;
-            case Conversion.POWER:
+            case Conversion.MASS:
                 return 8;
-            case Conversion.PRESSURE:
+            case Conversion.POWER:
                 return 9;
-            case Conversion.SPEED:
+            case Conversion.PRESSURE:
                 return 10;
-            case Conversion.TEMPERATURE:
+            case Conversion.SPEED:
                 return 11;
-            case Conversion.TIME:
+            case Conversion.TEMPERATURE:
                 return 12;
-            case Conversion.TORQUE:
+            case Conversion.TIME:
                 return 13;
-            case Conversion.VOLUME:
+            case Conversion.TORQUE:
                 return 14;
+            case Conversion.VOLUME:
+                return 15;
             default:
                 return 0;
         }
