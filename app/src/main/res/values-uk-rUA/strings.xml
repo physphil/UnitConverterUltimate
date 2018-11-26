@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Зробити внесок?</string>
+    <string name="title_activity_settings">Налаштування</string>
+    <string name="text_from">З</string>
+    <string name="text_to">В</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Завантажити</string>
+    <string name="menu_clear">Очистити</string>
+    <string name="menu_help">Допомога</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="group_separator_none">Немає</string>
+    <string name="request_unit">Unit Converter Ultimate: New Unit Request</string>
+    <string name="header_other_stuff">Інше</string>
+    <string name="progress_loading">Завантаження&#8230;</string>
+    <string name="error_loading_currency">Виникла помилка при оновленні курсу валют.\n\nБудь-ласка перевірте підключення до інтернету і спробуйте ще раз.</string>
+
+    <string name="toast_error_billing_internet">Ой, виникла проблема. Будь-ласка перевірте підключення до інтернету і спробуйте ще раз.</string>
+    <string name="toast_error_billing_general">Ой, виникла проблема. Будь-ласка спробуйте ще раз.</string>
+    <string name="toast_donation_successful">Дякую за підтримку!</string>
+    <string name="toast_error_no_browser">Веб-браузер не знайдено</string>
+    <string name="toast_error_no_email_app">Додаток електронної пошти не встановлений</string>
+    <string name="toast_error_google_play">Помилка відкриття Google Play. Будь-ласка спробуйте ще раз.</string>
+    <string name="toast_copied_clipboard">Зкопійовано в буфер обміну</string>
+    <string name="toast_currency_updated">Курс валют оновлений</string>
+    <string name="toast_error_updating_currency">Виникла помилка при оновленні курсу валют</string>
+
+    <string name="prefs_title_formatting">Форматування</string>
+    <string name="prefs_summary_number_decimals">Задайте кількість десяткових знаків які відображатимуться в вихідному значенні</string>
+    <string name="prefs_title_number_decimals">Число десяткових знаків</string>
+    <string name="prefs_summary_group_separator">Задайте розділювач груп розрядів який відображатиметься в вихідному значенні</string>
+    <string name="prefs_title_group_separator">Розділювач груп розрядів</string>
+    <string name="prefs_summary_decimal_separator">Задайте десятковий розділювач який відображатиметься в вихідному значенні</string>
+    <string name="prefs_title_decimal_separator">Десятковий розділювач</string>
+    <string name="prefs_title_visual">Оформлення</string>
+    <string name="prefs_title_light_theme">Світла тема</string>
+    <string name="prefs_title_language">Мова</string>
+    <string name="prefs_summary_language">Виберіть мову яка буде використовуватися в додатку</string>
+    <string name="prefs_title_other">Інше</string>
+    <string name="prefs_title_source_code">Перегляд сирцевого коду</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate - додаток з відкритим сирцевим кодом! Ви можете переглянути сирцевий код на GitHub.</string>
+    <string name="prefs_title_unit_request">Запропонувати свої одиниці вимірювання</string>
+    <string name="prefs_summary_unit_request">Хочете бачити в додатку ще які-небудь одиниці вимірювання? Надішліть мені лист зі своїми пропозиціями.</string>
+    <string name="prefs_title_rate">Оцінити додаток в Google Play</string>
+    <string name="prefs_summary_rate">Вподобали додаток? Чому би не оцінити його на 5 зірок?</string>
+    <string name="prefs_title_donate">Підтримати розробників</string>
+    <string name="prefs_summary_donate">Внести пожертву для підтримки розвитку додатку</string>
+    <string name="prefs_title_open_issue">Знайшли помилку?</string>
+    <string name="prefs_summary_open_issue">Повідомте про неї на GitHub</string>
+
+    <string name="dialog_btn_got_it">Закрити</string>
+    <string name="dialog_title_help">Допомога</string>
+    <string name="dialog_message_help">Відкрийте бокове меню для вибору типу вхідної величини та одиниці виміру.\n\nВи можете повністю налаштувати вигляд конвертованого значення. В меню налаштувань можна задати кількість десяткових знаків, а також десятковий розділювач і розділювач груп розрядів.\n\nУтримуючи вихідне значення ви зкопіюєте його в буфер обміну.</string>
+    <string name="dialog_btn_view_source">Сирцевий код</string>
+
+    <!-- Conversions -->
+    <string name="area">Площа</string>
+    <string name="cooking">Кулінарія</string>
+    <string name="currency">Валюта</string>
+    <string name="storage">Об&#700;єм даних</string>
+    <string name="energy">Енергія</string>
+    <string name="fuel_consumption">Розхід палива</string>
+    <string name="length">Довжина / Відстань</string>
+    <string name="mass">Маса / Вага</string>
+    <string name="power">Потужність</string>
+    <string name="pressure">Тиск</string>
+    <string name="speed">Швидкість</string>
+    <string name="temperature">Температура</string>
+    <string name="time">Час</string>
+    <string name="torque">Крутний момент</string>
+    <string name="volume">Об&#700;єм</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Кв. кілометр</string>
+    <string name="sq_metre">Кв. метр</string>
+    <string name="sq_centimetre">Кв. сантиметр</string>
+    <string name="hectare">Гектар</string>
+    <string name="sq_mile">Кв. миля</string>
+    <string name="sq_yard">Кв. ярд</string>
+    <string name="sq_foot">Кв. фут</string>
+    <string name="sq_inch">Кв. дюйм</string>
+    <string name="acre">Акр</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Біт</string>
+    <string name="Byte">Байт</string>
+    <string name="kilobit">Кілобіт</string>
+    <string name="kilobyte">Кілобайт</string>
+    <string name="megabit">Мегабіт</string>
+    <string name="megabyte">Мегабайт</string>
+    <string name="gigabit">Гігабіт</string>
+    <string name="gigabyte">Гігабайт</string>
+    <string name="terabit">Терабіт</string>
+    <string name="terabyte">Терабайт</string>
+
+    <!-- Energy -->
+    <string name="joule">Джоуль</string>
+    <string name="kilojoule">Кілоджоуль</string>
+    <string name="calorie">Калорія</string>
+    <string name="kilocalorie">Кілокалорія</string>
+    <string name="btu">БТО</string>
+    <string name="ft_lbF">Фут-фунт</string>
+    <string name="in_lbF">Дюйм-фунт</string>
+    <string name="kilowatt_hour">Кіловат-година</string>
+    <string name="electron_volt">Електрон-вольт</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Миль/галон (амер.)</string>
+    <string name="mpg_uk">Миль/галон (англ.)</string>
+    <string name="l_100k">Літрів/100 км.</string>
+    <string name="km_l">Кілометрів/літр</string>
+    <string name="miles_l">Миль/літр</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Кілометр</string>
+    <string name="mile">Миля</string>
+    <string name="metre">Метр</string>
+    <string name="centimetre">Сантиметр</string>
+    <string name="millimetre">Міліметр</string>
+    <string name="micrometre">Мікрометр</string>
+    <string name="nanometre">Нанометр</string>
+    <string name="yard">Ярд</string>
+    <string name="feet">Фут</string>
+    <string name="inch">Дюйм</string>
+    <string name="nautical_mile">Морська миля</string>
+    <string name="furlong">Фурлонг</string>
+    <string name="light_year">Світловий рік</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Кілограм</string>
+    <string name="pound">Фунт</string>
+    <string name="gram">Грам</string>
+    <string name="milligram">Міліграм</string>
+    <string name="ounce">Унція</string>
+    <string name="grain">Гран</string>
+    <string name="stone">Стоун</string>
+    <string name="metric_ton">Тонна (метрична)</string>
+    <string name="short_ton">Тонна (амер./коротка)</string>
+    <string name="long_ton">Тонна (англ./довга)</string>
+
+    <!-- Power -->
+    <string name="watt">Ват</string>
+    <string name="kilowatt">Кіловат</string>
+    <string name="megawatt">Мегават</string>
+    <string name="hp">л.с. (метрична)</string>
+    <string name="hp_uk">л.с. (механічна)</string>
+    <string name="ft_lbf_s">Фут-фунт-сила/сек.</string>
+    <string name="calorie_s">Калорія/сек.</string>
+    <string name="btu_s">БТО/сек.</string>
+    <string name="kva">Кіловольт-ампер</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Мегапаскаль</string>
+    <string name="kilopascal">Кілопаскаль</string>
+    <string name="pascal">Паскаль</string>
+    <string name="bar">Бар</string>
+    <string name="psi">Фунт/кв. дюйм</string>
+    <string name="psf">Фунт/кв. фут</string>
+    <string name="atmosphere">Атмосфера</string>
+    <string name="technical_atmosphere">Технічна атмосфера</string>
+    <string name="mmhg">мм рт. ст.</string>
+    <string name="torr">Торр</string>
+
+    <!-- Speed -->
+    <string name="km_h">Кілометр/год</string>
+    <string name="mph">Миля/год</string>
+    <string name="m_s">Метр/сек.</string>
+    <string name="fps">Фут/сек.</string>
+    <string name="knot">Вузол</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Градус Цельсія</string>
+    <string name="fahrenheit">Градус Фаренгейта</string>
+    <string name="kelvin">Градус Кельвіна</string>
+    <string name="rankine">Градус Ранкіна</string>
+    <string name="delisle">Градус Деліля</string>
+    <string name="newton">Градус Ньютона</string>
+    <string name="reaumur">Градус Реомюра</string>
+    <string name="romer">Градус Ремера</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Рік</string>
+    <string name="month">Місяць</string>
+    <string name="week">Тиждень</string>
+    <string name="day">День</string>
+    <string name="hour">Година</string>
+    <string name="minute">Хвилина</string>
+    <string name="second">Секунда</string>
+    <string name="millisecond">Мілісекунда</string>
+    <string name="nanosecond">Наносекунда</string>
+
+    <!-- Torque -->
+    <string name="n_m">Ньютон-метр</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Чайна ложка</string>
+    <string name="tablespoon">Столова ложка</string>
+    <string name="cup">Чашка</string>
+    <string name="fluid_ounce">Рідка унція (амер.)</string>
+    <string name="quart">Кварта (амер.)</string>
+    <string name="pint">Пінта (амер.)</string>
+    <string name="gallon">Галон (амер.)</string>
+    <string name="barrel">Баррель (амер.)</string>
+    <string name="fluid_ounce_uk">Рідка унція (англ.)</string>
+    <string name="quart_uk">Кварта (англ.)</string>
+    <string name="pint_uk">Пінта (англ.)</string>
+    <string name="gallon_uk">Галон (англ.)</string>
+    <string name="barrel_uk">Баррель (англ.)</string>
+    <string name="millilitre">Мілілітр</string>
+    <string name="litre">Літр</string>
+    <string name="cubic_cm">Сантиметр кубічний</string>
+    <string name="cubic_m">Метр кубічний</string>
+    <string name="cubic_inch">Дюйм кубічний</string>
+    <string name="cubic_foot">Фут кубічний</string>
+    <string name="cubic_yard">Ярд кубічний</string>
+
+    <!-- Currency -->
+    <string name="aud">Австралійський долар</string>
+    <string name="bgn">Болгарський лев</string>
+    <string name="brl">Бразильський реал</string>
+    <string name="cdn">Канадський долар</string>
+    <string name="chf">Швейцарський франк</string>
+    <string name="cny">Китайський юань</string>
+    <string name="czk">Чешська крона</string>
+    <string name="dkk">Датська крона</string>
+    <string name="eur">Євро</string>
+    <string name="gbp">Фунт стерлінгів</string>
+    <string name="hkd">Гонконгський долар</string>
+    <string name="hrk">Хорватська куна</string>
+    <string name="huf">Венгерський форинт</string>
+    <string name="idr">Индонезийська рупія</string>
+    <string name="ils">Новий шекель</string>
+    <string name="inr">Індійська рупія</string>
+    <string name="jpy">Японська єна</string>
+    <string name="krw">Південно-корейська вона</string>
+    <string name="mxn">Мексиканське песо</string>
+    <string name="myr">Малайзійський рингіт</string>
+    <string name="nok">Норвежська крона</string>
+    <string name="nzd">Новозеландський долар</string>
+    <string name="php">Філіпінське песо</string>
+    <string name="pln">Польський злотий</string>
+    <string name="ron">Румунський лей</string>
+    <string name="rub">Російський рубль</string>
+    <string name="sek">Шведська крона</string>
+    <string name="sgd">Сингапурський долар</string>
+    <string name="thb">Тайський бат</string>
+    <string name="lira">Турецька ліра</string>
+    <string name="usd">Долар США</string>
+    <string name="zar">Південно-африканський ренд</string>
+
+</resources>

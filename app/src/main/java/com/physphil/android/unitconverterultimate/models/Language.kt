@@ -32,6 +32,7 @@ private const val LANG_PORTUGUESE_BR = "pt_BR"
 private const val LANG_RUSSIAN = "ru"
 private const val LANG_SPANISH = "es"
 private const val LANG_TURKISH = "tr"
+private const val LANG_UKRAINIAN = "uk"
 
 /**
  * Represents a Language that a user can select to display the app in.
@@ -50,7 +51,8 @@ enum class Language(val id: String) {
     PORTUGUESE_BR(LANG_PORTUGUESE_BR),
     RUSSIAN(LANG_RUSSIAN),
     SPANISH(LANG_SPANISH),
-    TURKISH(LANG_TURKISH);
+    TURKISH(LANG_TURKISH),
+    UKRAINIAN(LANG_UKRAINIAN);
 
     val displayStringId = when (id) {
         LANG_CROATIAN -> R.string.language_croatian
@@ -65,6 +67,7 @@ enum class Language(val id: String) {
         LANG_RUSSIAN -> R.string.language_russian
         LANG_SPANISH -> R.string.language_spanish
         LANG_TURKISH -> R.string.language_turkish
+        LANG_UKRAINIAN -> R.string.language_ukrainian
         else -> R.string.language_default
     }
 
