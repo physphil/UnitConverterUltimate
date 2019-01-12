@@ -24,7 +24,7 @@ data class Currencies(val currencies: List<Currency>) {
         val map = mutableMapOf<Country, Double>()
         currencies.forEach {
             try {
-                map.put(Country.valueOf(it.currency), it.rate)
+                map[Country.valueOf(it.currency)] = it.rate
             } catch (ignored: IllegalArgumentException) {}
         }
         return map
