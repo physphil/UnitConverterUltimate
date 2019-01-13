@@ -20,7 +20,6 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Donner?</string>
     <string name="title_activity_settings">Réglages</string>
-    <string name="title_activity_acknowledgements">Remerciements</string>
     <string name="text_from">De</string>
     <string name="text_to">Vers</string>
     <string name="default_value">1</string>
@@ -68,8 +67,6 @@
     <string name="prefs_summary_open_issue">Ouvrez une nouvelle Issue sur GitHub.</string>
     <string name="prefs_title_privacy_policy">Politique de confidentialité</string>
     <string name="prefs_summary_privacy_policy">Votre vie privée est importante.</string>
-    <string name="prefs_title_acknowledgements">"Remerciements "</string>
-    <string name="prefs_summary_acknowledgements">Merci à ces personnes!</string>
 
     <string name="dialog_btn_got_it">Compris</string>
     <string name="dialog_title_help">Aide</string>
