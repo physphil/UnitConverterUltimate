@@ -25,6 +25,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.widget.Toast;
 
+import com.physphil.android.unitconverterultimate.AcknowledgementsActivity;
 import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
@@ -112,6 +113,15 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         else {
             ((PreferenceCategory) findPreference("other")).removePreference(donate);
         }
+
+        Preference acknowledgements = findPreference("acknowledgements");
+        acknowledgements.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                AcknowledgementsActivity.start(getActivity());
+                return true;
+            }
+        });
 
         final ListPreference language = (ListPreference) findPreference("language");
         sortLanguageOptions(language);

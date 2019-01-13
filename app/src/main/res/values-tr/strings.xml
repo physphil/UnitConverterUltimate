@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Bağış?</string>
     <string name="title_activity_settings">Ayarlar</string>
+    <string name="title_activity_acknowledgements">Teşekkür</string>
     <string name="text_from">Kaynak</string>
     <string name="text_to">Hedef</string>
     <string name="default_value">1</string>
@@ -67,6 +68,8 @@
     <string name="prefs_summary_open_issue">Github\'dan sorunu bildir.</string>
     <string name="prefs_title_privacy_policy">Gizlilik Politikası</string>
     <string name="prefs_summary_privacy_policy">Gizliliğiniz önemlidir.</string>
+    <string name="prefs_title_acknowledgements">Teşekkür</string>
+    <string name="prefs_summary_acknowledgements">"Bu insanlara teşekkür ederim! "</string>
 
     <string name="dialog_btn_got_it">Anladım</string>
     <string name="dialog_title_help">Yardım</string>
