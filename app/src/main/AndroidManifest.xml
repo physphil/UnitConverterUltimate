@@ -38,6 +38,9 @@
         <activity
             android:name=".PreferencesActivity"
             android:label="@string/title_activity_settings"/>
+        <activity
+            android:name=".AcknowledgementsActivity"
+            android:label="@string/title_activity_acknowledgements"/>
 
     </application>
 
