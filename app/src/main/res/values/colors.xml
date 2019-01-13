@@ -27,6 +27,6 @@
 
     <color name="color_primary">@color/theme_blue</color>
     <color name="color_primary_dark">@color/theme_blue_dark</color>
-    <color name="color_accent">@color/theme_silver</color>
+    <color name="color_accent">@color/theme_blue_dark</color>
 </resources>
 
