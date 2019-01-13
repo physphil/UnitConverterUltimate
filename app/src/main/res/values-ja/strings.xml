@@ -20,7 +20,6 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">寄付しますか?</string>
     <string name="title_activity_settings">設定</string>
-    <string name="title_activity_acknowledgements">謝辞</string>
     <string name="text_from">変換元</string>
     <string name="text_to">変換先</string>
     <string name="default_value">1</string>
@@ -68,8 +67,6 @@
     <string name="prefs_summary_open_issue">GitHub でイシューを開いてください。</string>
     <string name="prefs_title_privacy_policy">個人情報保護方針</string>
     <string name="prefs_summary_privacy_policy">あなたのプライバシーは重要です。</string>
-    <string name="prefs_title_acknowledgements">謝辞</string>
-    <string name="prefs_summary_acknowledgements">これらの人々に感謝します！</string>
 
     <string name="dialog_btn_got_it">了解</string>
     <string name="dialog_title_help">ヘルプ</string>
