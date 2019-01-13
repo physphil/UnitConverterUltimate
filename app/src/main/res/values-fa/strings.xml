@@ -20,6 +20,7 @@
     <string name="app_name">مبدل واحد ها</string>
     <string name="title_activity_donate">پرداخت</string>
     <string name="title_activity_settings">تنظیمات</string>
+    <string name="title_activity_acknowledgements">سپاسگزاریها</string>
     <string name="text_from">از</string>
     <string name="text_to">به</string>
     <string name="default_value">1</string>
@@ -67,6 +68,8 @@
     <string name="prefs_summary_open_issue">بازکردن یک مشکل در گیت هاب</string>
     <string name="prefs_title_privacy_policy">سیاست حفظ حریم خصوصی</string>
     <string name="prefs_summary_privacy_policy">حریم خصوصی شما مهم است</string>
+    <string name="prefs_title_acknowledgements">سپاسگزاریها</string>
+    <string name="prefs_summary_acknowledgements">با تشکر از شما به این افراد!</string>
 
     <string name="dialog_btn_got_it">متوجه شدم</string>
     <string name="dialog_title_help">راهنمایی</string>

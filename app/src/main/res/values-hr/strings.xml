@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Doniraj?</string>
     <string name="title_activity_settings">Postavke</string>
+    <string name="title_activity_acknowledgements">Priznanja</string>
     <string name="text_from">Iz</string>
     <string name="text_to">U</string>
     <string name="default_value">1</string>
@@ -67,6 +68,8 @@
     <string name="prefs_summary_open_issue">Prijavite ju na GitHubu.</string>
     <string name="prefs_title_privacy_policy">Pravila o privatnosti</string>
     <string name="prefs_summary_privacy_policy">Vaša je privatnost važna.</string>
+    <string name="prefs_title_acknowledgements">Priznanja</string>
+    <string name="prefs_summary_acknowledgements">Hvala ovim ljudima!</string>
 
     <string name="dialog_btn_got_it">Shvaćam</string>
     <string name="dialog_title_help">Pomoć</string>

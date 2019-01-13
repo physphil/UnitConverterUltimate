@@ -268,5 +268,8 @@
     <string name="lira">Török líra</string>
     <string name="usd">Amerikai dollár</string>
     <string name="zar">Dél-afrikai rand</string>
+    <string name="title_activity_acknowledgements">Köszönetnyilvánítás</string>
+    <string name="prefs_title_acknowledgements">Köszönetnyilvánítás</string>
+    <string name="prefs_summary_acknowledgements">Köszönjük ezeket az embereket!</string>
 
 </resources>

@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Сделать пожертвование?</string>
     <string name="title_activity_settings">Настройки</string>
+    <string name="title_activity_acknowledgements">Подтверждения</string>
     <string name="text_from">Из</string>
     <string name="text_to">В</string>
     <string name="default_value">1</string>
@@ -67,6 +68,8 @@
     <string name="prefs_summary_open_issue">Сообщите о ней на GitHub</string>
     <string name="prefs_title_privacy_policy">политика конфиденциальности</string>
     <string name="prefs_summary_privacy_policy">Ваша конфиденциальность важна.</string>
+    <string name="prefs_title_acknowledgements">Подтверждения</string>
+    <string name="prefs_summary_acknowledgements">Спасибо этим людям!</string>
 
     <string name="dialog_btn_got_it">Закрыть</string>
     <string name="dialog_title_help">Помощь</string>
