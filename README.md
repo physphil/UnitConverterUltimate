@@ -50,7 +50,7 @@ When building the project yourself, make sure to use the `base` build variant.  
 
 Contributing
 ------------
-Contributions are more than welcome and very appreciated!  Please create all Pull Requests against the 'develop' branch.  
+Contributions are more than welcome and very appreciated!  Please create all Pull Requests against the `develop` branch.  
 
 Translating
 -----------
