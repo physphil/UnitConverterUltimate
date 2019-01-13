@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Adományozás?</string>
+    <string name="title_activity_settings">Beállítások</string>
+    <string name="text_from">Ebből</string>
+    <string name="text_to">Ebbe</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Letöltés</string>
+    <string name="menu_clear">Érték törlése</string>
+    <string name="menu_help">Súgó</string>
+    <string name="menu_settings">Beállítások</string>
+    <string name="group_separator_none">Nincs</string>
+    <string name="request_unit">Unit Converter Ultimate: Új mértékegység kérése</string>
+    <string name="header_other_stuff">Továbbiak</string>
+    <string name="progress_loading">Betöltés&#8230;</string>
+    <string name="error_loading_currency">Hiba történt a valutaárfolyamok frissítésénél.\n\nEllenőrizd az internetkapcsolatod, és próbáld újra.</string>
+
+    <string name="toast_error_billing_internet">Hoppá, probléma történt. Ellenőrizd az internetkapcsolatod, és próbálkozz újra.</string>
+    <string name="toast_error_billing_general">Hoppá, probléma történt. Kérlek, próbáld újra.</string>
+    <string name="toast_donation_successful">Köszönöm, hogy adományoztál!</string>
+    <string name="toast_error_no_browser">Nem található böngésző</string>
+    <string name="toast_error_no_email_app">Nem található telepített e-mail-alkalmazás</string>
+    <string name="toast_error_google_play">Nem sikerült megnyitni a Google Play Áruházat, kérlek, próbáld újra</string>
+    <string name="toast_copied_clipboard">Szöveg a vágólapra másolva</string>
+    <string name="toast_currency_updated">Valutaárfolyamok frissítve</string>
+    <string name="toast_error_updating_currency">Hiba történt a valutaárfolyamok frissítése közben.</string>
+
+    <string name="prefs_title_formatting">Formátum</string>
+    <string name="prefs_summary_number_decimals">Az átváltott értékben mutatott helyiértékek számának beállítása</string>
+    <string name="prefs_title_number_decimals">Helyiértékek száma</string>
+    <string name="prefs_summary_group_separator">Az átváltott értékben mutatott csoportelválasztó jel beállítása</string>
+    <string name="prefs_title_group_separator">Ezres elválasztó</string>
+    <string name="prefs_summary_decimal_separator">Az átváltott értékben mutatott tizedesvessző beállítása</string>
+    <string name="prefs_title_decimal_separator">Tizedes elválasztó</string>
+    <string name="prefs_title_visual">Megjelenés</string>
+    <string name="prefs_title_light_theme">Világos téma használata</string>
+    <string name="prefs_title_language">Nyelv</string>
+    <string name="prefs_summary_language">Válassza ki az alkalmazásban használt nyelvet</string>
+    <string name="prefs_title_other">Egyéb</string>
+    <string name="prefs_title_source_code">Forráskód megtekintése</string>
+    <string name="pref_summary_source_code">A Unit Converter Ultimate nyílt forráskódú! Megtalálod a GitHubon.</string>
+    <string name="prefs_title_unit_request">Javaslat új egységre</string>
+    <string name="prefs_summary_unit_request">Szeretnél egy új egységet? Küldj egy e-mailt!</string>
+    <string name="prefs_title_rate">Értékelés Google Playen</string>
+    <string name="prefs_summary_rate">Szívesen használod ezt az alkalmazást? Értékeld 5 csillagra!</string>
+    <string name="prefs_title_donate">Adományozás</string>
+    <string name="prefs_summary_donate">Támogasd a fejlesztést és varázsolj mosolyt az arcomra :)</string>
+    <string name="prefs_title_open_issue">Hibát találtál?</string>
+    <string name="prefs_summary_open_issue">Nyiss egy hibajelentést a GitHubon.</string>
+    <string name="prefs_title_privacy_policy">Adatvédelmi irányelvek</string>
+    <string name="prefs_summary_privacy_policy">Az adatvédelem fontos.</string>
+
+    <string name="dialog_btn_got_it">Rendben</string>
+    <string name="dialog_title_help">Súgó</string>
+    <string name="dialog_message_help">Használd a becsúszó menüt az átváltások közti válogatásra, és válaszd ki a mértékegységeket, amiket használnál.\n\nAz átalakított érték teljesen személyre szabható. A beállítások menüpontban kiválaszthatod a megjelenített helyiértékek számát, valamint az ezres és a tizedes elválasztót is.\n\nAz átalakított értékre hosszan rányomva az a vágólapra kerül.</string>
+    <string name="dialog_btn_view_source">Forráskód megtekintése</string>
+
+    <!-- Conversions -->
+    <string name="area">Terület</string>
+    <string name="cooking">Sütés-főzés</string>
+    <string name="currency">Pénznem</string>
+    <string name="storage">Digitális tárhely</string>
+    <string name="energy">Energia</string>
+    <string name="fuel_consumption">Üzemanyag-fogyasztás</string>
+    <string name="length">Hossz / Távolság</string>
+    <string name="mass">Tömeg / Súly</string>
+    <string name="power">Teljesítmény</string>
+    <string name="pressure">Nyomás</string>
+    <string name="speed">Sebesség</string>
+    <string name="temperature">Hőmérséklet</string>
+    <string name="time">Idő</string>
+    <string name="torque">Forgatónyomaték</string>
+    <string name="volume">Térfogat</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Négyzetkilométer</string>
+    <string name="sq_metre">Négyzetméter</string>
+    <string name="sq_centimetre">Négyzetcentiméter</string>
+    <string name="hectare">Hektár</string>
+    <string name="sq_mile">Négyzetmérföld</string>
+    <string name="sq_yard">Négyzetyard</string>
+    <string name="sq_foot">Négyzetláb</string>
+    <string name="sq_inch">Négyzethüvelyk</string>
+    <string name="acre">Hold</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Kalória</string>
+    <string name="kilocalorie">Kilokalória</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowattóra</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Mérföld/gallon (US)</string>
+    <string name="mpg_uk">Mérföld/gallon (UK)</string>
+    <string name="l_100k">Liter/100 km</string>
+    <string name="km_l">Kilométer/liter</string>
+    <string name="miles_l">Mérföld/liter</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilométer</string>
+    <string name="mile">Mérföld</string>
+    <string name="metre">Méter</string>
+    <string name="centimetre">Centiméter (cm)</string>
+    <string name="millimetre">Miliméter (mm)</string>
+    <string name="micrometre">Mikrométer</string>
+    <string name="nanometre">Nanométer</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Láb</string>
+    <string name="inch">Hüvelyk</string>
+    <string name="nautical_mile">Tengeri Mérföld</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Fényév</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogramm</string>
+    <string name="pound">Font</string>
+    <string name="gram">Gramm</string>
+    <string name="milligram">Milligramm</string>
+    <string name="ounce">Uncia</string>
+    <string name="grain">Mag</string>
+    <string name="stone">Kő</string>
+    <string name="metric_ton">Tonna (metrikus)</string>
+    <string name="short_ton">Tonna (US/rövid)</string>
+    <string name="long_ton">Tonna (UK/hosszú)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">LE (metrikus)</string><!-- horse power = lóerő -->
+    <string name="hp_uk">LE (mechanikai)</string>
+    <string name="ft_lbf_s">ft-lbf/másodperc</string>
+    <string name="calorie_s">Kalória/másodperc</string>
+    <string name="btu_s">BTU/másodperc</string>
+    <string name="kva">kVA</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">Font/négyzethüvelyk (PSI)</string>
+    <string name="psf">Font/négyzetláb (PSF)</string>
+    <string name="atmosphere">Atmoszféra</string>
+    <string name="technical_atmosphere">Technikai atmoszféra</string>
+    <string name="mmhg">mmHg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilométer/óra</string>
+    <string name="mph">Mérföld/óra</string>
+    <string name="m_s">Méter/szekundum</string>
+    <string name="fps">Láb/másodperc</string>
+    <string name="knot">Csomó</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Év</string>
+    <string name="month">Hónap</string>
+    <string name="week">Hét</string>
+    <string name="day">Nap</string>
+    <string name="hour">Óra</string>
+    <string name="minute">Perc</string>
+    <string name="second">Másodperc</string>
+    <string name="millisecond">Milliszekundum</string>
+    <string name="nanosecond">Nanoszekundum</string>
+
+    <!-- Torque -->
+    <string name="n_m">Nm</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teáskanál</string>
+    <string name="tablespoon">Evőkanál</string>
+    <string name="cup">Csésze</string>
+    <string name="fluid_ounce">Folyadékuncia (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Hordó (US)</string>
+    <string name="fluid_ounce_uk">Folyadékuncia (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Hordó (UK)</string>
+    <string name="millilitre">Milliliter</string>
+    <string name="litre">Liter</string>
+    <string name="cubic_cm">Köbcentiméter</string>
+    <string name="cubic_m">Köbméter</string>
+    <string name="cubic_inch">Köbhüvelyk</string>
+    <string name="cubic_foot">Köbláb</string>
+    <string name="cubic_yard">Köbyard</string>
+
+    <!-- Currency -->
+    <string name="aud">Ausztrál dollár</string>
+    <string name="bgn">Bolgár leva</string>
+    <string name="brl">Brazil real</string>
+    <string name="cdn">Kanadai dollár</string>
+    <string name="chf">Svájci frank</string>
+    <string name="cny">Kínai jüan</string>
+    <string name="czk">Cseh korona</string>
+    <string name="dkk">Dán korona</string>
+    <string name="eur">Euró</string>
+    <string name="gbp">Brit font</string>
+    <string name="hkd">Hongkongi dollár</string>
+    <string name="hrk">Horvát kuna</string>
+    <string name="huf">Magyar forint</string>
+    <string name="idr">Indonéz rúpia</string>
+    <string name="ils">Izraeli sékel</string>
+    <string name="inr">Indiai rúpia</string>
+    <string name="jpy">Japán jen</string>
+    <string name="krw">Koreai von</string>
+    <string name="mxn">Mexikói peso</string>
+    <string name="myr">Maláj ringgit</string>
+    <string name="nok">Norvég korona</string>
+    <string name="nzd">Új-zélandi dollár</string>
+    <string name="php">Fülöp-szigeteki peso</string>
+    <string name="pln">Lengyel złoty</string>
+    <string name="ron">Román lej</string>
+    <string name="rub">Orosz rubel</string>
+    <string name="sek">Svéd korona</string>
+    <string name="sgd">Szingapúri dollár</string>
+    <string name="thb">Thaiföldi bát</string>
+    <string name="lira">Török líra</string>
+    <string name="usd">Amerikai dollár</string>
+    <string name="zar">Dél-afrikai rand</string>
+    <string name="title_activity_acknowledgements">Köszönetnyilvánítás</string>
+    <string name="prefs_title_acknowledgements">Köszönetnyilvánítás</string>
+    <string name="prefs_summary_acknowledgements">Köszönjük ezeket az embereket!</string>
+
+</resources>

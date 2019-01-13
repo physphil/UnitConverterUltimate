@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2016 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,11 +24,13 @@ import com.physphil.android.unitconverterultimate.util.Conversions;
  * Application class
  * Created by pshadlyn on 8/10/2015.
  */
-public class UnitConverterApplication extends Application
-{
+public class UnitConverterApplication extends Application {
+
+    public static final String BUILD_FLAVOUR_GOOGLE = "google";
+    public static final String BUILD_FLAVOUR_BASE = "base";
+
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         // Initialize conversions object, and load currency if stored
         Conversions.getInstance().updateCurrencyConversions(this);

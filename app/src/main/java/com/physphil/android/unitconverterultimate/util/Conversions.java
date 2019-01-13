@@ -1,11 +1,11 @@
 /*
- * Copyright 2015 Phil Shadlyn
+ * Copyright 2018 Phil Shadlyn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,8 @@ import android.content.Context;
 
 import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
-import com.physphil.android.unitconverterultimate.api.models.Rates;
+import com.physphil.android.unitconverterultimate.api.models.Country;
+import com.physphil.android.unitconverterultimate.api.models.Currencies;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.TemperatureUnit;
 import com.physphil.android.unitconverterultimate.models.Unit;
@@ -35,8 +36,8 @@ import static com.physphil.android.unitconverterultimate.models.Unit.*;
 /**
  * Contains all conversion info
  */
-public final class Conversions
-{
+public final class Conversions {
+
     private static Conversions mInstance = null;
     private Map<Integer, Conversion> mConversions = new HashMap<>();
     private boolean mCurrencyUpdated;
@@ -46,18 +47,15 @@ public final class Conversions
      *
      * @return Conversions mInstance
      */
-    public static Conversions getInstance()
-    {
+    public static Conversions getInstance() {
         //Create singleton to contain all conversions
-        if (mInstance == null)
-        {
+        if (mInstance == null) {
             mInstance = new Conversions();
         }
         return mInstance;
     }
 
-    private Conversions()
-    {
+    private Conversions() {
         //Fill conversions HashMap
         getAreaConversions();
         getCookingConversions();
@@ -78,26 +76,25 @@ public final class Conversions
 
     /**
      * Get Conversion object by its id
+     *
      * @param id id of conversion
      * @return Conversion object
      */
-    public Conversion getById(@Conversion.id int id)
-    {
+    public Conversion getById(@Conversion.id int id) {
         return mConversions.get(id);
     }
 
     /**
      * Method to add conversion to hashmap, encapsulated in a separate method for type safety
-     * @param id conversion id
+     *
+     * @param id         conversion id
      * @param conversion Conversion object
      */
-    private void addConversion(@Conversion.id int id, Conversion conversion)
-    {
+    private void addConversion(@Conversion.id int id, Conversion conversion) {
         mConversions.put(id, conversion);
     }
 
-    private void getAreaConversions()
-    {
+    private void getAreaConversions() {
         //Base unit: square metre
 
         List<Unit> units = new ArrayList<Unit>();
@@ -113,8 +110,7 @@ public final class Conversions
         addConversion(Conversion.AREA, new Conversion(Conversion.AREA, R.string.area, units));
     }
 
-    private void getCookingConversions()
-    {
+    private void getCookingConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
@@ -133,52 +129,50 @@ public final class Conversions
         addConversion(Conversion.COOKING, new Conversion(Conversion.COOKING, R.string.cooking, units));
     }
 
-    public void updateCurrencyConversions(Context context)
-    {
+    public void updateCurrencyConversions(Context context) {
         // Base unit - Euro
-        List<Unit> units = new ArrayList<>();
-        if(Preferences.getInstance(context).hasLatestCurrency())
-        {
-            Rates currency = Preferences.getInstance(context).getLatestCurrency().getRates();
-            units.add(new Unit(USD, R.string.usd, 1 / currency.getUsd(), currency.getUsd()));
-            units.add(new Unit(AUD, R.string.aud, 1 / currency.getAud(), currency.getAud()));
-            units.add(new Unit(GBP, R.string.gbp, 1 / currency.getGbp(), currency.getGbp()));
-            units.add(new Unit(BRL, R.string.brl, 1 / currency.getBrl(), currency.getBrl()));
-            units.add(new Unit(BGN, R.string.bgn, 1 / currency.getBgn(), currency.getBgn()));
-            units.add(new Unit(CDN, R.string.cdn, 1 / currency.getCad(), currency.getCad()));
-            units.add(new Unit(CNY, R.string.cny, 1 / currency.getCny(), currency.getCny()));
-            units.add(new Unit(HRK, R.string.hrk, 1 / currency.getHrk(), currency.getHrk()));
-            units.add(new Unit(CZK, R.string.czk, 1 / currency.getCzk(), currency.getCzk()));
-            units.add(new Unit(DKK, R.string.dkk, 1 / currency.getDkk(), currency.getDkk()));
+        final List<Unit> units = new ArrayList<>();
+        final Currencies currencies = Preferences.getInstance(context).getLatestCurrency();
+        if (Preferences.getInstance(context).hasLatestCurrency() && currencies != null) {
+            Map<Country, Double> map = currencies.toMap();
+            units.add(new Unit(USD, R.string.usd, 1 / map.get(Country.USD), map.get(Country.USD)));
+            units.add(new Unit(AUD, R.string.aud, 1 / map.get(Country.AUD), map.get(Country.AUD)));
+            units.add(new Unit(GBP, R.string.gbp, 1 / map.get(Country.GBP), map.get(Country.GBP)));
+            units.add(new Unit(BRL, R.string.brl, 1 / map.get(Country.BRL), map.get(Country.BRL)));
+            units.add(new Unit(BGN, R.string.bgn, 1 / map.get(Country.BGN), map.get(Country.BGN)));
+            units.add(new Unit(CDN, R.string.cdn, 1 / map.get(Country.CAD), map.get(Country.CAD)));
+            units.add(new Unit(CNY, R.string.cny, 1 / map.get(Country.CNY), map.get(Country.CNY)));
+            units.add(new Unit(HRK, R.string.hrk, 1 / map.get(Country.HRK), map.get(Country.HRK)));
+            units.add(new Unit(CZK, R.string.czk, 1 / map.get(Country.CZK), map.get(Country.CZK)));
+            units.add(new Unit(DKK, R.string.dkk, 1 / map.get(Country.DKK), map.get(Country.DKK)));
             units.add(new Unit(EUR, R.string.eur, 1.0, 1.0));
-            units.add(new Unit(HKD, R.string.hkd, 1 / currency.getHkd(), currency.getHkd()));
-            units.add(new Unit(HUF, R.string.huf, 1 / currency.getHuf(), currency.getHuf()));
-            units.add(new Unit(INR, R.string.inr, 1 / currency.getInr(), currency.getInr()));
-            units.add(new Unit(IDR, R.string.idr, 1 / currency.getIdr(), currency.getIdr()));
-            units.add(new Unit(ILS, R.string.ils, 1 / currency.getIls(), currency.getIls()));
-            units.add(new Unit(JPY, R.string.jpy, 1 / currency.getJpy(), currency.getJpy()));
-            units.add(new Unit(KRW, R.string.krw, 1 / currency.getKrw(), currency.getKrw()));
-            units.add(new Unit(MYR, R.string.myr, 1 / currency.getMyr(), currency.getMyr()));
-            units.add(new Unit(MXN, R.string.mxn, 1 / currency.getMxn(), currency.getMxn()));
-            units.add(new Unit(NZD, R.string.nzd, 1 / currency.getNzd(), currency.getNzd()));
-            units.add(new Unit(NOK, R.string.nok, 1 / currency.getNok(), currency.getNok()));
-            units.add(new Unit(PHP, R.string.php, 1 / currency.getPhp(), currency.getPhp()));
-            units.add(new Unit(PLN, R.string.pln, 1 / currency.getPln(), currency.getPln()));
-            units.add(new Unit(RON, R.string.ron, 1 / currency.getRon(), currency.getRon()));
-            units.add(new Unit(RUB, R.string.rub, 1 / currency.getRub(), currency.getRub()));
-            units.add(new Unit(SGD, R.string.sgd, 1 / currency.getSgd(), currency.getSgd()));
-            units.add(new Unit(ZAR, R.string.zar, 1 / currency.getZar(), currency.getZar()));
-            units.add(new Unit(SEK, R.string.sek, 1 / currency.getSek(), currency.getSek()));
-            units.add(new Unit(CHF, R.string.chf, 1 / currency.getChf(), currency.getChf()));
-            units.add(new Unit(THB, R.string.thb, 1 / currency.getThb(), currency.getThb()));
-            units.add(new Unit(LIRA, R.string.lira, 1 / currency.getLira(), currency.getLira()));
+            units.add(new Unit(HKD, R.string.hkd, 1 / map.get(Country.HKD), map.get(Country.HKD)));
+            units.add(new Unit(HUF, R.string.huf, 1 / map.get(Country.HUF), map.get(Country.HUF)));
+            units.add(new Unit(INR, R.string.inr, 1 / map.get(Country.INR), map.get(Country.INR)));
+            units.add(new Unit(IDR, R.string.idr, 1 / map.get(Country.IDR), map.get(Country.IDR)));
+            units.add(new Unit(ILS, R.string.ils, 1 / map.get(Country.ILS), map.get(Country.ILS)));
+            units.add(new Unit(JPY, R.string.jpy, 1 / map.get(Country.JPY), map.get(Country.JPY)));
+            units.add(new Unit(KRW, R.string.krw, 1 / map.get(Country.KRW), map.get(Country.KRW)));
+            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), MYR));
+            units.add(new Unit(MXN, R.string.mxn, 1 / map.get(Country.MXN), map.get(Country.MXN)));
+            units.add(new Unit(NZD, R.string.nzd, 1 / map.get(Country.NZD), map.get(Country.NZD)));
+            units.add(new Unit(NOK, R.string.nok, 1 / map.get(Country.NOK), map.get(Country.NOK)));
+            units.add(new Unit(PHP, R.string.php, 1 / map.get(Country.PHP), map.get(Country.PHP)));
+            units.add(new Unit(PLN, R.string.pln, 1 / map.get(Country.PLN), map.get(Country.PLN)));
+            units.add(new Unit(RON, R.string.ron, 1 / map.get(Country.RON), map.get(Country.RON)));
+            units.add(new Unit(RUB, R.string.rub, 1 / map.get(Country.RUB), map.get(Country.RUB)));
+            units.add(new Unit(SGD, R.string.sgd, 1 / map.get(Country.SGD), map.get(Country.SGD)));
+            units.add(new Unit(ZAR, R.string.zar, 1 / map.get(Country.ZAR), map.get(Country.ZAR)));
+            units.add(new Unit(SEK, R.string.sek, 1 / map.get(Country.SEK), map.get(Country.SEK)));
+            units.add(new Unit(CHF, R.string.chf, 1 / map.get(Country.CHF), map.get(Country.CHF)));
+            units.add(new Unit(THB, R.string.thb, 1 / map.get(Country.THB), map.get(Country.THB)));
+            units.add(new Unit(LIRA, R.string.lira, 1 / map.get(Country.TRY), map.get(Country.TRY)));
         }
 
         addConversion(Conversion.CURRENCY, new Conversion(Conversion.CURRENCY, R.string.currency, units));
     }
 
-    private void getStorageConversions()
-    {
+    private void getStorageConversions() {
         //Base Unit = megabyte
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(BIT, R.string.bit, 0.00000011920928955078, 8388608.0));
@@ -194,8 +188,7 @@ public final class Conversions
         addConversion(Conversion.STORAGE, new Conversion(Conversion.STORAGE, R.string.storage, units));
     }
 
-    private void getEnergyConversions()
-    {
+    private void getEnergyConversions() {
         //Base unit Joules
 
         List<Unit> units = new ArrayList<Unit>();
@@ -210,8 +203,7 @@ public final class Conversions
         addConversion(Conversion.ENERGY, new Conversion(Conversion.ENERGY, R.string.energy, units));
     }
 
-    private void getFuelConversions()
-    {
+    private void getFuelConversions() {
         //Base Unit - Miles per Gallon US
 
         List<Unit> units = new ArrayList<Unit>();
@@ -223,8 +215,7 @@ public final class Conversions
         addConversion(Conversion.FUEL, new Conversion(Conversion.FUEL, R.string.fuel_consumption, units));
     }
 
-    private void getLengthConversions()
-    {
+    private void getLengthConversions() {
         //Base unit - Metres
 
         List<Unit> units = new ArrayList<Unit>();
@@ -244,8 +235,7 @@ public final class Conversions
         addConversion(Conversion.LENGTH, new Conversion(Conversion.LENGTH, R.string.length, units));
     }
 
-    private void getMassConversions()
-    {
+    private void getMassConversions() {
         //Base unit - Kilograms
 
         List<Unit> units = new ArrayList<Unit>();
@@ -262,8 +252,7 @@ public final class Conversions
         addConversion(Conversion.MASS, new Conversion(Conversion.MASS, R.string.mass, units));
     }
 
-    private void getPowerConversions()
-    {
+    private void getPowerConversions() {
         //Base unit - Watt
 
         List<Unit> units = new ArrayList<Unit>();
@@ -279,8 +268,7 @@ public final class Conversions
         addConversion(Conversion.POWER, new Conversion(Conversion.POWER, R.string.power, units));
     }
 
-    private void getPressureConversions()
-    {
+    private void getPressureConversions() {
         //Base unit - Pa
 
         List<Unit> units = new ArrayList<Unit>();
@@ -297,8 +285,7 @@ public final class Conversions
         addConversion(Conversion.PRESSURE, new Conversion(Conversion.PRESSURE, R.string.pressure, units));
     }
 
-    private void getSpeedConversions()
-    {
+    private void getSpeedConversions() {
         //base unit - m/s
 
         List<Unit> units = new ArrayList<Unit>();
@@ -310,8 +297,7 @@ public final class Conversions
         addConversion(Conversion.SPEED, new Conversion(Conversion.SPEED, R.string.speed, units));
     }
 
-    private void getTemperatureConversions()
-    {
+    private void getTemperatureConversions() {
         List<Unit> units = new ArrayList<Unit>();
         units.add(new TemperatureUnit(CELSIUS, R.string.celsius));
         units.add(new TemperatureUnit(FAHRENHEIT, R.string.fahrenheit));
@@ -325,8 +311,7 @@ public final class Conversions
         addConversion(Conversion.TEMPERATURE, new Conversion(Conversion.TEMPERATURE, R.string.temperature, units));
     }
 
-    private void getTimeConversions()
-    {
+    private void getTimeConversions() {
         //Base unit - seconds
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(YEAR, R.string.year, 31536000.0, 0.0000000317097919837645865));
@@ -341,8 +326,7 @@ public final class Conversions
         addConversion(Conversion.TIME, new Conversion(Conversion.TIME, R.string.time, units));
     }
 
-    private void getTorqueConversions()
-    {
+    private void getTorqueConversions() {
         // Base unit - Newton-metres
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(N_M, R.string.n_m, 1.0, 1.0));
@@ -351,8 +335,7 @@ public final class Conversions
         addConversion(Conversion.TORQUE, new Conversion(Conversion.TORQUE, R.string.torque, units));
     }
 
-    private void getVolumeConversions()
-    {
+    private void getVolumeConversions() {
         // Base unit - cubic metre
         List<Unit> units = new ArrayList<Unit>();
         units.add(new Unit(TEASPOON, R.string.teaspoon, 0.0000049289215938, 202884.136211058));
@@ -378,18 +361,15 @@ public final class Conversions
         addConversion(Conversion.VOLUME, new Conversion(Conversion.VOLUME, R.string.volume, units));
     }
 
-    public boolean hasCurrency()
-    {
+    public boolean hasCurrency() {
         return mConversions.get(Conversion.CURRENCY).getUnits().size() > 0;
     }
 
-    public void setCurrencyUpdated(final boolean currencyUpdated)
-    {
+    public void setCurrencyUpdated(final boolean currencyUpdated) {
         mCurrencyUpdated = currencyUpdated;
     }
 
-    public boolean isCurrencyUpdated()
-    {
+    public boolean isCurrencyUpdated() {
         return mCurrencyUpdated;
     }
 }

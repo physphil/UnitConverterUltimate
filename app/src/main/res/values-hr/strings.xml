@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2015 Phil Shadlyn
+  ~ Copyright 2018 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~    http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing, software
   ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Doniraj?</string>
     <string name="title_activity_settings">Postavke</string>
+    <string name="title_activity_acknowledgements">Priznanja</string>
     <string name="text_from">Iz</string>
     <string name="text_to">U</string>
     <string name="default_value">1</string>
@@ -27,7 +28,7 @@
     <string name="menu_help">Pomoć</string>
     <string name="menu_settings">Postavke</string>
     <string name="menu_download">Preuzimanje</string>
-    <string name="group_separator_none">Nijedan</string>
+    <string name="group_separator_none">Nijedno</string>
     <string name="request_unit">Unit Converter Ultimate: Zahtjev nove jedinice</string>
     <string name="header_other_stuff">Ostale stvari</string>
     <string name="progress_loading">Učitavanje&#8230;</string>
@@ -52,6 +53,8 @@
     <string name="prefs_title_decimal_separator">Separator decimala</string>
     <string name="prefs_title_visual">Izgled</string>
     <string name="prefs_title_light_theme">Koristi svijetlu temu</string>
+    <string name="prefs_title_language">Jezik</string>
+    <string name="prefs_summary_language">Odaberite jezik koji želite koristiti kroz aplikaciju</string>
     <string name="prefs_title_other">Ostale stvari</string>
     <string name="prefs_title_source_code">Pregledaj izvorni kod</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate je otvorenog koda! Pregledajte kod na GitHubu.</string>
@@ -63,6 +66,10 @@
     <string name="prefs_summary_donate">Podržite razvoj i nasmiješite me :)</string>
     <string name="prefs_title_open_issue">Pronašli ste pogrešku?</string>
     <string name="prefs_summary_open_issue">Prijavite ju na GitHubu.</string>
+    <string name="prefs_title_privacy_policy">Pravila o privatnosti</string>
+    <string name="prefs_summary_privacy_policy">Vaša je privatnost važna.</string>
+    <string name="prefs_title_acknowledgements">Priznanja</string>
+    <string name="prefs_summary_acknowledgements">Hvala ovim ljudima!</string>
 
     <string name="dialog_btn_got_it">Shvaćam</string>
     <string name="dialog_title_help">Pomoć</string>

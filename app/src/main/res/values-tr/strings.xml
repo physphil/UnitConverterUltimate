@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2015 Phil Shadlyn
+  ~ Copyright 2018 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~    http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing, software
   ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Bağış?</string>
     <string name="title_activity_settings">Ayarlar</string>
+    <string name="title_activity_acknowledgements">Teşekkür</string>
     <string name="text_from">Kaynak</string>
     <string name="text_to">Hedef</string>
     <string name="default_value">1</string>
@@ -52,6 +53,8 @@
     <string name="prefs_title_decimal_separator">Ondalık Ayracı</string>
     <string name="prefs_title_visual">Görsel</string>
     <string name="prefs_title_light_theme">Açık Renk Temayı Kullan</string>
+    <string name="prefs_title_language">Dil</string>
+    <string name="prefs_summary_language">Uygulamayı kullanmak istediğiniz dili seçiniz.</string>
     <string name="prefs_title_other">Diğer Şeyler</string>
     <string name="prefs_title_source_code">Kaynak Kodu Görüntüle</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate açık kaynaklıdır! Kodlara Github\'dan gözat.</string>
@@ -63,6 +66,10 @@
     <string name="prefs_summary_donate">Geliştirmeyi destekle ve beni gülümset :)</string>
     <string name="prefs_title_open_issue">Bir Hata Mı Buldun?</string>
     <string name="prefs_summary_open_issue">Github\'dan sorunu bildir.</string>
+    <string name="prefs_title_privacy_policy">Gizlilik Politikası</string>
+    <string name="prefs_summary_privacy_policy">Gizliliğiniz önemlidir.</string>
+    <string name="prefs_title_acknowledgements">Teşekkür</string>
+    <string name="prefs_summary_acknowledgements">"Bu insanlara teşekkür ederim! "</string>
 
     <string name="dialog_btn_got_it">Anladım</string>
     <string name="dialog_title_help">Yardım</string>

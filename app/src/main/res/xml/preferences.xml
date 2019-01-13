@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2015 Phil Shadlyn
+  ~ Copyright 2018 Phil Shadlyn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~    http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing, software
   ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -54,20 +54,27 @@
             android:title="@string/prefs_title_light_theme"
             android:defaultValue="false" />
 
+        <ListPreference
+            android:key="language"
+            android:title="@string/prefs_title_language"
+            android:summary="@string/prefs_summary_language"
+            android:defaultValue="@string/language_code_default"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="other"
         android:title="@string/prefs_title_other">
 
         <Preference
+            android:key="donate"
             android:title="@string/prefs_title_donate"
-            android:summary="@string/prefs_summary_donate">
+            android:summary="@string/prefs_summary_donate"/>
 
-            <intent
-                android:targetPackage="com.physphil.android.unitconverterultimate"
-                android:targetClass="com.physphil.android.unitconverterultimate.DonateActivity" />
-
-        </Preference>
+        <Preference
+            android:key="acknowledgements"
+            android:title="@string/prefs_title_acknowledgements"
+            android:summary="@string/prefs_summary_acknowledgements"/>
 
         <Preference
             android:key="unit_request"
@@ -88,6 +95,11 @@
             android:key="view_source"
             android:title="@string/prefs_title_source_code"
             android:summary="@string/pref_summary_source_code"/>
+
+        <Preference
+            android:key="privacy_policy"
+            android:title="@string/prefs_title_privacy_policy"
+            android:summary="@string/prefs_summary_privacy_policy"/>
 
     </PreferenceCategory>
 
