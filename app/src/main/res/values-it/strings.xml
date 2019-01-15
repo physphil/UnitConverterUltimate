@@ -63,14 +63,18 @@
     <string name="prefs_summary_rate">Ti piace Unit Converter Ultimate? Allora perché non ci dai 5 stelle?</string>
     <string name="prefs_title_donate">Dona</string>
     <string name="prefs_summary_donate">Regalaci un sorriso sostenendo il team di sviluppo :)</string>
+    <string name="title_activity_acknowledgements">Riconoscimenti</string>
+    <string name="prefs_title_acknowledgements">>Riconoscimenti</string>
+    <string name="prefs_summary_acknowledgements">Un grandissimo grazie a questi bravi ragazzi!</string>
+
     <string name="prefs_title_open_issue">Trovato un Bug?</string>
     <string name="prefs_summary_open_issue">Inviaci una segnalazione su GitHub.</string>
-    <string name="prefs_title_privacy_policy">politica sulla riservatezza</string>
+    <string name="prefs_title_privacy_policy">Informativa sulla Privacy</string>
     <string name="prefs_summary_privacy_policy">La tua privacy è importante.</string>
 
     <string name="dialog_btn_got_it">OK</string>
     <string name="dialog_title_help">Aiuto</string>
-    <string name="dialog_message_help">Usa il menu a comparsa per navigare fra le varie tipologie di conversione e seleziona quella che ti interessa.\n\nIl valore convertito è completamente personalizzabile. Usa il menu delle impostazioni per selezionare il numero di posizioni decimali, il simbolo di ragruppamento e il separatore decimale.\n\nTieni premuto sul valore convertito per copiarlo.</string>
+    <string name="dialog_message_help">Usa il menu a comparsa per navigare fra le varie tipologie di conversione e seleziona quella che ti interessa.\n\nIl valore convertito è completamente personalizzabile. Usa il menu delle impostazioni per selezionare il numero di posizioni decimali, il simbolo di raggruppamento e il separatore decimale.\n\nTieni premuto sul valore convertito per copiarlo.</string>
     <string name="dialog_btn_view_source">Vedi Sorgente</string>
 
     <!-- Conversions -->
