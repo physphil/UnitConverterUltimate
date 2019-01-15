@@ -63,8 +63,8 @@
     <string name="prefs_summary_rate">Ti piace Unit Converter Ultimate? Allora perché non ci dai 5 stelle?</string>
     <string name="prefs_title_donate">Dona</string>
     <string name="prefs_summary_donate">Regalaci un sorriso sostenendo il team di sviluppo :)</string>
-    <string name="title_activity_acknowledgements">Riconoscimenti</string>
-    <string name="prefs_title_acknowledgements">>Riconoscimenti</string>
+    <string name="title_activity_acknowledgements">Ringraziamenti</string>
+    <string name="prefs_title_acknowledgements">Ringraziamenti</string>
     <string name="prefs_summary_acknowledgements">Un grandissimo grazie a questi bravi ragazzi!</string>
 
     <string name="prefs_title_open_issue">Trovato un Bug?</string>
