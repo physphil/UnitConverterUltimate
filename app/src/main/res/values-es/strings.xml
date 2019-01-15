@@ -63,6 +63,9 @@
     <string name="prefs_summary_rate">Disfrutando de todas las conversiones de unidades? ¿Por qué no dar 5 estrellas?</string>
     <string name="prefs_title_donate">Donar</string>
     <string name="prefs_summary_donate">Apoye el desarrollo y hacedme sonreír :)</string>
+    <string name="title_activity_acknowledgements">Agradecimientos</string>
+    <string name="prefs_title_acknowledgements">Agradecimientos</string>
+    <string name="prefs_summary_acknowledgements">¡Un enorme gracias a todos estos buenos chicos!</string>
     <string name="prefs_title_open_issue">¿Encontró un Error?</string>
     <string name="prefs_summary_open_issue">Abra un problema en GitHub.</string>
     <string name="prefs_title_privacy_policy">Política de privacidad</string>
