@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Donere?</string>
+    <string name="title_activity_settings">Innstillinger</string>
+    <string name="title_activity_acknowledgements">Krediteringer</string>
+    <string name="text_from">Fra</string>
+    <string name="text_to">Til</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Last ned</string>
+    <string name="menu_clear">Fjern verdi</string>
+    <string name="menu_help">Hjelp</string>
+    <string name="menu_settings">Innstillinger</string>
+    <string name="group_separator_none">Ingen</string>
+    <string name="request_unit">Unit Converter Ultimate: Forespørsel om ny enhet</string>
+    <string name="header_other_stuff">Diverse</string>
+    <string name="progress_loading">Laster&#8230;</string>
+    <string name="error_loading_currency">Det var en feil ved oppdatering av valutaomregningene.\n\nSjekk internettforbindelsen din og prøv igjen.</string>
+
+    <string name="toast_error_billing_internet">Det var et problem. Sørg for at du har en fungerende internettforbindelse og prøv igjen.</string>
+    <string name="toast_error_billing_general">Det var et problem. Prøv igjen.</string>
+    <string name="toast_donation_successful">Takk for ditt bidrag!</string>
+    <string name="toast_error_no_browser">Ingen nettleser ble funnet</string>
+    <string name="toast_error_no_email_app">Ingen e-post-app installert</string>
+    <string name="toast_error_google_play">Feil ved åpning av Google Play Store, prøv igjen</string>
+    <string name="toast_copied_clipboard">Tekst kopiert til utklippstave</string>
+    <string name="toast_currency_updated">Valutaomregninger oppdatert</string>
+    <string name="toast_error_updating_currency">Det var en feil ved oppdatering av valutaomregningene.</string>
+
+    <string name="prefs_title_formatting">Formatering</string>
+    <string name="prefs_summary_number_decimals">Angi antall desimaler som skal vises i den omregnede verdien</string>
+    <string name="prefs_title_number_decimals">Antall desimaler</string>
+    <string name="prefs_summary_group_separator">Angi separator for siffergruppering, som skal vises i den omregnede verdien</string>
+    <string name="prefs_title_group_separator">Grupperingsseparator</string>
+    <string name="prefs_summary_decimal_separator">Angi desimalskilletegn som skal vises i den omregnede verdien</string>
+    <string name="prefs_title_decimal_separator">Desimalskilletegn</string>
+    <string name="prefs_title_visual">Visuelt</string>
+    <string name="prefs_title_light_theme">Bruk lyst tema</string>
+    <string name="prefs_title_language">Språk</string>
+    <string name="prefs_summary_language">Velg språket som skal brukes i appen</string>
+    <string name="prefs_title_other">Diverse</string>
+    <string name="prefs_title_source_code">Vis kildekode</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate er åpen kildekode! Sjekk koden på GitHub.</string>
+    <string name="prefs_title_unit_request">Be om en enhet</string>
+    <string name="prefs_summary_unit_request">Vil du at jeg skal legge til en ny enhet? Send meg en e-post og la meg få vite det.</string>
+    <string name="prefs_title_rate">Ranger på Google Play</string>
+    <string name="prefs_summary_rate">Liker du denne enhetsomregneren? Hvorfor ikke gi den 5 stjerner?</string>
+    <string name="prefs_title_donate">Doner</string>
+    <string name="prefs_summary_donate">Støtt utvikling og få meg til å smile :)</string>
+    <string name="prefs_title_open_issue">Funnet en feil?</string>
+    <string name="prefs_summary_open_issue">Meld fra om problemet på GitHub.</string>
+    <string name="prefs_title_privacy_policy">Personvern</string>
+    <string name="prefs_summary_privacy_policy">Fordi ditt personvern er viktig.</string>
+    <string name="prefs_title_acknowledgements">Krediteringer</string>
+    <string name="prefs_summary_acknowledgements">Mange takk til disse folkene!</string>
+
+    <string name="dialog_btn_got_it">OK</string>
+    <string name="dialog_title_help">Hjelp</string>
+    <string name="dialog_message_help">Bruk \"slide-in\"-menyen til å navigere mellom omregninger og velge de enhetene du har bruk for.\n\nDen omregnede verdien kan tilpasses. Bruk innstillingsmenyen til å velge antall desimaler, samt grupperingsseparator og desimalskilletegn.\n\nLang-trykking på den omregnede verdien kopierer den til utklippstavlen.</string>
+    <string name="dialog_btn_view_source">Vis kilde</string>
+
+    <!-- Conversions -->
+    <string name="area">Areal</string>
+    <string name="cooking">Matlaging</string>
+    <string name="currency">Valuta</string>
+    <string name="storage">Digital lagring</string>
+    <string name="energy">Energi</string>
+    <string name="fuel_consumption">Brenselsforbruk</string>
+    <string name="length">Lengde</string>
+    <string name="mass">Masse</string>
+    <string name="power">Effekt</string>
+    <string name="pressure">Trykk</string>
+    <string name="speed">Hastighet</string>
+    <string name="temperature">Temperatur</string>
+    <string name="time">Tid</string>
+    <string name="torque">Dreiemoment</string>
+    <string name="volume">Volum</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Kvadratkilometer</string>
+    <string name="sq_metre">Kvadratmeter</string>
+    <string name="sq_centimetre">Kvadratcentimeter</string>
+    <string name="hectare">Hektar</string>
+    <string name="sq_mile">Sq Mile</string>
+    <string name="sq_yard">Sq Yard</string>
+    <string name="sq_foot">Kvadratfot</string>
+    <string name="sq_inch">Kvadrattomme</string>
+    <string name="acre">Acre</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Kalori</string>
+    <string name="kilocalorie">Kilokalori</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowattime</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Mile/gallon (US)</string>
+    <string name="mpg_uk">Mile/gallon (UK)</string>
+    <string name="l_100k">Liter/100km</string>
+    <string name="km_l">Kilometer/liter</string>
+    <string name="miles_l">Eng. mil/liter</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometer</string>
+    <string name="mile">Eng. mil</string>
+    <string name="metre">Meter</string>
+    <string name="centimetre">Centimeter (cm)</string>
+    <string name="millimetre">Millimeter (mm)</string>
+    <string name="micrometre">Mikrometer</string>
+    <string name="nanometre">Nanometer</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Fot</string>
+    <string name="inch">Tomme</string>
+    <string name="nautical_mile">Nautisk mil</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Lysår</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pund</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Milligram</string>
+    <string name="ounce">Ounce</string>
+    <string name="grain">Grain</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Tonn (metrisk)</string>
+    <string name="short_ton">Ton (US/short)</string>
+    <string name="long_ton">Ton (UK/long)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HK (metrisk)</string>
+    <string name="hp_uk">HK (mekanisk)</string>
+    <string name="ft_lbf_s">ft-lbf/sekund</string>
+    <string name="calorie_s">Kalori/sekund</string>
+    <string name="btu_s">BTU/sekund</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosfære</string>
+    <string name="technical_atmosphere">Teknisk Atm</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometer/time</string>
+    <string name="mph">Eng. mil/time</string>
+    <string name="m_s">Meter/sekund</string>
+    <string name="fps">Fot/sekund</string>
+    <string name="knot">Knop</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gassmerke</string>
+
+    <!-- Time -->
+    <string name="year">År</string>
+    <string name="month">Måned</string>
+    <string name="week">Uke</string>
+    <string name="day">Døgn</string>
+    <string name="hour">Time</string>
+    <string name="minute">Minutt</string>
+    <string name="second">Sekund</string>
+    <string name="millisecond">Millisekund</string>
+    <string name="nanosecond">Nanosekund</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teskje</string>
+    <string name="tablespoon">Spiseskje</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barrel (US)</string>
+    <string name="fluid_ounce_uk">Fluid Ounce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Barrel (UK)</string>
+    <string name="millilitre">Milliliter</string>
+    <string name="litre">Liter</string>
+    <string name="cubic_cm">Kubikkcentimeter</string>
+    <string name="cubic_m">Kubikkmeter</string>
+    <string name="cubic_inch">Kubikktomme</string>
+    <string name="cubic_foot">Kubikkfot</string>
+    <string name="cubic_yard">Cubic Yard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australske Dollar</string>
+    <string name="bgn">Bulgarske Lev</string>
+    <string name="brl">Brasilianske Real</string>
+    <string name="cdn">Kanadiske Dollar</string>
+    <string name="chf">Sveitsiske Franc</string>
+    <string name="cny">Kinesiske Yuan</string>
+    <string name="czk">Tsjekkiske Koruna</string>
+    <string name="dkk">Danske Kroner</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">Britiske Pund</string>
+    <string name="hkd">Hong Kong Dollar</string>
+    <string name="hrk">Kroatiske Kuna</string>
+    <string name="huf">Ungarske Forint</string>
+    <string name="idr">Indonesiske Rupiah</string>
+    <string name="ils">Israelske Shekel</string>
+    <string name="inr">Indiske Rupee</string>
+    <string name="jpy">Japanske Yen</string>
+    <string name="krw">Koreanske Won</string>
+    <string name="mxn">Meksikanske Peso</string>
+    <string name="myr">Malaysiske Ringgit</string>
+    <string name="nok">Norske Kroner</string>
+    <string name="nzd">New Zealandske Dollar</string>
+    <string name="php">Filippinske Peso</string>
+    <string name="pln">Polske Zloty</string>
+    <string name="ron">Rumenske Leu</string>
+    <string name="rub">Russiske Rubler</string>
+    <string name="sek">Svenske Kroner</string>
+    <string name="sgd">Singaporske Dollar</string>
+    <string name="thb">Thailandske Baht</string>
+    <string name="lira">Tyrkiske Lira</string>
+    <string name="usd">Amerikanske Dollar</string>
+    <string name="zar">Sør-Afrikanske Rand</string>
+
+</resources>
