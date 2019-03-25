@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Donere?</string>
     <string name="title_activity_settings">Innstillinger</string>
+    <string name="title_activity_acknowledgements">Krediteringer</string>
     <string name="text_from">Fra</string>
     <string name="text_to">Til</string>
     <string name="default_value">1</string>
@@ -66,9 +67,11 @@
     <string name="prefs_title_open_issue">Funnet en feil?</string>
     <string name="prefs_summary_open_issue">Meld fra om problemet på GitHub.</string>
     <string name="prefs_title_privacy_policy">Personvern</string>
-    <string name="prefs_summary_privacy_policy">Fordi ditt personvern er viktig for meg.</string>
+    <string name="prefs_summary_privacy_policy">Fordi ditt personvern er viktig.</string>
+    <string name="prefs_title_acknowledgements">Krediteringer</string>
+    <string name="prefs_summary_acknowledgements">Mange takk til disse folkene!</string>
 
-    <string name="dialog_btn_got_it">Skjønner</string>
+    <string name="dialog_btn_got_it">OK</string>
     <string name="dialog_title_help">Hjelp</string>
     <string name="dialog_message_help">Bruk \"slide-in\"-menyen til å navigere mellom omregninger og velge de enhetene du har bruk for.\n\nDen omregnede verdien kan tilpasses. Bruk innstillingsmenyen til å velge antall desimaler, samt grupperingsseparator og desimalskilletegn.\n\nLang-trykking på den omregnede verdien kopierer den til utklippstavlen.</string>
     <string name="dialog_btn_view_source">Vis kilde</string>
@@ -80,8 +83,8 @@
     <string name="storage">Digital lagring</string>
     <string name="energy">Energi</string>
     <string name="fuel_consumption">Brenselsforbruk</string>
-    <string name="length">Lengde / Avstand</string>
-    <string name="mass">Masse / Vekt</string>
+    <string name="length">Lengde</string>
+    <string name="mass">Masse</string>
     <string name="power">Effekt</string>
     <string name="pressure">Trykk</string>
     <string name="speed">Hastighet</string>
