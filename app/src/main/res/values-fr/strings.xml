@@ -33,8 +33,9 @@
     <string name="progress_loading">Chargement&#8230;</string>
     <string name="error_loading_currency">Échec de la mise à jour des taux de change.n\nVeuillez vérifier votre connexion internet et réessayer.</string>
 
-    <string name="toast_error_billing_internet">Oops, il y a eut un problème. Veuillez vérifiez que votre connexion internet fonctionne et réessayez.</string>
-    <string name="toast_error_billing_general">Oops, il y a eut un problème. Veuillez réessayez.</string>
+    <string name="toast_error_billing_internet">Oops, il y a eu un problème. Veuillez vérifiez
+        que votre connexion internet fonctionne et réessayez.</string>
+    <string name="toast_error_billing_general">Oops, il y a eu un problème. Veuillez réessayez.</string>
     <string name="toast_donation_successful">Merci pour votre don!</string>
     <string name="toast_error_no_browser">Aucun navigateur internet trouvé.</string>
     <string name="toast_error_no_email_app">Aucune application de mail trouvée.</string>
@@ -78,9 +79,9 @@
     <string name="area">Aire</string>
     <string name="cooking">Cuisine</string>
     <string name="currency">Monnaie</string>
-    <string name="storage">Stockage Numérique</string>
+    <string name="storage">Stockage numérique</string>
     <string name="energy">Énergie</string>
-    <string name="fuel_consumption">Consommation de Carburant</string>
+    <string name="fuel_consumption">Consommation de carburant</string>
     <string name="length">Longueur / Distance</string>
     <string name="mass">Masse / Poids</string>
     <string name="power">Puissance</string>
@@ -92,14 +93,14 @@
     <string name="volume">Volume</string>
 
     <!-- Area -->
-    <string name="sq_kilometre">Kilomètre Carré</string>
-    <string name="sq_metre">Mètre Carré</string>
-    <string name="sq_centimetre">Centimètre Carré</string>
+    <string name="sq_kilometre">Kilomètre carré</string>
+    <string name="sq_metre">Mètre carré</string>
+    <string name="sq_centimetre">Centimètre carré</string>
     <string name="hectare">Hectare</string>
-    <string name="sq_mile">Mile Carré</string>
-    <string name="sq_yard">Yard Carré</string>
-    <string name="sq_foot">Pied Carré</string>
-    <string name="sq_inch">Pouce Carré</string>
+    <string name="sq_mile">Mile carré</string>
+    <string name="sq_yard">Yard carré</string>
+    <string name="sq_foot">Pied carré</string>
+    <string name="sq_inch">Pouce carré</string>
     <string name="acre">Acre</string>
 
     <!-- Digital Storage -->
@@ -122,7 +123,7 @@
     <string name="btu">BTU</string>
     <string name="ft_lbF">ft-lbf</string>
     <string name="in_lbF">in-lbf</string>
-    <string name="kilowatt_hour">Kilowatt-Heure</string>
+    <string name="kilowatt_hour">Kilowatt-heure</string>
     <string name="electron_volt">eV</string>
 
     <!-- Fuel Consumption -->
@@ -143,9 +144,9 @@
     <string name="yard">Yard</string>
     <string name="feet">Pied</string>
     <string name="inch">Pouce</string>
-    <string name="nautical_mile">Mille Marin</string>
+    <string name="nautical_mile">Mille marin</string>
     <string name="furlong">Stade</string>
-    <string name="light_year">Année Lumière</string>
+    <string name="light_year">Année lumière</string>
 
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogramme</string>
@@ -163,8 +164,8 @@
     <string name="watt">Watt</string>
     <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Mégawatt</string>
-    <string name="hp">Cheval Vapeur (métrique)</string>
-    <string name="hp_uk">Cheval Vapeur (mécanique)</string>
+    <string name="hp">Cheval vapeur (métrique)</string>
+    <string name="hp_uk">Cheval vapeur (mécanique)</string>
     <string name="ft_lbf_s">ft-lbf/seconde</string>
     <string name="calorie_s">Calorie/seconde</string>
     <string name="btu_s">BTU/seconde</string>
@@ -178,7 +179,7 @@
     <string name="psi">PSI</string>
     <string name="psf">PSF</string>
     <string name="atmosphere">Atmosphère</string>
-    <string name="technical_atmosphere">Atm. Technique</string>
+    <string name="technical_atmosphere">Atm. technique</string>
     <string name="mmhg">mmHg</string>
     <string name="torr">Torr</string>
 
@@ -218,23 +219,23 @@
     <string name="teaspoon">Cuillère à café</string>
     <string name="tablespoon">Cuillerée à soupe</string>
     <string name="cup">Tasse</string>
-    <string name="fluid_ounce">Once Liquide (US)</string>
+    <string name="fluid_ounce">Once liquide (US)</string>
     <string name="quart">Quart (US)</string>
     <string name="pint">Pinte (US)</string>
     <string name="gallon">Gallon (US)</string>
     <string name="barrel">Baril (US)</string>
-    <string name="fluid_ounce_uk">Once Liquide (UK)</string>
+    <string name="fluid_ounce_uk">Once liquide (UK)</string>
     <string name="quart_uk">Quart (UK)</string>
     <string name="pint_uk">Pint (UK)</string>
     <string name="gallon_uk">Gallon (UK)</string>
     <string name="barrel_uk">Baril (UK)</string>
     <string name="millilitre">Millilitre</string>
     <string name="litre">Litre</string>
-    <string name="cubic_cm">Cm Cube</string>
-    <string name="cubic_m">Mètre Cube</string>
-    <string name="cubic_inch">Inch Cube</string>
-    <string name="cubic_foot">Foot Cube</string>
-    <string name="cubic_yard">Yard Cube</string>
+    <string name="cubic_cm">Cm cube</string>
+    <string name="cubic_m">Mètre cube</string>
+    <string name="cubic_inch">Inch cube</string>
+    <string name="cubic_foot">Foot cube</string>
+    <string name="cubic_yard">Yard cube</string>
 
     <!-- Currency -->
     <string name="aud">Dollar Australien</string>
