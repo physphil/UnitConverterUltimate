@@ -50,7 +50,11 @@ When building the project yourself, make sure to use the `base` build variant.  
 
 Contributing
 ------------
-Contributions are more than welcome and very appreciated!  Please create all Pull Requests against the 'develop' branch.  If you're interested in helping to translate the app into your language, please [e-mail me](mailto:physphil@gmail.com) or create a Pull Request!
+Contributions are more than welcome and very appreciated!  Please create all Pull Requests against the `develop` branch.  
+
+Translating
+-----------
+If you're interested in helping to translate the app into your language, please [e-mail me](mailto:physphil@gmail.com) or create a Pull Request! All strings requiring translation are located in the `strings.xml` file.
 
 Developed by
 ------------

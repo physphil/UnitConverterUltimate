@@ -284,4 +284,10 @@
     <string name="usd">American Dollar</string>
     <string name="zar">South African Rand</string>
 
+    <!-- All strings below this line require translation to at least one of the supported languages -->
+    <!-- Once translated, please move above this line in the corresponding `strings.xml` file -->
+    <string name="title_activity_acknowledgements">Acknowledgements</string>
+    <string name="prefs_title_acknowledgements">Acknowledgements</string>
+    <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
+
 </resources>
