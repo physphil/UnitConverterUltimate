@@ -20,6 +20,7 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Adományozás?</string>
     <string name="title_activity_settings">Beállítások</string>
+    <string name="title_activity_acknowledgements">Köszönetnyilvánítás</string>
     <string name="text_from">Ebből</string>
     <string name="text_to">Ebbe</string>
     <string name="default_value">1</string>
@@ -46,9 +47,9 @@
     <string name="prefs_title_formatting">Formátum</string>
     <string name="prefs_summary_number_decimals">Az átváltott értékben mutatott helyiértékek számának beállítása</string>
     <string name="prefs_title_number_decimals">Helyiértékek száma</string>
-    <string name="prefs_summary_group_separator">Az átváltott értékben mutatott csoportelválasztó jel beállítása</string>
+    <string name="prefs_summary_group_separator">Az átváltott értékben mutatott ezres elválasztó jel beállítása</string>
     <string name="prefs_title_group_separator">Ezres elválasztó</string>
-    <string name="prefs_summary_decimal_separator">Az átváltott értékben mutatott tizedesvessző beállítása</string>
+    <string name="prefs_summary_decimal_separator">Az átváltott értékben mutatott tizedes elválasztó beállítása</string>
     <string name="prefs_title_decimal_separator">Tizedes elválasztó</string>
     <string name="prefs_title_visual">Megjelenés</string>
     <string name="prefs_title_light_theme">Világos téma használata</string>
@@ -62,11 +63,13 @@
     <string name="prefs_title_rate">Értékelés Google Playen</string>
     <string name="prefs_summary_rate">Szívesen használod ezt az alkalmazást? Értékeld 5 csillagra!</string>
     <string name="prefs_title_donate">Adományozás</string>
-    <string name="prefs_summary_donate">Támogasd a fejlesztést és varázsolj mosolyt az arcomra :)</string>
+    <string name="prefs_summary_donate">Támogasd a fejlesztést, és varázsolj mosolyt az arcomra :)</string>
     <string name="prefs_title_open_issue">Hibát találtál?</string>
     <string name="prefs_summary_open_issue">Nyiss egy hibajelentést a GitHubon.</string>
     <string name="prefs_title_privacy_policy">Adatvédelmi irányelvek</string>
-    <string name="prefs_summary_privacy_policy">Az adatvédelem fontos.</string>
+    <string name="prefs_summary_privacy_policy">Mert nekem is fontos az adataid védelme.</string>
+    <string name="prefs_title_acknowledgements">Köszönetnyilvánítás</string>
+    <string name="prefs_summary_acknowledgements">Hatalmas köszönettel tartozom ezeknek a nagyszerű embereknek!</string>
 
     <string name="dialog_btn_got_it">Rendben</string>
     <string name="dialog_title_help">Súgó</string>
