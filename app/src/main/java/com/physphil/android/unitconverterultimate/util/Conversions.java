@@ -153,7 +153,7 @@ public final class Conversions {
             units.add(new Unit(ILS, R.string.ils, 1 / map.get(Country.ILS), map.get(Country.ILS)));
             units.add(new Unit(JPY, R.string.jpy, 1 / map.get(Country.JPY), map.get(Country.JPY)));
             units.add(new Unit(KRW, R.string.krw, 1 / map.get(Country.KRW), map.get(Country.KRW)));
-            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), MYR));
+            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), map.get(Country.MYR)));
             units.add(new Unit(MXN, R.string.mxn, 1 / map.get(Country.MXN), map.get(Country.MXN)));
             units.add(new Unit(NZD, R.string.nzd, 1 / map.get(Country.NZD), map.get(Country.NZD)));
             units.add(new Unit(NOK, R.string.nok, 1 / map.get(Country.NOK), map.get(Country.NOK)));
