@@ -203,6 +203,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         mPresenter.onGetUnitsToDisplay(mConversionId);
+
+        // Takes care of restoring the ViewState after a screen rotation
+        if(mState!=null) {
+            if (mState.getFromId() < 0 || mState.getToId() < 0) {
+                // Empty initial state, set state from default checked buttons
+                mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
+                mState.setToId(mGrpTo.getCheckedRadioButtonId());
+            } else {
+                // Overwrite default checked state with last saved state
+                mGrpFrom.check(mState.getFromId());
+                mGrpTo.check(mState.getToId());
+            }
+
+            mTxtUnitFrom.setText(getCheckedUnit(mGrpFrom).getLabelResource());
+            mTxtUnitTo.setText(getCheckedUnit(mGrpTo).getLabelResource());
+        }
     }
 
     @Override
