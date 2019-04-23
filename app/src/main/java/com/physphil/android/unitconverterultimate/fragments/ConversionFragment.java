@@ -183,6 +183,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onResume() {
         super.onResume();
         mTxtValue.addTextChangedListener(mTextWatcher);
+        mGrpFrom.setOnCheckedChangeListener(this);
+        mGrpTo.setOnCheckedChangeListener(this);
     }
 
     @Override
