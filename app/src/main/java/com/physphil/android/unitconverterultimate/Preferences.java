@@ -19,7 +19,7 @@ package com.physphil.android.unitconverterultimate;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;

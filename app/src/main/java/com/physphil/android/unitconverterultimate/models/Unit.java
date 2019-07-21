@@ -16,7 +16,7 @@
 
 package com.physphil.android.unitconverterultimate.models;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 /**
  * A unit that can be converted to/from
