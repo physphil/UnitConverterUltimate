@@ -100,6 +100,7 @@
     <string name="sq_foot">Quadratfuß</string>
     <string name="sq_inch">Quadratzoll</string>
     <string name="acre">Acre</string>
+    <string name="are">Ar</string>
 
     <!-- Digital Storage -->
     <string name="bit">Bit</string>

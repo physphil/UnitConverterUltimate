@@ -107,6 +107,7 @@ public final class Conversions {
         units.add(new Unit(SQ_FOOT, R.string.sq_foot, 0.09290304, 10.7639104167097223));
         units.add(new Unit(SQ_INCH, R.string.sq_inch, 0.00064516, 1550.00310000620001));
         units.add(new Unit(ACRE, R.string.acre, 4046.8564224, 0.000247105381467165342));
+        units.add(new Unit(ARE, R.string.are, 100.0, 0.01));
         addConversion(Conversion.AREA, new Conversion(Conversion.AREA, R.string.area, units));
     }
 
