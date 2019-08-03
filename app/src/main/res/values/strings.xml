@@ -268,7 +268,6 @@
     <string name="idr">Indonesian Rupiah</string>
     <string name="ils">Israeli Shekel</string>
     <string name="inr">Indian Rupee</string>
-    <string name="isk">Icelandic Krona</string>
     <string name="jpy">Japanese Yen</string>
     <string name="krw">Korean Won</string>
     <string name="mxn">Mexican Peso</string>
@@ -291,5 +290,6 @@
     <string name="title_activity_acknowledgements">Acknowledgements</string>
     <string name="prefs_title_acknowledgements">Acknowledgements</string>
     <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
+    <string name="isk">Icelandic Krona</string>
 
 </resources>
