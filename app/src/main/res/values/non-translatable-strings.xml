@@ -18,7 +18,7 @@
 <resources>
     <string name="acknowledgements" translatable="false">Thanks so much to <b>jbeguna04</b> for the sweet new logo!
         \n\nBig thanks to <b>pR0Ps</b> for helping me get the app up and running on F-Droid!
-        \n\nAnd many thanks to the following contributors for help with translations:
+        \n\nAnd many thanks to the following contributors for their much appreciated help:
         \n\t\t- markusgrosser
         \n\t\t- kmartins
         \n\t\t- ozantopal
@@ -36,5 +36,6 @@
         \n\t\t- ozantopal
         \n\t\t- manuel_a_santos
         \n\t\t- maxsmithmo3
+        \n\t\t- nettnikl
     </string>
 </resources>
