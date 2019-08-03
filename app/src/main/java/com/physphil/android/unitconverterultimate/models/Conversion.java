@@ -16,7 +16,7 @@
 
 package com.physphil.android.unitconverterultimate.models;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import java.util.List;
 

@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
     android:id="@+id/unit_list_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -46,4 +46,4 @@
 
     </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
