@@ -91,7 +91,7 @@
     <string name="language_turkish" translatable="false">Turks</string>
 
     <!-- Conversions -->
-    <string name="oppervlakte">Area</string>
+    <string name="area">Oppervlakte</string>
     <string name="cooking">Koken</string>
     <string name="currency">Valuta</string>
     <string name="storage">Digitale opslag</string>
