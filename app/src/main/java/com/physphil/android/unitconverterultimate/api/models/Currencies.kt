@@ -49,6 +49,7 @@ enum class Country {
     IDR,
     ILS,
     INR,
+    ISK,
     JPY,
     KRW,
     MXN,
