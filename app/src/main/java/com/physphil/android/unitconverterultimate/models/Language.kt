@@ -21,6 +21,7 @@ import com.physphil.android.unitconverterultimate.R
 // ISO-639 Language codes
 private const val LANG_DEFAULT = "def"
 private const val LANG_CROATIAN = "hr"
+private const val LANG_DUTCH = "nl"
 private const val LANG_ENGLISH = "en"
 private const val LANG_FARSI = "fa"
 private const val LANG_FRENCH = "fr"
@@ -28,6 +29,7 @@ private const val LANG_GERMAN = "de"
 private const val LANG_HUNGARIAN = "hu"
 private const val LANG_ITALIAN = "it"
 private const val LANG_JAPANESE = "ja"
+private const val LANG_NORWEGIAN = "nb"
 private const val LANG_PORTUGUESE_BR = "pt_BR"
 private const val LANG_RUSSIAN = "ru"
 private const val LANG_SPANISH = "es"
@@ -40,6 +42,7 @@ private const val LANG_TURKISH = "tr"
 enum class Language(val id: String) {
     DEFAULT(LANG_DEFAULT),
     CROATIAN(LANG_CROATIAN),
+    DUTCH(LANG_DUTCH),
     ENGLISH(LANG_ENGLISH),
     FARSI(LANG_FARSI),
     FRENCH(LANG_FRENCH),
@@ -47,6 +50,7 @@ enum class Language(val id: String) {
     HUNGARIAN(LANG_HUNGARIAN),
     ITALIAN(LANG_ITALIAN),
     JAPANESE(LANG_JAPANESE),
+    NORWEGIAN(LANG_NORWEGIAN),
     PORTUGUESE_BR(LANG_PORTUGUESE_BR),
     RUSSIAN(LANG_RUSSIAN),
     SPANISH(LANG_SPANISH),
@@ -54,6 +58,7 @@ enum class Language(val id: String) {
 
     val displayStringId = when (id) {
         LANG_CROATIAN -> R.string.language_croatian
+        LANG_DUTCH -> R.string.language_dutch
         LANG_ENGLISH -> R.string.language_english
         LANG_FARSI -> R.string.language_farsi
         LANG_FRENCH -> R.string.language_french
@@ -61,6 +66,7 @@ enum class Language(val id: String) {
         LANG_HUNGARIAN -> R.string.language_hungarian
         LANG_ITALIAN -> R.string.language_italian
         LANG_JAPANESE -> R.string.language_japanese
+        LANG_NORWEGIAN -> R.string.language_norwegian
         LANG_PORTUGUESE_BR -> R.string.language_portuguese_brazil
         LANG_RUSSIAN -> R.string.language_russian
         LANG_SPANISH -> R.string.language_spanish
