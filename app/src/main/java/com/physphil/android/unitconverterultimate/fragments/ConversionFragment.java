@@ -205,7 +205,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mPresenter.onGetUnitsToDisplay(mConversionId);
 
         // Takes care of restoring the ViewState after a screen rotation
-        if(mState!=null) {
+        if (mState != null) {
             if (mState.getFromId() < 0 || mState.getToId() < 0) {
                 // Empty initial state, set state from default checked buttons
                 mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
@@ -464,20 +464,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
     // Radio Group checked change listener
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        Unit unit = getCheckedUnit(group);
-        switch (group.getId()) {
-            case R.id.radio_group_from:
-                mState.setFromId(checkedId);
-                mTxtUnitFrom.setText(unit.getLabelResource());
-                break;
+        if (mState != null) {
+            Unit unit = getCheckedUnit(group);
+            switch (group.getId()) {
+                case R.id.radio_group_from:
+                    mState.setFromId(checkedId);
+                    mTxtUnitFrom.setText(unit.getLabelResource());
+                    break;
 
-            case R.id.radio_group_to:
-                mState.setToId(checkedId);
-                mTxtUnitTo.setText(unit.getLabelResource());
-                break;
+                case R.id.radio_group_to:
+                    mState.setToId(checkedId);
+                    mTxtUnitTo.setText(unit.getLabelResource());
+                    break;
+            }
+
+            convert();
         }
-
-        convert();
     }
 
     // Change in shared preferences
