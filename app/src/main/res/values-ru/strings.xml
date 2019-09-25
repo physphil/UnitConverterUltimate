@@ -65,7 +65,7 @@
     <string name="prefs_summary_donate">Внесите пожертвование, чтобы поддержать развитие программы</string>
     <string name="prefs_title_open_issue">Нашли ошибку?</string>
     <string name="prefs_summary_open_issue">Сообщите о ней на GitHub</string>
-    <string name="prefs_title_privacy_policy">политика конфиденциальности</string>
+    <string name="prefs_title_privacy_policy">Политика конфиденциальности</string>
     <string name="prefs_summary_privacy_policy">Ваша конфиденциальность важна.</string>
 
     <string name="dialog_btn_got_it">Закрыть</string>
@@ -268,5 +268,8 @@
     <string name="lira">Турецкая лира</string>
     <string name="usd">Доллар США</string>
     <string name="zar">Южноафриканский рэнд</string>
+    <string name="prefs_title_acknowledgements">Благодарность</string>
+    <string name="title_activity_acknowledgements">Благодарности</string>
+    <string name="prefs_summary_acknowledgements">Я должен сказать большое спасибо всем этим замечательным людям!</string>
 
 </resources>
