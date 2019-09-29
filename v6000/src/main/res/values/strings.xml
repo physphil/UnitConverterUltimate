@@ -13,4 +13,27 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Sq Kilometre</string>
+    <string name="sq_metre">Sq Metre</string>
+    <string name="sq_centimetre">Sq Centimetre</string>
+    <string name="hectare">Hectare</string>
+    <string name="sq_mile">Sq Mile</string>
+    <string name="sq_yard">Sq Yard</string>
+    <string name="sq_foot">Sq Foot</string>
+    <string name="sq_inch">Sq Inch</string>
+    <string name="acre">Acre</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
 </resources>
