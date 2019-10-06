@@ -8,11 +8,21 @@ sealed class Unit {
     abstract val displayStringResId: Int
 }
 
+/**
+ * A unit that is converted by the standard method of first converting the value to a base unit, and
+ * then to the final requested unit. This is most units, but does not include Temperature and Fuel
+ * Efficiency, for example.
+ */
+sealed class StandardUnit : Unit() {
+    abstract val toStandard: BigDecimal
+    abstract val fromStandard: BigDecimal
+}
+
 sealed class Area(
     override val displayStringResId: Int,
-    val toStandard: BigDecimal,
-    val fromStandard: BigDecimal
-) : Unit() {
+    override val toStandard: BigDecimal,
+    override val fromStandard: BigDecimal
+) : StandardUnit() {
 
     override val conversionType = ConversionType.AREA
 
