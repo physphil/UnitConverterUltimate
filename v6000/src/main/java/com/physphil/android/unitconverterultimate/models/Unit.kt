@@ -14,7 +14,13 @@ sealed class Unit {
  * Efficiency, for example.
  */
 sealed class StandardUnit : Unit() {
+    /**
+     * A [BigDecimal] multiplier to convert a value from its current unit into the base [Unit] for its [ConversionType].
+     */
     abstract val toStandard: BigDecimal
+    /**
+     * A [BigDecimal] multiplier to convert a value into its current unit from the base [Unit] for its [ConversionType].
+     */
     abstract val fromStandard: BigDecimal
 }
 
