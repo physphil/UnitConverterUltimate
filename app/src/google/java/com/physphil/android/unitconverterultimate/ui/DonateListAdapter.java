@@ -34,7 +34,7 @@ import java.util.List;
 public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdapter.ViewHolder> {
 
     private List<Donation> mDonations;
-    private RecyclerViewItemClickListener mListener;
+    private RecyclerViewItemClickListener<Donation> mListener;
 
     public final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView description;

@@ -46,7 +46,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener {
+public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener<Donation> {
 
     private static final int DONATE_REQUEST_CODE = 6996;
 
@@ -161,6 +161,11 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
     }
 
+    private void donate(Donation donation) {
+        // TODO start billing flow with donation
+
+    }
+
     /**
      * Shutdown activity and display user confirmation
      *
@@ -208,7 +213,7 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
 
     // RecyclerView item click listener
     @Override
-    public void onListItemClicked(Object sku, int position) {
-        donate((String) sku);
+    public void onListItemClicked(Donation donation, int position) {
+        donate(donation);
     }
 }

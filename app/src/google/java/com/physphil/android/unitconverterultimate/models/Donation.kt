@@ -16,10 +16,10 @@ data class Donation(
 
         val all: List<String>
             get() = listOf(
-                LARGE_DONATION,
-                MEDIUM_DONATION,
-                SMALL_DONATION,
                 TINY_DONATION,
+                SMALL_DONATION,
+                MEDIUM_DONATION,
+                LARGE_DONATION,
                 INSANE_DONATION
             )
     }
