@@ -13,14 +13,6 @@ import com.physphil.android.unitconverterultimate.ui.DonationListAdapter
 
 class BillingManager : PurchasesUpdatedListener {
 
-    private object ProductId {
-        const val LARGE_DONATION = "donate_large"
-        const val MEDIUM_DONATION = "donate_medium"
-        const val SMALL_DONATION = "donate_small"
-        const val TINY_DONATION = "donate_very_small"
-        const val INSANE_DONATION = "donate_insane"
-    }
-
     interface ConnectionStateListener {
         fun onConnected()
         fun onConnectionError(message: String)
@@ -59,15 +51,8 @@ class BillingManager : PurchasesUpdatedListener {
     }
 
     fun queryDonationOptions(listener: QueryDonationsListener) {
-        val skuList = arrayListOf(
-            ProductId.LARGE_DONATION,
-            ProductId.MEDIUM_DONATION,
-            ProductId.SMALL_DONATION,
-            ProductId.TINY_DONATION,
-            ProductId.INSANE_DONATION
-        )
         val params = SkuDetailsParams.newBuilder().apply {
-            setSkusList(skuList)
+            setSkusList(Donation.all)
             setType(BillingClient.SkuType.INAPP)
         }
         billingClient.querySkuDetailsAsync(params.build()) { result: BillingResult, donations: List<SkuDetails> ->
