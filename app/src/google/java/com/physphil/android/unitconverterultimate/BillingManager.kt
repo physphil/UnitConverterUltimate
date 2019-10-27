@@ -11,7 +11,6 @@ import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.SkuDetails
 import com.android.billingclient.api.SkuDetailsParams
-import com.physphil.android.unitconverterultimate.models.Donation
 
 class BillingManager : PurchasesUpdatedListener {
 
@@ -54,7 +53,7 @@ class BillingManager : PurchasesUpdatedListener {
 
     fun queryDonationOptions(listener: QueryDonationsListener) {
         val params = SkuDetailsParams.newBuilder().apply {
-            setSkusList(Donation.allProductIds)
+            setSkusList(DonationProductIdProvider.all)
             setType(BillingClient.SkuType.INAPP)
         }
         billingClient.querySkuDetailsAsync(params.build()) { result: BillingResult, donations: List<SkuDetails> ->
