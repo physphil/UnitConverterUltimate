@@ -1,26 +1,18 @@
 package com.physphil.android.unitconverterultimate.models
 
-data class Donation(
-    val productId: String,
-    val title: String,
-    val description: String,
-    val price: String,
-    val currencyCode: String
+enum class Donation(
+    val productId: String
 ) {
-    companion object {
-        const val LARGE_DONATION = "donate_large"
-        const val MEDIUM_DONATION = "donate_medium"
-        const val SMALL_DONATION = "donate_small"
-        const val TINY_DONATION = "donate_very_small"
-        const val INSANE_DONATION = "donate_insane"
+    LARGE_DONATION("donate_large"),
+    MEDIUM_DONATION("donate_medium"),
+    SMALL_DONATION("donate_small"),
+    TINY_DONATION("donate_very_small"),
+    INSANE_DONATION("donate_insane");
 
-        val all: List<String>
-            get() = listOf(
-                TINY_DONATION,
-                SMALL_DONATION,
-                MEDIUM_DONATION,
-                LARGE_DONATION,
-                INSANE_DONATION
-            )
+    companion object {
+        val allProductIds: List<String>
+            get() = values().map {
+                it.productId
+            }
     }
 }

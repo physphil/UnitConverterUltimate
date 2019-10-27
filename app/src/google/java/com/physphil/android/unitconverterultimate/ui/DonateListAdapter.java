@@ -22,8 +22,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.billingclient.api.SkuDetails;
 import com.physphil.android.unitconverterultimate.R;
-import com.physphil.android.unitconverterultimate.models.Donation;
 
 import java.util.List;
 
@@ -33,8 +33,8 @@ import java.util.List;
  */
 public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdapter.ViewHolder> {
 
-    private List<Donation> mDonations;
-    private RecyclerViewItemClickListener<Donation> mListener;
+    private List<SkuDetails> mDonations;
+    private RecyclerViewItemClickListener<SkuDetails> mListener;
 
     public final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView description;
@@ -55,7 +55,7 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
         }
     }
 
-    public DonateListAdapter(List<Donation> donations, RecyclerViewItemClickListener listener) {
+    public DonateListAdapter(List<SkuDetails> donations, RecyclerViewItemClickListener<SkuDetails> listener) {
         this.mDonations = donations;
         this.mListener = listener;
     }
@@ -68,7 +68,7 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
 
     @Override
     public void onBindViewHolder(DonateListAdapter.ViewHolder vh, int position) {
-        Donation donation = mDonations.get(position);
+        SkuDetails donation = mDonations.get(position);
         vh.description.setText(donation.getDescription());
         vh.price.setText(donation.getPrice());
     }

@@ -1,8 +1,11 @@
 package com.physphil.android.unitconverterultimate
 
+import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
@@ -51,16 +54,25 @@ class BillingManager : PurchasesUpdatedListener {
 
     fun queryDonationOptions(listener: QueryDonationsListener) {
         val params = SkuDetailsParams.newBuilder().apply {
-            setSkusList(Donation.all)
+            setSkusList(Donation.allProductIds)
             setType(BillingClient.SkuType.INAPP)
         }
         billingClient.querySkuDetailsAsync(params.build()) { result: BillingResult, donations: List<SkuDetails> ->
             if (result.responseCode == BillingClient.BillingResponseCode.OK) {
-                listener.onComplete(QueryDonationsResult.Success(donations.toDomainModels()))
+                listener.onComplete(QueryDonationsResult.Success(donations))
             } else {
                 listener.onComplete(QueryDonationsResult.Error(result.debugMessage))
             }
         }
+    }
+
+    fun donate(activity: Activity, donation: SkuDetails) {
+        val flowParams = BillingFlowParams.newBuilder()
+            .setSkuDetails(donation)
+            .build()
+        val responseCode = billingClient.launchBillingFlow(activity, flowParams)
+        // TODO deal with response code... close if not OK?
+        // TODO add callback for activity to close after donation
     }
 
     // region PurchasesUpdatedListener impl
@@ -68,22 +80,15 @@ class BillingManager : PurchasesUpdatedListener {
         billingResult: BillingResult?,
         purchases: MutableList<Purchase>?
     ) {
-        // TODO
+        // TODO get purchase when user donates
+        Log.d("phil", "On purchases updated")
+        Log.d("phil", "Billing result = $billingResult")
+        Log.d("phil", "purchases = $purchases")
     }
     // endregion
-
-    private fun List<SkuDetails>.toDomainModels(): List<Donation> = map {
-        Donation(
-            productId = it.sku,
-            title = it.title,
-            description = it.description,
-            price = it.price,
-            currencyCode = it.priceCurrencyCode
-        )
-    }
 }
 
 sealed class QueryDonationsResult {
-    data class Success(val donations: List<Donation>) : QueryDonationsResult()
+    data class Success(val donations: List<SkuDetails>) : QueryDonationsResult()
     data class Error(val message: String) : QueryDonationsResult()
 }

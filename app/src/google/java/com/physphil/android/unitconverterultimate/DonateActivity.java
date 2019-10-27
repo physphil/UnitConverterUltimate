@@ -19,13 +19,6 @@ package com.physphil.android.unitconverterultimate;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -35,18 +28,20 @@ import com.physphil.android.unitconverterultimate.iab.IabHelper;
 import com.physphil.android.unitconverterultimate.iab.IabResult;
 import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.iab.Purchase;
-import com.physphil.android.unitconverterultimate.models.Donation;
 import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
 import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener<Donation> {
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener<SkuDetails> {
 
     private static final int DONATE_REQUEST_CODE = 6996;
 
@@ -126,9 +121,10 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     /**
      * Display donation options to user
      */
-    private void displayDonationOptions(List<Donation> donations) {
+    private void displayDonationOptions(List<SkuDetails> donations) {
         mProgressBar.setVisibility(View.GONE);
-        mRecyclerView.setAdapter(new DonateListAdapter(donations, this));
+        DonateListAdapter adapter = new DonateListAdapter(donations, this);
+        mRecyclerView.setAdapter(adapter);
     }
 
     /**
@@ -161,9 +157,9 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
     }
 
-    private void donate(Donation donation) {
-        // TODO start billing flow with donation
-
+    private void donate(SkuDetails donation) {
+        // TODO supply listener to close activity after success/failure
+        billingManager.donate(this, donation);
     }
 
     /**
@@ -213,7 +209,7 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
 
     // RecyclerView item click listener
     @Override
-    public void onListItemClicked(Donation donation, int position) {
+    public void onListItemClicked(SkuDetails donation, int position) {
         donate(donation);
     }
 }
