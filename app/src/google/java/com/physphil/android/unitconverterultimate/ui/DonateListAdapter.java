@@ -23,8 +23,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.physphil.android.unitconverterultimate.R;
-import com.physphil.android.unitconverterultimate.iab.Inventory;
-import com.physphil.android.unitconverterultimate.iab.SkuDetails;
+import com.physphil.android.unitconverterultimate.models.Donation;
+
+import java.util.List;
 
 /**
  * Adapter to hold list of donation options
@@ -32,8 +33,7 @@ import com.physphil.android.unitconverterultimate.iab.SkuDetails;
  */
 public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdapter.ViewHolder> {
 
-    private Inventory mInventory;
-    private String[] mDonationOptions;
+    private List<Donation> mDonations;
     private RecyclerViewItemClickListener mListener;
 
     public final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -50,14 +50,13 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                mListener.onListItemClicked(mDonationOptions[getAdapterPosition()], getAdapterPosition());
+                mListener.onListItemClicked(mDonations.get(getAdapterPosition()), getAdapterPosition());
             }
         }
     }
 
-    public DonateListAdapter(Inventory inventory, String[] donationOptions, RecyclerViewItemClickListener listener) {
-        this.mInventory = inventory;
-        this.mDonationOptions = donationOptions;
+    public DonateListAdapter(List<Donation> donations, RecyclerViewItemClickListener listener) {
+        this.mDonations = donations;
         this.mListener = listener;
     }
 
@@ -69,13 +68,13 @@ public final class DonateListAdapter extends RecyclerView.Adapter<DonateListAdap
 
     @Override
     public void onBindViewHolder(DonateListAdapter.ViewHolder vh, int position) {
-        SkuDetails details = mInventory.getSkuDetails(mDonationOptions[position]);
-        vh.description.setText(details.getDescription());
-        vh.price.setText(details.getPrice());
+        Donation donation = mDonations.get(position);
+        vh.description.setText(donation.getDescription());
+        vh.price.setText(donation.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return mDonationOptions.length;
+        return mDonations.size();
     }
 }

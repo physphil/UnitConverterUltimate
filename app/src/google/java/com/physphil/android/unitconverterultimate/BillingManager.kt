@@ -9,7 +9,6 @@ import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.SkuDetails
 import com.android.billingclient.api.SkuDetailsParams
 import com.physphil.android.unitconverterultimate.models.Donation
-import com.physphil.android.unitconverterultimate.ui.DonationListAdapter
 
 class BillingManager : PurchasesUpdatedListener {
 

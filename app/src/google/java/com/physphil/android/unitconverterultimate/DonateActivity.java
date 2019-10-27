@@ -127,12 +127,8 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
      * Display donation options to user
      */
     private void displayDonationOptions(List<Donation> donations) {
-        // TODO display in adapter
-    }
-
-    private void displayDonationOptions() {
         mProgressBar.setVisibility(View.GONE);
-        mRecyclerView.setAdapter(new DonateListAdapter(mInventory, getResources().getStringArray(R.array.donation_options), this));
+        mRecyclerView.setAdapter(new DonateListAdapter(donations, this));
     }
 
     /**
