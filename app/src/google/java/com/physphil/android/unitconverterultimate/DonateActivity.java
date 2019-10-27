@@ -22,16 +22,24 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.billingclient.api.SkuDetails;
 import com.physphil.android.unitconverterultimate.iab.IabHelper;
 import com.physphil.android.unitconverterultimate.iab.IabResult;
 import com.physphil.android.unitconverterultimate.iab.Inventory;
 import com.physphil.android.unitconverterultimate.iab.Purchase;
+import com.physphil.android.unitconverterultimate.models.Donation;
 import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
 import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +51,7 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     private static final int DONATE_REQUEST_CODE = 6996;
 
     private List<String> mDonationOptions;
+    private BillingManager billingManager;
     private IabHelper mHelper;
     private Inventory mInventory;
     private RecyclerView mRecyclerView;
@@ -72,11 +81,9 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     public void onDestroy() {
         super.onDestroy();
 
-        // Shut down IAB
-        if (mHelper != null) {
-            mHelper.dispose();
+        if (billingManager != null) {
+            billingManager.disconnect();
         }
-        mHelper = null;
     }
 
     @Override
@@ -88,50 +95,41 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     }
 
     private void setupBilling() {
-        mDonationOptions = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.donation_options)));
-
-        // Setup google play billing
-        StringBuilder sb = new StringBuilder().append(getString(R.string.license_key_p1))
-                .append(getString(R.string.license_key_p2))
-                .append(getString(R.string.license_key_p3));
-
-        mHelper = new IabHelper(this, sb.toString());
-        try {
-            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-                @Override
-                public void onIabSetupFinished(IabResult result) {
-                    if (result.isSuccess()) {
-                        // Try to get available inventory
-                        mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener() {
-                            @Override
-                            public void onQueryInventoryFinished(IabResult result, Inventory inv) {
-                                if (result.isSuccess()) {
-                                    mInventory = inv;
-                                    consumeExistingPurchases();
-                                    displayDonationOptions();
-                                }
-                                else {
-                                    shutdown(false);
-                                }
-                            }
-                        });
+        billingManager = new BillingManager();
+        billingManager.connect(this, new BillingManager.ConnectionStateListener() {
+            @Override
+            public void onConnected() {
+                billingManager.queryDonationOptions(new BillingManager.QueryDonationsListener() {
+                    @Override
+                    public void onComplete(@NotNull QueryDonationsResult result) {
+                        if (result instanceof QueryDonationsResult.Success) {
+                            displayDonationOptions(((QueryDonationsResult.Success) result).getDonations());
+                        } else {
+                            shutdown(false);
+                        }
                     }
-                    else {
-                        shutdown(false);
-                    }
-                }
-            });
-        }
-        catch (Exception ex) {
-            Toast.makeText(this, R.string.toast_error_billing_general, Toast.LENGTH_SHORT).show();
-            mHelper = null;
-            finish();
-        }
+                });
+            }
+
+            @Override
+            public void onConnectionError(@NotNull String message) {
+                shutdown(false);
+            }
+
+            @Override
+            public void onDisconnected() {
+                shutdown(false);
+            }
+        });
     }
 
     /**
      * Display donation options to user
      */
+    private void displayDonationOptions(List<Donation> donations) {
+        // TODO display in adapter
+    }
+
     private void displayDonationOptions() {
         mProgressBar.setVisibility(View.GONE);
         mRecyclerView.setAdapter(new DonateListAdapter(mInventory, getResources().getStringArray(R.array.donation_options), this));
