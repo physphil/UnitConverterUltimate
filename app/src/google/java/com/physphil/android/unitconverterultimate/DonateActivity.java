@@ -16,26 +16,19 @@
 
 package com.physphil.android.unitconverterultimate;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.billingclient.api.SkuDetails;
-import com.physphil.android.unitconverterultimate.iab.IabHelper;
-import com.physphil.android.unitconverterultimate.iab.IabResult;
-import com.physphil.android.unitconverterultimate.iab.Inventory;
-import com.physphil.android.unitconverterultimate.iab.Purchase;
 import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
 import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,19 +36,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener<SkuDetails> {
 
-    private static final int DONATE_REQUEST_CODE = 6996;
-
-    private List<String> mDonationOptions;
     private BillingManager billingManager;
-    private IabHelper mHelper;
-    private Inventory mInventory;
     private RecyclerView mRecyclerView;
     private ProgressBar mProgressBar;
-    private String mPurchasePayload;
-
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, DonateActivity.class));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,14 +61,6 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
 
         if (billingManager != null) {
             billingManager.disconnect();
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
-            // Not related to in-app billing, handle normally
-            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -127,39 +102,25 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         mRecyclerView.setAdapter(adapter);
     }
 
-    /**
-     * Consume any existing purchases
-     */
-    private void consumeExistingPurchases() {
-        List<Purchase> purchases = new ArrayList<Purchase>();
-
-        // Check each sku, consume if owned
-        for (String sku : mDonationOptions) {
-            Purchase p = mInventory.getPurchase(sku);
-            if (p != null) {
-                purchases.add(p);
-            }
-        }
-
-        mHelper.consumeAsync(purchases, new IabHelper.OnConsumeMultiFinishedListener() {
-            @Override
-            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results) {}
-        });
-    }
-
-    /**
-     * Start Google Play billing flow, with specified product id (sku)
-     *
-     * @param productId product id of donation
-     */
-    private void donate(String productId) {
-        mPurchasePayload = UUID.randomUUID().toString();
-        mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
-    }
-
     private void donate(SkuDetails donation) {
-        // TODO supply listener to close activity after success/failure
-        billingManager.donate(this, donation);
+        mProgressBar.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.GONE);
+        billingManager.donate(this, donation, new BillingManager.DonationResultListener() {
+            @Override
+            public void onDonationSuccess() {
+                shutdown(true);
+            }
+
+            @Override
+            public void onDonationFailed(@Nullable String message) {
+                shutdown(false);
+            }
+
+            @Override
+            public void onUserCanceled() {
+                finish();
+            }
+        });
     }
 
     /**
@@ -176,36 +137,6 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         }
         finish();
     }
-
-    // Listener called when purchase has completed
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
-        @Override
-        public void onIabPurchaseFinished(IabResult result, Purchase info) {
-
-            if (result.isFailure()) {
-                switch (result.getResponse()) {
-                    case IabHelper.IABHELPER_USER_CANCELLED:
-                        break;
-
-                    default:
-                        shutdown(false);
-                        break;
-                }
-            }
-            else {
-                // Consume purchase so it can be done again and thank user
-                mHelper.consumeAsync(info, mConsumeFinishedListener);
-            }
-        }
-    };
-
-    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
-        @Override
-        public void onConsumeFinished(Purchase purchase, IabResult result) {
-            // Purchase is successful, thank user and shutdown activity
-            shutdown(true);
-        }
-    };
 
     // RecyclerView item click listener
     @Override
