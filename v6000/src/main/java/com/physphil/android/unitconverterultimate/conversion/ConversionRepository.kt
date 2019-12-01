@@ -24,8 +24,8 @@ class ConversionRepository {
 
     private fun BigDecimal.convertTemperature(initial: Temperature, final: Temperature): BigDecimal =
         when (final) {
-            Temperature.Celsius -> toCelsius(initial)
-            Temperature.Fahrenheit -> toFahrenheit(initial)
+            Temperature.Celsius -> this.toCelsius(initial)
+            Temperature.Fahrenheit -> this.toFahrenheit(initial)
             Temperature.Kelvin -> TODO()
             Temperature.Rankine -> TODO()
             Temperature.Delisle -> TODO()
