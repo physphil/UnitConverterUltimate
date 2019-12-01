@@ -36,4 +36,7 @@
     <string name="romer">Rømer</string>
     <string name="gas_mark">Gas Mark</string>
 
+    <!-- New strings! -->
+    <string name="value_hint">Enter a value to convert</string>
+
 </resources>

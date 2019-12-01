@@ -8,11 +8,27 @@ sealed class Unit {
     abstract val displayStringResId: Int
 }
 
+/**
+ * A unit that is converted by the standard method of first converting the value to a base unit, and
+ * then to the final requested unit. This is most units, but does not include Temperature and Fuel
+ * Efficiency, for example.
+ */
+interface StandardUnit {
+    /**
+     * A [BigDecimal] multiplier to convert a value from its current unit into the base [Unit] for its [ConversionType].
+     */
+    val toStandard: BigDecimal
+    /**
+     * A [BigDecimal] multiplier to convert a value into its current unit from the base [Unit] for its [ConversionType].
+     */
+    val fromStandard: BigDecimal
+}
+
 sealed class Area(
     override val displayStringResId: Int,
-    val toStandard: BigDecimal,
-    val fromStandard: BigDecimal
-) : Unit() {
+    override val toStandard: BigDecimal,
+    override val fromStandard: BigDecimal
+) : Unit(), StandardUnit {
 
     override val conversionType = ConversionType.AREA
 
@@ -38,14 +54,14 @@ sealed class Area(
         displayStringResId = R.string.hectare,
         toStandard = BigDecimal(10000),
         fromStandard = BigDecimal("0.0001")
-    ) 
-    
+    )
+
     object SqMile : Area(
         displayStringResId = R.string.sq_mile,
         toStandard = BigDecimal("2589988.110336"),
         fromStandard = BigDecimal("0.000000386102158542445847")
     )
-    
+
     object SqYard : Area(
         displayStringResId = R.string.sq_yard,
         toStandard = BigDecimal("0.83612736"),
@@ -69,6 +85,21 @@ sealed class Area(
         toStandard = BigDecimal("4046.8564224"),
         fromStandard = BigDecimal("0.000247105381467165342")
     )
+
+    companion object {
+        val all: List<Area>
+            get() = listOf(
+                SqKilometre,
+                SqMetre,
+                SqCentimetre,
+                Hectare,
+                SqMile,
+                SqYard,
+                SqFoot,
+                SqInch,
+                Acre
+            )
+    }
 }
 
 sealed class Temperature(override val displayStringResId: Int) : Unit() {

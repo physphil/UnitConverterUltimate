@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.physphil.android.unitconverterultimate.ui.home.HomeFragment"
+        android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_conversion" />
 
     <fragment
         android:id="@+id/nav_gallery"

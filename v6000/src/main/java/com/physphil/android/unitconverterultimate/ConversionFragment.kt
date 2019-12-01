@@ -1,0 +1,87 @@
+package com.physphil.android.unitconverterultimate
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.RadioButton
+import androidx.core.view.get
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
+import com.physphil.android.unitconverterultimate.models.ConversionType
+import kotlinx.android.synthetic.main.fragment_conversion.*
+import java.math.BigDecimal
+
+class ConversionFragment : Fragment() {
+
+    private lateinit var conversionViewModel: ConversionViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_conversion, container, false)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        val factory = ConversionViewModel.Factory(ConversionType.AREA, ConversionRepository())
+        conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
+        conversionViewModel.init(this)
+        initViewListeners()
+    }
+
+    private fun initViewListeners() {
+        valueTextView.doOnTextChanged { text, _, _, _ ->
+            val input = when {
+                text.isNullOrEmpty() -> BigDecimal.ZERO
+                else -> BigDecimal(text.toString())
+            }
+            conversionViewModel.updateValue(input)
+        }
+
+        initialRadioGroupView.setOnCheckedChangeListener { group, checkedId ->
+            conversionViewModel.updateInitialIndex(checkedId)
+        }
+
+        finalRadioGroupView.setOnCheckedChangeListener { _, checkedId ->
+            conversionViewModel.updateFinalIndex(checkedId)
+        }
+    }
+
+    // FIXME: move to View class
+    private fun populateViewState(state: ConversionViewModel.State) {
+        state.units.forEachIndexed { index, unit  ->
+            val initialButton = RadioButton(this.context).apply {
+                id = index
+                text = getString(unit.displayStringResId)
+            }
+            initialRadioGroupView.addView(initialButton)
+
+            val finalButton = RadioButton(this.context).apply {
+                id = index
+                text = getString(unit.displayStringResId)
+            }
+            finalRadioGroupView.addView(finalButton)
+        }
+
+        initialRadioGroupView.check(initialRadioGroupView[state.initialIndex].id)
+        finalRadioGroupView.check(finalRadioGroupView[state.finalIndex].id)
+        valueTextView.setText(state.value.toPlainString())
+    }
+
+    private fun ConversionViewModel.init(lifecycleOwner: LifecycleOwner) {
+        viewState.observe(lifecycleOwner, Observer {
+            populateViewState(it)
+        })
+
+        resultLiveData.observe(lifecycleOwner, Observer {
+            resultTextView.text = it.toPlainString()
+        })
+    }
+}
