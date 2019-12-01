@@ -6,10 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
 import com.physphil.android.unitconverterultimate.models.Area
+import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
-class ConversionViewModel(private val repo: ConversionRepository) : ViewModel() {
+class ConversionViewModel(
+    conversionType: ConversionType,
+    private val repo: ConversionRepository
+) : ViewModel() {
 
     private val _viewState = MutableLiveData<State>()
     val viewState: LiveData<State> = _viewState
@@ -21,21 +25,10 @@ class ConversionViewModel(private val repo: ConversionRepository) : ViewModel() 
     private var result: BigDecimal = BigDecimal.ZERO
     private var initialIndex: Int = 0
     private var finalIndex: Int = 1
-    // FIXME: make this generic somehow to work with repo methods? Or make repo methods generic?
-    private val units: List<Area> = listOf(
-        Area.SqKilometre,
-        Area.SqMetre,
-        Area.SqCentimetre,
-        Area.Hectare,
-        Area.SqMile,
-        Area.SqYard,
-        Area.SqFoot,
-        Area.SqInch,
-        Area.Acre
-    )
-    private val initialUnit: Area
+    private val units = conversionType.units
+    private val initialUnit: Unit
         get() = units[initialIndex]
-    private val finalUnit: Area
+    private val finalUnit: Unit
         get() = units[finalIndex]
 
     init {
@@ -67,12 +60,23 @@ class ConversionViewModel(private val repo: ConversionRepository) : ViewModel() 
         _resultLiveData.postValue(result)
     }
 
-    class Factory(private val conversionRepository: ConversionRepository) :
+    private val ConversionType.units: List<Unit>
+        get() = when (this) {
+            ConversionType.AREA -> Area.all
+            ConversionType.CURRENCY -> TODO()
+            ConversionType.MASS -> TODO()
+            ConversionType.TEMPERATURE -> TODO()
+        }
+
+    class Factory(
+        private val conversionType: ConversionType,
+        private val conversionRepository: ConversionRepository
+    ) :
         ViewModelProvider.Factory {
 
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(ConversionViewModel::class.java)) {
-                return ConversionViewModel(conversionRepository) as T
+                return ConversionViewModel(conversionType, conversionRepository) as T
             }
 
             throw IllegalArgumentException("Cannot instantiate ViewModel class with those arguments")

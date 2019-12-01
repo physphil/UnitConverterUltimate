@@ -12,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
+import com.physphil.android.unitconverterultimate.models.ConversionType
 import kotlinx.android.synthetic.main.fragment_conversion.*
 import java.math.BigDecimal
 
@@ -29,7 +30,7 @@ class ConversionFragment : Fragment() {
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        val factory = ConversionViewModel.Factory(ConversionRepository())
+        val factory = ConversionViewModel.Factory(ConversionType.AREA, ConversionRepository())
         conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
         conversionViewModel.init(this)
         initViewListeners()
