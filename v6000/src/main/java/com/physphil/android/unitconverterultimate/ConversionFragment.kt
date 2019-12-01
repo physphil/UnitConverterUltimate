@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.core.view.get
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
 import kotlinx.android.synthetic.main.fragment_conversion.*
+import java.math.BigDecimal
 
 class ConversionFragment : Fragment() {
 
@@ -28,25 +31,56 @@ class ConversionFragment : Fragment() {
         super.onViewStateRestored(savedInstanceState)
         val factory = ConversionViewModel.Factory(ConversionRepository())
         conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
-        conversionViewModel.viewState.observe(this, Observer {
-            populateViewState(it)
-        })
+        conversionViewModel.init(this)
+        initViewListeners()
+    }
+
+    private fun initViewListeners() {
+        valueTextView.doOnTextChanged { text, _, _, _ ->
+            val input = when {
+                text.isNullOrEmpty() -> BigDecimal.ZERO
+                else -> BigDecimal(text.toString())
+            }
+            conversionViewModel.updateValue(input)
+        }
+
+        initialRadioGroupView.setOnCheckedChangeListener { group, checkedId ->
+            conversionViewModel.updateInitialIndex(checkedId)
+        }
+
+        finalRadioGroupView.setOnCheckedChangeListener { _, checkedId ->
+            conversionViewModel.updateFinalIndex(checkedId)
+        }
     }
 
     // FIXME: move to View class
     private fun populateViewState(state: ConversionViewModel.State) {
-        state.units.forEach { unit ->
-            val fromButton = RadioButton(this.context).apply {
+        state.units.forEachIndexed { index, unit  ->
+            val initialButton = RadioButton(this.context).apply {
+                id = index
                 text = getString(unit.displayStringResId)
             }
-            fromGroup.addView(fromButton)
+            initialRadioGroupView.addView(initialButton)
 
-            val toButton = RadioButton(this.context).apply {
+            val finalButton = RadioButton(this.context).apply {
+                id = index
                 text = getString(unit.displayStringResId)
             }
-            toGroup.addView(toButton)
+            finalRadioGroupView.addView(finalButton)
         }
-        fromGroup.check(fromGroup[state.fromSelectedIndex].id)
-        toGroup.check(toGroup[state.toSelectedIndex].id)
+
+        initialRadioGroupView.check(initialRadioGroupView[state.initialIndex].id)
+        finalRadioGroupView.check(finalRadioGroupView[state.finalIndex].id)
+        valueTextView.setText(state.value.toPlainString())
+    }
+
+    private fun ConversionViewModel.init(lifecycleOwner: LifecycleOwner) {
+        viewState.observe(lifecycleOwner, Observer {
+            populateViewState(it)
+        })
+
+        resultLiveData.observe(lifecycleOwner, Observer {
+            resultTextView.text = it.toPlainString()
+        })
     }
 }

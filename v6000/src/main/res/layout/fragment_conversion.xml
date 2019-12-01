@@ -5,33 +5,33 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/value"
+        android:id="@+id/valueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="@string/value_hint"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:text="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/fromGroup"
+        android:id="@+id/initialRadioGroupView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/value" />
+        app:layout_constraintTop_toBottomOf="@id/valueTextView" />
 
     <RadioGroup
-        android:id="@+id/toGroup"
+        android:id="@+id/finalRadioGroupView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
-        app:layout_constraintTop_toTopOf="@id/fromGroup" />
+        app:layout_constraintTop_toTopOf="@id/initialRadioGroupView" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/resultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Answer is"
         app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
         app:layout_constraintTop_toTopOf="parent" />
 
