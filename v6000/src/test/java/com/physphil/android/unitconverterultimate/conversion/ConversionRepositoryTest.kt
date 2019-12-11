@@ -2,6 +2,7 @@ package com.physphil.android.unitconverterultimate.conversion
 
 import com.google.common.truth.Truth.assertThat
 import com.physphil.android.unitconverterultimate.models.Area
+import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
 import org.junit.Test
@@ -24,6 +25,21 @@ class ConversionRepositoryTest {
         val to = Area.SqYard
         val result = repo.convert(value, from, to).setScale(2, RoundingMode.UP)
         assertThat(result).isEqualToIgnoringScale(6.58.toBigDecimal())
+    }
+
+    @Test
+    fun `mass conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Mass.Kilogram, Mass.Pound).round(10)).isEqualTo(BigDecimal("12.1254244202"))
+        assertThat(repo.convert(value, Mass.Pound, Mass.Gram).round(10)).isEqualTo(BigDecimal("2494.7580350000"))
+        assertThat(repo.convert(value, Mass.Gram, Mass.Milligram).round(0)).isEqualTo(BigDecimal("5500"))
+        assertThat(repo.convert(value, Mass.Milligram, Mass.Ounce).round(10)).isEqualTo(BigDecimal("0.0001940068"))
+        assertThat(repo.convert(value, Mass.Ounce, Mass.Grain).round(2)).isEqualTo(BigDecimal("2406.25"))
+        assertThat(repo.convert(value, Mass.Grain, Mass.Stone).round(10)).isEqualTo(BigDecimal("0.0000561224"))
+        assertThat(repo.convert(value, Mass.Stone, Mass.MetricTon).round(10)).isEqualTo(BigDecimal("0.0349266125"))
+        assertThat(repo.convert(value, Mass.MetricTon, Mass.ShortTon).round(10)).isEqualTo(BigDecimal("6.0627122101"))
+        assertThat(repo.convert(value, Mass.ShortTon, Mass.LongTon).round(10)).isEqualTo(BigDecimal("4.9107142857"))
+        assertThat(repo.convert(value, Mass.LongTon, Mass.Kilogram).round(10)).isEqualTo(BigDecimal("5588.2579984000"))
     }
 
     @Test

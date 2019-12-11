@@ -25,6 +25,18 @@
     <string name="sq_inch">Sq Inch</string>
     <string name="acre">Acre</string>
 
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pound</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Milligram</string>
+    <string name="ounce">Ounce</string>
+    <string name="grain">Grain</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Ton (metric)</string>
+    <string name="short_ton">Ton (US/short)</string>
+    <string name="long_ton">Ton (UK/long)</string>
+
     <!-- Temperature -->
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
