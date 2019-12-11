@@ -29,8 +29,14 @@ class ConversionRepository {
         }
 
     private fun convertArea(value: BigDecimal, initial: Area, final: Area): BigDecimal =
-        value * AreaDataSource.getMultiplier(initial, final)
+        when (initial) {
+            final -> value
+            else -> value * AreaDataSource.getMultiplier(initial, final)
+        }
 
     private fun convertMass(value: BigDecimal, initial: Mass, final: Mass): BigDecimal =
-        value * MassDataSource.getMultiplier(initial, final)
+        when (initial) {
+            final -> value
+            else -> value * MassDataSource.getMultiplier(initial, final)
+        }
 }
