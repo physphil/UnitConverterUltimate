@@ -41,5 +41,17 @@ sealed class Temperature(override val displayStringResId: Int) : Unit() {
     object Newton : Temperature(R.string.newton)
     object Reaumur : Temperature(R.string.reaumur)
     object Romer : Temperature(R.string.romer)
-    object GasMark : Temperature(R.string.gas_mark)
+
+    companion object {
+        val all: List<Temperature> = listOf(
+            Celsius,
+            Fahrenheit,
+            Kelvin,
+            Rankine,
+            Delisle,
+            Newton,
+            Reaumur,
+            Romer
+        )
+    }
 }
