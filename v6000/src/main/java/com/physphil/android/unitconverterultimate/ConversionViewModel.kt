@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
-import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -25,7 +24,7 @@ class ConversionViewModel(
     private var result: BigDecimal = BigDecimal.ZERO
     private var initialIndex: Int = 0
     private var finalIndex: Int = 1
-    private val units = conversionType.units
+    private val units = repo.unitsFor(conversionType)
     private val initialUnit: Unit
         get() = units[initialIndex]
     private val finalUnit: Unit
@@ -59,14 +58,6 @@ class ConversionViewModel(
         )
         _resultLiveData.postValue(result)
     }
-
-    private val ConversionType.units: List<Unit>
-        get() = when (this) {
-            ConversionType.AREA -> Area.all
-            ConversionType.CURRENCY -> TODO()
-            ConversionType.MASS -> TODO()
-            ConversionType.TEMPERATURE -> TODO()
-        }
 
     class Factory(
         private val conversionType: ConversionType,
