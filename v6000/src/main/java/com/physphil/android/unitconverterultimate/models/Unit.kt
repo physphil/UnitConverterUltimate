@@ -24,6 +24,25 @@ sealed class Area(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class DigitalStorage(override val displayStringResId: Int) : Unit() {
+    object Bit : DigitalStorage(R.string.bit)
+    object Byte : DigitalStorage(R.string.Byte)
+    object Kilobit : DigitalStorage(R.string.kilobit)
+    object Kilobyte : DigitalStorage(R.string.kilobyte)
+    object Megabit : DigitalStorage(R.string.megabit)
+    object Megabyte : DigitalStorage(R.string.megabyte)
+    object Gigabit : DigitalStorage(R.string.gigabit)
+    object Gigabyte : DigitalStorage(R.string.gigabyte)
+    object Terabit : DigitalStorage(R.string.terabit)
+    object Terabyte : DigitalStorage(R.string.terabyte)
+
+    companion object {
+        val all: List<DigitalStorage> = listOf(
+            Bit, Byte, Kilobit, Kilobyte, Megabit, Megabyte, Gigabit, Gigabyte, Terabit, Terabyte
+        )
+    }
+}
+
 sealed class Mass(override val displayStringResId: Int) : Unit() {
     object Kilogram : Mass(R.string.kilogram)
     object Pound : Mass(R.string.pound)

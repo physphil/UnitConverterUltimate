@@ -1,6 +1,7 @@
 package com.physphil.android.unitconverterultimate.data
 
 import com.physphil.android.unitconverterultimate.models.Area
+import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -35,6 +36,21 @@ object AreaDataSource : DataSource<Area>() {
         Area.SqFoot to Multipliers(BigDecimal("0.09290304"), BigDecimal("10.7639104167097223")),
         Area.SqInch to Multipliers(BigDecimal("0.00064516"), BigDecimal("1550.00310000620001")),
         Area.Acre to Multipliers(BigDecimal("4046.8564224"), BigDecimal("0.000247105381467165342"))
+    )
+}
+
+object DigitalStorageDataSource : DataSource<DigitalStorage>() {
+    override val units: Map<DigitalStorage, Multipliers> = mapOf(
+        DigitalStorage.Bit to Multipliers(BigDecimal("0.00000011920928955078"), BigDecimal("8388608.0")),
+        DigitalStorage.Byte to Multipliers(BigDecimal("0.00000095367431640625"), BigDecimal("1048576.0")),
+        DigitalStorage.Kilobit to Multipliers(BigDecimal("0.0001220703125"), BigDecimal("8192.0")),
+        DigitalStorage.Kilobyte to Multipliers(BigDecimal("0.0009765625"), BigDecimal("1024.0")),
+        DigitalStorage.Megabit to Multipliers(BigDecimal("0.125"), BigDecimal("8.0")),
+        DigitalStorage.Megabyte to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        DigitalStorage.Gigabit to Multipliers(BigDecimal("128.0"), BigDecimal("0.0078125")),
+        DigitalStorage.Gigabyte to Multipliers(BigDecimal("1024.0"), BigDecimal("0.0009765625")),
+        DigitalStorage.Terabit to Multipliers(BigDecimal("131072.0"), BigDecimal("0.00000762939453125")),
+        DigitalStorage.Terabyte to Multipliers(BigDecimal("1048576.0"), BigDecimal("0.00000095367431640625"))
     )
 }
 

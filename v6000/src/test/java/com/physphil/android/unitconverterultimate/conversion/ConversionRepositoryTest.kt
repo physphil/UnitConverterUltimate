@@ -2,6 +2,7 @@ package com.physphil.android.unitconverterultimate.conversion
 
 import com.google.common.truth.Truth.assertThat
 import com.physphil.android.unitconverterultimate.models.Area
+import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
@@ -19,12 +20,28 @@ class ConversionRepositoryTest {
     }
 
     @Test
-    fun `test area conversion`() {
+    fun `area conversion`() {
         val value = BigDecimal("5.5")
         val from = Area.SqMetre
         val to = Area.SqYard
         val result = repo.convert(value, from, to).setScale(2, RoundingMode.UP)
         assertThat(result).isEqualToIgnoringScale(6.58.toBigDecimal())
+    }
+
+    @Test
+    fun `storage conversions`() {
+        val value = BigDecimal("4.0")
+        assertThat(repo.convert(value, DigitalStorage.Byte, DigitalStorage.Bit).round(1)).isEqualTo(BigDecimal("32.0"))
+        assertThat(repo.convert(value, DigitalStorage.Kilobit, DigitalStorage.Byte).round(1)).isEqualTo(BigDecimal("512.0"))
+        assertThat(repo.convert(value, DigitalStorage.Kilobyte, DigitalStorage.Kilobit).round(1)).isEqualTo(BigDecimal("32.0"))
+        assertThat(repo.convert(value, DigitalStorage.Megabit, DigitalStorage.Kilobyte).round(1)).isEqualTo(BigDecimal("512.0"))
+        assertThat(repo.convert(value, DigitalStorage.Megabyte, DigitalStorage.Megabit).round(1)).isEqualTo(BigDecimal("32.0"))
+        assertThat(repo.convert(value, DigitalStorage.Gigabit, DigitalStorage.Megabyte).round(1)).isEqualTo(BigDecimal("512.0"))
+        assertThat(repo.convert(value, DigitalStorage.Gigabyte, DigitalStorage.Gigabit).round(1)).isEqualTo(BigDecimal("32.0"))
+        assertThat(repo.convert(value, DigitalStorage.Terabit, DigitalStorage.Gigabyte).round(1)).isEqualTo(BigDecimal("512.0"))
+        assertThat(repo.convert(value, DigitalStorage.Terabit, DigitalStorage.Terabyte).round(1)).isEqualTo(BigDecimal("0.5"))
+        assertThat(repo.convert(value, DigitalStorage.Bit, DigitalStorage.Byte).round(1)).isEqualTo(BigDecimal("0.5"))
+        assertThat(repo.convert(value, DigitalStorage.Gigabyte, DigitalStorage.Megabyte).round(1)).isEqualTo(BigDecimal("4096.0"))
     }
 
     @Test
