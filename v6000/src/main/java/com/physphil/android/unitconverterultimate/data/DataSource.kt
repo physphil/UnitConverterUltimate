@@ -6,6 +6,7 @@ import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
+import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
@@ -116,5 +117,20 @@ object PowerDataSource : DataSource<Power>() {
         Power.CaloriePerSecond to Multipliers(BigDecimal("4.1868"), BigDecimal("0.23884589662749594")),
         Power.BtuPerSecond to Multipliers(BigDecimal("1055.05585262"), BigDecimal("0.0009478171203133172")),
         Power.Kva to Multipliers(BigDecimal(1000), BigDecimal("0.001"))
+    )
+}
+
+object PressureDataSource : DataSource<Pressure>() {
+    override val units: Map<Pressure, Multipliers> = mapOf(
+        Pressure.Megapascal to Multipliers(BigDecimal("1000000.0"), BigDecimal("0.000001")),
+        Pressure.Kilopascal to Multipliers(BigDecimal("1000.0"), BigDecimal("0.001")),
+        Pressure.Pascal to baseUnitMultipliers,
+        Pressure.Bar to Multipliers(BigDecimal("100000.0"), BigDecimal("0.00001")),
+        Pressure.Psi to Multipliers(BigDecimal("6894.757293168361"), BigDecimal("0.000145037737730209222")),
+        Pressure.Psf to Multipliers(BigDecimal("47.880258980335840277777777778"), BigDecimal("0.020885434233150127968")),
+        Pressure.Atmosphere to Multipliers(BigDecimal("101325"), BigDecimal("0.0000098692326671601283")),
+        Pressure.TechnicalAtmosphere to Multipliers(BigDecimal("98066.5"), BigDecimal("0.0000101971621297792824257")),
+        Pressure.MmHg to Multipliers(BigDecimal("133.322387415"), BigDecimal("0.007500615758456563339513")),
+        Pressure.Torr to Multipliers(BigDecimal("133.3223684210526315789"), BigDecimal("0.00750061682704169751"))
     )
 }

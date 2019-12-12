@@ -119,6 +119,25 @@ sealed class Power(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Pressure(override val displayStringResId: Int) : Unit() {
+    object Megapascal : Pressure(R.string.megapascal)
+    object Kilopascal : Pressure(R.string.kilopascal)
+    object Pascal : Pressure(R.string.pascal)
+    object Bar : Pressure(R.string.bar)
+    object Psi : Pressure(R.string.psi)
+    object Psf : Pressure(R.string.psf)
+    object Atmosphere : Pressure(R.string.atmosphere)
+    object TechnicalAtmosphere : Pressure(R.string.technical_atmosphere)
+    object MmHg : Pressure(R.string.mmhg)
+    object Torr : Pressure(R.string.torr)
+
+    companion object {
+        val all: List<Pressure> = listOf(
+            Megapascal, Kilopascal, Pascal, Bar, Psi, Psf, Atmosphere, TechnicalAtmosphere, MmHg, Torr
+        )
+    }
+}
+
 sealed class Temperature(override val displayStringResId: Int) : Unit() {
     object Celsius : Temperature(R.string.celsius)
     object Fahrenheit : Temperature(R.string.fahrenheit)

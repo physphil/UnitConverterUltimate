@@ -8,5 +8,6 @@ enum class ConversionType {
     LENGTH,
     MASS,
     POWER,
+    PRESSURE,
     TEMPERATURE
 }

@@ -85,6 +85,18 @@
     <string name="short_ton">Ton (US/short)</string>
     <string name="long_ton">Ton (UK/long)</string>
 
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosphere</string>
+    <string name="technical_atmosphere">Technical Atm</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
     <!-- Temperature -->
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>

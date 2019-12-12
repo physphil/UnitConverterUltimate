@@ -7,6 +7,7 @@ import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
+import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
 import org.junit.Test
@@ -105,6 +106,21 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Power.CaloriePerSecond, Power.BtuPerSecond).round(10)).isEqualTo(BigDecimal("0.0218257640"))
         assertThat(repo.convert(value, Power.BtuPerSecond, Power.Kva).round(10)).isEqualTo(BigDecimal("5.8028071894"))
         assertThat(repo.convert(value, Power.Kva, Power.Watt).round(1)).isEqualTo(BigDecimal("5500.0"))
+    }
+
+    @Test
+    fun `pressure conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Pressure.Megapascal, Pressure.Kilopascal).round(1)).isEqualTo(BigDecimal("5500.0"))
+        assertThat(repo.convert(value, Pressure.Kilopascal, Pressure.Pascal).round(1)).isEqualTo(BigDecimal("5500.0"))
+        assertThat(repo.convert(value, Pressure.Pascal, Pressure.Bar).round(6)).isEqualTo(BigDecimal("0.000055"))
+        assertThat(repo.convert(value, Pressure.Bar, Pressure.Psi).round(10)).isEqualTo(BigDecimal("79.7707557516"))
+        assertThat(repo.convert(value, Pressure.Psi, Pressure.Psf).round(1)).isEqualTo(BigDecimal("792.0"))
+        assertThat(repo.convert(value, Pressure.Psf, Pressure.Atmosphere).round(10)).isEqualTo(BigDecimal("0.0025989778"))
+        assertThat(repo.convert(value, Pressure.Atmosphere, Pressure.MmHg).round(10)).isEqualTo(BigDecimal("4179.9994044909"))
+        assertThat(repo.convert(value, Pressure.MmHg, Pressure.Torr).round(10)).isEqualTo(BigDecimal("5.5000007836"))
+        assertThat(repo.convert(value, Pressure.Torr, Pressure.TechnicalAtmosphere).round(10)).isEqualTo(BigDecimal("0.0074773039"))
+        assertThat(repo.convert(value, Pressure.TechnicalAtmosphere, Pressure.Megapascal).round(10)).isEqualTo(BigDecimal("0.5393657500"))
     }
 
     @Test
