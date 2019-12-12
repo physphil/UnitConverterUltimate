@@ -31,10 +31,15 @@ class ConversionRepositoryTest {
     @Test
     fun `area conversion`() {
         val value = BigDecimal("5.5")
-        val from = Area.SqMetre
-        val to = Area.SqYard
-        val result = repo.convert(value, from, to).setScale(2, RoundingMode.UP)
-        assertThat(result).isEqualToIgnoringScale(6.58.toBigDecimal())
+        assertConversion(value, Area.SqKilometre, Area.SqMetre, "5500000.0")
+        assertConversion(value, Area.SqMetre, Area.SqCentimetre, "55000.0")
+        assertConversion(value, Area.SqCentimetre, Area.Hectare, "0.000000055")
+        assertConversion(value, Area.Hectare, Area.SqMile, "0.0212356187")
+        assertConversion(value, Area.SqMile, Area.SqYard, "17036800.0000000001")
+        assertConversion(value, Area.SqYard, Area.SqFoot, "49.5")
+        assertConversion(value, Area.SqFoot, Area.SqInch, "792")
+        assertConversion(value, Area.SqInch, Area.Acre, "0.0000008768")
+        assertConversion(value, Area.Acre, Area.SqKilometre, "0.0222577103")
     }
 
     @Test
