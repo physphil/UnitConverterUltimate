@@ -125,6 +125,9 @@
     <string name="millisecond">Millisecond</string>
     <string name="nanosecond">Nanosecond</string>
 
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
     <!-- New strings! -->
     <string name="value_hint">Enter a value to convert</string>
 

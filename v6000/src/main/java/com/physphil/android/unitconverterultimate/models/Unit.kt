@@ -186,3 +186,15 @@ sealed class Time(override val displayStringResId: Int) : Unit() {
         )
     }
 }
+
+sealed class Torque(override val displayStringResId: Int) : Unit() {
+    object NewtonMetres : Torque(R.string.n_m)
+    object FtLbF : Torque(R.string.ft_lbF)
+    object InLbF : Torque(R.string.in_lbF)
+
+    companion object {
+        val all: List<Torque> = listOf(
+            NewtonMetres, FtLbF, InLbF
+        )
+    }
+}

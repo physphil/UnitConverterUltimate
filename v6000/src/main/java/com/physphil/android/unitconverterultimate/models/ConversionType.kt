@@ -11,5 +11,6 @@ enum class ConversionType {
     PRESSURE,
     SPEED,
     TEMPERATURE,
-    TIME
+    TIME,
+    TORQUE
 }

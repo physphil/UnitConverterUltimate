@@ -11,6 +11,7 @@ import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Temperature
 import com.physphil.android.unitconverterultimate.models.Time
+import com.physphil.android.unitconverterultimate.models.Torque
 import org.junit.Before
 import org.junit.Test
 import java.math.BigDecimal
@@ -252,6 +253,14 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Time.Millisecond, Time.Nanosecond).round(1)).isEqualTo(BigDecimal("5000000.0"))
         assertThat(repo.convert(value, Time.Nanosecond, Time.Millisecond).round(6)).isEqualTo(BigDecimal("0.000005"))
         assertThat(repo.convert(value, Time.Month, Time.Year).round(10)).isEqualTo(BigDecimal("0.4166666667"))
+    }
+
+    @Test
+    fun `torque conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Torque.NewtonMetres, Torque.FtLbF).round(10)).isEqualTo(BigDecimal("4.0565918220"))
+        assertThat(repo.convert(value, Torque.FtLbF, Torque.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
+        assertThat(repo.convert(value, Torque.InLbF, Torque.NewtonMetres).round(10)).isEqualTo(BigDecimal("0.6214165597"))
     }
 
     private fun BigDecimal.round(scale: Int): BigDecimal = this.setScale(scale, RoundingMode.HALF_UP)

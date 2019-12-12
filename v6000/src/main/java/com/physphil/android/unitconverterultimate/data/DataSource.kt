@@ -9,6 +9,7 @@ import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Time
+import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
@@ -158,6 +159,14 @@ object TimeDataSource : DataSource<Time>() {
         Time.Second to baseUnitMultipliers,
         Time.Millisecond to multipliers("0.001", "1000"),
         Time.Nanosecond to multipliers("0.000000001", "1000000000")
+    )
+}
+
+object TorqueDataSource : DataSource<Torque>() {
+    override val units: Map<Torque, Multipliers> = mapOf(
+        Torque.NewtonMetres to baseUnitMultipliers,
+        Torque.FtLbF to multipliers("1.3558179483314004", "0.7375621494575464935503"),
+        Torque.InLbF to multipliers("0.1129848290276167", "8.850745793490557922604")
     )
 }
 
