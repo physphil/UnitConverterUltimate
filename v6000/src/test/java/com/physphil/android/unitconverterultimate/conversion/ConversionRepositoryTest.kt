@@ -40,229 +40,229 @@ class ConversionRepositoryTest {
     @Test
     fun `storage conversions`() {
         val value = BigDecimal("4.0")
-        assertThat(repo.convert(value, DigitalStorage.Byte, DigitalStorage.Bit).round(1)).isEqualTo(BigDecimal("32.0"))
-        assertThat(repo.convert(value, DigitalStorage.Kilobit, DigitalStorage.Byte).round(1)).isEqualTo(BigDecimal("512.0"))
-        assertThat(repo.convert(value, DigitalStorage.Kilobyte, DigitalStorage.Kilobit).round(1)).isEqualTo(BigDecimal("32.0"))
-        assertThat(repo.convert(value, DigitalStorage.Megabit, DigitalStorage.Kilobyte).round(1)).isEqualTo(BigDecimal("512.0"))
-        assertThat(repo.convert(value, DigitalStorage.Megabyte, DigitalStorage.Megabit).round(1)).isEqualTo(BigDecimal("32.0"))
-        assertThat(repo.convert(value, DigitalStorage.Gigabit, DigitalStorage.Megabyte).round(1)).isEqualTo(BigDecimal("512.0"))
-        assertThat(repo.convert(value, DigitalStorage.Gigabyte, DigitalStorage.Gigabit).round(1)).isEqualTo(BigDecimal("32.0"))
-        assertThat(repo.convert(value, DigitalStorage.Terabit, DigitalStorage.Gigabyte).round(1)).isEqualTo(BigDecimal("512.0"))
-        assertThat(repo.convert(value, DigitalStorage.Terabit, DigitalStorage.Terabyte).round(1)).isEqualTo(BigDecimal("0.5"))
-        assertThat(repo.convert(value, DigitalStorage.Bit, DigitalStorage.Byte).round(1)).isEqualTo(BigDecimal("0.5"))
-        assertThat(repo.convert(value, DigitalStorage.Gigabyte, DigitalStorage.Megabyte).round(1)).isEqualTo(BigDecimal("4096.0"))
+        assertConversion(value, DigitalStorage.Byte, DigitalStorage.Bit, "32.0")
+        assertConversion(value, DigitalStorage.Kilobit, DigitalStorage.Byte, "512.0")
+        assertConversion(value, DigitalStorage.Kilobyte, DigitalStorage.Kilobit, "32.0")
+        assertConversion(value, DigitalStorage.Megabit, DigitalStorage.Kilobyte, "512.0")
+        assertConversion(value, DigitalStorage.Megabyte, DigitalStorage.Megabit, "32.0")
+        assertConversion(value, DigitalStorage.Gigabit, DigitalStorage.Megabyte, "512.0")
+        assertConversion(value, DigitalStorage.Gigabyte, DigitalStorage.Gigabit, "32.0")
+        assertConversion(value, DigitalStorage.Terabit, DigitalStorage.Gigabyte, "512.0")
+        assertConversion(value, DigitalStorage.Terabit, DigitalStorage.Terabyte, "0.5")
+        assertConversion(value, DigitalStorage.Bit, DigitalStorage.Byte, "0.5")
+        assertConversion(value, DigitalStorage.Gigabyte, DigitalStorage.Megabyte, "4096.0")
     }
 
     @Test
     fun `energy conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Energy.Joule, Energy.Kilojoule).round(4)).isEqualTo(BigDecimal("0.0055"))
-        assertThat(repo.convert(value, Energy.Kilojoule, Energy.Calorie).round(4)).isEqualTo(BigDecimal("1314.5315"))
-        assertThat(repo.convert(value, Energy.Calorie, Energy.Kilocalorie).round(4)).isEqualTo(BigDecimal("0.0055"))
-        assertThat(repo.convert(value, Energy.Kilocalorie, Energy.Btu).round(4)).isEqualTo(BigDecimal("21.8112"))
-        assertThat(repo.convert(value, Energy.Btu, Energy.FtLbF).round(4)).isEqualTo(BigDecimal("4279.9309"))
-        assertThat(repo.convert(value, Energy.FtLbF, Energy.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
-        assertThat(repo.convert(BigDecimal("5555555.0"), Energy.InLbF, Energy.KilowattHour).round(4)).isEqualTo(BigDecimal("0.1744"))
-        assertThat(repo.convert(value, Energy.KilowattHour, Energy.Joule).round(1)).isEqualTo(BigDecimal("19800000.0"))
+        assertConversion(value, Energy.Joule, Energy.Kilojoule, "0.0055")
+        assertConversion(value, Energy.Kilojoule, Energy.Calorie, "1314.5315487572")
+        assertConversion(value, Energy.Calorie, Energy.Kilocalorie, "0.0055")
+        assertConversion(value, Energy.Kilocalorie, Energy.Btu, "21.8111675727")
+        assertConversion(value, Energy.Btu, Energy.FtLbF, "4279.9309435089")
+        assertConversion(value, Energy.FtLbF, Energy.InLbF, "66.0000000161")
+        assertConversion(BigDecimal("5555555.0"), Energy.InLbF, Energy.KilowattHour, "0.1743592866")
+        assertConversion(value, Energy.KilowattHour, Energy.Joule, "19800000.0")
     }
 
     @Test
     fun `length conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Length.Kilometre, Length.Mile).round(10)).isEqualTo(BigDecimal("3.4175415573"))
-        assertThat(repo.convert(value, Length.Mile, Length.Metre).round(4)).isEqualTo(BigDecimal("8851.3920"))
-        assertThat(repo.convert(value, Length.Metre, Length.Centimetre).round(1)).isEqualTo(BigDecimal("550.0"))
-        assertThat(repo.convert(value, Length.Centimetre, Length.Millimetre).round(1)).isEqualTo(BigDecimal("55.0"))
-        assertThat(repo.convert(value, Length.Millimetre, Length.Micrometre).round(1)).isEqualTo(BigDecimal("5500.0"))
-        assertThat(repo.convert(value, Length.Micrometre, Length.Nanometre).round(1)).isEqualTo(BigDecimal("5500.0"))
-        assertThat(repo.convert(BigDecimal("5558"), Length.Nanometre, Length.Yard).round(10)).isEqualTo(BigDecimal("0.0000060783"))
-        assertThat(repo.convert(value, Length.Yard, Length.Feet).round(1)).isEqualTo(BigDecimal("16.5"))
-        assertThat(repo.convert(value, Length.Feet, Length.Inch).round(1)).isEqualTo(BigDecimal("66.0"))
-        assertThat(repo.convert(value, Length.Inch, Length.NauticalMile).round(10)).isEqualTo(BigDecimal("0.0000754320"))
-        assertThat(repo.convert(value, Length.NauticalMile, Length.Furlong).round(10)).isEqualTo(BigDecimal("50.6342957130"))
-        assertThat(repo.convert(BigDecimal(123456789), Length.Furlong, Length.LightYear).round(10)).isEqualTo(BigDecimal("0.0000026251"))
-        assertThat(repo.convert(value, Length.LightYear, Length.Kilometre).round(1)).isEqualTo(BigDecimal("52034017599194.4"))
+        assertConversion(value, Length.Kilometre, Length.Mile, "3.4175415573")
+        assertConversion(value, Length.Mile, Length.Metre, "8851.3920")
+        assertConversion(value, Length.Metre, Length.Centimetre, "550.0")
+        assertConversion(value, Length.Centimetre, Length.Millimetre, "55.0")
+        assertConversion(value, Length.Millimetre, Length.Micrometre, "5500.0")
+        assertConversion(value, Length.Micrometre, Length.Nanometre, "5500.0")
+        assertConversion(BigDecimal("5558"), Length.Nanometre, Length.Yard, "0.0000060783")
+        assertConversion(value, Length.Yard, Length.Feet, "16.5")
+        assertConversion(value, Length.Feet, Length.Inch, "66.0")
+        assertConversion(value, Length.Inch, Length.NauticalMile, "0.0000754320")
+        assertConversion(value, Length.NauticalMile, Length.Furlong, "50.6342957130")
+        assertConversion(BigDecimal(123456789), Length.Furlong, Length.LightYear, "0.0000026251")
+        assertConversion(value, Length.LightYear, Length.Kilometre, "52034017599194.4")
     }
 
     @Test
     fun `mass conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Mass.Kilogram, Mass.Pound).round(10)).isEqualTo(BigDecimal("12.1254244202"))
-        assertThat(repo.convert(value, Mass.Pound, Mass.Gram).round(10)).isEqualTo(BigDecimal("2494.7580350000"))
-        assertThat(repo.convert(value, Mass.Gram, Mass.Milligram).round(0)).isEqualTo(BigDecimal("5500"))
-        assertThat(repo.convert(value, Mass.Milligram, Mass.Ounce).round(10)).isEqualTo(BigDecimal("0.0001940068"))
-        assertThat(repo.convert(value, Mass.Ounce, Mass.Grain).round(2)).isEqualTo(BigDecimal("2406.25"))
-        assertThat(repo.convert(value, Mass.Grain, Mass.Stone).round(10)).isEqualTo(BigDecimal("0.0000561224"))
-        assertThat(repo.convert(value, Mass.Stone, Mass.MetricTon).round(10)).isEqualTo(BigDecimal("0.0349266125"))
-        assertThat(repo.convert(value, Mass.MetricTon, Mass.ShortTon).round(10)).isEqualTo(BigDecimal("6.0627122101"))
-        assertThat(repo.convert(value, Mass.ShortTon, Mass.LongTon).round(10)).isEqualTo(BigDecimal("4.9107142857"))
-        assertThat(repo.convert(value, Mass.LongTon, Mass.Kilogram).round(10)).isEqualTo(BigDecimal("5588.2579984000"))
+        assertConversion(value, Mass.Kilogram, Mass.Pound, "12.1254244202")
+        assertConversion(value, Mass.Pound, Mass.Gram, "2494.7580350000")
+        assertConversion(value, Mass.Gram, Mass.Milligram, "5500")
+        assertConversion(value, Mass.Milligram, Mass.Ounce, "0.0001940068")
+        assertConversion(value, Mass.Ounce, Mass.Grain, "2406.25")
+        assertConversion(value, Mass.Grain, Mass.Stone, "0.0000561224")
+        assertConversion(value, Mass.Stone, Mass.MetricTon, "0.0349266125")
+        assertConversion(value, Mass.MetricTon, Mass.ShortTon, "6.0627122101")
+        assertConversion(value, Mass.ShortTon, Mass.LongTon, "4.9107142857")
+        assertConversion(value, Mass.LongTon, Mass.Kilogram, "5588.2579984000")
     }
 
     @Test
     fun `power conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Power.Watt, Power.Kilowatt).round(4)).isEqualTo(BigDecimal("0.0055"))
-        assertThat(repo.convert(value, Power.Kilowatt, Power.Megawatt).round(4)).isEqualTo(BigDecimal("0.0055"))
-        assertThat(repo.convert(value, Power.Megawatt, Power.Horsepower).round(10)).isEqualTo(BigDecimal("7477.9188951715"))
-        assertThat(repo.convert(value, Power.Horsepower, Power.HorsepowerUk).round(10)).isEqualTo(BigDecimal("5.4247603884"))
-        assertThat(repo.convert(value, Power.HorsepowerUk, Power.FtLbFS).round(1)).isEqualTo(BigDecimal("3025.0"))
-        assertThat(repo.convert(value, Power.FtLbFS, Power.CaloriePerSecond).round(10)).isEqualTo(BigDecimal("1.7810735444"))
-        assertThat(repo.convert(value, Power.CaloriePerSecond, Power.BtuPerSecond).round(10)).isEqualTo(BigDecimal("0.0218257640"))
-        assertThat(repo.convert(value, Power.BtuPerSecond, Power.Kva).round(10)).isEqualTo(BigDecimal("5.8028071894"))
-        assertThat(repo.convert(value, Power.Kva, Power.Watt).round(1)).isEqualTo(BigDecimal("5500.0"))
+        assertConversion(value, Power.Watt, Power.Kilowatt, "0.0055")
+        assertConversion(value, Power.Kilowatt, Power.Megawatt, "0.0055")
+        assertConversion(value, Power.Megawatt, Power.Horsepower, "7477.9188951715")
+        assertConversion(value, Power.Horsepower, Power.HorsepowerUk, "5.4247603884")
+        assertConversion(value, Power.HorsepowerUk, Power.FtLbFS, "3025.0")
+        assertConversion(value, Power.FtLbFS, Power.CaloriePerSecond, "1.7810735444")
+        assertConversion(value, Power.CaloriePerSecond, Power.BtuPerSecond, "0.0218257640")
+        assertConversion(value, Power.BtuPerSecond, Power.Kva, "5.8028071894")
+        assertConversion(value, Power.Kva, Power.Watt, "5500.0")
     }
 
     @Test
     fun `pressure conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Pressure.Megapascal, Pressure.Kilopascal).round(1)).isEqualTo(BigDecimal("5500.0"))
-        assertThat(repo.convert(value, Pressure.Kilopascal, Pressure.Pascal).round(1)).isEqualTo(BigDecimal("5500.0"))
-        assertThat(repo.convert(value, Pressure.Pascal, Pressure.Bar).round(6)).isEqualTo(BigDecimal("0.000055"))
-        assertThat(repo.convert(value, Pressure.Bar, Pressure.Psi).round(10)).isEqualTo(BigDecimal("79.7707557516"))
-        assertThat(repo.convert(value, Pressure.Psi, Pressure.Psf).round(1)).isEqualTo(BigDecimal("792.0"))
-        assertThat(repo.convert(value, Pressure.Psf, Pressure.Atmosphere).round(10)).isEqualTo(BigDecimal("0.0025989778"))
-        assertThat(repo.convert(value, Pressure.Atmosphere, Pressure.MmHg).round(10)).isEqualTo(BigDecimal("4179.9994044909"))
-        assertThat(repo.convert(value, Pressure.MmHg, Pressure.Torr).round(10)).isEqualTo(BigDecimal("5.5000007836"))
-        assertThat(repo.convert(value, Pressure.Torr, Pressure.TechnicalAtmosphere).round(10)).isEqualTo(BigDecimal("0.0074773039"))
-        assertThat(repo.convert(value, Pressure.TechnicalAtmosphere, Pressure.Megapascal).round(10)).isEqualTo(BigDecimal("0.5393657500"))
+        assertConversion(value, Pressure.Megapascal, Pressure.Kilopascal, "5500.0")
+        assertConversion(value, Pressure.Kilopascal, Pressure.Pascal, "5500.0")
+        assertConversion(value, Pressure.Pascal, Pressure.Bar, "0.000055")
+        assertConversion(value, Pressure.Bar, Pressure.Psi, "79.7707557516")
+        assertConversion(value, Pressure.Psi, Pressure.Psf, "792.0")
+        assertConversion(value, Pressure.Psf, Pressure.Atmosphere, "0.0025989778")
+        assertConversion(value, Pressure.Atmosphere, Pressure.MmHg, "4179.9994044909")
+        assertConversion(value, Pressure.MmHg, Pressure.Torr, "5.5000007836")
+        assertConversion(value, Pressure.Torr, Pressure.TechnicalAtmosphere, "0.0074773039")
+        assertConversion(value, Pressure.TechnicalAtmosphere, Pressure.Megapascal, "0.5393657500")
     }
 
     @Test
     fun `speed conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Speed.KilometresPerHour, Speed.MilesPerHour).round(10)).isEqualTo(BigDecimal("3.4175415573"))
-        assertThat(repo.convert(value, Speed.MilesPerHour, Speed.MetresPerSecond).round(5)).isEqualTo(BigDecimal("2.45872"))
-        assertThat(repo.convert(value, Speed.MetresPerSecond, Speed.FeetPerSecond).round(10)).isEqualTo(BigDecimal("18.0446194226"))
-        assertThat(repo.convert(value, Speed.FeetPerSecond, Speed.Knot).round(10)).isEqualTo(BigDecimal("3.2586609071"))
-        assertThat(repo.convert(value, Speed.Knot, Speed.KilometresPerHour).round(4)).isEqualTo(BigDecimal("10.1860"))
+        assertConversion(value, Speed.KilometresPerHour, Speed.MilesPerHour, "3.4175415573")
+        assertConversion(value, Speed.MilesPerHour, Speed.MetresPerSecond, "2.45872")
+        assertConversion(value, Speed.MetresPerSecond, Speed.FeetPerSecond, "18.0446194226")
+        assertConversion(value, Speed.FeetPerSecond, Speed.Knot, "3.2586609071")
+        assertConversion(value, Speed.Knot, Speed.KilometresPerHour, "10.1860")
     }
 
     @Test
     fun `to celsius conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Celsius)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("-14.7222"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Celsius)).isEqualTo(BigDecimal("-267.65"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("-270.0944"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("96.3333"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("16.6667"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("6.8750"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Celsius).round(4)).isEqualTo(BigDecimal("-3.8095"))
+        assertConversion(value, Temperature.Celsius, Temperature.Celsius, value)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Celsius, "-14.7222", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Celsius, "-267.65", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Celsius, "-270.0944", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Celsius, "96.3333", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Celsius, "16.6667", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Celsius, "6.8750", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Celsius, "-3.8095", 4)
     }
 
     @Test
     fun `to fahrenheit conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("41.9000"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Fahrenheit)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("-449.7700"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("-454.1700"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("205.4000"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("62.0000"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("44.3750"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Fahrenheit).round(4)).isEqualTo(BigDecimal("25.1429"))
+        assertConversion(value, Temperature.Celsius, Temperature.Fahrenheit, "41.9000", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Fahrenheit, value)
+        assertConversion(value, Temperature.Kelvin, Temperature.Fahrenheit, "-449.7700", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Fahrenheit, "-454.1700", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Fahrenheit, "205.4000", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Fahrenheit, "62.0000", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Fahrenheit, "44.3750", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Fahrenheit, "25.1429", 4)
     }
 
     @Test
     fun `to kelvin conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("278.6500"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("258.4278"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Kelvin)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("3.0556"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("369.4833"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("289.8167"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("280.0250"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Kelvin).round(4)).isEqualTo(BigDecimal("269.3405"))
+        assertConversion(value, Temperature.Celsius, Temperature.Kelvin, "278.6500", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Kelvin, "258.4278", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Kelvin, value)
+        assertConversion(value, Temperature.Rankine, Temperature.Kelvin, "3.0556", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Kelvin, "369.4833", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Kelvin, "289.8167", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Kelvin, "280.0250", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Kelvin, "269.3405", 4)
     }
 
     @Test
     fun `to rankine conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("501.5700"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("465.1700"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("9.9000"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Rankine)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("665.0700"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("521.6700"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("504.0450"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Rankine).round(4)).isEqualTo(BigDecimal("484.8129"))
+        assertConversion(value, Temperature.Celsius, Temperature.Rankine, "501.5700", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Rankine, "465.1700", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Rankine, "9.9000", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Rankine, value)
+        assertConversion(value, Temperature.Delisle, Temperature.Rankine, "665.0700", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Rankine, "521.6700", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Rankine, "504.0450", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Rankine, "484.8129", 4)
     }
 
     @Test
     fun `to delisle conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("141.7500"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("172.0833"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("551.4750"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("555.1417"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Delisle)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("125.0000"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("139.6875"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Delisle).round(4)).isEqualTo(BigDecimal("155.7143"))
+        assertConversion(value, Temperature.Celsius, Temperature.Delisle, "141.7500", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Delisle, "172.0833", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Delisle, "551.4750", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Delisle, "555.1417", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Delisle, value)
+        assertConversion(value, Temperature.Newton, Temperature.Delisle, "125.0000", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Delisle, "139.6875", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Delisle, "155.7143", 4)
     }
 
     @Test
     fun `to newton conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Newton).round(4)).isEqualTo(BigDecimal("1.8150"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Newton).round(4)).isEqualTo(BigDecimal("-4.8583"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Newton).round(4)).isEqualTo(BigDecimal("-88.3245"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Newton).round(4)).isEqualTo(BigDecimal("-89.1312"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Newton).round(4)).isEqualTo(BigDecimal("31.7900"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Newton)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Newton).round(4)).isEqualTo(BigDecimal("2.2688"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Newton).round(4)).isEqualTo(BigDecimal("-1.2571"))
+        assertConversion(value, Temperature.Celsius, Temperature.Newton, "1.8150", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Newton, "-4.8583", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Newton, "-88.3245", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Newton, "-89.1312", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Newton, "31.7900", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Newton, value)
+        assertConversion(value, Temperature.Reaumur, Temperature.Newton, "2.2688", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Newton, "-1.2571", 4)
     }
 
     @Test
     fun `to reaumur conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("4.4000"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("-11.7778"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("-214.1200"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("-216.0756"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("77.0667"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("13.3333"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Reaumur)).isEqualTo(value)
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Reaumur).round(4)).isEqualTo(BigDecimal("-3.0476"))
+        assertConversion(value, Temperature.Celsius, Temperature.Reaumur, "4.4000", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Reaumur, "-11.7778", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Reaumur, "-214.1200", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Reaumur, "-216.0756", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Reaumur, "77.0667", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Reaumur, "13.3333", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Reaumur, value, 4)
+        assertConversion(value, Temperature.Romer, Temperature.Reaumur, "-3.0476", 4)
     }
 
     @Test
     fun `to romer conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Temperature.Celsius, Temperature.Romer).round(4)).isEqualTo(BigDecimal("10.3875"))
-        assertThat(repo.convert(value, Temperature.Fahrenheit, Temperature.Romer).round(4)).isEqualTo(BigDecimal("-0.2292"))
-        assertThat(repo.convert(value, Temperature.Kelvin, Temperature.Romer).round(4)).isEqualTo(BigDecimal("-133.0163"))
-        assertThat(repo.convert(value, Temperature.Rankine, Temperature.Romer).round(4)).isEqualTo(BigDecimal("-134.2996"))
-        assertThat(repo.convert(value, Temperature.Delisle, Temperature.Romer).round(4)).isEqualTo(BigDecimal("58.0750"))
-        assertThat(repo.convert(value, Temperature.Newton, Temperature.Romer).round(4)).isEqualTo(BigDecimal("16.2500"))
-        assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Romer).round(4)).isEqualTo(BigDecimal("11.1094"))
-        assertThat(repo.convert(value, Temperature.Romer, Temperature.Romer)).isEqualTo(value)
+        assertConversion(value, Temperature.Celsius, Temperature.Romer, "10.3875", 4)
+        assertConversion(value, Temperature.Fahrenheit, Temperature.Romer, "-0.2292", 4)
+        assertConversion(value, Temperature.Kelvin, Temperature.Romer, "-133.0163", 4)
+        assertConversion(value, Temperature.Rankine, Temperature.Romer, "-134.2996", 4)
+        assertConversion(value, Temperature.Delisle, Temperature.Romer, "58.0750", 4)
+        assertConversion(value, Temperature.Newton, Temperature.Romer, "16.2500", 4)
+        assertConversion(value, Temperature.Reaumur, Temperature.Romer, "11.1094", 4)
+        assertConversion(value, Temperature.Romer, Temperature.Romer, value)
     }
 
     @Test
     fun `time conversions`() {
         val value = BigDecimal("5.0")
-        assertThat(repo.convert(value, Time.Year, Time.Month).round(7)).isEqualTo(BigDecimal("59.9999994"))
-        assertThat(repo.convert(value, Time.Month, Time.Week).round(10)).isEqualTo(BigDecimal("21.7261904762"))
-        assertThat(repo.convert(value, Time.Week, Time.Day).round(1)).isEqualTo(BigDecimal("35.0"))
-        assertThat(repo.convert(value, Time.Day, Time.Hour).round(1)).isEqualTo(BigDecimal("120.0"))
-        assertThat(repo.convert(value, Time.Hour, Time.Minute).round(1)).isEqualTo(BigDecimal("300.0"))
-        assertThat(repo.convert(value, Time.Minute, Time.Second).round(1)).isEqualTo(BigDecimal("300.0"))
-        assertThat(repo.convert(value, Time.Second, Time.Millisecond).round(1)).isEqualTo(BigDecimal("5000.0"))
-        assertThat(repo.convert(value, Time.Millisecond, Time.Nanosecond).round(1)).isEqualTo(BigDecimal("5000000.0"))
-        assertThat(repo.convert(value, Time.Nanosecond, Time.Millisecond).round(6)).isEqualTo(BigDecimal("0.000005"))
-        assertThat(repo.convert(value, Time.Month, Time.Year).round(10)).isEqualTo(BigDecimal("0.4166666667"))
+        assertConversion(value, Time.Year, Time.Month, "59.9999994")
+        assertConversion(value, Time.Month, Time.Week, "21.7261904762")
+        assertConversion(value, Time.Week, Time.Day, "35.0")
+        assertConversion(value, Time.Day, Time.Hour, "120.0")
+        assertConversion(value, Time.Hour, Time.Minute, "300.0")
+        assertConversion(value, Time.Minute, Time.Second, "300.0")
+        assertConversion(value, Time.Second, Time.Millisecond, "5000.0")
+        assertConversion(value, Time.Millisecond, Time.Nanosecond, "5000000.0")
+        assertConversion(value, Time.Nanosecond, Time.Millisecond, "0.000005")
+        assertConversion(value, Time.Month, Time.Year, "0.4166666667")
     }
 
     @Test
     fun `torque conversions`() {
         val value = BigDecimal("5.5")
-        assertThat(repo.convert(value, Torque.NewtonMetres, Torque.FtLbF).round(10)).isEqualTo(BigDecimal("4.0565918220"))
-        assertThat(repo.convert(value, Torque.FtLbF, Torque.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
-        assertThat(repo.convert(value, Torque.InLbF, Torque.NewtonMetres).round(10)).isEqualTo(BigDecimal("0.6214165597"))
+        assertConversion(value, Torque.NewtonMetres, Torque.FtLbF, "4.0565918220")
+        assertConversion(value, Torque.FtLbF, Torque.InLbF, "66.0000000161")
+        assertConversion(value, Torque.InLbF, Torque.NewtonMetres, "0.6214165597")
     }
 
     @Test
@@ -294,11 +294,22 @@ class ConversionRepositoryTest {
         value: BigDecimal,
         initial: Unit,
         final: Unit,
+        result: BigDecimal,
+        scale: Int = 10
+    ) {
+        assertThat(repo.convert(value, initial, final).round(scale)).isEqualTo(result.round(scale))
+    }
+
+    private fun assertConversion(
+        value: BigDecimal,
+        initial: Unit,
+        final: Unit,
         result: String,
         scale: Int = 10
     ) {
-        assertThat(repo.convert(value, initial, final).round(scale)).isEqualTo(BigDecimal(result).round(scale))
+        assertConversion(value, initial, final, BigDecimal(result), scale)
     }
 
-    private fun BigDecimal.round(scale: Int): BigDecimal = this.setScale(scale, RoundingMode.HALF_UP)
+    private fun BigDecimal.round(scale: Int): BigDecimal =
+        this.setScale(scale, RoundingMode.HALF_UP)
 }
