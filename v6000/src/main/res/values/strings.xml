@@ -37,6 +37,16 @@
     <string name="terabit">Terabit</string>
     <string name="terabyte">Terabyte</string>
 
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Calorie</string>
+    <string name="kilocalorie">Kilocalorie</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowatt-Hour</string>
+
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogram</string>
     <string name="pound">Pound</string>

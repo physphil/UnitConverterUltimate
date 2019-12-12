@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate.conversion
 import com.google.common.truth.Truth.assertThat
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
+import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
@@ -42,6 +43,19 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, DigitalStorage.Terabit, DigitalStorage.Terabyte).round(1)).isEqualTo(BigDecimal("0.5"))
         assertThat(repo.convert(value, DigitalStorage.Bit, DigitalStorage.Byte).round(1)).isEqualTo(BigDecimal("0.5"))
         assertThat(repo.convert(value, DigitalStorage.Gigabyte, DigitalStorage.Megabyte).round(1)).isEqualTo(BigDecimal("4096.0"))
+    }
+
+    @Test
+    fun `energy conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Energy.Joule, Energy.Kilojoule).round(4)).isEqualTo(BigDecimal("0.0055"))
+        assertThat(repo.convert(value, Energy.Kilojoule, Energy.Calorie).round(4)).isEqualTo(BigDecimal("1314.5315"))
+        assertThat(repo.convert(value, Energy.Calorie, Energy.Kilocalorie).round(4)).isEqualTo(BigDecimal("0.0055"))
+        assertThat(repo.convert(value, Energy.Kilocalorie, Energy.Btu).round(4)).isEqualTo(BigDecimal("21.8112"))
+        assertThat(repo.convert(value, Energy.Btu, Energy.FtLbF).round(4)).isEqualTo(BigDecimal("4279.9309"))
+        assertThat(repo.convert(value, Energy.FtLbF, Energy.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
+        assertThat(repo.convert(BigDecimal("5555555.0"), Energy.InLbF, Energy.KilowattHour).round(4)).isEqualTo(BigDecimal("0.1744"))
+        assertThat(repo.convert(value, Energy.KilowattHour, Energy.Joule).round(1)).isEqualTo(BigDecimal("19800000.0"))
     }
 
     @Test

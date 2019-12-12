@@ -4,6 +4,7 @@ enum class ConversionType {
     AREA,
     CURRENCY,
     DIGITAL_STORAGE,
+    ENERGY,
     MASS,
     TEMPERATURE
 }

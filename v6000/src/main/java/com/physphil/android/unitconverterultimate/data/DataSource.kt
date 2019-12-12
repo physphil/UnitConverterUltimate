@@ -2,6 +2,7 @@ package com.physphil.android.unitconverterultimate.data
 
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
+import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -51,6 +52,19 @@ object DigitalStorageDataSource : DataSource<DigitalStorage>() {
         DigitalStorage.Gigabyte to Multipliers(BigDecimal("1024.0"), BigDecimal("0.0009765625")),
         DigitalStorage.Terabit to Multipliers(BigDecimal("131072.0"), BigDecimal("0.00000762939453125")),
         DigitalStorage.Terabyte to Multipliers(BigDecimal("1048576.0"), BigDecimal("0.00000095367431640625"))
+    )
+}
+
+object EnergyDataSource : DataSource<Energy>() {
+    override val units: Map<Energy, Multipliers> = mapOf(
+        Energy.Joule to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Energy.Kilojoule to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
+        Energy.Calorie to Multipliers(BigDecimal("4.184"), BigDecimal("0.2390057361376673040153")),
+        Energy.Kilocalorie to Multipliers(BigDecimal(4184), BigDecimal("0.0002390057361376673040153")),
+        Energy.Btu to Multipliers(BigDecimal("1055.05585262"), BigDecimal("0.0009478171203133172000128")),
+        Energy.FtLbF to Multipliers(BigDecimal("1.3558179483314004"), BigDecimal("0.7375621494575464935503")),
+        Energy.InLbF to Multipliers(BigDecimal("0.1129848290276167"), BigDecimal("8.850745793490557922604")),
+        Energy.KilowattHour to Multipliers(BigDecimal("3600000.0"), BigDecimal("0.0000002777777777777777777778"))
     )
 }
 

@@ -43,6 +43,23 @@ sealed class DigitalStorage(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Energy(override val displayStringResId: Int) : Unit() {
+    object Joule : Energy(R.string.joule)
+    object Kilojoule : Energy(R.string.kilojoule)
+    object Calorie : Energy(R.string.calorie)
+    object Kilocalorie : Energy(R.string.kilocalorie)
+    object Btu : Energy(R.string.btu)
+    object FtLbF : Energy(R.string.ft_lbF)
+    object InLbF : Energy(R.string.in_lbF)
+    object KilowattHour : Energy(R.string.kilowatt_hour)
+
+    companion object {
+        val all: List<Energy> = listOf(
+            Joule, Kilojoule, Calorie, Kilocalorie, Btu, FtLbF, InLbF, KilowattHour
+        )
+    }
+}
+
 sealed class Mass(override val displayStringResId: Int) : Unit() {
     object Kilogram : Mass(R.string.kilogram)
     object Pound : Mass(R.string.pound)
