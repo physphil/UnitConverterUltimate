@@ -226,5 +226,9 @@ sealed class Volume(override val displayStringResId: Int) : Unit() {
             Teaspoon, Tablespoon, Cup, FluidOunce, Quart, Pint, Gallon, FluidOunceUk, QuartUk, PintUk, GallonUk, BarrelUk,
             Millilitre, Litre, CubicCentimetre, CubicMetre, CubicInch, CubicFoot, CubicYard
         )
+
+        val cooking: List<Volume> = listOf(
+            Teaspoon, Tablespoon, Cup, FluidOunce, FluidOunceUk, Pint, PintUk, Quart, QuartUk, Gallon, GallonUk, Millilitre, Litre
+        )
     }
 }

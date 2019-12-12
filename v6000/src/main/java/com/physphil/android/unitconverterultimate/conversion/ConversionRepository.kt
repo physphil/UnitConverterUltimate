@@ -33,6 +33,7 @@ class ConversionRepository {
     fun unitsFor(type: ConversionType): List<Unit> =
         when (type) {
             ConversionType.AREA -> Area.all
+            ConversionType.COOKING -> Volume.cooking
             ConversionType.CURRENCY -> TODO()
             ConversionType.DIGITAL_STORAGE -> DigitalStorage.all
             ConversionType.ENERGY -> Energy.all
