@@ -47,6 +47,21 @@
     <string name="in_lbF">in-lbf</string>
     <string name="kilowatt_hour">Kilowatt-Hour</string>
 
+    <!-- Length -->
+    <string name="kilometre">Kilometre</string>
+    <string name="mile">Miles</string>
+    <string name="metre">Metre</string>
+    <string name="centimetre">Centimetre (cm)</string>
+    <string name="millimetre">Millimetre (mm)</string>
+    <string name="micrometre">Micrometre</string>
+    <string name="nanometre">Nanometre</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Feet</string>
+    <string name="inch">Inch</string>
+    <string name="nautical_mile">Nautical Mile</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Light Year</string>
+
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogram</string>
     <string name="pound">Pound</string>

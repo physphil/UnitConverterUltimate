@@ -60,6 +60,28 @@ sealed class Energy(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Length(override val displayStringResId: Int) : Unit() {
+    object Kilometre : Length(R.string.kilometre)
+    object Mile : Length(R.string.mile)
+    object Metre : Length(R.string.metre)
+    object Centimetre : Length(R.string.centimetre)
+    object Millimetre : Length(R.string.millimetre)
+    object Micrometre : Length(R.string.micrometre)
+    object Nanometre : Length(R.string.nanometre)
+    object Yard : Length(R.string.yard)
+    object Feet : Length(R.string.feet)
+    object Inch : Length(R.string.inch)
+    object NauticalMile : Length(R.string.nautical_mile)
+    object Furlong : Length(R.string.furlong)
+    object LightYear : Length(R.string.light_year)
+
+    companion object {
+        val all: List<Length> = listOf(
+            Kilometre, Mile, Metre, Centimetre, Millimetre, Micrometre, Nanometre, Yard, Feet, Inch, NauticalMile, Furlong, LightYear
+        )
+    }
+}
+
 sealed class Mass(override val displayStringResId: Int) : Unit() {
     object Kilogram : Mass(R.string.kilogram)
     object Pound : Mass(R.string.pound)

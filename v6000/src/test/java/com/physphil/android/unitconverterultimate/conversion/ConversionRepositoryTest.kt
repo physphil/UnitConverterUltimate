@@ -4,6 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
+import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
@@ -56,6 +57,24 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Energy.FtLbF, Energy.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
         assertThat(repo.convert(BigDecimal("5555555.0"), Energy.InLbF, Energy.KilowattHour).round(4)).isEqualTo(BigDecimal("0.1744"))
         assertThat(repo.convert(value, Energy.KilowattHour, Energy.Joule).round(1)).isEqualTo(BigDecimal("19800000.0"))
+    }
+
+    @Test
+    fun `length conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Length.Kilometre, Length.Mile).round(10)).isEqualTo(BigDecimal("3.4175415573"))
+        assertThat(repo.convert(value, Length.Mile, Length.Metre).round(4)).isEqualTo(BigDecimal("8851.3920"))
+        assertThat(repo.convert(value, Length.Metre, Length.Centimetre).round(1)).isEqualTo(BigDecimal("550.0"))
+        assertThat(repo.convert(value, Length.Centimetre, Length.Millimetre).round(1)).isEqualTo(BigDecimal("55.0"))
+        assertThat(repo.convert(value, Length.Millimetre, Length.Micrometre).round(1)).isEqualTo(BigDecimal("5500.0"))
+        assertThat(repo.convert(value, Length.Micrometre, Length.Nanometre).round(1)).isEqualTo(BigDecimal("5500.0"))
+        assertThat(repo.convert(BigDecimal("5558"), Length.Nanometre, Length.Yard).round(10)).isEqualTo(BigDecimal("0.0000060783"))
+        assertThat(repo.convert(value, Length.Yard, Length.Feet).round(1)).isEqualTo(BigDecimal("16.5"))
+        assertThat(repo.convert(value, Length.Feet, Length.Inch).round(1)).isEqualTo(BigDecimal("66.0"))
+        assertThat(repo.convert(value, Length.Inch, Length.NauticalMile).round(10)).isEqualTo(BigDecimal("0.0000754320"))
+        assertThat(repo.convert(value, Length.NauticalMile, Length.Furlong).round(10)).isEqualTo(BigDecimal("50.6342957130"))
+        assertThat(repo.convert(BigDecimal(123456789), Length.Furlong, Length.LightYear).round(10)).isEqualTo(BigDecimal("0.0000026251"))
+        assertThat(repo.convert(value, Length.LightYear, Length.Kilometre).round(1)).isEqualTo(BigDecimal("52034017599194.4"))
     }
 
     @Test

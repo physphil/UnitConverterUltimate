@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate.data
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
+import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -65,6 +66,24 @@ object EnergyDataSource : DataSource<Energy>() {
         Energy.FtLbF to Multipliers(BigDecimal("1.3558179483314004"), BigDecimal("0.7375621494575464935503")),
         Energy.InLbF to Multipliers(BigDecimal("0.1129848290276167"), BigDecimal("8.850745793490557922604")),
         Energy.KilowattHour to Multipliers(BigDecimal("3600000.0"), BigDecimal("0.0000002777777777777777777778"))
+    )
+}
+
+object LengthDataSource : DataSource<Length>() {
+    override val units: Map<Length, Multipliers> = mapOf(
+        Length.Kilometre to Multipliers(BigDecimal("1000"), BigDecimal("0.001")),
+        Length.Mile to Multipliers(BigDecimal("1609.344"), BigDecimal("0.00062137119223733397")),
+        Length.Metre to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Length.Centimetre to Multipliers(BigDecimal("0.01"), BigDecimal(100)),
+        Length.Millimetre to Multipliers(BigDecimal("0.001"), BigDecimal(1000)),
+        Length.Micrometre to Multipliers(BigDecimal("0.000001"), BigDecimal(1000000)),
+        Length.Nanometre to Multipliers(BigDecimal("0.000000001"), BigDecimal(1000000000)),
+        Length.Yard to Multipliers(BigDecimal("0.9144"), BigDecimal("1.09361329833770779")),
+        Length.Feet to Multipliers(BigDecimal("0.3048"), BigDecimal("3.28083989501312336")),
+        Length.Inch to Multipliers(BigDecimal("0.0254"), BigDecimal("39.3700787401574803")),
+        Length.NauticalMile to Multipliers(BigDecimal(1852), BigDecimal("0.000539956803455723542")),
+        Length.Furlong to Multipliers(BigDecimal("201.168"), BigDecimal("0.0049709695379")),
+        Length.LightYear to Multipliers(BigDecimal("9460730472580800"), BigDecimal("0.0000000000000001057000834024615463709"))
     )
 }
 

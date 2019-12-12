@@ -5,6 +5,7 @@ enum class ConversionType {
     CURRENCY,
     DIGITAL_STORAGE,
     ENERGY,
+    LENGTH,
     MASS,
     TEMPERATURE
 }
