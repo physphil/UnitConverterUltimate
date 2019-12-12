@@ -10,5 +10,6 @@ enum class ConversionType {
     POWER,
     PRESSURE,
     SPEED,
-    TEMPERATURE
+    TEMPERATURE,
+    TIME
 }

@@ -10,6 +10,7 @@ import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Temperature
+import com.physphil.android.unitconverterultimate.models.Time
 import org.junit.Before
 import org.junit.Test
 import java.math.BigDecimal
@@ -236,6 +237,21 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Temperature.Newton, Temperature.Romer).round(4)).isEqualTo(BigDecimal("16.2500"))
         assertThat(repo.convert(value, Temperature.Reaumur, Temperature.Romer).round(4)).isEqualTo(BigDecimal("11.1094"))
         assertThat(repo.convert(value, Temperature.Romer, Temperature.Romer)).isEqualTo(value)
+    }
+
+    @Test
+    fun `time conversions`() {
+        val value = BigDecimal("5.0")
+        assertThat(repo.convert(value, Time.Year, Time.Month).round(7)).isEqualTo(BigDecimal("59.9999994"))
+        assertThat(repo.convert(value, Time.Month, Time.Week).round(10)).isEqualTo(BigDecimal("21.7261904762"))
+        assertThat(repo.convert(value, Time.Week, Time.Day).round(1)).isEqualTo(BigDecimal("35.0"))
+        assertThat(repo.convert(value, Time.Day, Time.Hour).round(1)).isEqualTo(BigDecimal("120.0"))
+        assertThat(repo.convert(value, Time.Hour, Time.Minute).round(1)).isEqualTo(BigDecimal("300.0"))
+        assertThat(repo.convert(value, Time.Minute, Time.Second).round(1)).isEqualTo(BigDecimal("300.0"))
+        assertThat(repo.convert(value, Time.Second, Time.Millisecond).round(1)).isEqualTo(BigDecimal("5000.0"))
+        assertThat(repo.convert(value, Time.Millisecond, Time.Nanosecond).round(1)).isEqualTo(BigDecimal("5000000.0"))
+        assertThat(repo.convert(value, Time.Nanosecond, Time.Millisecond).round(6)).isEqualTo(BigDecimal("0.000005"))
+        assertThat(repo.convert(value, Time.Month, Time.Year).round(10)).isEqualTo(BigDecimal("0.4166666667"))
     }
 
     private fun BigDecimal.round(scale: Int): BigDecimal = this.setScale(scale, RoundingMode.HALF_UP)

@@ -168,3 +168,21 @@ sealed class Temperature(override val displayStringResId: Int) : Unit() {
         )
     }
 }
+
+sealed class Time(override val displayStringResId: Int) : Unit() {
+    object Year : Time(R.string.year)
+    object Month : Time(R.string.month)
+    object Week : Time(R.string.week)
+    object Day : Time(R.string.day)
+    object Hour : Time(R.string.hour)
+    object Minute : Time(R.string.minute)
+    object Second : Time(R.string.second)
+    object Millisecond : Time(R.string.millisecond)
+    object Nanosecond : Time(R.string.nanosecond)
+
+    companion object {
+        val all: List<Time> = listOf(
+            Year, Month, Week, Day, Hour, Minute, Second, Millisecond, Nanosecond
+        )
+    }
+}

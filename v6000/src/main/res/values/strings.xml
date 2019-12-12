@@ -114,6 +114,17 @@
     <string name="reaumur">Réaumur</string>
     <string name="romer">Rømer</string>
 
+    <!-- Time -->
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="second">Second</string>
+    <string name="millisecond">Millisecond</string>
+    <string name="nanosecond">Nanosecond</string>
+
     <!-- New strings! -->
     <string name="value_hint">Enter a value to convert</string>
 

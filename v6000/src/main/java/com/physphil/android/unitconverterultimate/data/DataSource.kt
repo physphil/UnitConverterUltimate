@@ -8,6 +8,7 @@ import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
 import com.physphil.android.unitconverterultimate.models.Speed
+import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
@@ -145,3 +146,20 @@ object SpeedDataSource : DataSource<Speed>() {
         Speed.Knot to Multipliers(BigDecimal("0.51444444444444"), BigDecimal("1.9438444924406"))
     )
 }
+
+object TimeDataSource : DataSource<Time>() {
+    override val units: Map<Time, Multipliers> = mapOf(
+        Time.Year to multipliers("31536000", "0.0000000317097919837645865"),
+        Time.Month to multipliers("2628000", "0.0000003805175"),
+        Time.Week to multipliers("604800", "0.00000165343915343915344"),
+        Time.Day to multipliers("86400", "0.0000115740740740740741"),
+        Time.Hour to multipliers("3600", "0.000277777777777777778"),
+        Time.Minute to multipliers("60", "0.0166666666666666667"),
+        Time.Second to baseUnitMultipliers,
+        Time.Millisecond to multipliers("0.001", "1000"),
+        Time.Nanosecond to multipliers("0.000000001", "1000000000")
+    )
+}
+
+private fun multipliers(toBase: String, fromBase: String): Multipliers =
+    BigDecimal(toBase) to BigDecimal(fromBase)
