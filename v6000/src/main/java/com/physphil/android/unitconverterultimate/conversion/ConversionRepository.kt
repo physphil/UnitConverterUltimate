@@ -11,6 +11,7 @@ import com.physphil.android.unitconverterultimate.data.SpeedDataSource
 import com.physphil.android.unitconverterultimate.data.TemperatureConverter
 import com.physphil.android.unitconverterultimate.data.TimeDataSource
 import com.physphil.android.unitconverterultimate.data.TorqueDataSource
+import com.physphil.android.unitconverterultimate.data.VolumeDataSource
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
@@ -24,6 +25,7 @@ import com.physphil.android.unitconverterultimate.models.Temperature
 import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
+import com.physphil.android.unitconverterultimate.models.Volume
 import java.math.BigDecimal
 
 class ConversionRepository {
@@ -42,6 +44,7 @@ class ConversionRepository {
             ConversionType.TEMPERATURE -> Temperature.all
             ConversionType.TIME -> Time.all
             ConversionType.TORQUE -> Torque.all
+            ConversionType.VOLUME -> Volume.all
         }
 
     fun convert(value: BigDecimal, initial: Unit, final: Unit): BigDecimal =
@@ -58,6 +61,7 @@ class ConversionRepository {
             initial is Temperature && final is Temperature -> TemperatureConverter.convert(value, initial, final)
             initial is Time && final is Time -> convertTime(value, initial, final)
             initial is Torque && final is Torque -> convertTorque(value, initial, final)
+            initial is Volume && final is Volume -> convertVolume(value, initial, final)
             else -> throw IllegalArgumentException("The initial unit $initial and final unit $final are not of the same type, and cannot be converted.")
         }
 
@@ -90,6 +94,9 @@ class ConversionRepository {
 
     private fun convertTorque(value: BigDecimal, initial: Torque, final: Torque): BigDecimal =
         convertStandardUnit(value, TorqueDataSource.getMultiplier(initial, final))
+
+    private fun convertVolume(value: BigDecimal, initial: Volume, final: Volume): BigDecimal =
+        convertStandardUnit(value, VolumeDataSource.getMultiplier(initial, final))
 
     private fun convertStandardUnit(value: BigDecimal, multiplier: BigDecimal): BigDecimal =
         value * multiplier

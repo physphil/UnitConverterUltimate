@@ -11,6 +11,7 @@ import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
+import com.physphil.android.unitconverterultimate.models.Volume
 import java.math.BigDecimal
 
 /**
@@ -125,26 +126,26 @@ object PowerDataSource : DataSource<Power>() {
 
 object PressureDataSource : DataSource<Pressure>() {
     override val units: Map<Pressure, Multipliers> = mapOf(
-        Pressure.Megapascal to Multipliers(BigDecimal("1000000.0"), BigDecimal("0.000001")),
-        Pressure.Kilopascal to Multipliers(BigDecimal("1000.0"), BigDecimal("0.001")),
+        Pressure.Megapascal to multipliers("1000000.0", "0.000001"),
+        Pressure.Kilopascal to multipliers("1000.0", "0.001"),
         Pressure.Pascal to baseUnitMultipliers,
-        Pressure.Bar to Multipliers(BigDecimal("100000.0"), BigDecimal("0.00001")),
-        Pressure.Psi to Multipliers(BigDecimal("6894.757293168361"), BigDecimal("0.000145037737730209222")),
-        Pressure.Psf to Multipliers(BigDecimal("47.880258980335840277777777778"), BigDecimal("0.020885434233150127968")),
-        Pressure.Atmosphere to Multipliers(BigDecimal("101325"), BigDecimal("0.0000098692326671601283")),
-        Pressure.TechnicalAtmosphere to Multipliers(BigDecimal("98066.5"), BigDecimal("0.0000101971621297792824257")),
-        Pressure.MmHg to Multipliers(BigDecimal("133.322387415"), BigDecimal("0.007500615758456563339513")),
-        Pressure.Torr to Multipliers(BigDecimal("133.3223684210526315789"), BigDecimal("0.00750061682704169751"))
+        Pressure.Bar to multipliers("100000.0", "0.00001"),
+        Pressure.Psi to multipliers("6894.757293168361", "0.000145037737730209222"),
+        Pressure.Psf to multipliers("47.880258980335840277777777778", "0.020885434233150127968"),
+        Pressure.Atmosphere to multipliers("101325", "0.0000098692326671601283"),
+        Pressure.TechnicalAtmosphere to multipliers("98066.5", "0.0000101971621297792824257"),
+        Pressure.MmHg to multipliers("133.322387415", "0.007500615758456563339513"),
+        Pressure.Torr to multipliers("133.3223684210526315789", "0.00750061682704169751")
     )
 }
 
 object SpeedDataSource : DataSource<Speed>() {
     override val units: Map<Speed, Multipliers> = mapOf(
-        Speed.KilometresPerHour to Multipliers(BigDecimal("0.27777777777778"), BigDecimal("3.6")),
-        Speed.MilesPerHour to Multipliers(BigDecimal("0.44704"), BigDecimal("2.2369362920544")),
+        Speed.KilometresPerHour to multipliers("0.27777777777778", "3.6"),
+        Speed.MilesPerHour to multipliers("0.44704", "2.2369362920544"),
         Speed.MetresPerSecond to baseUnitMultipliers,
-        Speed.FeetPerSecond to Multipliers(BigDecimal("0.3048"), BigDecimal("3.2808398950131")),
-        Speed.Knot to Multipliers(BigDecimal("0.51444444444444"), BigDecimal("1.9438444924406"))
+        Speed.FeetPerSecond to multipliers("0.3048", "3.2808398950131"),
+        Speed.Knot to multipliers("0.51444444444444", "1.9438444924406")
     )
 }
 
@@ -167,6 +168,31 @@ object TorqueDataSource : DataSource<Torque>() {
         Torque.NewtonMetres to baseUnitMultipliers,
         Torque.FtLbF to multipliers("1.3558179483314004", "0.7375621494575464935503"),
         Torque.InLbF to multipliers("0.1129848290276167", "8.850745793490557922604")
+    )
+}
+
+object VolumeDataSource : DataSource<Volume>() {
+    override val units: Map<Volume, Multipliers> = mapOf(
+        Volume.Teaspoon to multipliers("0.0000049289215938", "202884.136211058"),
+        Volume.Tablespoon to multipliers("0.0000147867647812", "67628.045403686"),
+        Volume.Cup to multipliers("0.0002365882365", "4226.7528377304"),
+        Volume.FluidOunce to multipliers("0.0000295735295625", "33814.0227018429972"),
+        Volume.FluidOunceUk to multipliers("0.0000284130625", "35195.07972785404600437"),
+        Volume.Pint to multipliers("0.000473176473", "2113.37641886518732"),
+        Volume.PintUk to multipliers("0.00056826125", "1759.753986392702300218"),
+        Volume.Quart to multipliers("0.000946352946", "1056.68820943259366"),
+        Volume.QuartUk to multipliers("0.0011365225", "879.8769931963511501092"),
+        Volume.Gallon to multipliers("0.003785411784", "264.172052358148415"),
+        Volume.GallonUk to multipliers("0.00454609", "219.9692482990877875273"),
+        Volume.Barrel to multipliers("0.119240471196", "8.38641436057614017079"),
+        Volume.BarrelUk to multipliers("0.16365924", "6.11025689719688298687"),
+        Volume.Millilitre to multipliers("0.000001", "1000000.0"),
+        Volume.Litre to multipliers("0.001", "1000.0"),
+        Volume.CubicCentimetre to multipliers("0.000001", "1000000.0"),
+        Volume.CubicMetre to baseUnitMultipliers,
+        Volume.CubicInch to multipliers("0.000016387064", "61023.744094732284"),
+        Volume.CubicFoot to multipliers("0.028316846592", "35.3146667214885903"),
+        Volume.CubicYard to multipliers("0.7645548692741148", "1.3079506")
     )
 }
 

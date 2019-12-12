@@ -128,6 +128,28 @@
     <!-- Torque -->
     <string name="n_m">N-m</string>
 
+    <!-- Volume -->
+    <string name="teaspoon">Teaspoon</string>
+    <string name="tablespoon">Tablespoon</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barrel (US)</string>
+    <string name="fluid_ounce_uk">Fluid Ounce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Barrel (UK)</string>
+    <string name="millilitre">Millilitre</string>
+    <string name="litre">Litre</string>
+    <string name="cubic_cm">Cubic cm</string>
+    <string name="cubic_m">Cubic Metre</string>
+    <string name="cubic_inch">Cubic Inch</string>
+    <string name="cubic_foot">Cubic Foot</string>
+    <string name="cubic_yard">Cubic Yard</string>
+
     <!-- New strings! -->
     <string name="value_hint">Enter a value to convert</string>
 

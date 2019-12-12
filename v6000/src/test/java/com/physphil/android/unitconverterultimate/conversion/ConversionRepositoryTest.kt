@@ -12,6 +12,8 @@ import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Temperature
 import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
+import com.physphil.android.unitconverterultimate.models.Unit
+import com.physphil.android.unitconverterultimate.models.Volume
 import org.junit.Before
 import org.junit.Test
 import java.math.BigDecimal
@@ -261,6 +263,41 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Torque.NewtonMetres, Torque.FtLbF).round(10)).isEqualTo(BigDecimal("4.0565918220"))
         assertThat(repo.convert(value, Torque.FtLbF, Torque.InLbF).round(10)).isEqualTo(BigDecimal("66.0000000161"))
         assertThat(repo.convert(value, Torque.InLbF, Torque.NewtonMetres).round(10)).isEqualTo(BigDecimal("0.6214165597"))
+    }
+
+    @Test
+    fun `volume conversions`() {
+        val value = BigDecimal("5.5")
+        assertConversion(value, Volume.Teaspoon, Volume.Tablespoon, "1.8333333334")
+        assertConversion(value, Volume.Tablespoon, Volume.Cup, "0.34375")
+        assertConversion(value, Volume.Cup, Volume.FluidOunce, "44.0")
+        assertConversion(value, Volume.FluidOunce, Volume.FluidOunceUk, "5.7246350193")
+        assertConversion(value, Volume.FluidOunceUk, Volume.Pint, "0.3302612295")
+        assertConversion(value, Volume.Pint, Volume.PintUk, "4.5797080155")
+        assertConversion(value, Volume.PintUk, Volume.Quart, "3.3026122951")
+        assertConversion(value, Volume.Quart, Volume.QuartUk, "4.5797080155")
+        assertConversion(value, Volume.QuartUk, Volume.Gallon, "1.6513061476")
+        assertConversion(value, Volume.Gallon, Volume.GallonUk, "4.5797080155")
+        assertConversion(value, Volume.GallonUk, Volume.Barrel, "0.2096896695")
+        assertConversion(value, Volume.Barrel, Volume.BarrelUk, "4.0072445135")
+        assertConversion(value, Volume.BarrelUk, Volume.Millilitre, "900125.82")
+        assertConversion(value, Volume.Millilitre, Volume.Litre, "0.0055")
+        assertConversion(value, Volume.Litre, Volume.CubicCentimetre, "5500")
+        assertConversion(value, Volume.CubicCentimetre, Volume.CubicMetre, "0.0000055")
+        assertConversion(value, Volume.CubicMetre, Volume.CubicInch, "335630.5925210276")
+        assertConversion(value, Volume.CubicInch, Volume.CubicFoot, "0.0031828704")
+        assertConversion(value, Volume.CubicFoot, Volume.CubicYard, "0.2037037007")
+        assertConversion(value, Volume.CubicYard, Volume.Teaspoon, "853138.2983125043")
+    }
+
+    private fun assertConversion(
+        value: BigDecimal,
+        initial: Unit,
+        final: Unit,
+        result: String,
+        scale: Int = 10
+    ) {
+        assertThat(repo.convert(value, initial, final).round(scale)).isEqualTo(BigDecimal(result).round(scale))
     }
 
     private fun BigDecimal.round(scale: Int): BigDecimal = this.setScale(scale, RoundingMode.HALF_UP)

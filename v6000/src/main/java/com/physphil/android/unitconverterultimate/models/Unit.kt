@@ -198,3 +198,33 @@ sealed class Torque(override val displayStringResId: Int) : Unit() {
         )
     }
 }
+
+sealed class Volume(override val displayStringResId: Int) : Unit() {
+    object Teaspoon : Volume(R.string.teaspoon)
+    object Tablespoon : Volume(R.string.tablespoon)
+    object Cup : Volume(R.string.cup)
+    object FluidOunce : Volume(R.string.fluid_ounce)
+    object Quart : Volume(R.string.quart)
+    object Pint : Volume(R.string.pint)
+    object Gallon : Volume(R.string.gallon)
+    object Barrel : Volume(R.string.barrel)
+    object FluidOunceUk : Volume(R.string.fluid_ounce_uk)
+    object QuartUk : Volume(R.string.quart_uk)
+    object PintUk : Volume(R.string.pint_uk)
+    object GallonUk : Volume(R.string.gallon_uk)
+    object BarrelUk : Volume(R.string.barrel_uk)
+    object Millilitre : Volume(R.string.millilitre)
+    object Litre : Volume(R.string.litre)
+    object CubicCentimetre : Volume(R.string.cubic_cm)
+    object CubicMetre : Volume(R.string.cubic_m)
+    object CubicInch : Volume(R.string.cubic_inch)
+    object CubicFoot : Volume(R.string.cubic_foot)
+    object CubicYard : Volume(R.string.cubic_yard)
+
+    companion object {
+        val all: List<Volume> = listOf(
+            Teaspoon, Tablespoon, Cup, FluidOunce, Quart, Pint, Gallon, FluidOunceUk, QuartUk, PintUk, GallonUk, BarrelUk,
+            Millilitre, Litre, CubicCentimetre, CubicMetre, CubicInch, CubicFoot, CubicYard
+        )
+    }
+}
