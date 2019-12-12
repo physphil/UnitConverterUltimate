@@ -38,89 +38,89 @@ abstract class DataSource<T : Unit> {
 object AreaDataSource : DataSource<Area>() {
     override val units: Map<Area, Multipliers> = mapOf(
         Area.SqMetre to baseUnitMultipliers,
-        Area.SqKilometre to Multipliers(BigDecimal(1000000), BigDecimal("0.000001")),
-        Area.SqCentimetre to Multipliers(BigDecimal("0.0001"), BigDecimal(10000)),
-        Area.Hectare to Multipliers(BigDecimal(10000), BigDecimal("0.0001")),
-        Area.SqMile to Multipliers(BigDecimal("2589988.110336"), BigDecimal("0.000000386102158542445847")),
-        Area.SqYard to Multipliers(BigDecimal("0.83612736"), BigDecimal("1.19599004630108026")),
-        Area.SqFoot to Multipliers(BigDecimal("0.09290304"), BigDecimal("10.7639104167097223")),
-        Area.SqInch to Multipliers(BigDecimal("0.00064516"), BigDecimal("1550.00310000620001")),
-        Area.Acre to Multipliers(BigDecimal("4046.8564224"), BigDecimal("0.000247105381467165342"))
+        Area.SqKilometre to multipliers("1000000", "0.000001"),
+        Area.SqCentimetre to multipliers("0.0001", "10000"),
+        Area.Hectare to multipliers("10000", "0.0001"),
+        Area.SqMile to multipliers("2589988.110336", "0.000000386102158542445847"),
+        Area.SqYard to multipliers("0.83612736", "1.19599004630108026"),
+        Area.SqFoot to multipliers("0.09290304", "10.7639104167097223"),
+        Area.SqInch to multipliers("0.00064516", "1550.00310000620001"),
+        Area.Acre to multipliers("4046.8564224", "0.000247105381467165342")
     )
 }
 
 object DigitalStorageDataSource : DataSource<DigitalStorage>() {
     override val units: Map<DigitalStorage, Multipliers> = mapOf(
-        DigitalStorage.Bit to Multipliers(BigDecimal("0.00000011920928955078"), BigDecimal("8388608.0")),
-        DigitalStorage.Byte to Multipliers(BigDecimal("0.00000095367431640625"), BigDecimal("1048576.0")),
-        DigitalStorage.Kilobit to Multipliers(BigDecimal("0.0001220703125"), BigDecimal("8192.0")),
-        DigitalStorage.Kilobyte to Multipliers(BigDecimal("0.0009765625"), BigDecimal("1024.0")),
-        DigitalStorage.Megabit to Multipliers(BigDecimal("0.125"), BigDecimal("8.0")),
+        DigitalStorage.Bit to multipliers("0.00000011920928955078", "8388608.0"),
+        DigitalStorage.Byte to multipliers("0.00000095367431640625", "1048576.0"),
+        DigitalStorage.Kilobit to multipliers("0.0001220703125", "8192.0"),
+        DigitalStorage.Kilobyte to multipliers("0.0009765625", "1024.0"),
+        DigitalStorage.Megabit to multipliers("0.125", "8.0"),
         DigitalStorage.Megabyte to baseUnitMultipliers,
-        DigitalStorage.Gigabit to Multipliers(BigDecimal("128.0"), BigDecimal("0.0078125")),
-        DigitalStorage.Gigabyte to Multipliers(BigDecimal("1024.0"), BigDecimal("0.0009765625")),
-        DigitalStorage.Terabit to Multipliers(BigDecimal("131072.0"), BigDecimal("0.00000762939453125")),
-        DigitalStorage.Terabyte to Multipliers(BigDecimal("1048576.0"), BigDecimal("0.00000095367431640625"))
+        DigitalStorage.Gigabit to multipliers("128.0", "0.0078125"),
+        DigitalStorage.Gigabyte to multipliers("1024.0", "0.0009765625"),
+        DigitalStorage.Terabit to multipliers("131072.0", "0.00000762939453125"),
+        DigitalStorage.Terabyte to multipliers("1048576.0", "0.00000095367431640625")
     )
 }
 
 object EnergyDataSource : DataSource<Energy>() {
     override val units: Map<Energy, Multipliers> = mapOf(
         Energy.Joule to baseUnitMultipliers,
-        Energy.Kilojoule to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
-        Energy.Calorie to Multipliers(BigDecimal("4.184"), BigDecimal("0.2390057361376673040153")),
-        Energy.Kilocalorie to Multipliers(BigDecimal(4184), BigDecimal("0.0002390057361376673040153")),
-        Energy.Btu to Multipliers(BigDecimal("1055.05585262"), BigDecimal("0.0009478171203133172000128")),
-        Energy.FtLbF to Multipliers(BigDecimal("1.3558179483314004"), BigDecimal("0.7375621494575464935503")),
-        Energy.InLbF to Multipliers(BigDecimal("0.1129848290276167"), BigDecimal("8.850745793490557922604")),
-        Energy.KilowattHour to Multipliers(BigDecimal("3600000.0"), BigDecimal("0.0000002777777777777777777778"))
+        Energy.Kilojoule to multipliers("1000", "0.001"),
+        Energy.Calorie to multipliers("4.184", "0.2390057361376673040153"),
+        Energy.Kilocalorie to multipliers("4184", "0.0002390057361376673040153"),
+        Energy.Btu to multipliers("1055.05585262", "0.0009478171203133172000128"),
+        Energy.FtLbF to multipliers("1.3558179483314004", "0.7375621494575464935503"),
+        Energy.InLbF to multipliers("0.1129848290276167", "8.850745793490557922604"),
+        Energy.KilowattHour to multipliers("3600000.0", "0.0000002777777777777777777778")
     )
 }
 
 object LengthDataSource : DataSource<Length>() {
     override val units: Map<Length, Multipliers> = mapOf(
-        Length.Kilometre to Multipliers(BigDecimal("1000"), BigDecimal("0.001")),
-        Length.Mile to Multipliers(BigDecimal("1609.344"), BigDecimal("0.00062137119223733397")),
+        Length.Kilometre to multipliers("1000", "0.001"),
+        Length.Mile to multipliers("1609.344", "0.00062137119223733397"),
         Length.Metre to baseUnitMultipliers,
-        Length.Centimetre to Multipliers(BigDecimal("0.01"), BigDecimal(100)),
-        Length.Millimetre to Multipliers(BigDecimal("0.001"), BigDecimal(1000)),
-        Length.Micrometre to Multipliers(BigDecimal("0.000001"), BigDecimal(1000000)),
-        Length.Nanometre to Multipliers(BigDecimal("0.000000001"), BigDecimal(1000000000)),
-        Length.Yard to Multipliers(BigDecimal("0.9144"), BigDecimal("1.09361329833770779")),
-        Length.Feet to Multipliers(BigDecimal("0.3048"), BigDecimal("3.28083989501312336")),
-        Length.Inch to Multipliers(BigDecimal("0.0254"), BigDecimal("39.3700787401574803")),
-        Length.NauticalMile to Multipliers(BigDecimal(1852), BigDecimal("0.000539956803455723542")),
-        Length.Furlong to Multipliers(BigDecimal("201.168"), BigDecimal("0.0049709695379")),
-        Length.LightYear to Multipliers(BigDecimal("9460730472580800"), BigDecimal("0.0000000000000001057000834024615463709"))
+        Length.Centimetre to multipliers("0.01", "100"),
+        Length.Millimetre to multipliers("0.001", "1000"),
+        Length.Micrometre to multipliers("0.000001", "1000000"),
+        Length.Nanometre to multipliers("0.000000001", "1000000000"),
+        Length.Yard to multipliers("0.9144", "1.09361329833770779"),
+        Length.Feet to multipliers("0.3048", "3.28083989501312336"),
+        Length.Inch to multipliers("0.0254", "39.3700787401574803"),
+        Length.NauticalMile to multipliers("1852", "0.000539956803455723542"),
+        Length.Furlong to multipliers("201.168", "0.0049709695379"),
+        Length.LightYear to multipliers("9460730472580800", "0.0000000000000001057000834024615463709")
     )
 }
 
 object MassDataSource : DataSource<Mass>() {
     override val units: Map<Mass, Pair<BigDecimal, BigDecimal>> = mapOf(
         Mass.Kilogram to baseUnitMultipliers,
-        Mass.Pound to Multipliers(BigDecimal("0.45359237"), BigDecimal("2.20462262184877581")),
-        Mass.Gram to Multipliers(BigDecimal("0.001"), BigDecimal(1000)),
-        Mass.Milligram to Multipliers(BigDecimal("0.000001"), BigDecimal(1000000)),
-        Mass.Ounce to Multipliers(BigDecimal("0.028349523125"), BigDecimal("35.27396194958041291568")),
-        Mass.Grain to Multipliers(BigDecimal("0.00006479891"), BigDecimal("15432.35835294143065061")),
-        Mass.Stone to Multipliers(BigDecimal("6.35029318"), BigDecimal("0.15747304441777")),
-        Mass.MetricTon to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
-        Mass.ShortTon to Multipliers(BigDecimal("907.18474"), BigDecimal("0.0011023113109243879")),
-        Mass.LongTon to Multipliers(BigDecimal("1016.0469088"), BigDecimal("0.0009842065276110606282276"))
+        Mass.Pound to multipliers("0.45359237", "2.20462262184877581"),
+        Mass.Gram to multipliers("0.001", "1000"),
+        Mass.Milligram to multipliers("0.000001", "1000000"),
+        Mass.Ounce to multipliers("0.028349523125", "35.27396194958041291568"),
+        Mass.Grain to multipliers("0.00006479891", "15432.35835294143065061"),
+        Mass.Stone to multipliers("6.35029318", "0.15747304441777"),
+        Mass.MetricTon to multipliers("1000", "0.001"),
+        Mass.ShortTon to multipliers("907.18474", "0.0011023113109243879"),
+        Mass.LongTon to multipliers("1016.0469088", "0.0009842065276110606282276")
     )
 }
 
 object PowerDataSource : DataSource<Power>() {
     override val units: Map<Power, Multipliers> = mapOf(
         Power.Watt to baseUnitMultipliers,
-        Power.Kilowatt to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
-        Power.Megawatt to Multipliers(BigDecimal(1000000), BigDecimal("0.000001")),
-        Power.Horsepower to Multipliers(BigDecimal("735.49875"), BigDecimal("0.00135962161730390432")),
-        Power.HorsepowerUk to Multipliers(BigDecimal("745.69987158227022"), BigDecimal("0.00134102208959502793")),
-        Power.FtLbFS to Multipliers(BigDecimal("1.3558179483314004"), BigDecimal("0.737562149277265364")),
-        Power.CaloriePerSecond to Multipliers(BigDecimal("4.1868"), BigDecimal("0.23884589662749594")),
-        Power.BtuPerSecond to Multipliers(BigDecimal("1055.05585262"), BigDecimal("0.0009478171203133172")),
-        Power.Kva to Multipliers(BigDecimal(1000), BigDecimal("0.001"))
+        Power.Kilowatt to multipliers("1000", "0.001"),
+        Power.Megawatt to multipliers("1000000", "0.000001"),
+        Power.Horsepower to multipliers("735.49875", "0.00135962161730390432"),
+        Power.HorsepowerUk to multipliers("745.69987158227022", "0.00134102208959502793"),
+        Power.FtLbFS to multipliers("1.3558179483314004", "0.737562149277265364"),
+        Power.CaloriePerSecond to multipliers("4.1868", "0.23884589662749594"),
+        Power.BtuPerSecond to multipliers("1055.05585262", "0.0009478171203133172"),
+        Power.Kva to multipliers("1000", "0.001")
     )
 }
 
