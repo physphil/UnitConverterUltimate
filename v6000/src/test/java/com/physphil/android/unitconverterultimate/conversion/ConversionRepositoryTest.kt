@@ -6,6 +6,7 @@ import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
+import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
 import org.junit.Test
@@ -90,6 +91,20 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Mass.MetricTon, Mass.ShortTon).round(10)).isEqualTo(BigDecimal("6.0627122101"))
         assertThat(repo.convert(value, Mass.ShortTon, Mass.LongTon).round(10)).isEqualTo(BigDecimal("4.9107142857"))
         assertThat(repo.convert(value, Mass.LongTon, Mass.Kilogram).round(10)).isEqualTo(BigDecimal("5588.2579984000"))
+    }
+
+    @Test
+    fun `power conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Power.Watt, Power.Kilowatt).round(4)).isEqualTo(BigDecimal("0.0055"))
+        assertThat(repo.convert(value, Power.Kilowatt, Power.Megawatt).round(4)).isEqualTo(BigDecimal("0.0055"))
+        assertThat(repo.convert(value, Power.Megawatt, Power.Horsepower).round(10)).isEqualTo(BigDecimal("7477.9188951715"))
+        assertThat(repo.convert(value, Power.Horsepower, Power.HorsepowerUk).round(10)).isEqualTo(BigDecimal("5.4247603884"))
+        assertThat(repo.convert(value, Power.HorsepowerUk, Power.FtLbFS).round(1)).isEqualTo(BigDecimal("3025.0"))
+        assertThat(repo.convert(value, Power.FtLbFS, Power.CaloriePerSecond).round(10)).isEqualTo(BigDecimal("1.7810735444"))
+        assertThat(repo.convert(value, Power.CaloriePerSecond, Power.BtuPerSecond).round(10)).isEqualTo(BigDecimal("0.0218257640"))
+        assertThat(repo.convert(value, Power.BtuPerSecond, Power.Kva).round(10)).isEqualTo(BigDecimal("5.8028071894"))
+        assertThat(repo.convert(value, Power.Kva, Power.Watt).round(1)).isEqualTo(BigDecimal("5500.0"))
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
+import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
@@ -12,6 +13,8 @@ import java.math.BigDecimal
  * Represents the multipliers to convert a unit to (first entry) and from (second entry) the base unit.
  */
 private typealias Multipliers = Pair<BigDecimal, BigDecimal>
+
+private val baseUnitMultipliers = Multipliers(BigDecimal.ONE, BigDecimal.ONE)
 
 abstract class DataSource<T : Unit> {
     abstract val units: Map<T, Multipliers>
@@ -29,7 +32,7 @@ abstract class DataSource<T : Unit> {
 
 object AreaDataSource : DataSource<Area>() {
     override val units: Map<Area, Multipliers> = mapOf(
-        Area.SqMetre to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Area.SqMetre to baseUnitMultipliers,
         Area.SqKilometre to Multipliers(BigDecimal(1000000), BigDecimal("0.000001")),
         Area.SqCentimetre to Multipliers(BigDecimal("0.0001"), BigDecimal(10000)),
         Area.Hectare to Multipliers(BigDecimal(10000), BigDecimal("0.0001")),
@@ -48,7 +51,7 @@ object DigitalStorageDataSource : DataSource<DigitalStorage>() {
         DigitalStorage.Kilobit to Multipliers(BigDecimal("0.0001220703125"), BigDecimal("8192.0")),
         DigitalStorage.Kilobyte to Multipliers(BigDecimal("0.0009765625"), BigDecimal("1024.0")),
         DigitalStorage.Megabit to Multipliers(BigDecimal("0.125"), BigDecimal("8.0")),
-        DigitalStorage.Megabyte to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        DigitalStorage.Megabyte to baseUnitMultipliers,
         DigitalStorage.Gigabit to Multipliers(BigDecimal("128.0"), BigDecimal("0.0078125")),
         DigitalStorage.Gigabyte to Multipliers(BigDecimal("1024.0"), BigDecimal("0.0009765625")),
         DigitalStorage.Terabit to Multipliers(BigDecimal("131072.0"), BigDecimal("0.00000762939453125")),
@@ -58,7 +61,7 @@ object DigitalStorageDataSource : DataSource<DigitalStorage>() {
 
 object EnergyDataSource : DataSource<Energy>() {
     override val units: Map<Energy, Multipliers> = mapOf(
-        Energy.Joule to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Energy.Joule to baseUnitMultipliers,
         Energy.Kilojoule to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
         Energy.Calorie to Multipliers(BigDecimal("4.184"), BigDecimal("0.2390057361376673040153")),
         Energy.Kilocalorie to Multipliers(BigDecimal(4184), BigDecimal("0.0002390057361376673040153")),
@@ -73,7 +76,7 @@ object LengthDataSource : DataSource<Length>() {
     override val units: Map<Length, Multipliers> = mapOf(
         Length.Kilometre to Multipliers(BigDecimal("1000"), BigDecimal("0.001")),
         Length.Mile to Multipliers(BigDecimal("1609.344"), BigDecimal("0.00062137119223733397")),
-        Length.Metre to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Length.Metre to baseUnitMultipliers,
         Length.Centimetre to Multipliers(BigDecimal("0.01"), BigDecimal(100)),
         Length.Millimetre to Multipliers(BigDecimal("0.001"), BigDecimal(1000)),
         Length.Micrometre to Multipliers(BigDecimal("0.000001"), BigDecimal(1000000)),
@@ -89,7 +92,7 @@ object LengthDataSource : DataSource<Length>() {
 
 object MassDataSource : DataSource<Mass>() {
     override val units: Map<Mass, Pair<BigDecimal, BigDecimal>> = mapOf(
-        Mass.Kilogram to Multipliers(BigDecimal.ONE, BigDecimal.ONE),
+        Mass.Kilogram to baseUnitMultipliers,
         Mass.Pound to Multipliers(BigDecimal("0.45359237"), BigDecimal("2.20462262184877581")),
         Mass.Gram to Multipliers(BigDecimal("0.001"), BigDecimal(1000)),
         Mass.Milligram to Multipliers(BigDecimal("0.000001"), BigDecimal(1000000)),
@@ -99,5 +102,19 @@ object MassDataSource : DataSource<Mass>() {
         Mass.MetricTon to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
         Mass.ShortTon to Multipliers(BigDecimal("907.18474"), BigDecimal("0.0011023113109243879")),
         Mass.LongTon to Multipliers(BigDecimal("1016.0469088"), BigDecimal("0.0009842065276110606282276"))
+    )
+}
+
+object PowerDataSource : DataSource<Power>() {
+    override val units: Map<Power, Multipliers> = mapOf(
+        Power.Watt to baseUnitMultipliers,
+        Power.Kilowatt to Multipliers(BigDecimal(1000), BigDecimal("0.001")),
+        Power.Megawatt to Multipliers(BigDecimal(1000000), BigDecimal("0.000001")),
+        Power.Horsepower to Multipliers(BigDecimal("735.49875"), BigDecimal("0.00135962161730390432")),
+        Power.HorsepowerUk to Multipliers(BigDecimal("745.69987158227022"), BigDecimal("0.00134102208959502793")),
+        Power.FtLbFS to Multipliers(BigDecimal("1.3558179483314004"), BigDecimal("0.737562149277265364")),
+        Power.CaloriePerSecond to Multipliers(BigDecimal("4.1868"), BigDecimal("0.23884589662749594")),
+        Power.BtuPerSecond to Multipliers(BigDecimal("1055.05585262"), BigDecimal("0.0009478171203133172")),
+        Power.Kva to Multipliers(BigDecimal(1000), BigDecimal("0.001"))
     )
 }

@@ -5,6 +5,7 @@ import com.physphil.android.unitconverterultimate.data.DigitalStorageDataSource
 import com.physphil.android.unitconverterultimate.data.EnergyDataSource
 import com.physphil.android.unitconverterultimate.data.LengthDataSource
 import com.physphil.android.unitconverterultimate.data.MassDataSource
+import com.physphil.android.unitconverterultimate.data.PowerDataSource
 import com.physphil.android.unitconverterultimate.data.TemperatureConverter
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
@@ -12,6 +13,7 @@ import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
+import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Temperature
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -25,6 +27,7 @@ class ConversionRepository {
             ConversionType.DIGITAL_STORAGE -> DigitalStorage.all
             ConversionType.ENERGY -> Energy.all
             ConversionType.LENGTH -> Length.all
+            ConversionType.POWER -> Power.all
             ConversionType.MASS -> Mass.all
             ConversionType.TEMPERATURE -> Temperature.all
         }
@@ -37,6 +40,7 @@ class ConversionRepository {
             initial is Energy && final is Energy -> convertEnergy(value, initial, final)
             initial is Length && final is Length -> convertLength(value, initial, final)
             initial is Mass && final is Mass -> convertMass(value, initial, final)
+            initial is Power && final is Power -> convertPower(value, initial, final)
             initial is Temperature && final is Temperature -> TemperatureConverter.convert(value, initial, final)
             else -> throw IllegalArgumentException("The initial unit $initial and final unit $final are not of the same type, and cannot be converted.")
         }
@@ -55,6 +59,9 @@ class ConversionRepository {
 
     private fun convertMass(value: BigDecimal, initial: Mass, final: Mass): BigDecimal =
         convertStandardUnit(value, MassDataSource.getMultiplier(initial, final))
+
+    private fun convertPower(value: BigDecimal, initial: Power, final: Power): BigDecimal =
+        convertStandardUnit(value, PowerDataSource.getMultiplier(initial, final))
 
     private fun convertStandardUnit(value: BigDecimal, multiplier: BigDecimal): BigDecimal =
         value * multiplier

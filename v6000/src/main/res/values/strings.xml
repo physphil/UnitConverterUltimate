@@ -62,6 +62,17 @@
     <string name="furlong">Furlong</string>
     <string name="light_year">Light Year</string>
 
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HP (metric)</string>
+    <string name="hp_uk">HP (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">Calorie/second</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogram</string>
     <string name="pound">Pound</string>

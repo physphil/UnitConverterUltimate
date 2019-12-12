@@ -101,6 +101,24 @@ sealed class Mass(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Power(override val displayStringResId: Int) : Unit() {
+    object Watt : Power(R.string.watt)
+    object Kilowatt : Power(R.string.kilowatt)
+    object Megawatt : Power(R.string.megawatt)
+    object Horsepower : Power(R.string.hp)
+    object HorsepowerUk : Power(R.string.hp_uk)
+    object FtLbFS : Power(R.string.ft_lbf_s)
+    object CaloriePerSecond : Power(R.string.calorie_s)
+    object BtuPerSecond : Power(R.string.btu_s)
+    object Kva : Power(R.string.kva)
+
+    companion object {
+        val all: List<Power> = listOf(
+            Watt, Kilowatt, Megawatt, Horsepower, HorsepowerUk, FtLbFS, CaloriePerSecond, BtuPerSecond, Kva
+        )
+    }
+}
+
 sealed class Temperature(override val displayStringResId: Int) : Unit() {
     object Celsius : Temperature(R.string.celsius)
     object Fahrenheit : Temperature(R.string.fahrenheit)
