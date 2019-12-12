@@ -7,6 +7,7 @@ import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
+import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
 
@@ -132,5 +133,15 @@ object PressureDataSource : DataSource<Pressure>() {
         Pressure.TechnicalAtmosphere to Multipliers(BigDecimal("98066.5"), BigDecimal("0.0000101971621297792824257")),
         Pressure.MmHg to Multipliers(BigDecimal("133.322387415"), BigDecimal("0.007500615758456563339513")),
         Pressure.Torr to Multipliers(BigDecimal("133.3223684210526315789"), BigDecimal("0.00750061682704169751"))
+    )
+}
+
+object SpeedDataSource : DataSource<Speed>() {
+    override val units: Map<Speed, Multipliers> = mapOf(
+        Speed.KilometresPerHour to Multipliers(BigDecimal("0.27777777777778"), BigDecimal("3.6")),
+        Speed.MilesPerHour to Multipliers(BigDecimal("0.44704"), BigDecimal("2.2369362920544")),
+        Speed.MetresPerSecond to baseUnitMultipliers,
+        Speed.FeetPerSecond to Multipliers(BigDecimal("0.3048"), BigDecimal("3.2808398950131")),
+        Speed.Knot to Multipliers(BigDecimal("0.51444444444444"), BigDecimal("1.9438444924406"))
     )
 }

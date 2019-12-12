@@ -7,6 +7,7 @@ import com.physphil.android.unitconverterultimate.data.LengthDataSource
 import com.physphil.android.unitconverterultimate.data.MassDataSource
 import com.physphil.android.unitconverterultimate.data.PowerDataSource
 import com.physphil.android.unitconverterultimate.data.PressureDataSource
+import com.physphil.android.unitconverterultimate.data.SpeedDataSource
 import com.physphil.android.unitconverterultimate.data.TemperatureConverter
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
@@ -16,6 +17,7 @@ import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
+import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Temperature
 import com.physphil.android.unitconverterultimate.models.Unit
 import java.math.BigDecimal
@@ -32,6 +34,7 @@ class ConversionRepository {
             ConversionType.POWER -> Power.all
             ConversionType.PRESSURE -> Pressure.all
             ConversionType.MASS -> Mass.all
+            ConversionType.SPEED -> Speed.all
             ConversionType.TEMPERATURE -> Temperature.all
         }
 
@@ -45,6 +48,7 @@ class ConversionRepository {
             initial is Mass && final is Mass -> convertMass(value, initial, final)
             initial is Power && final is Power -> convertPower(value, initial, final)
             initial is Pressure && final is Pressure -> convertPressure(value, initial, final)
+            initial is Speed && final is Speed -> convertSpeed(value, initial, final)
             initial is Temperature && final is Temperature -> TemperatureConverter.convert(value, initial, final)
             else -> throw IllegalArgumentException("The initial unit $initial and final unit $final are not of the same type, and cannot be converted.")
         }
@@ -69,6 +73,9 @@ class ConversionRepository {
 
     private fun convertPressure(value: BigDecimal, initial: Pressure, final: Pressure): BigDecimal =
         convertStandardUnit(value, PressureDataSource.getMultiplier(initial, final))
+
+    private fun convertSpeed(value: BigDecimal, initial: Speed, final: Speed): BigDecimal =
+        convertStandardUnit(value, SpeedDataSource.getMultiplier(initial, final))
 
     private fun convertStandardUnit(value: BigDecimal, multiplier: BigDecimal): BigDecimal =
         value * multiplier

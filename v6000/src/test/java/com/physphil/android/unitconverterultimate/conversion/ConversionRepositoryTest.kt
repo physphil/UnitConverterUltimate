@@ -8,6 +8,7 @@ import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
 import com.physphil.android.unitconverterultimate.models.Pressure
+import com.physphil.android.unitconverterultimate.models.Speed
 import com.physphil.android.unitconverterultimate.models.Temperature
 import org.junit.Before
 import org.junit.Test
@@ -121,6 +122,16 @@ class ConversionRepositoryTest {
         assertThat(repo.convert(value, Pressure.MmHg, Pressure.Torr).round(10)).isEqualTo(BigDecimal("5.5000007836"))
         assertThat(repo.convert(value, Pressure.Torr, Pressure.TechnicalAtmosphere).round(10)).isEqualTo(BigDecimal("0.0074773039"))
         assertThat(repo.convert(value, Pressure.TechnicalAtmosphere, Pressure.Megapascal).round(10)).isEqualTo(BigDecimal("0.5393657500"))
+    }
+
+    @Test
+    fun `speed conversions`() {
+        val value = BigDecimal("5.5")
+        assertThat(repo.convert(value, Speed.KilometresPerHour, Speed.MilesPerHour).round(10)).isEqualTo(BigDecimal("3.4175415573"))
+        assertThat(repo.convert(value, Speed.MilesPerHour, Speed.MetresPerSecond).round(5)).isEqualTo(BigDecimal("2.45872"))
+        assertThat(repo.convert(value, Speed.MetresPerSecond, Speed.FeetPerSecond).round(10)).isEqualTo(BigDecimal("18.0446194226"))
+        assertThat(repo.convert(value, Speed.FeetPerSecond, Speed.Knot).round(10)).isEqualTo(BigDecimal("3.2586609071"))
+        assertThat(repo.convert(value, Speed.Knot, Speed.KilometresPerHour).round(4)).isEqualTo(BigDecimal("10.1860"))
     }
 
     @Test

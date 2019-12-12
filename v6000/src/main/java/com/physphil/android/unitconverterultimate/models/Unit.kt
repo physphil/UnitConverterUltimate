@@ -138,6 +138,20 @@ sealed class Pressure(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Speed(override val displayStringResId: Int) : Unit() {
+    object KilometresPerHour : Speed(R.string.km_h)
+    object MilesPerHour : Speed(R.string.mph)
+    object MetresPerSecond : Speed(R.string.m_s)
+    object FeetPerSecond : Speed(R.string.fps)
+    object Knot : Speed(R.string.knot)
+
+    companion object {
+        val all: List<Speed> = listOf(
+            KilometresPerHour, MilesPerHour, MetresPerSecond, FeetPerSecond, Knot
+        )
+    }
+}
+
 sealed class Temperature(override val displayStringResId: Int) : Unit() {
     object Celsius : Temperature(R.string.celsius)
     object Fahrenheit : Temperature(R.string.fahrenheit)

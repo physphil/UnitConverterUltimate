@@ -97,6 +97,13 @@
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
 
+    <!-- Speed -->
+    <string name="km_h">Kilometre/hour</string>
+    <string name="mph">Mile/hour</string>
+    <string name="m_s">Metre/second</string>
+    <string name="fps">Foot/second</string>
+    <string name="knot">Knot</string>
+
     <!-- Temperature -->
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
