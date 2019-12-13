@@ -13,6 +13,12 @@
         android:id="@+id/action_nav_home_to_nav_acknowledgements"
         android:orderInCategory="200"
         android:title="@string/title_acknowledgements"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_nav_home_to_nav_settings"
+        android:orderInCategory="300"
+        android:title="@string/title_settings"
+        app:showAsAction="never" />
 
 </menu>

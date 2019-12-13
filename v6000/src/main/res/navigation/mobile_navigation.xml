@@ -20,6 +20,10 @@
             android:id="@+id/action_nav_home_to_nav_acknowledgements"
             app:destination="@id/nav_acknowledgements" />
 
+        <action
+            android:id="@+id/action_nav_home_to_nav_settings"
+            app:destination="@id/nav_settings" />
+
     </fragment>
 
     <fragment
@@ -27,6 +31,11 @@
         android:name="com.physphil.android.unitconverterultimate.acknowledgements.AcknowledgementsFragment"
         android:label="AcknowledgementsFragment"
         tools:layout="@layout/fragment_acknowledgements" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.physphil.android.unitconverterultimate.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 
 
     <!-- TODO: to be removed -->
