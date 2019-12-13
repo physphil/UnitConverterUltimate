@@ -176,6 +176,7 @@
 
     <!-- New strings! -->
     <string name="value_hint">Enter a value to convert</string>
+    <string name="title_acknowledgements">Acknowledgements</string>
 
     <string-array name="spinner_entries" translatable="false">
         <item>@string/area</item>

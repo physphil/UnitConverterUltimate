@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <!-- This item has same ID as action going from Home to Ack. in mobile_navigation.xml -->
+    <item
+        android:id="@+id/action_nav_home_to_nav_acknowledgements"
+        android:orderInCategory="200"
+        android:title="@string/title_acknowledgements"
+        app:showAsAction="never"/>
+
 </menu>
