@@ -6,6 +6,7 @@ enum class ConversionType {
     CURRENCY,
     DIGITAL_STORAGE,
     ENERGY,
+    FUEL_CONSUMPTION,
     LENGTH,
     MASS,
     POWER,

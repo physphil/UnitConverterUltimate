@@ -60,6 +60,20 @@ sealed class Energy(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Fuel(override val displayStringResId: Int) : Unit() {
+    object MilesPerGallonUs : Fuel(R.string.mpg_us)
+    object MilesPerGallonUk : Fuel(R.string.mpg_uk)
+    object LitresPer100k : Fuel(R.string.l_100k)
+    object KilometresPerLitre : Fuel(R.string.km_l)
+    object MilesPerLitre : Fuel(R.string.miles_l)
+
+    companion object {
+        val all: List<Fuel> = listOf(
+            MilesPerGallonUs, MilesPerGallonUk, LitresPer100k, KilometresPerLitre, MilesPerLitre
+        )
+    }
+}
+
 sealed class Length(override val displayStringResId: Int) : Unit() {
     object Kilometre : Length(R.string.kilometre)
     object Mile : Length(R.string.mile)

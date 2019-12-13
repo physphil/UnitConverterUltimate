@@ -47,6 +47,13 @@
     <string name="in_lbF">in-lbf</string>
     <string name="kilowatt_hour">Kilowatt-Hour</string>
 
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Miles/gallon (US)</string>
+    <string name="mpg_uk">Miles/gallon (UK)</string>
+    <string name="l_100k">Litres/100km</string>
+    <string name="km_l">Kilometres/litre</string>
+    <string name="miles_l">Miles/litre</string>
+
     <!-- Length -->
     <string name="kilometre">Kilometre</string>
     <string name="mile">Miles</string>

@@ -4,11 +4,9 @@ import com.physphil.android.unitconverterultimate.models.Temperature
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-object TemperatureConverter {
+object TemperatureConverter : Converter<Temperature> {
 
-    private const val SCALE_RESULT = 15
-
-    fun convert(value: BigDecimal, initial: Temperature, final: Temperature): BigDecimal =
+    override fun convert(value: BigDecimal, initial: Temperature, final: Temperature): BigDecimal =
         when (final) {
             Temperature.Celsius -> value.toCelsius(initial)
             Temperature.Fahrenheit -> value.toFahrenheit(initial)
