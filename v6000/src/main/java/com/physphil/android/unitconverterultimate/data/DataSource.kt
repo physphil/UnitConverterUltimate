@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate.data
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
+import com.physphil.android.unitconverterultimate.models.Fuel
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
@@ -17,20 +18,19 @@ import java.math.BigDecimal
 /**
  * Represents the multipliers to convert a unit to (first entry) and from (second entry) the base unit.
  */
-private typealias Multipliers = Pair<BigDecimal, BigDecimal>
+typealias Multipliers = Pair<BigDecimal, BigDecimal>
 
 private val baseUnitMultipliers = Multipliers(BigDecimal.ONE, BigDecimal.ONE)
 
 abstract class DataSource<T : Unit> {
     abstract val units: Map<T, Multipliers>
 
+    operator fun get(unit: T): Multipliers = units[unit]
+        ?: throw IllegalArgumentException("Tsk task. Unit '$unit' is not configured correctly in the data source.")
+
     fun getMultiplier(initial: T, final: T): BigDecimal {
-        val toStandard = units[initial]?.first
-            ?: throw IllegalArgumentException("Tsk tsk. Unit $initial is not configured correctly in the data source.")
-
-        val fromStandard = units[final]?.second
-            ?: throw IllegalArgumentException("Tsk tsk. Unit $final is not configured correctly in the data source.")
-
+        val toStandard = this[initial].first
+        val fromStandard = this[final].second
         return toStandard * fromStandard
     }
 }
@@ -74,6 +74,16 @@ object EnergyDataSource : DataSource<Energy>() {
         Energy.FtLbF to multipliers("1.3558179483314004", "0.7375621494575464935503"),
         Energy.InLbF to multipliers("0.1129848290276167", "8.850745793490557922604"),
         Energy.KilowattHour to multipliers("3600000.0", "0.0000002777777777777777777778")
+    )
+}
+
+object FuelConsumptionDataSource : DataSource<Fuel>() {
+    override val units: Map<Fuel, Multipliers> = mapOf(
+        Fuel.MilesPerGallonUs to baseUnitMultipliers,
+        Fuel.MilesPerGallonUk to multipliers("0.83267418460479", "1.2009499255398"),
+        Fuel.LitresPer100k to multipliers("235.214582", "235.214582"),
+        Fuel.KilometresPerLitre to multipliers("2.352145833", "0.42514370749052"),
+        Fuel.MilesPerLitre to multipliers("3.7854118", "0.264172052")
     )
 }
 

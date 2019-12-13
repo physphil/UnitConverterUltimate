@@ -4,6 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
+import com.physphil.android.unitconverterultimate.models.Fuel
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
@@ -43,7 +44,7 @@ class ConversionRepositoryTest {
     }
 
     @Test
-    fun `storage conversions`() {
+    fun `digital storage conversions`() {
         val value = BigDecimal("4.0")
         assertConversion(value, DigitalStorage.Byte, DigitalStorage.Bit, "32.0")
         assertConversion(value, DigitalStorage.Kilobit, DigitalStorage.Byte, "512.0")
@@ -69,6 +70,17 @@ class ConversionRepositoryTest {
         assertConversion(value, Energy.FtLbF, Energy.InLbF, "66.0000000161")
         assertConversion(BigDecimal("5555555.0"), Energy.InLbF, Energy.KilowattHour, "0.1743592866")
         assertConversion(value, Energy.KilowattHour, Energy.Joule, "19800000.0")
+    }
+
+    @Test
+    fun `fuel consumption conversions`() {
+        val value = BigDecimal("5.5")
+        assertConversion(value, Fuel.MilesPerGallonUs, Fuel.MilesPerGallonUk, "6.6052245905")
+        assertConversion(value, Fuel.MilesPerGallonUk, Fuel.LitresPer100k, "51.3601699525")
+        assertConversion(value, Fuel.LitresPer100k, Fuel.KilometresPerLitre, "18.1818180813")
+        assertConversion(value, Fuel.KilometresPerLitre, Fuel.MilesPerLitre, "3.4175415522")
+        assertConversion(BigDecimal("0.0"), Fuel.LitresPer100k, Fuel.MilesPerGallonUk, BigDecimal.ZERO)
+        assertConversion(BigDecimal("0.0"), Fuel.MilesPerGallonUk, Fuel.LitresPer100k, BigDecimal.ZERO)
     }
 
     @Test

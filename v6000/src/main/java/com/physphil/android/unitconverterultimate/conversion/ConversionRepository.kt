@@ -3,6 +3,7 @@ package com.physphil.android.unitconverterultimate.conversion
 import com.physphil.android.unitconverterultimate.data.AreaDataSource
 import com.physphil.android.unitconverterultimate.data.DigitalStorageDataSource
 import com.physphil.android.unitconverterultimate.data.EnergyDataSource
+import com.physphil.android.unitconverterultimate.data.FuelConsumptionConverter
 import com.physphil.android.unitconverterultimate.data.LengthDataSource
 import com.physphil.android.unitconverterultimate.data.MassDataSource
 import com.physphil.android.unitconverterultimate.data.PowerDataSource
@@ -16,6 +17,7 @@ import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
+import com.physphil.android.unitconverterultimate.models.Fuel
 import com.physphil.android.unitconverterultimate.models.Length
 import com.physphil.android.unitconverterultimate.models.Mass
 import com.physphil.android.unitconverterultimate.models.Power
@@ -37,6 +39,7 @@ class ConversionRepository {
             ConversionType.CURRENCY -> TODO()
             ConversionType.DIGITAL_STORAGE -> DigitalStorage.all
             ConversionType.ENERGY -> Energy.all
+            ConversionType.FUEL_CONSUMPTION -> Fuel.all
             ConversionType.LENGTH -> Length.all
             ConversionType.POWER -> Power.all
             ConversionType.PRESSURE -> Pressure.all
@@ -54,6 +57,7 @@ class ConversionRepository {
             initial is Area && final is Area -> convertArea(value, initial, final)
             initial is DigitalStorage && final is DigitalStorage -> convertDigitalStorage(value, initial, final)
             initial is Energy && final is Energy -> convertEnergy(value, initial, final)
+            initial is Fuel && final is Fuel -> FuelConsumptionConverter.convert(value, initial, final)
             initial is Length && final is Length -> convertLength(value, initial, final)
             initial is Mass && final is Mass -> convertMass(value, initial, final)
             initial is Power && final is Power -> convertPower(value, initial, final)
