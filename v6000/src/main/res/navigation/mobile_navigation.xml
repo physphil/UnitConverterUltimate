@@ -9,13 +9,25 @@
         android:id="@+id/nav_home"
         android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_conversion" />
+        tools:layout="@layout/fragment_conversion">
+
+        <argument
+            android:name="argConversionType"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType"
+            android:defaultValue="AREA" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.physphil.android.unitconverterultimate.ui.gallery.GalleryFragment"
+        android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_conversion" >
+        <argument
+            android:name="argConversionType"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType"
+            android:defaultValue="COOKING" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"

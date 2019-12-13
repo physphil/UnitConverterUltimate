@@ -18,6 +18,10 @@ import java.math.BigDecimal
 
 class ConversionFragment : Fragment() {
 
+    companion object {
+        const val ARGS_CONVERSION_TYPE = "argConversionType"
+    }
+
     private lateinit var conversionViewModel: ConversionViewModel
 
     override fun onCreateView(
@@ -30,7 +34,10 @@ class ConversionFragment : Fragment() {
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        val factory = ConversionViewModel.Factory(ConversionType.AREA, ConversionRepository())
+        val conversionType = arguments?.getSerializable(ARGS_CONVERSION_TYPE) as? ConversionType
+            ?: throw IllegalArgumentException("Proper conversion type not specified when starting fragment")
+
+        val factory = ConversionViewModel.Factory(conversionType, ConversionRepository())
         conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
         conversionViewModel.init(this)
         initViewListeners()

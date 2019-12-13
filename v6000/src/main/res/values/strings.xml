@@ -14,6 +14,23 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+    <!-- Conversions -->
+    <string name="area">Area</string>
+    <string name="cooking">Cooking</string>
+    <string name="currency">Currency</string>
+    <string name="storage">Digital Storage</string>
+    <string name="energy">Energy</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="length">Length / Distance</string>
+    <string name="mass">Mass / Weight</string>
+    <string name="power">Power</string>
+    <string name="pressure">Pressure</string>
+    <string name="speed">Speed</string>
+    <string name="temperature">Temperature</string>
+    <string name="time">Time</string>
+    <string name="torque">Torque</string>
+    <string name="volume">Volume</string>
+
     <!-- Area -->
     <string name="sq_kilometre">Sq Kilometre</string>
     <string name="sq_metre">Sq Metre</string>
@@ -159,5 +176,23 @@
 
     <!-- New strings! -->
     <string name="value_hint">Enter a value to convert</string>
+
+    <string-array name="spinner_entries" translatable="false">
+        <item>@string/area</item>
+        <item>@string/cooking</item>
+        <item>@string/currency</item>
+        <item>@string/storage</item>
+        <item>@string/energy</item>
+        <item>@string/fuel_consumption</item>
+        <item>@string/length</item>
+        <item>@string/mass</item>
+        <item>@string/power</item>
+        <item>@string/pressure</item>
+        <item>@string/speed</item>
+        <item>@string/temperature</item>
+        <item>@string/time</item>
+        <item>@string/torque</item>
+        <item>@string/volume</item>
+    </string-array>
 
 </resources>
