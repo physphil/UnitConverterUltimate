@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation android:id="@+id/mobile_navigation"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
     <fragment
@@ -13,20 +13,34 @@
 
         <argument
             android:name="argConversionType"
-            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType"
-            android:defaultValue="AREA" />
+            android:defaultValue="AREA"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType" />
+
+        <action
+            android:id="@+id/action_nav_home_to_nav_acknowledgements"
+            app:destination="@id/nav_acknowledgements" />
 
     </fragment>
 
     <fragment
+        android:id="@+id/nav_acknowledgements"
+        android:name="com.physphil.android.unitconverterultimate.acknowledgements.AcknowledgementsFragment"
+        android:label="AcknowledgementsFragment"
+        tools:layout="@layout/fragment_acknowledgements" />
+
+
+    <!-- TODO: to be removed -->
+    <fragment
         android:id="@+id/nav_gallery"
         android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_conversion" >
+        tools:layout="@layout/fragment_conversion">
+
         <argument
             android:name="argConversionType"
-            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType"
-            android:defaultValue="COOKING" />
+            android:defaultValue="COOKING"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType" />
+
     </fragment>
 
     <fragment
@@ -52,4 +66,5 @@
         android:name="com.physphil.android.unitconverterultimate.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
 </navigation>
