@@ -5,15 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
 import com.physphil.android.unitconverterultimate.R
-
-private const val URL_RATE_APP = "market://details?id=com.physphil.android.unitconverterultimate"
-private const val URL_GITHUB_REPO = "https://github.com/physphil/UnitConverterUltimate"
-private const val URL_GITHUB_ISSUE = "https://github.com/physphil/UnitConverterUltimate/issues"
-private const val URL_PRIVACY_POLICY = "https://privacypolicies.com/privacy/view/f7a41d67f1b0081f249c2ff0a3123136"
 
 class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -23,24 +21,39 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        findPreference<Preference>("pref_rate_app")?.openUrl(URL_RATE_APP)
-        findPreference<Preference>("pref_open_issue")?.openUrl(URL_GITHUB_ISSUE)
-        findPreference<Preference>("pref_view_source")?.openUrl(URL_GITHUB_REPO)
-        findPreference<Preference>("pref_privacy_policy")?.openUrl(URL_PRIVACY_POLICY)
+        val viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
+        viewModel.init(this)
+
+        findPreference<Preference>("pref_rate_app")?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>("pref_open_issue")?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>("pref_view_source")?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>("pref_privacy_policy")?.handleClick { viewModel.onPreferenceClicked(it.key) }
     }
 
-    private fun Preference.openUrl(url: String) {
-        setOnPreferenceClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            try {
-                startActivity(intent)
-            } catch (ex: ActivityNotFoundException) {
-                view?.let {
-                    Snackbar.make(it, R.string.toast_error_no_browser, Snackbar.LENGTH_LONG).apply {
-                        view.setBackgroundColor(ContextCompat.getColor(context, R.color.theme_red))
-                    }.show()
-                }
+    private fun SettingsViewModel.init(lifecycleOwner: LifecycleOwner) {
+        openUrlEvent.observe(lifecycleOwner, Observer {
+            it.getIfNotHandled()?.let { url ->
+                openUrl(url)
             }
+        })
+    }
+
+    private fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        try {
+            startActivity(intent)
+        } catch (ex: ActivityNotFoundException) {
+            view?.let {
+                Snackbar.make(it, R.string.toast_error_no_browser, Snackbar.LENGTH_LONG).apply {
+                    view.setBackgroundColor(ContextCompat.getColor(context, R.color.theme_red))
+                }.show()
+            }
+        }
+    }
+
+    private fun Preference.handleClick(action: (Preference) -> Unit) {
+        setOnPreferenceClickListener {
+            action(this)
             true
         }
     }
