@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
@@ -24,10 +25,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         viewModel.init(this)
 
-        findPreference<Preference>("pref_rate_app")?.handleClick { viewModel.onPreferenceClicked(it.key) }
-        findPreference<Preference>("pref_open_issue")?.handleClick { viewModel.onPreferenceClicked(it.key) }
-        findPreference<Preference>("pref_view_source")?.handleClick { viewModel.onPreferenceClicked(it.key) }
-        findPreference<Preference>("pref_privacy_policy")?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>(SettingsViewModel.Keys.DONATE)?.handleClick {
+            TODO("Navigate to DonateFragment once it's ready")
+        }
+        findPreference<Preference>(SettingsViewModel.Keys.ACKNOWLEDGEMENTS)?.handleClick {
+            findNavController().navigate(R.id.action_nav_settings_to_acknowledgements)
+        }
+
+        findPreference<Preference>(SettingsViewModel.Keys.UNIT_REQUEST)?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>(SettingsViewModel.Keys.RATE_APP)?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>(SettingsViewModel.Keys.OPEN_ISSUE)?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>(SettingsViewModel.Keys.VIEW_SOURCE)?.handleClick { viewModel.onPreferenceClicked(it.key) }
+        findPreference<Preference>(SettingsViewModel.Keys.PRIVACY_POLICY)?.handleClick { viewModel.onPreferenceClicked(it.key) }
     }
 
     private fun SettingsViewModel.init(lifecycleOwner: LifecycleOwner) {

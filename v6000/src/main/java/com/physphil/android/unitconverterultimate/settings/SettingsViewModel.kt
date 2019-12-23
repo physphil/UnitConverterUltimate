@@ -17,6 +17,7 @@ class SettingsViewModel : ViewModel() {
 
     fun onPreferenceClicked(key: String) {
         when (key) {
+            Keys.UNIT_REQUEST -> TODO("Still need to figure out how to accept unit requests")
             Keys.RATE_APP -> _openUrlEvent.postValue(Event(URL_RATE_APP))
             Keys.OPEN_ISSUE -> _openUrlEvent.postValue(Event(URL_GITHUB_ISSUE))
             Keys.VIEW_SOURCE -> _openUrlEvent.postValue(Event(URL_GITHUB_REPO))

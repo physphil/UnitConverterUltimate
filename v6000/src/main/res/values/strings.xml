@@ -46,6 +46,22 @@
     <string name="prefs_title_privacy_policy">Privacy Policy</string>
     <string name="prefs_summary_privacy_policy">Because your privacy is important to me.</string>
 
+    <!-- Languages -->
+    <string name="language_default" translatable="false">System Default</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_croatian" translatable="false">Croatian</string>
+    <string name="language_dutch" translatable="false">Dutch (Nederlands)</string>
+    <string name="language_farsi" translatable="false">Farsi</string>
+    <string name="language_french" translatable="false">French</string>
+    <string name="language_german" translatable="false">German</string>
+    <string name="language_hungarian" translatable="false">Hungarian</string>
+    <string name="language_italian" translatable="false">Italian</string>
+    <string name="language_japanese" translatable="false">Japanese</string>
+    <string name="language_portuguese_brazil" translatable="false">Portuguese (Brazil)</string>
+    <string name="language_russian" translatable="false">Russian</string>
+    <string name="language_spanish" translatable="false">Spanish</string>
+    <string name="language_turkish" translatable="false">Turkish</string>
+
     <!-- Conversions -->
     <string name="area">Area</string>
     <string name="cooking">Cooking</string>
