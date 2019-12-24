@@ -227,6 +227,7 @@
     <string name="title_acknowledgements">Acknowledgements</string>
     <string name="prefs_title_acknowledgements">Acknowledgements</string>
     <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
+    <string name="language_norwegian">Norwegian</string>
 
     <string-array name="spinner_entries" translatable="false">
         <item>@string/area</item>

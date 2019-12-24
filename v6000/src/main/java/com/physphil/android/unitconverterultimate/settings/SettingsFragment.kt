@@ -9,10 +9,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
 import com.physphil.android.unitconverterultimate.R
+import com.physphil.android.unitconverterultimate.models.LanguageRepository
 
 class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -24,6 +26,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         val viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         viewModel.init(this)
+
+        findPreference<ListPreference>(SettingsViewModel.Keys.LANGUAGE)?.let { language ->
+            val entries = LanguageRepository.getLanguageEntriesForLocale(context!!)
+            language.entries = entries.entries
+            language.entryValues = entries.entryValues
+        }
 
         findPreference<Preference>(SettingsViewModel.Keys.DONATE)?.handleClick {
             TODO("Navigate to DonateFragment once it's ready")
