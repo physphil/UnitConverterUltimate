@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="category_formatting"
+        app:title="@string/prefs_title_formatting"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="pref_number_decimals"
+            app:title="@string/prefs_title_number_decimals"
+            app:summary="@string/prefs_summary_number_decimals"
+            app:iconSpaceReserved="false"
+            app:defaultValue="@string/default_number_decimals"
+            app:entries="@array/number_decimals"
+            app:entryValues="@array/number_decimals"/>
+
+        <ListPreference
+            app:key="pref_group_separator"
+            app:title="@string/prefs_title_group_separator"
+            app:summary="@string/prefs_summary_group_separator"
+            app:iconSpaceReserved="false"
+            app:defaultValue="@string/default_group_separator"
+            app:entries="@array/group_separators"
+            app:entryValues="@array/group_separators"/>
+
+        <ListPreference
+            app:key="pref_decimal_separator"
+            app:title="@string/prefs_title_decimal_separator"
+            app:summary="@string/prefs_summary_decimal_separator"
+            app:iconSpaceReserved="false"
+            app:defaultValue="@string/default_decimal_separator"
+            app:entries="@array/decimal_separators"
+            app:entryValues="@array/decimal_separators"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="category_visual"
+        app:title="@string/prefs_title_visual"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            app:key="pref_theme"
+            app:title="@string/prefs_title_light_theme"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <ListPreference
+            app:key="pref_language"
+            app:title="@string/prefs_title_language"
+            app:summary="@string/prefs_summary_language"
+            app:iconSpaceReserved="false"
+            app:defaultValue="@string/language_code_default"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="category_other_stuff"
+        app:title="@string/prefs_title_other"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="pref_donate"
+            app:title="@string/prefs_title_donate"
+            app:summary="@string/prefs_summary_donate"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_acknowledgements"
+            app:title="@string/prefs_title_acknowledgements"
+            app:summary="@string/prefs_summary_acknowledgements"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_unit_request"
+            app:title="@string/prefs_title_unit_request"
+            app:summary="@string/prefs_summary_unit_request"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_rate_app"
+            app:title="@string/prefs_title_rate"
+            app:summary="@string/prefs_summary_rate"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_open_issue"
+            app:title="@string/prefs_title_open_issue"
+            app:summary="@string/prefs_summary_open_issue"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_view_source"
+            app:title="@string/prefs_title_source_code"
+            app:summary="@string/pref_summary_source_code"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:key="pref_privacy_policy"
+            app:title="@string/prefs_title_privacy_policy"
+            app:summary="@string/prefs_summary_privacy_policy"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
