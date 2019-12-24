@@ -1,4 +1,4 @@
-package com.physphil.android.unitconverterultimate.models
+package com.physphil.android.unitconverterultimate.language
 
 import android.content.Context
 import androidx.annotation.StringRes

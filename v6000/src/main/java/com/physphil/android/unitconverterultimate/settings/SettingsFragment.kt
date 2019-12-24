@@ -14,7 +14,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
 import com.physphil.android.unitconverterultimate.R
-import com.physphil.android.unitconverterultimate.models.LanguageRepository
+import com.physphil.android.unitconverterultimate.language.LanguageRepository
 
 class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
