@@ -14,11 +14,14 @@ class ConversionViewModel(
     private val repo: ConversionRepository
 ) : ViewModel() {
 
-    private val _viewState = MutableLiveData<State>()
-    val viewState: LiveData<State> = _viewState
+    private val _viewData = MutableLiveData<ViewData>()
+    val viewData: LiveData<ViewData> = _viewData
 
     private val _resultLiveData = MutableLiveData<BigDecimal>()
     val resultLiveData: LiveData<BigDecimal> = _resultLiveData
+
+    private val _selectedUnitsLiveData = MutableLiveData<SelectedUnits>()
+    val selectedUnitsLiveData: LiveData<SelectedUnits> = _selectedUnitsLiveData
 
     private var value: BigDecimal = BigDecimal.ONE
     private var result: BigDecimal = BigDecimal.ZERO
@@ -31,8 +34,9 @@ class ConversionViewModel(
         get() = units[finalIndex]
 
     init {
-        val state = State(BigDecimal.ONE, units, initialIndex, finalIndex)
-        _viewState.postValue(state)
+        val state = ViewData(BigDecimal.ONE, units)
+        _viewData.postValue(state)
+        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
     }
 
     fun updateValue(value: BigDecimal) {
@@ -47,6 +51,16 @@ class ConversionViewModel(
 
     fun updateFinalIndex(index: Int) {
         finalIndex = index
+        updateResult()
+    }
+
+    fun swapUnits() {
+        run {
+            val temp = initialIndex
+            initialIndex = finalIndex
+            finalIndex = temp
+        }
+        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
         updateResult()
     }
 
@@ -74,9 +88,12 @@ class ConversionViewModel(
         }
     }
 
-    data class State(
+    data class ViewData(
         val value: BigDecimal,
-        val units: List<Unit>,
+        val units: List<Unit>
+    )
+
+    data class SelectedUnits(
         val initialIndex: Int,
         val finalIndex: Int
     )
