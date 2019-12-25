@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.core.view.get
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -59,10 +60,14 @@ class ConversionFragment : Fragment() {
         finalRadioGroupView.setOnCheckedChangeListener { _, checkedId ->
             conversionViewModel.updateFinalIndex(checkedId)
         }
+
+        swapUnitsButtonView.setOnClickListener {
+            conversionViewModel.swapUnits()
+        }
     }
 
     // FIXME: move to View class
-    private fun populateViewState(state: ConversionViewModel.State) {
+    private fun renderView(state: ConversionViewModel.ViewData) {
         state.units.forEachIndexed { index, unit  ->
             val initialButton = RadioButton(this.context).apply {
                 id = index
@@ -77,18 +82,25 @@ class ConversionFragment : Fragment() {
             finalRadioGroupView.addView(finalButton)
         }
 
-        initialRadioGroupView.check(initialRadioGroupView[state.initialIndex].id)
-        finalRadioGroupView.check(finalRadioGroupView[state.finalIndex].id)
         valueTextView.setText(state.value.toPlainString())
     }
 
     private fun ConversionViewModel.init(lifecycleOwner: LifecycleOwner) {
-        viewState.observe(lifecycleOwner, Observer {
-            populateViewState(it)
+        viewData.observe(lifecycleOwner, Observer {
+            renderView(it)
+        })
+
+        selectedUnitsLiveData.observe(lifecycleOwner, Observer {
+            initialRadioGroupView.checkIndex(it.initialIndex)
+            finalRadioGroupView.checkIndex(it.finalIndex)
         })
 
         resultLiveData.observe(lifecycleOwner, Observer {
             resultTextView.text = it.toPlainString()
         })
+    }
+
+    private fun RadioGroup.checkIndex(index: Int) {
+        this.check(this[index].id)
     }
 }
