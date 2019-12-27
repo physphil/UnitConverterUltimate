@@ -41,6 +41,7 @@ sealed class Currency(override val displayStringResId: Int) : Unit() {
     object IndonesianRupiah : Currency(R.string.idr)
     object IsraeliShekel : Currency(R.string.ils)
     object IndianRupee : Currency(R.string.idr)
+    object IcelandicKrona : Currency(R.string.isk)
     object JapaneseYen : Currency(R.string.jpy)
     object KoreanWon : Currency(R.string.krw)
     object MexicanPeso : Currency(R.string.mxn)
@@ -61,7 +62,7 @@ sealed class Currency(override val displayStringResId: Int) : Unit() {
     companion object {
         val all: List<Currency> = listOf(
             AustralianDollar, BulgarianLev, BrazilianReal, CanadianDollar, SwissFranc, ChineseYuan, CzechKoruna, DanishKrone,
-            Euro, BritishPound, HongKongDollar, CroatianKuna, HungarianForint, IndonesianRupiah, IsraeliShekel, IndianRupee,
+            Euro, BritishPound, HongKongDollar, CroatianKuna, HungarianForint, IndonesianRupiah, IsraeliShekel, IndianRupee, IcelandicKrona,
             JapaneseYen, KoreanWon, MexicanPeso, MalaysianRinggit, NorwegianKrone, NewZealandDollar, PhilippinePeso, PolishZloty,
             RomanianLeu, RussianRouble, SwedishKrona, SingaporeDollar, ThaiBaht, TurkishLira, AmericanDollar, SouthAfricanRand
         )
