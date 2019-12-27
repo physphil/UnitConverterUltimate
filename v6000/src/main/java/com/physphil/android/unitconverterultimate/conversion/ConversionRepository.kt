@@ -15,6 +15,7 @@ import com.physphil.android.unitconverterultimate.data.TorqueDataSource
 import com.physphil.android.unitconverterultimate.data.VolumeDataSource
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
+import com.physphil.android.unitconverterultimate.models.Currency
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Fuel
@@ -36,7 +37,7 @@ class ConversionRepository {
         when (type) {
             ConversionType.AREA -> Area.all
             ConversionType.COOKING -> Volume.cooking
-            ConversionType.CURRENCY -> TODO()
+            ConversionType.CURRENCY -> Currency.all
             ConversionType.DIGITAL_STORAGE -> DigitalStorage.all
             ConversionType.ENERGY -> Energy.all
             ConversionType.FUEL_CONSUMPTION -> Fuel.all

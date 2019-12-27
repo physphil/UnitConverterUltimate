@@ -24,6 +24,50 @@ sealed class Area(override val displayStringResId: Int) : Unit() {
     }
 }
 
+sealed class Currency(override val displayStringResId: Int) : Unit() {
+    object AustralianDollar : Currency(R.string.aud)
+    object BulgarianLev : Currency(R.string.bgn)
+    object BrazilianReal : Currency(R.string.brl)
+    object CanadianDollar : Currency(R.string.cdn)
+    object SwissFranc : Currency(R.string.chf)
+    object ChineseYuan : Currency(R.string.cny)
+    object CzechKoruna : Currency(R.string.czk)
+    object DanishKrone : Currency(R.string.dkk)
+    object Euro : Currency(R.string.eur)
+    object BritishPound : Currency(R.string.gbp)
+    object HongKongDollar : Currency(R.string.hkd)
+    object CroatianKuna : Currency(R.string.hrk)
+    object HungarianForint : Currency(R.string.huf)
+    object IndonesianRupiah : Currency(R.string.idr)
+    object IsraeliShekel : Currency(R.string.ils)
+    object IndianRupee : Currency(R.string.idr)
+    object JapaneseYen : Currency(R.string.jpy)
+    object KoreanWon : Currency(R.string.krw)
+    object MexicanPeso : Currency(R.string.mxn)
+    object MalaysianRinggit : Currency(R.string.myr)
+    object NorwegianKrone : Currency(R.string.nok)
+    object NewZealandDollar : Currency(R.string.nzd)
+    object PhilippinePeso : Currency(R.string.php)
+    object PolishZloty : Currency(R.string.pln)
+    object RomanianLeu : Currency(R.string.ron)
+    object RussianRouble : Currency(R.string.rub)
+    object SwedishKrona : Currency(R.string.sek)
+    object SingaporeDollar : Currency(R.string.sgd)
+    object ThaiBaht : Currency(R.string.thb)
+    object TurkishLira : Currency(R.string.lira)
+    object AmericanDollar : Currency(R.string.usd)
+    object SouthAfricanRand : Currency(R.string.zar)
+
+    companion object {
+        val all: List<Currency> = listOf(
+            AustralianDollar, BulgarianLev, BrazilianReal, CanadianDollar, SwissFranc, ChineseYuan, CzechKoruna, DanishKrone,
+            Euro, BritishPound, HongKongDollar, CroatianKuna, HungarianForint, IndonesianRupiah, IsraeliShekel, IndianRupee,
+            JapaneseYen, KoreanWon, MexicanPeso, MalaysianRinggit, NorwegianKrone, NewZealandDollar, PhilippinePeso, PolishZloty,
+            RomanianLeu, RussianRouble, SwedishKrona, SingaporeDollar, ThaiBaht, TurkishLira, AmericanDollar, SouthAfricanRand
+        )
+    }
+}
+
 sealed class DigitalStorage(override val displayStringResId: Int) : Unit() {
     object Bit : DigitalStorage(R.string.bit)
     object Byte : DigitalStorage(R.string.Byte)
