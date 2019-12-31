@@ -1,6 +1,7 @@
 package com.physphil.android.unitconverterultimate.conversion
 
 import com.physphil.android.unitconverterultimate.data.AreaDataSource
+import com.physphil.android.unitconverterultimate.data.CurrencyRepository
 import com.physphil.android.unitconverterultimate.data.DigitalStorageDataSource
 import com.physphil.android.unitconverterultimate.data.EnergyDataSource
 import com.physphil.android.unitconverterultimate.data.FuelConsumptionConverter
@@ -31,7 +32,7 @@ import com.physphil.android.unitconverterultimate.models.Unit
 import com.physphil.android.unitconverterultimate.models.Volume
 import java.math.BigDecimal
 
-class ConversionRepository {
+class ConversionRepository(private val currencyRepository: CurrencyRepository) {
 
     fun unitsFor(type: ConversionType): List<Unit> =
         when (type) {
@@ -56,6 +57,7 @@ class ConversionRepository {
         when {
             initial == final -> value
             initial is Area && final is Area -> convertArea(value, initial, final)
+            initial is Currency && final is Currency -> BigDecimal.ONE  // FIXME defer to CurrencyRepo.convert() for value
             initial is DigitalStorage && final is DigitalStorage -> convertDigitalStorage(value, initial, final)
             initial is Energy && final is Energy -> convertEnergy(value, initial, final)
             initial is Fuel && final is Fuel -> FuelConsumptionConverter.convert(value, initial, final)
@@ -70,6 +72,10 @@ class ConversionRepository {
             initial is Volume && final is Volume -> convertVolume(value, initial, final)
             else -> throw IllegalArgumentException("The initial unit $initial and final unit $final are not of the same type, and cannot be converted.")
         }
+
+    suspend fun getRates() {
+        currencyRepository.getRates()
+    }
 
     private fun convertArea(value: BigDecimal, initial: Area, final: Area): BigDecimal =
         convertStandardUnit(value, AreaDataSource.getMultiplier(initial, final))

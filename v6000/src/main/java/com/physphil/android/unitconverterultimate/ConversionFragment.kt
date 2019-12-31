@@ -13,7 +13,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
+import com.physphil.android.unitconverterultimate.data.CurrencyRepository
+import com.physphil.android.unitconverterultimate.data.network.CurrencyApi
 import com.physphil.android.unitconverterultimate.models.ConversionType
+import com.physphil.android.unitconverterultimate.persistence.AppDatabase
 import kotlinx.android.synthetic.main.fragment_conversion.*
 import java.math.BigDecimal
 
@@ -38,7 +41,8 @@ class ConversionFragment : Fragment() {
         val conversionType = arguments?.getSerializable(ARGS_CONVERSION_TYPE) as? ConversionType
             ?: throw IllegalArgumentException("Proper conversion type not specified when starting fragment")
 
-        val factory = ConversionViewModel.Factory(conversionType, ConversionRepository())
+        val currencyRepository = CurrencyRepository(CurrencyApi(), AppDatabase.getInstance(context!!).currencyDao())
+        val factory = ConversionViewModel.Factory(conversionType, ConversionRepository(currencyRepository))
         conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
         conversionViewModel.init(this)
         initViewListeners()

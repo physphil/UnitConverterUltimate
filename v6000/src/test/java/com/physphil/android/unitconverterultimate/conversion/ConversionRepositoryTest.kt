@@ -1,6 +1,7 @@
 package com.physphil.android.unitconverterultimate.conversion
 
 import com.google.common.truth.Truth.assertThat
+import com.nhaarman.mockitokotlin2.mock
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
@@ -26,7 +27,7 @@ class ConversionRepositoryTest {
 
     @Before
     fun setup() {
-        repo = ConversionRepository()
+        repo = ConversionRepository(mock())
     }
 
     @Test

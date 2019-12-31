@@ -1,12 +1,16 @@
 package com.physphil.android.unitconverterultimate
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.Unit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.math.BigDecimal
 
 class ConversionViewModel(
@@ -37,6 +41,14 @@ class ConversionViewModel(
         val state = ViewData(BigDecimal.ONE, units)
         _viewData.postValue(state)
         _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
+
+        // FIXME: Load currency rates from API
+        if (conversionType == ConversionType.CURRENCY) {
+            Log.d("phil", "We're in Currency fragment!")
+            viewModelScope.launch(Dispatchers.IO) {
+                repo.getRates()
+            }
+        }
     }
 
     fun updateValue(value: BigDecimal) {
