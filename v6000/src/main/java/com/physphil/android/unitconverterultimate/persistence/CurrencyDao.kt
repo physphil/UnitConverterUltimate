@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.physphil.android.unitconverterultimate.persistence.models.RateEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CurrencyDao {
@@ -13,5 +14,8 @@ interface CurrencyDao {
     suspend fun insertRates(rates: List<RateEntity>)
 
     @Query("SELECT * FROM $TABLE_CURRENCY_RATES")
-    suspend fun getRates(): List<RateEntity>
+    fun getRates(): Flow<List<RateEntity>>
+
+    @Query("SELECT COUNT(*) FROM $TABLE_CURRENCY_RATES")
+    suspend fun getRatesCount(): Int
 }

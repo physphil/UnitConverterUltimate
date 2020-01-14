@@ -18,8 +18,10 @@ import com.physphil.android.unitconverterultimate.data.network.CurrencyApi
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.persistence.AppDatabase
 import kotlinx.android.synthetic.main.fragment_conversion.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import java.math.BigDecimal
 
+@InternalCoroutinesApi
 class ConversionFragment : Fragment() {
 
     companion object {

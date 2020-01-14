@@ -10,9 +10,12 @@ import com.physphil.android.unitconverterultimate.conversion.ConversionRepositor
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.Unit
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
 
+@InternalCoroutinesApi
 class ConversionViewModel(
     conversionType: ConversionType,
     private val repo: ConversionRepository
@@ -46,7 +49,9 @@ class ConversionViewModel(
         if (conversionType == ConversionType.CURRENCY) {
             Log.d("phil", "We're in Currency fragment!")
             viewModelScope.launch(Dispatchers.IO) {
-                repo.getRates()
+                repo.getRates().collect {
+                    Log.d("phil", "collecting list of entities = $it")
+                }
             }
         }
     }
