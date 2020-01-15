@@ -1,6 +1,7 @@
 package com.physphil.android.unitconverterultimate.data
 
 import com.physphil.android.unitconverterultimate.models.Area
+import com.physphil.android.unitconverterultimate.models.Currency
 import com.physphil.android.unitconverterultimate.models.DigitalStorage
 import com.physphil.android.unitconverterultimate.models.Energy
 import com.physphil.android.unitconverterultimate.models.Fuel
@@ -13,6 +14,7 @@ import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
 import com.physphil.android.unitconverterultimate.models.Volume
+import com.physphil.android.unitconverterultimate.persistence.models.RateEntity
 import java.math.BigDecimal
 
 /**
@@ -46,6 +48,13 @@ object AreaDataSource : DataSource<Area>() {
         Area.SqFoot to multipliers("0.09290304", "10.7639104167097223"),
         Area.SqInch to multipliers("0.00064516", "1550.00310000620001"),
         Area.Acre to multipliers("4046.8564224", "0.000247105381467165342")
+    )
+}
+
+// TODO properly convert list of RateEntity to multipliers for data source
+class CurrencyDataSource(rates: List<RateEntity>) : DataSource<Currency>() {
+    override val units: Map<Currency, Multipliers> = mapOf(
+//        Currency.AustralianDollar to multipliers(1 / rates.first { it.code == Currency.AustralianDollar.code })
     )
 }
 

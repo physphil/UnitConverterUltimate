@@ -30,8 +30,8 @@ import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
 import com.physphil.android.unitconverterultimate.models.Volume
-import com.physphil.android.unitconverterultimate.persistence.models.RateEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.math.BigDecimal
 
 class ConversionRepository(private val currencyRepository: CurrencyRepository) {
@@ -75,8 +75,13 @@ class ConversionRepository(private val currencyRepository: CurrencyRepository) {
             else -> throw IllegalArgumentException("The initial unit $initial and final unit $final are not of the same type, and cannot be converted.")
         }
 
-    suspend fun getRates(): Flow<List<RateEntity>> {
-        return currencyRepository.getRates()
+    // TODO Replace this with a "loadRates" method or something
+    // Map currencyRepo.getRates() into Boolean or something to indicate it's ready
+    //
+    suspend fun getRates(): Flow<kotlin.Unit> {
+        return currencyRepository.getRates().map {
+            Unit
+        }
     }
 
     private fun convertArea(value: BigDecimal, initial: Area, final: Area): BigDecimal =

@@ -1,12 +1,13 @@
 package com.physphil.android.unitconverterultimate.data
 
+import com.physphil.android.unitconverterultimate.conversion.SCALE_RESULT
 import com.physphil.android.unitconverterultimate.models.Temperature
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-object TemperatureConverter : Converter<Temperature> {
+object TemperatureConverter {
 
-    override fun convert(value: BigDecimal, initial: Temperature, final: Temperature): BigDecimal =
+    fun convert(value: BigDecimal, initial: Temperature, final: Temperature): BigDecimal =
         when (final) {
             Temperature.Celsius -> value.toCelsius(initial)
             Temperature.Fahrenheit -> value.toFahrenheit(initial)

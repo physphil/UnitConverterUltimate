@@ -1,11 +1,13 @@
 package com.physphil.android.unitconverterultimate.data
 
+import com.physphil.android.unitconverterultimate.conversion.SCALE_RESULT
 import com.physphil.android.unitconverterultimate.models.Fuel
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-object FuelConsumptionConverter : Converter<Fuel> {
-    override fun convert(
+object FuelConsumptionConverter {
+
+    fun convert(
         value: BigDecimal,
         initial: Fuel,
         final: Fuel

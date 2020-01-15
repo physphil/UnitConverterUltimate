@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
 import com.physphil.android.unitconverterultimate.data.CurrencyRepository
 import com.physphil.android.unitconverterultimate.data.network.CurrencyApi
 import com.physphil.android.unitconverterultimate.models.ConversionType
@@ -44,7 +43,7 @@ class ConversionFragment : Fragment() {
             ?: throw IllegalArgumentException("Proper conversion type not specified when starting fragment")
 
         val currencyRepository = CurrencyRepository(CurrencyApi(), AppDatabase.getInstance(context!!).currencyDao())
-        val factory = ConversionViewModel.Factory(conversionType, ConversionRepository(currencyRepository))
+        val factory = ConversionViewModel.Factory(conversionType, currencyRepository)
         conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
         conversionViewModel.init(this)
         initViewListeners()
