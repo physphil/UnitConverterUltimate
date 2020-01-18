@@ -2,43 +2,44 @@ package com.physphil.android.unitconverterultimate.data.network.model
 
 import com.google.gson.annotations.SerializedName
 import com.physphil.android.unitconverterultimate.models.Currency
+import com.physphil.android.unitconverterultimate.models.CurrencyCodes
 import com.physphil.android.unitconverterultimate.persistence.models.RateEntity
 
 data class CurrencyResponse(val rates: Rates)
 
 data class Rates(
-    @SerializedName("AUD") val aud: String,
-    @SerializedName("BGN") val bgn: String,
-    @SerializedName("BRL") val brl: String,
-    @SerializedName("CAD") val cad: String,
-    @SerializedName("CHF") val chf: String,
-    @SerializedName("CNY") val cny: String,
-    @SerializedName("CZK") val czk: String,
-    @SerializedName("DKK") val dkk: String,
-    @SerializedName("GBP") val gbp: String,
-    @SerializedName("HKD") val hkd: String,
-    @SerializedName("HRK") val hrk: String,
-    @SerializedName("HUF") val huf: String,
-    @SerializedName("IDR") val idr: String,
-    @SerializedName("ILS") val ils: String,
-    @SerializedName("INR") val inr: String,
-    @SerializedName("ISK") val isk: String,
-    @SerializedName("JPY") val jpy: String,
-    @SerializedName("KRW") val krw: String,
-    @SerializedName("MXN") val mxn: String,
-    @SerializedName("MYR") val myr: String,
-    @SerializedName("NOK") val nok: String,
-    @SerializedName("NZD") val nzd: String,
-    @SerializedName("PHP") val php: String,
-    @SerializedName("PLN") val pln: String,
-    @SerializedName("RON") val ron: String,
-    @SerializedName("RUB") val rub: String,
-    @SerializedName("SEK") val sek: String,
-    @SerializedName("SGD") val sgd: String,
-    @SerializedName("THB") val thb: String,
-    @SerializedName("TRY") val lira: String,
-    @SerializedName("USD") val usd: String,
-    @SerializedName("ZAR") val zar: String
+    @SerializedName(CurrencyCodes.AUD) val aud: String,
+    @SerializedName(CurrencyCodes.BGN) val bgn: String,
+    @SerializedName(CurrencyCodes.BRL) val brl: String,
+    @SerializedName(CurrencyCodes.CAD) val cad: String,
+    @SerializedName(CurrencyCodes.CHF) val chf: String,
+    @SerializedName(CurrencyCodes.CNY) val cny: String,
+    @SerializedName(CurrencyCodes.CZK) val czk: String,
+    @SerializedName(CurrencyCodes.DKK) val dkk: String,
+    @SerializedName(CurrencyCodes.GBP) val gbp: String,
+    @SerializedName(CurrencyCodes.HKD) val hkd: String,
+    @SerializedName(CurrencyCodes.HRK) val hrk: String,
+    @SerializedName(CurrencyCodes.HUF) val huf: String,
+    @SerializedName(CurrencyCodes.IDR) val idr: String,
+    @SerializedName(CurrencyCodes.ILS) val ils: String,
+    @SerializedName(CurrencyCodes.INR) val inr: String,
+    @SerializedName(CurrencyCodes.ISK) val isk: String,
+    @SerializedName(CurrencyCodes.JPY) val jpy: String,
+    @SerializedName(CurrencyCodes.KRW) val krw: String,
+    @SerializedName(CurrencyCodes.MXN) val mxn: String,
+    @SerializedName(CurrencyCodes.MYR) val myr: String,
+    @SerializedName(CurrencyCodes.NOK) val nok: String,
+    @SerializedName(CurrencyCodes.NZD) val nzd: String,
+    @SerializedName(CurrencyCodes.PHP) val php: String,
+    @SerializedName(CurrencyCodes.PLN) val pln: String,
+    @SerializedName(CurrencyCodes.RON) val ron: String,
+    @SerializedName(CurrencyCodes.RUB) val rub: String,
+    @SerializedName(CurrencyCodes.SEK) val sek: String,
+    @SerializedName(CurrencyCodes.SGD) val sgd: String,
+    @SerializedName(CurrencyCodes.THB) val thb: String,
+    @SerializedName(CurrencyCodes.TRY) val lira: String,
+    @SerializedName(CurrencyCodes.USD) val usd: String,
+    @SerializedName(CurrencyCodes.ZAR) val zar: String
 )
 
 fun CurrencyResponse.toRateEntities(): List<RateEntity> =
