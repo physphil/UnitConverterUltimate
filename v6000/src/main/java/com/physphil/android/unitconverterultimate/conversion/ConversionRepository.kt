@@ -4,13 +4,11 @@ import com.physphil.android.unitconverterultimate.data.AreaDataSource
 import com.physphil.android.unitconverterultimate.data.CurrencyRepository
 import com.physphil.android.unitconverterultimate.data.DigitalStorageDataSource
 import com.physphil.android.unitconverterultimate.data.EnergyDataSource
-import com.physphil.android.unitconverterultimate.data.FuelConsumptionConverter
 import com.physphil.android.unitconverterultimate.data.LengthDataSource
 import com.physphil.android.unitconverterultimate.data.MassDataSource
 import com.physphil.android.unitconverterultimate.data.PowerDataSource
 import com.physphil.android.unitconverterultimate.data.PressureDataSource
 import com.physphil.android.unitconverterultimate.data.SpeedDataSource
-import com.physphil.android.unitconverterultimate.data.TemperatureConverter
 import com.physphil.android.unitconverterultimate.data.TimeDataSource
 import com.physphil.android.unitconverterultimate.data.TorqueDataSource
 import com.physphil.android.unitconverterultimate.data.VolumeDataSource

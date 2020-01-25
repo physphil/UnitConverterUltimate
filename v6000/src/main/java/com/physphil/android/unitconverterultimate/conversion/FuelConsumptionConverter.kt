@@ -1,6 +1,6 @@
-package com.physphil.android.unitconverterultimate.data
+package com.physphil.android.unitconverterultimate.conversion
 
-import com.physphil.android.unitconverterultimate.conversion.SCALE_RESULT
+import com.physphil.android.unitconverterultimate.data.FuelConsumptionDataSource
 import com.physphil.android.unitconverterultimate.models.Fuel
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -13,8 +13,14 @@ object FuelConsumptionConverter {
         final: Fuel
     ): BigDecimal = when {
         value.compareTo(BigDecimal.ZERO) == 0 -> BigDecimal.ZERO
-        initial is Fuel.LitresPer100k -> fromLitresPer100k(value, final)
-        final is Fuel.LitresPer100k -> toLitresPer100k(value, initial)
+        initial is Fuel.LitresPer100k -> fromLitresPer100k(
+            value,
+            final
+        )
+        final is Fuel.LitresPer100k -> toLitresPer100k(
+            value,
+            initial
+        )
         else -> value * FuelConsumptionDataSource.getMultiplier(initial, final)
     }
 

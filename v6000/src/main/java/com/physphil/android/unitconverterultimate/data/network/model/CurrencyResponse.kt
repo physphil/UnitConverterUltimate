@@ -45,7 +45,7 @@ data class Rates(
 fun CurrencyResponse.toRateEntities(): List<RateEntity> =
     Currency.all.map {
         RateEntity(
-            code = it.code,
+            code = it.code.value,
             rate = when (it) {
                 Currency.AustralianDollar -> rates.aud
                 Currency.BulgarianLev -> rates.bgn

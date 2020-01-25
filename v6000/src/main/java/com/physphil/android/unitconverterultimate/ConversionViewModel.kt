@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.physphil.android.unitconverterultimate.conversion.Converter
-import com.physphil.android.unitconverterultimate.data.CurrencyDataSource
+import com.physphil.android.unitconverterultimate.conversion.CurrencyConverter
+import com.physphil.android.unitconverterultimate.conversion.FuelConsumptionConverter
+import com.physphil.android.unitconverterultimate.conversion.TemperatureConverter
 import com.physphil.android.unitconverterultimate.data.CurrencyRepository
-import com.physphil.android.unitconverterultimate.data.FuelConsumptionConverter
-import com.physphil.android.unitconverterultimate.data.TemperatureConverter
 import com.physphil.android.unitconverterultimate.models.Area
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import com.physphil.android.unitconverterultimate.models.Currency
@@ -27,6 +27,7 @@ import com.physphil.android.unitconverterultimate.models.Time
 import com.physphil.android.unitconverterultimate.models.Torque
 import com.physphil.android.unitconverterultimate.models.Unit
 import com.physphil.android.unitconverterultimate.models.Volume
+import com.physphil.android.unitconverterultimate.persistence.models.RateEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -54,6 +55,8 @@ class ConversionViewModel(
     private var initialIndex: Int = 0
     private var finalIndex: Int = 1
 
+    private lateinit var rates: List<RateEntity>
+
     private val units = when (conversionType) {
         ConversionType.AREA -> Area.all
         ConversionType.COOKING -> Volume.cooking
@@ -74,10 +77,11 @@ class ConversionViewModel(
 
     init {
         val state = ViewData(BigDecimal.ONE, units)
-        _viewData.postValue(state)
-        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
+//        _viewData.postValue(state)
+//        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
 
         // FIXME: Load currency rates from API
+        // FIXME: CLEAN THIS UP!!!
         if (conversionType == ConversionType.CURRENCY) {
             Log.d("phil", "We're in Currency fragment!")
             viewModelScope.launch(Dispatchers.IO) {
@@ -85,10 +89,18 @@ class ConversionViewModel(
                 repo.getRates().collect {
                     // TODO convert value, post update to LD
                     // TODO hide loading screen
-                    val dataSource = CurrencyDataSource(it)
-                    // CurrencyConverter.convert(value, initial, final, dataSource)
+//                    currencyDataSource = CurrencyDataSource(it)
+                    // TODO save rates from Flow?
+                    // Initialize view data in this case, but also have to worry about have it's just an update after view has already been set up
+                    rates = it
+                    _viewData.postValue(state)
+                    _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
                 }
             }
+        }
+        else {
+            _viewData.postValue(state)
+            _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
         }
     }
 
@@ -124,7 +136,7 @@ class ConversionViewModel(
         result = when {
             initialUnit == finalUnit -> value
             initialUnit is Area && finalUnit is Area -> Converter.convert(value, initialUnit, finalUnit)
-            initialUnit is Currency && finalUnit is Currency -> BigDecimal.ONE  // FIXME defer to CurrencyRepo.convert() for value
+            initialUnit is Currency && finalUnit is Currency -> CurrencyConverter.convert(value, initialUnit, finalUnit, rates)
             initialUnit is DigitalStorage && finalUnit is DigitalStorage -> Converter.convert(value, initialUnit, finalUnit)
             initialUnit is Energy && finalUnit is Energy -> Converter.convert(value, initialUnit, finalUnit)
             initialUnit is Fuel && finalUnit is Fuel -> FuelConsumptionConverter.convert(value, initialUnit, finalUnit)

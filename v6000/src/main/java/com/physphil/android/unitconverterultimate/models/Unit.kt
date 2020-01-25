@@ -25,42 +25,42 @@ sealed class Area(override val displayStringResId: Int) : Unit() {
 }
 
 sealed class Currency(
-    val code: String,
+    val code: CurrencyCode,
     override val displayStringResId: Int
 ) : Unit() {
-    object AustralianDollar : Currency(CurrencyCodes.AUD, R.string.aud)
-    object BulgarianLev : Currency(CurrencyCodes.BGN, R.string.bgn)
-    object BrazilianReal : Currency(CurrencyCodes.BRL, R.string.brl)
-    object CanadianDollar : Currency(CurrencyCodes.CAD, R.string.cdn)
-    object SwissFranc : Currency(CurrencyCodes.CHF, R.string.chf)
-    object ChineseYuan : Currency(CurrencyCodes.CNY, R.string.cny)
-    object CzechKoruna : Currency(CurrencyCodes.CZK, R.string.czk)
-    object DanishKrone : Currency(CurrencyCodes.DKK, R.string.dkk)
-    object Euro : Currency(CurrencyCodes.EUR, R.string.eur)
-    object BritishPound : Currency(CurrencyCodes.GBP, R.string.gbp)
-    object HongKongDollar : Currency(CurrencyCodes.HKD, R.string.hkd)
-    object CroatianKuna : Currency(CurrencyCodes.HRK, R.string.hrk)
-    object HungarianForint : Currency(CurrencyCodes.HUF, R.string.huf)
-    object IndonesianRupiah : Currency(CurrencyCodes.IDR, R.string.idr)
-    object IsraeliShekel : Currency(CurrencyCodes.ILS, R.string.ils)
-    object IndianRupee : Currency(CurrencyCodes.INR, R.string.inr)
-    object IcelandicKrona : Currency(CurrencyCodes.ISK, R.string.isk)
-    object JapaneseYen : Currency(CurrencyCodes.JPY, R.string.jpy)
-    object KoreanWon : Currency(CurrencyCodes.KRW, R.string.krw)
-    object MexicanPeso : Currency(CurrencyCodes.MXN, R.string.mxn)
-    object MalaysianRinggit : Currency(CurrencyCodes.MYR, R.string.myr)
-    object NorwegianKrone : Currency(CurrencyCodes.NOK, R.string.nok)
-    object NewZealandDollar : Currency(CurrencyCodes.NZD, R.string.nzd)
-    object PhilippinePeso : Currency(CurrencyCodes.PHP, R.string.php)
-    object PolishZloty : Currency(CurrencyCodes.PLN, R.string.pln)
-    object RomanianLeu : Currency(CurrencyCodes.RON, R.string.ron)
-    object RussianRouble : Currency(CurrencyCodes.RUB, R.string.rub)
-    object SwedishKrona : Currency(CurrencyCodes.SEK, R.string.sek)
-    object SingaporeDollar : Currency(CurrencyCodes.SGD, R.string.sgd)
-    object ThaiBaht : Currency(CurrencyCodes.THB, R.string.thb)
-    object TurkishLira : Currency(CurrencyCodes.TRY, R.string.lira)
-    object AmericanDollar : Currency(CurrencyCodes.USD, R.string.usd)
-    object SouthAfricanRand : Currency(CurrencyCodes.ZAR, R.string.zar)
+    object AustralianDollar : Currency(CurrencyCode.AUD, R.string.aud)
+    object BulgarianLev : Currency(CurrencyCode.BGN, R.string.bgn)
+    object BrazilianReal : Currency(CurrencyCode.BRL, R.string.brl)
+    object CanadianDollar : Currency(CurrencyCode.CAD, R.string.cdn)
+    object SwissFranc : Currency(CurrencyCode.CHF, R.string.chf)
+    object ChineseYuan : Currency(CurrencyCode.CNY, R.string.cny)
+    object CzechKoruna : Currency(CurrencyCode.CZK, R.string.czk)
+    object DanishKrone : Currency(CurrencyCode.DKK, R.string.dkk)
+    object Euro : Currency(CurrencyCode.EUR, R.string.eur)
+    object BritishPound : Currency(CurrencyCode.GBP, R.string.gbp)
+    object HongKongDollar : Currency(CurrencyCode.HKD, R.string.hkd)
+    object CroatianKuna : Currency(CurrencyCode.HRK, R.string.hrk)
+    object HungarianForint : Currency(CurrencyCode.HUF, R.string.huf)
+    object IndonesianRupiah : Currency(CurrencyCode.IDR, R.string.idr)
+    object IsraeliShekel : Currency(CurrencyCode.ILS, R.string.ils)
+    object IndianRupee : Currency(CurrencyCode.INR, R.string.inr)
+    object IcelandicKrona : Currency(CurrencyCode.ISK, R.string.isk)
+    object JapaneseYen : Currency(CurrencyCode.JPY, R.string.jpy)
+    object KoreanWon : Currency(CurrencyCode.KRW, R.string.krw)
+    object MexicanPeso : Currency(CurrencyCode.MXN, R.string.mxn)
+    object MalaysianRinggit : Currency(CurrencyCode.MYR, R.string.myr)
+    object NorwegianKrone : Currency(CurrencyCode.NOK, R.string.nok)
+    object NewZealandDollar : Currency(CurrencyCode.NZD, R.string.nzd)
+    object PhilippinePeso : Currency(CurrencyCode.PHP, R.string.php)
+    object PolishZloty : Currency(CurrencyCode.PLN, R.string.pln)
+    object RomanianLeu : Currency(CurrencyCode.RON, R.string.ron)
+    object RussianRouble : Currency(CurrencyCode.RUB, R.string.rub)
+    object SwedishKrona : Currency(CurrencyCode.SEK, R.string.sek)
+    object SingaporeDollar : Currency(CurrencyCode.SGD, R.string.sgd)
+    object ThaiBaht : Currency(CurrencyCode.THB, R.string.thb)
+    object TurkishLira : Currency(CurrencyCode.TRY, R.string.lira)
+    object AmericanDollar : Currency(CurrencyCode.USD, R.string.usd)
+    object SouthAfricanRand : Currency(CurrencyCode.ZAR, R.string.zar)
 
     companion object {
         val all: List<Currency> = listOf(
@@ -69,8 +69,6 @@ sealed class Currency(
             JapaneseYen, KoreanWon, MexicanPeso, MalaysianRinggit, NorwegianKrone, NewZealandDollar, PhilippinePeso, PolishZloty,
             RomanianLeu, RussianRouble, SwedishKrona, SingaporeDollar, ThaiBaht, TurkishLira, AmericanDollar, SouthAfricanRand
         )
-
-        fun fromCode(code: String): Currency = all.first { it.code == code }
     }
 }
 
