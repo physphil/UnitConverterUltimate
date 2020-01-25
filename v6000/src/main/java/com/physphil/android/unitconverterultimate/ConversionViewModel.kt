@@ -1,6 +1,5 @@
 package com.physphil.android.unitconverterultimate
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -40,6 +39,12 @@ class ConversionViewModel(
     private val repo: CurrencyRepository
 ) : ViewModel() {
 
+    private val _spinnerVisibilityLiveData = MutableLiveData<Boolean>()
+    val spinnerVisibilityLiveData: LiveData<Boolean> = _spinnerVisibilityLiveData
+
+    private val _conversionUiVisibilityLiveData = MutableLiveData<Boolean>()
+    val conversionUiVisibilityLiveData: LiveData<Boolean> = _conversionUiVisibilityLiveData
+
     private val _viewData = MutableLiveData<ViewData>()
     val viewData: LiveData<ViewData> = _viewData
 
@@ -77,30 +82,20 @@ class ConversionViewModel(
 
     init {
         val state = ViewData(BigDecimal.ONE, units)
-//        _viewData.postValue(state)
-//        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
 
-        // FIXME: Load currency rates from API
-        // FIXME: CLEAN THIS UP!!!
         if (conversionType == ConversionType.CURRENCY) {
-            Log.d("phil", "We're in Currency fragment!")
+            // Load currency rates, hide UI until complete
             viewModelScope.launch(Dispatchers.IO) {
-                // TODO show loading screen
+                _conversionUiVisibilityLiveData.postValue(false)
+                _spinnerVisibilityLiveData.postValue(true)
                 repo.getRates().collect {
-                    // TODO convert value, post update to LD
-                    // TODO hide loading screen
-//                    currencyDataSource = CurrencyDataSource(it)
-                    // TODO save rates from Flow?
-                    // Initialize view data in this case, but also have to worry about have it's just an update after view has already been set up
                     rates = it
-                    _viewData.postValue(state)
-                    _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
+                    showViewState(state)
                 }
             }
-        }
-        else {
-            _viewData.postValue(state)
-            _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
+        } else {
+            // No data to load asynchronously, show view right away
+            showViewState(state)
         }
     }
 
@@ -127,6 +122,13 @@ class ConversionViewModel(
         }
         _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
         updateResult()
+    }
+
+    private fun showViewState(state: ViewData) {
+        _conversionUiVisibilityLiveData.postValue(true)
+        _spinnerVisibilityLiveData.postValue(false)
+        _viewData.postValue(state)
+        _selectedUnitsLiveData.postValue(SelectedUnits(initialIndex, finalIndex))
     }
 
     private fun updateResult() {

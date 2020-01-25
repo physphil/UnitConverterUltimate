@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.get
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -91,6 +92,14 @@ class ConversionFragment : Fragment() {
     }
 
     private fun ConversionViewModel.init(lifecycleOwner: LifecycleOwner) {
+        spinnerVisibilityLiveData.observe(lifecycleOwner, Observer {
+            progressSpinnerView.isVisible = it
+        })
+
+        conversionUiVisibilityLiveData.observe(lifecycleOwner, Observer {
+            conversionUiGroup.isVisible = it
+        })
+
         viewData.observe(lifecycleOwner, Observer {
             renderView(it)
         })
