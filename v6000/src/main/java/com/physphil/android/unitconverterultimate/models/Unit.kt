@@ -64,10 +64,39 @@ sealed class Currency(
 
     companion object {
         val all: List<Currency> = listOf(
-            AustralianDollar, BulgarianLev, BrazilianReal, CanadianDollar, SwissFranc, ChineseYuan, CzechKoruna, DanishKrone,
-            Euro, BritishPound, HongKongDollar, CroatianKuna, HungarianForint, IndonesianRupiah, IsraeliShekel, IndianRupee, IcelandicKrona,
-            JapaneseYen, KoreanWon, MexicanPeso, MalaysianRinggit, NorwegianKrone, NewZealandDollar, PhilippinePeso, PolishZloty,
-            RomanianLeu, RussianRouble, SwedishKrona, SingaporeDollar, ThaiBaht, TurkishLira, AmericanDollar, SouthAfricanRand
+            AmericanDollar,
+            AustralianDollar,
+            BritishPound,
+            BrazilianReal,
+            BulgarianLev,
+            CanadianDollar,
+            ChineseYuan,
+            CroatianKuna,
+            CzechKoruna,
+            DanishKrone,
+            Euro,
+            HongKongDollar,
+            HungarianForint,
+            IcelandicKrona,
+            IndianRupee,
+            IndonesianRupiah,
+            IsraeliShekel,
+            JapaneseYen,
+            KoreanWon,
+            MalaysianRinggit,
+            MexicanPeso,
+            NewZealandDollar,
+            NorwegianKrone,
+            PhilippinePeso,
+            PolishZloty,
+            RomanianLeu,
+            RussianRouble,
+            SingaporeDollar,
+            SouthAfricanRand,
+            SwedishKrona,
+            SwissFranc,
+            ThaiBaht,
+            TurkishLira
         )
     }
 }
