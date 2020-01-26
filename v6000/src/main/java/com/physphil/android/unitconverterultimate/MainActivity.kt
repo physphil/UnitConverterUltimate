@@ -15,10 +15,17 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.material.navigation.NavigationView
+import com.physphil.android.unitconverterultimate.data.UpdateCurrencyRatesWorker
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.InternalCoroutinesApi
+import java.util.concurrent.TimeUnit
 
 @InternalCoroutinesApi
 class MainActivity : AppCompatActivity() {
@@ -46,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         toolbarSpinnerView.init()
+
+        WorkManager.getInstance(this).enqueueUpdateCurrencyRatesRequest()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -81,5 +90,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun WorkManager.enqueueUpdateCurrencyRatesRequest() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val request = PeriodicWorkRequestBuilder<UpdateCurrencyRatesWorker>(1, TimeUnit.DAYS)
+            .setConstraints(constraints)
+            .build()
+
+        enqueueUniquePeriodicWork("update-currency-rates", ExistingPeriodicWorkPolicy.KEEP, request)
     }
 }

@@ -14,9 +14,13 @@ class CurrencyRepository(
     suspend fun getRates(): Flow<List<RateEntity>> {
         val hasRates = dao.getRatesCount() > 0
         if (!hasRates) {
-            val response = api.getLatestRates()
-            dao.insertRates(response.toRateEntities())
+            updateRates()
         }
         return dao.getRates()
+    }
+
+    suspend fun updateRates() {
+        val response = api.getLatestRates()
+        dao.insertRates(response.toRateEntities())
     }
 }
