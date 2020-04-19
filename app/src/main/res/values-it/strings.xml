@@ -18,6 +18,9 @@
 <resources>
 
     <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_acknowledgements">Ringraziamenti</string>
+    <string name="prefs_title_acknowledgements">Ringraziamenti</string>
+    <string name="prefs_summary_acknowledgements">Un grandissimo grazie a questi bravi ragazzi!</string>
     <string name="title_activity_donate">Vuoi Donare?</string>
     <string name="title_activity_settings">Impostazioni</string>
     <string name="text_from">Da</string>
@@ -53,7 +56,7 @@
     <string name="prefs_title_visual">Aspetto</string>
     <string name="prefs_title_light_theme">Usa Tema Chiaro</string>
     <string name="prefs_title_language">Linguaggio</string>
-    <string name="prefs_summary_language">Scegli la lingua da utilizzare in tutta l\'app</string>
+    <string name="prefs_summary_language">Scegli la lingua da utilizzare in  nell\'app</string>
     <string name="prefs_title_other">Altro</string>
     <string name="prefs_title_source_code">Controlla Codice Sorgente</string>
     <string name="pref_summary_source_code">Unit Converter Ultimate è open source! Dai un\'occhiata al codice su GitHub.</string>
@@ -64,14 +67,31 @@
     <string name="prefs_title_donate">Dona</string>
     <string name="prefs_summary_donate">Regalaci un sorriso sostenendo il team di sviluppo :)</string>
     <string name="prefs_title_open_issue">Trovato un Bug?</string>
-    <string name="prefs_summary_open_issue">Inviaci una segnalazione su GitHub.</string>
-    <string name="prefs_title_privacy_policy">politica sulla riservatezza</string>
+    <string name="prefs_summary_open_issue">Apri una issue su GitHub.</string>
+    <string name="prefs_title_privacy_policy">Informativa sulla Privacy</string>
     <string name="prefs_summary_privacy_policy">La tua privacy è importante.</string>
 
     <string name="dialog_btn_got_it">OK</string>
     <string name="dialog_title_help">Aiuto</string>
-    <string name="dialog_message_help">Usa il menu a comparsa per navigare fra le varie tipologie di conversione e seleziona quella che ti interessa.\n\nIl valore convertito è completamente personalizzabile. Usa il menu delle impostazioni per selezionare il numero di posizioni decimali, il simbolo di ragruppamento e il separatore decimale.\n\nTieni premuto sul valore convertito per copiarlo.</string>
+    <string name="dialog_message_help">Usa il menu a comparsa per navigare fra le varie tipologie di conversione e seleziona quella che ti interessa.\n\nIl valore convertito è completamente personalizzabile. Usa il menu delle impostazioni per selezionare il numero di posizioni decimali, il simbolo di raggruppamento e il separatore decimale.\n\nTieni premuto sul valore convertito per copiarlo.</string>
     <string name="dialog_btn_view_source">Vedi Sorgente</string>
+  
+  <!-- Language values -->
+    <string name="language_default" translatable="false">Default di sistema</string>
+    <string name="language_english" translatable="false">Inglese</string>
+    <string name="language_croatian" translatable="false">Croato</string>
+    <string name="language_dutch" translatable="false">Olandese</string>    
+    <string name="language_farsi" translatable="false">Farsi</string>
+    <string name="language_french" translatable="false">Francese</string>
+    <string name="language_german" translatable="false">Tedesco</string>
+    <string name="language_hungarian" translatable="false">Ungherese</string>
+    <string name="language_italian" translatable="false">Italiano</string>
+    <string name="language_japanese" translatable="false">Giapponese</string>
+    <string name="language_norwegian">Norvegese</string>
+    <string name="language_portuguese_brazil" translatable="false">Portoghese (Brasile)</string>
+    <string name="language_russian" translatable="false">Russo</string>
+    <string name="language_spanish" translatable="false">Spagnolo</string>
+    <string name="language_turkish" translatable="false">Turco</string>
 
     <!-- Conversions -->
     <string name="area">Area</string>
@@ -91,7 +111,7 @@
     <string name="volume">Volume</string>
 
     <!-- Area -->
-    <string name="sq_kilometre">Chilometro Quadrato</string>
+    <string name="sq_kilometre">Kilometro Quadrato</string>
     <string name="sq_metre">Metro Quadrato</string>
     <string name="sq_centimetre">Centimetro Quadrato</string>
     <string name="hectare">Ettaro</string>
@@ -115,24 +135,24 @@
 
     <!-- Energy -->
     <string name="joule">Joule</string>
-    <string name="kilojoule">Chilojoule</string>
+    <string name="kilojoule">Kilojoule</string>
     <string name="calorie">Caloria</string>
-    <string name="kilocalorie">Chilocaloria</string>
+    <string name="kilocalorie">Kilocaloria</string>
     <string name="btu">BTU</string>
     <string name="ft_lbF">Piede per libbra</string>
     <string name="in_lbF">Pollice per libbra</string>
-    <string name="kilowatt_hour">Chilowattora</string>
+    <string name="kilowatt_hour">Kilowattora</string>
     <string name="electron_volt">Elettronvolt</string>
 
     <!-- Fuel Consumption -->
     <string name="mpg_us">Miglio/gallone (USA)</string>
     <string name="mpg_uk">Miglio/gallone (GB)</string>
     <string name="l_100k">Litro/100km</string>
-    <string name="km_l">Chilometro/litro</string>
+    <string name="km_l">Kilometro/litro</string>
     <string name="miles_l">Miglio/litro</string>
 
     <!-- Distance -->
-    <string name="kilometre">Chilometro</string>
+    <string name="kilometre">Kilometro</string>
     <string name="mile">Miglio</string>
     <string name="metre">Metro</string>
     <string name="centimetre">Centimetro</string>
@@ -147,7 +167,7 @@
     <string name="light_year">Anno Luce</string>
 
     <!-- Mass/Weight -->
-    <string name="kilogram">Chilogrammo</string>
+    <string name="kilogram">Kilogrammo</string>
     <string name="pound">Libbra</string>
     <string name="gram">Grammo</string>
     <string name="milligram">Milligrammo</string>
@@ -160,10 +180,10 @@
 
     <!-- Power -->
     <string name="watt">Watt</string>
-    <string name="kilowatt">Chilowatt</string>
+    <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Megawatt</string>
-    <string name="hp">HP (metrico)</string>
-    <string name="hp_uk">HP (mecccanico)</string>
+    <string name="hp">CV</string>
+    <string name="hp_uk">HP</string>
     <string name="ft_lbf_s">Piede per libbra/sec</string>
     <string name="calorie_s">Caloria/sec</string>
     <string name="btu_s">BTU/second</string>
@@ -171,7 +191,7 @@
 
     <!-- Pressure -->
     <string name="megapascal">Megapascal</string>
-    <string name="kilopascal">Chilopascal</string>
+    <string name="kilopascal">Kilopascal</string>
     <string name="pascal">Pascal</string>
     <string name="bar">Bar</string>
     <string name="psi">PSI</string>
@@ -182,7 +202,7 @@
     <string name="torr">Torr</string>
 
     <!-- Speed -->
-    <string name="km_h">Km/h</string>
+    <string name="km_h">km/h</string>
     <string name="mph">mph</string>
     <string name="m_s">m/s</string>
     <string name="fps">ft/s</string>
@@ -252,6 +272,7 @@
     <string name="idr">Rupia Indonesiana</string>
     <string name="ils">Siclo Israeliano</string>
     <string name="inr">Rupia Indiana</string>
+    <string name="isk">Corona Islandese</string>
     <string name="jpy">Yen Giapponese</string>
     <string name="krw">Won Sudcoreano</string>
     <string name="mxn">Peso Messicano</string>
