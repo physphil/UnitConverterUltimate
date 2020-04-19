@@ -182,8 +182,8 @@
     <string name="watt">Watt</string>
     <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Megawatt</string>
-    <string name="hp">CV (métrico)</string>
-    <string name="hp_uk">CF (mecánico)</string>
+    <string name="hp">HP</string>
+    <string name="hp_uk">CV</string>
     <string name="ft_lbf_s">Pie-Libra(ft-lbf)/segundo</string>
     <string name="calorie_s">Caloría/segundo</string>
     <string name="btu_s">BTU/segundo</string>
