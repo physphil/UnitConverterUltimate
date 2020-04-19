@@ -149,7 +149,7 @@
 
     <!-- Distance -->
     <string name="kilometre">Kilometre</string>
-    <string name="mile">Miles</string>
+    <string name="mile">Mile</string>
     <string name="metre">Metre</string>
     <string name="centimetre">Centimetre (cm)</string>
     <string name="millimetre">Millimetre (mm)</string>
