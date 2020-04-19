@@ -27,7 +27,7 @@
     <string name="text_to">A</string>
     <string name="default_value">1</string>
     <string name="menu_download">Descargar</string>
-    <string name="menu_clear">Borrar Valor</string>
+    <string name="menu_clear">Borrar valor</string>
     <string name="menu_help">Ayuda</string>
     <string name="menu_settings">Ajustes</string>
     <string name="group_separator_none">Ninguno</string>
@@ -48,13 +48,13 @@
 
     <string name="prefs_title_formatting">Formato</string>
     <string name="prefs_summary_number_decimals">Establecer el número de decimales que se muestra en el valor convertido</string>
-    <string name="prefs_title_number_decimals">Número de Decimales</string>
+    <string name="prefs_title_number_decimals">Número de decimales</string>
     <string name="prefs_summary_group_separator">Ajuste el separador grupal que se muestra en el valor convertido</string>
-    <string name="prefs_title_group_separator">Separador Grupal</string>
+    <string name="prefs_title_group_separator">Separador grupal</string>
     <string name="prefs_summary_decimal_separator">Ajuste el separador decimal que se muestra en el valor convertido</string>
     <string name="prefs_title_decimal_separator">Separador decimal</string>
     <string name="prefs_title_visual">Visual</string>
-    <string name="prefs_title_light_theme">Usar el Tema claro</string>
+    <string name="prefs_title_light_theme">Usar el tema claro</string>
     <string name="prefs_title_language">Idioma</string>
     <string name="prefs_summary_language">Elija el idioma que se utilizará en toda la aplicación</string>
     <string name="prefs_title_other">Otras cosas</string>
@@ -66,7 +66,7 @@
     <string name="prefs_summary_rate">¿Disfrutando de todas las conversiones de unidades? Por qué no dar 5 estrellas.</string>
     <string name="prefs_title_donate">Donar</string>
     <string name="prefs_summary_donate">Me harás feliz apoyando el desarollo :)</string>
-    <string name="prefs_title_open_issue">¿Encontró un Error?</string>
+    <string name="prefs_title_open_issue">¿Encontró un error?</string>
     <string name="prefs_summary_open_issue">Señale un error en GitHub.</string>
     <string name="prefs_title_privacy_policy">Política de privacidad</string>
     <string name="prefs_summary_privacy_policy">Tu privacidad es importante.</string>
@@ -100,8 +100,8 @@
     <string name="storage">Almacenamiento digital</string>
     <string name="energy">Energía</string>
     <string name="fuel_consumption">Consumo de combustible</string>
-    <string name="length">Longitud / Distancia</string>
-    <string name="mass">Masa / Peso</string>
+    <string name="length">Longitud/Distancia</string>
+    <string name="mass">Masa/Peso</string>
     <string name="power">Poder</string>
     <string name="pressure">Presión</string>
     <string name="speed">Velocidad</string>
@@ -115,10 +115,10 @@
     <string name="sq_metre">Metro cuadrado</string>
     <string name="sq_centimetre">Centímetro cuadrado</string>
     <string name="hectare">Hectárea</string>
-    <string name="sq_mile">Milla Cuadrada</string>
-    <string name="sq_yard">Yarda Cuadrada</string>
-    <string name="sq_foot">Pie Cuadrado</string>
-    <string name="sq_inch">Pulgada Cuadrada</string>
+    <string name="sq_mile">Milla cuadrada</string>
+    <string name="sq_yard">Yarda cuadrada</string>
+    <string name="sq_foot">Pie cuadrado</string>
+    <string name="sq_inch">Pulgada cuadrada</string>
     <string name="acre">Acre</string>
 
     <!-- Digital Storage -->
@@ -162,9 +162,9 @@
     <string name="yard">Yarda</string>
     <string name="feet">Pies</string>
     <string name="inch">Pulgada</string>
-    <string name="nautical_mile">Milla Náutica</string>
+    <string name="nautical_mile">Milla náutica</string>
     <string name="furlong">Furlong</string>
-    <string name="light_year">Año Luz</string>
+    <string name="light_year">Año luz</string>
 
     <!-- Mass/Weight -->
     <string name="kilogram">Kilogramo</string>
@@ -197,7 +197,7 @@
     <string name="psi">PSI</string>
     <string name="psf">PSF</string>
     <string name="atmosphere">Atmósfera</string>
-    <string name="technical_atmosphere">Atm Técnica</string>
+    <string name="technical_atmosphere">Atmósfera Técnica</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
 
@@ -231,7 +231,7 @@
     <string name="nanosecond">Nanosegundo</string>
 
     <!-- Torque -->
-    <string name="n_m">N-m</string>
+    <string name="n_m">N m</string>
 
     <!-- Volume -->
     <string name="teaspoon">Cucharadita</string>
