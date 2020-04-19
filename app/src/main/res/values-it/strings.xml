@@ -100,8 +100,8 @@
     <string name="storage">Dimensione dati</string>
     <string name="energy">Energia</string>
     <string name="fuel_consumption">Consumo carburante</string>
-    <string name="length">Lunghezza</string>
-    <string name="mass">Peso</string>
+    <string name="length">Lunghezza/Distanza</string>
+    <string name="mass">Massa/Peso</string>
     <string name="power">Potenza</string>
     <string name="pressure">Pressione</string>
     <string name="speed">Velocità</string>
