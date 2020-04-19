@@ -31,38 +31,38 @@
     <string name="menu_help">Ayuda</string>
     <string name="menu_settings">Ajustes</string>
     <string name="group_separator_none">Ninguno</string>
-    <string name="request_unit">Unit Converter Ultimate: Nueva solicitud de Unidad</string>
+    <string name="request_unit">Unit Converter Ultimate: solicita una nueva unidad</string>
     <string name="header_other_stuff">Otras cosas</string>
     <string name="progress_loading">Cargando&#8230;</string>
-    <string name="error_loading_currency">Se ha producido un error al actualizar las conversiones de moneda.\n\nPor favor, compruebe su conexión a Internet y vuelva a intentarlo.</string>
+    <string name="error_loading_currency">Se ha producido un error al actualizar las conversiones de moneda.\n\nPor favor, comprueba tu conexión a Internet y vuelve a intentarlo.</string>
 
-    <string name="toast_error_billing_internet">Ups, Se ha producido un error. Por favor compruebe su conexión a Internet y vuelva a intentarlo.</string>
-    <string name="toast_error_billing_general">Ups, Se ha producido un error. Por favor, inténtelo de nuevo.</string>
+    <string name="toast_error_billing_internet">Ups, Se ha producido un error. Por favor comprueba tu conexión a Internet y vuelve a intentarlo.</string>
+    <string name="toast_error_billing_general">Ups, Se ha producido un error. Por favor, inténtalo de nuevo.</string>
     <string name="toast_donation_successful">¡Gracias por donar!</string>
     <string name="toast_error_no_browser">No se pudo encontrar el navegador</string>
     <string name="toast_error_no_email_app">No se pudo encontrar una aplicación de correo electrónico instalada</string>
-    <string name="toast_error_google_play">Error al abrir Google Play Store, por favor intente de nuevo</string>
+    <string name="toast_error_google_play">Error al abrir Google Play Store, por favor inténtalo de nuevo</string>
     <string name="toast_copied_clipboard">Texto copiado en portapapeles</string>
     <string name="toast_currency_updated">Conversor de divisas actualizado</string>
     <string name="toast_error_updating_currency">Se ha producido un error al actualizar las conversiones de moneda.</string>
 
     <string name="prefs_title_formatting">Formato</string>
-    <string name="prefs_summary_number_decimals">Establecer el número de decimales que se muestra en el valor convertido</string>
+    <string name="prefs_summary_number_decimals">Establece el número de decimales que se muestra en el valor convertido</string>
     <string name="prefs_title_number_decimals">Número de decimales</string>
-    <string name="prefs_summary_group_separator">Ajuste el separador grupal que se muestra en el valor convertido</string>
+    <string name="prefs_summary_group_separator">Ajusta el separador grupal que se muestra en el valor convertido</string>
     <string name="prefs_title_group_separator">Separador grupal</string>
-    <string name="prefs_summary_decimal_separator">Ajuste el separador decimal que se muestra en el valor convertido</string>
+    <string name="prefs_summary_decimal_separator">Ajusta el separador decimal que se muestra en el valor convertido</string>
     <string name="prefs_title_decimal_separator">Separador decimal</string>
     <string name="prefs_title_visual">Visual</string>
     <string name="prefs_title_light_theme">Usar el tema claro</string>
     <string name="prefs_title_language">Idioma</string>
-    <string name="prefs_summary_language">Elija el idioma que se utilizará en toda la aplicación</string>
+    <string name="prefs_summary_language">Elije el idioma que se utilizará en toda la aplicación</string>
     <string name="prefs_title_other">Otras cosas</string>
     <string name="prefs_title_source_code">Ver código fuente</string>
     <string name="pref_summary_source_code">¡Unit Converter Ultimate es open source!  Echa un vistazo al código en GitHub.</string>
     <string name="prefs_title_unit_request">Solicitar una unidad</string>
-    <string name="prefs_summary_unit_request">¿Le gustaría agregar una unidad? Envía un correo electrónico.</string>
-    <string name="prefs_title_rate">Califíquenos en Google Play</string>
+    <string name="prefs_summary_unit_request">¿Te gustaría agregar una unidad? Envía un correo electrónico.</string>
+    <string name="prefs_title_rate">Califícanos en Google Play</string>
     <string name="prefs_summary_rate">¿Disfrutando de todas las conversiones de unidades? Por qué no dar 5 estrellas.</string>
     <string name="prefs_title_donate">Donar</string>
     <string name="prefs_summary_donate">Me harás feliz apoyando el desarollo :)</string>
@@ -73,7 +73,7 @@
 
     <string name="dialog_btn_got_it">Lo tengo</string>
     <string name="dialog_title_help">Ayuda</string>
-    <string name="dialog_message_help">Utilice el menú deslizable en la navegación entre las conversiones y seleccione las unidades que necesite.\n\nEl valor convertido es completamente personalizable. Utilice el menú de configuración para seleccionar el número de decimales requeridos, así como la agrupación y separadores decimales.\n\nManten presionado sobre el valor convertido para copiar al portapapeles</string>
+    <string name="dialog_message_help">Utiliza el menú deslizable en la navegación entre las conversiones y seleccione las unidades que necesite.\n\nEl valor convertido es completamente personalizable. Utilice el menú de configuración para seleccionar el número de decimales requeridos, así como la agrupación y separadores decimales.\n\nManten presionado sobre el valor convertido para copiar al portapapeles</string>
     <string name="dialog_btn_view_source">Ver fuente</string>
   
   <!-- Language values -->
@@ -102,7 +102,7 @@
     <string name="fuel_consumption">Consumo de combustible</string>
     <string name="length">Longitud/Distancia</string>
     <string name="mass">Masa/Peso</string>
-    <string name="power">Poder</string>
+    <string name="power">Potencia</string>
     <string name="pressure">Presión</string>
     <string name="speed">Velocidad</string>
     <string name="temperature">Temperatura</string>
@@ -259,14 +259,14 @@
     <string name="aud">Dólar australiano</string>
     <string name="bgn">Lev búlgaro</string>
     <string name="brl">Real brasileño</string>
-    <string name="cdn">Dolar canadiense</string>
+    <string name="cdn">Dólar canadiense</string>
     <string name="chf">Franco suizo</string>
     <string name="cny">Yuan chino</string>
     <string name="czk">Corona checa</string>
     <string name="dkk">Corona danesa</string>
     <string name="eur">Euro</string>
     <string name="gbp">Libra británica</string>
-    <string name="hkd">Dolar de Hong Kong</string>
+    <string name="hkd">Dólar de Hong Kong</string>
     <string name="hrk">Kuna croata</string>
     <string name="huf">Florín húngaro</string>
     <string name="idr">Rupia indonesa</string>
@@ -278,13 +278,13 @@
     <string name="mxn">Peso mexicano</string>
     <string name="myr">Ringgit malayo</string>
     <string name="nok">Corona noruega</string>
-    <string name="nzd">Dolar de Nueva Zelanda</string>
+    <string name="nzd">Dólar neozelandés</string>
     <string name="php">Peso filipino</string>
     <string name="pln">Zloty polaco</string>
     <string name="ron">Leu rumano</string>
     <string name="rub">Rublo ruso</string>
     <string name="sek">Corona sueca</string>
-    <string name="sgd">Dolar de Singapur</string>
+    <string name="sgd">Dólar de Singapur</string>
     <string name="thb">Baht tailandés</string>
     <string name="lira">Lira turca</string>
     <string name="usd">Dólar estadounidense</string>
