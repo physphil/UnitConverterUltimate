@@ -96,8 +96,8 @@
     <string name="storage">Digital Storage</string>
     <string name="energy">Energy</string>
     <string name="fuel_consumption">Fuel Consumption</string>
-    <string name="length">Length / Distance</string>
-    <string name="mass">Mass / Weight</string>
+    <string name="length">Length/Distance</string>
+    <string name="mass">Mass/Weight</string>
     <string name="power">Power</string>
     <string name="pressure">Pressure</string>
     <string name="speed">Speed</string>
