@@ -374,11 +374,11 @@ public final class ConversionFragment extends Fragment implements ConversionView
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
         symbols.setDecimalSeparator(mPrefs.getDecimalSeparator().charAt(0));
 
-        String groupSeparator = mPrefs.getGroupSeparator();
-        boolean isSeparatorUsed = !groupSeparator.equals(mAppContext.getString(R.string.group_separator_none));
+        Character groupSeparator = mPrefs.getGroupSeparator();
+        boolean isSeparatorUsed = groupSeparator != null;
         formatter.setGroupingUsed(isSeparatorUsed);
         if (isSeparatorUsed) {
-            symbols.setGroupingSeparator(groupSeparator.charAt(0));
+            symbols.setGroupingSeparator(groupSeparator);
         }
 
         formatter.setDecimalFormatSymbols(symbols);
@@ -488,7 +488,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(Preferences.PREFS_NUMBER_OF_DECIMALS) ||
                 key.equals(Preferences.PREFS_DECIMAL_SEPARATOR) ||
-                key.equals(Preferences.PREFS_GROUP_SEPARATOR)) {
+                key.equals(Preferences.PREFS_GROUP_SEPARATOR_V2)) {
             mTxtResult.setText(getDecimalFormat().format(mResult));
         }
     }

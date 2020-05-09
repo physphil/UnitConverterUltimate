@@ -29,12 +29,11 @@
             android:entryValues="@array/number_decimals"/>
 
         <ListPreference
-            android:key="group_separator"
+            android:key="group_separator_v2"
             android:title="@string/prefs_title_group_separator"
             android:summary="@string/prefs_summary_group_separator"
-            android:defaultValue="@string/default_group_separator"
-            android:entries="@array/group_separators"
-            android:entryValues="@array/group_separators"/>
+            android:entries="@array/group_separator_value"
+            android:entryValues="@array/group_separator_index"/>
 
         <ListPreference
             android:key="decimal_separator"
