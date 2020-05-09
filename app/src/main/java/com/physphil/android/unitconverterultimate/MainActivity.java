@@ -30,6 +30,8 @@ import android.view.inputmethod.InputMethodManager;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.presenters.MainActivityPresenter;
 import com.physphil.android.unitconverterultimate.presenters.MainActivityView;
 import com.physphil.android.unitconverterultimate.util.Conversions;

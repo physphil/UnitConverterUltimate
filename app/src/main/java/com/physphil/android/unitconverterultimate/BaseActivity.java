@@ -17,9 +17,12 @@
 package com.physphil.android.unitconverterultimate;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.MenuItem;
 
 /**
  * Base Activity class for application

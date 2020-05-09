@@ -16,7 +16,7 @@
 
 package com.physphil.android.unitconverterultimate.presenters;
 
-import com.physphil.android.unitconverterultimate.Preferences;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.CurrencyApi;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;

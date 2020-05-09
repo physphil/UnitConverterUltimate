@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package com.physphil.android.unitconverterultimate;
+package com.physphil.android.unitconverterultimate.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
+import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.Language;
+
+import androidx.annotation.NonNull;
 
 /**
  * Preferences class

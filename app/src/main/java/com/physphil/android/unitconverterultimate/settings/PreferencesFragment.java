@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.physphil.android.unitconverterultimate.fragments;
+package com.physphil.android.unitconverterultimate.settings;
 
 import android.content.ActivityNotFoundException;
 import android.content.SharedPreferences;
@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 import com.physphil.android.unitconverterultimate.AcknowledgementsActivity;
 import com.physphil.android.unitconverterultimate.BuildConfig;
-import com.physphil.android.unitconverterultimate.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.models.Language;

@@ -20,11 +20,6 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -41,15 +36,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.physphil.android.unitconverterultimate.BuildConfig;
-import com.physphil.android.unitconverterultimate.Preferences;
-import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
 import com.physphil.android.unitconverterultimate.util.Conversions;
@@ -57,6 +54,10 @@ import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
 
 /**
  * Base fragment to display units to convert

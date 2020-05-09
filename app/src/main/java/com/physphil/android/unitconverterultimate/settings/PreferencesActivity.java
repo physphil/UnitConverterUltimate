@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package com.physphil.android.unitconverterultimate;
+package com.physphil.android.unitconverterultimate.settings;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.physphil.android.unitconverterultimate.fragments.PreferencesFragment;
+import com.physphil.android.unitconverterultimate.BaseActivity;
+import com.physphil.android.unitconverterultimate.R;
 
 /**
  * Activity to host preferences fragment
