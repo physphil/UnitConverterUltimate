@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Phil Shadlyn
+  ~ Copyright 2019 Joppla
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Doneren?</string>
+    <string name="title_activity_settings">Instellingen</string>
+    <string name="text_from">Van</string>
+    <string name="text_to">Naar</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Download</string>
+    <string name="menu_clear">Waarde resetten</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_settings">Instellingen</string>
+    <string name="group_separator_none">Geen</string>
+    <string name="request_unit">Unit Converter Ultimate: Nieuwe eenheid aanvragen</string>
+    <string name="header_other_stuff">Diversen</string>
+    <string name="progress_loading">Laden&#8230;</string>
+    <string name="error_loading_currency">Fout bij het bijwerken van de valuta conversies.\n\nControleer de internetverbinding en probeer opnieuw.</string>
+
+    <string name="toast_error_billing_internet">Oeps, er was een probleem. Controleer de internetverbinding en probeer opnieuw.</string>
+    <string name="toast_error_billing_general">Oeps, er was een probleem. Probeer opnieuw.</string>
+    <string name="toast_donation_successful">Dank voor de donatie!</string>
+    <string name="toast_error_no_browser">Er kon geen browser gevonden worden</string>
+    <string name="toast_error_no_email_app">Er is geen e-mail-app geïnstalleerd</string>
+    <string name="toast_error_google_play">Fout bij het openen van de Google Play Store, probeer opnieuw.</string>
+    <string name="toast_copied_clipboard">Tekst gekopieerd naar het klembord.</string>
+    <string name="toast_currency_updated">Valutaconversies bijgewerkt</string>
+    <string name="toast_error_updating_currency">Fout met het bijwerken van de valutaconversies.</string>
+
+    <string name="prefs_title_formatting">Formatering</string>
+    <string name="prefs_summary_number_decimals">Stel het aantal decimalen in dat wordt getoond bij de geconverteerde waarde.</string>
+    <string name="prefs_title_number_decimals">Aantal decimalen</string>
+    <string name="prefs_summary_group_separator">Stel het scheidingsteken in dat wordt getoond bij de geconverteerde waarde.</string>
+    <string name="prefs_title_group_separator">Scheidingsteken</string>
+    <string name="prefs_summary_decimal_separator">Stel het decimaalteken in dat wordt getoond bij de geconverteerde waarde</string>
+    <string name="prefs_title_decimal_separator">Decimaalteken</string>
+    <string name="prefs_title_visual">Beeld</string>
+    <string name="prefs_title_light_theme">Gebruik licht thema</string>
+    <string name="prefs_title_language">Taal</string>
+    <string name="prefs_summary_language">Kies een andere taal om in de app te gebruiken</string>
+    <string name="prefs_title_other">Diversen</string>
+    <string name="prefs_title_source_code">Bekijk broncode</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate is open source!  Bekijk de code op GitHub.</string>
+    <string name="prefs_title_unit_request">Verzoek om een eenheid</string>
+    <string name="prefs_summary_unit_request">Eenheid toevoegen? Stuur een mail en laat het weten.</string>
+    <string name="prefs_title_rate">Waardeer op Google Play</string>
+    <string name="prefs_summary_rate">Bevalt de Unit Converter Ultimate? Geef een 5 sterren waardering?</string>
+    <string name="prefs_title_donate">Doneren</string>
+    <string name="prefs_summary_donate">Ondersteun deze ontwikkeling en laat me glimlachen :)</string>
+    <string name="prefs_title_open_issue">Fot gevonden?</string>
+    <string name="prefs_summary_open_issue">Open een "issue" op GitHub.</string>
+    <string name="prefs_title_privacy_policy">Privacy verklaring</string>
+    <string name="prefs_summary_privacy_policy">Omdat jouw privacy belangrijk is voor mij.</string>
+
+    <string name="dialog_btn_got_it">Begrepen</string>
+    <string name="dialog_title_help">Help</string>
+    <string name="dialog_message_help">Gebruik het zijmenu voor de navigatie tussen de conversies en selecteer de gewenste eenheid.\n\nDe geconverteerde waarde is volledig aan te passen. Gebruik het instellingenmenu om het aantal decimalen als ook het decimaalteken en scheidingsteken te kiezen.\n\nLang indrukken om de geconverteerde waarde naar het klembord te kopiëren.</string>
+    <string name="dialog_btn_view_source">Bekijk broncode</string>
+
+    <!-- Language values -->
+    <string name="language_default" translatable="false">Systeem standaard</string>
+    <string name="language_english" translatable="false">Engels</string>
+    <string name="language_dutch" translatable="false">Nederlands</string>
+    <string name="language_croatian" translatable="false">Kroatisch</string>
+    <string name="language_farsi" translatable="false">Farsi</string>
+    <string name="language_french" translatable="false">Frans</string>
+    <string name="language_german" translatable="false">Duits</string>
+    <string name="language_hungarian" translatable="false">Hongaars</string>
+    <string name="language_italian" translatable="false">Italiaans</string>
+    <string name="language_japanese" translatable="false">Japons</string>
+    <string name="language_portuguese_brazil" translatable="false">Portugees (Brazilië)</string>
+    <string name="language_russian" translatable="false">Russisch</string>
+    <string name="language_spanish" translatable="false">Spaans</string>
+    <string name="language_turkish" translatable="false">Turks</string>
+
+    <!-- Conversions -->
+    <string name="area">Oppervlakte</string>
+    <string name="cooking">Koken</string>
+    <string name="currency">Valuta</string>
+    <string name="storage">Digitale opslag</string>
+    <string name="energy">Energie</string>
+    <string name="fuel_consumption">Brandstof verbruik</string>
+    <string name="length">Lengte / Afstand</string>
+    <string name="mass">Massa / Gewicht</string>
+    <string name="power">Kracht</string>
+    <string name="pressure">Druk</string>
+    <string name="speed">Snelheid</string>
+    <string name="temperature">Temperatuur</string>
+    <string name="time">Tijd</string>
+    <string name="torque">Torsie</string>
+    <string name="volume">Inhoud</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Vierkante kilometer</string>
+    <string name="sq_metre">Vierkante meter</string>
+    <string name="sq_centimetre">Vierkante centimeter</string>
+    <string name="hectare">Hectare</string>
+    <string name="sq_mile">Vierkante mijl</string>
+    <string name="sq_yard">Vierkante el (Yard)</string>
+    <string name="sq_foot">Vierkante voet</string>
+    <string name="sq_inch">Vierkante duim (Inch)</string>
+    <string name="acre">Are</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Calorie</string>
+    <string name="kilocalorie">Kilocalorie</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowattuur</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Miles/gallon (US)</string>
+    <string name="mpg_uk">Miles/gallon (UK)</string>
+    <string name="l_100k">Liters/100km</string>
+    <string name="km_l">Kilometers/liter</string>
+    <string name="miles_l">Mijlen/liter</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometer</string>
+    <string name="mile">Mijlen</string>
+    <string name="metre">Meter</string>
+    <string name="centimetre">Centimeter (cm)</string>
+    <string name="millimetre">Millimeter (mm)</string>
+    <string name="micrometre">Micrometer (mu)</string>
+    <string name="nanometre">Nanometer</string>
+    <string name="yard">El (Yard)</string>
+    <string name="feet">Voet</string>
+    <string name="inch">Duim (Inch)</string>
+    <string name="nautical_mile">Zeemijl</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Lichtjaar</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pond (Pound)</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Milligram</string>
+    <string name="ounce">Ons (Ounce)</string>
+    <string name="grain">Grain</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Ton (metric)</string>
+    <string name="short_ton">Ton (US/short)</string>
+    <string name="long_ton">Ton (UK/long)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HP (metric)</string>
+    <string name="hp_uk">HP (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">Calorie/second</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosphere</string>
+    <string name="technical_atmosphere">Technical Atm</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometer/uur</string>
+    <string name="mph">Mijl/uur</string>
+    <string name="m_s">Meter/second</string>
+    <string name="fps">Voet/second</string>
+    <string name="knot">Knoop</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Jaar</string>
+    <string name="month">Maand</string>
+    <string name="week">Week</string>
+    <string name="day">Dag</string>
+    <string name="hour">Uur</string>
+    <string name="minute">Minute</string>
+    <string name="second">Seconde</string>
+    <string name="millisecond">Milliseconde</string>
+    <string name="nanosecond">Nanoseconde</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Theelepel</string>
+    <string name="tablespoon">Eetlepel</string>
+    <string name="cup">Kop</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barrel (US)</string>
+    <string name="fluid_ounce_uk">Fluid Ounce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Barrel (UK)</string>
+    <string name="millilitre">Milliliter</string>
+    <string name="litre">Liter</string>
+    <string name="cubic_cm">Kubieke cm</string>
+    <string name="cubic_m">Kubieke Meter</string>
+    <string name="cubic_inch">Kubieke Inch</string>
+    <string name="cubic_foot">Kubieke Foot</string>
+    <string name="cubic_yard">Kubieke Yard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australische Dollar</string>
+    <string name="bgn">Bulgaarse Lev</string>
+    <string name="brl">Braziliaanse Real</string>
+    <string name="cdn">Canadeese Dollar</string>
+    <string name="chf">Zwitserse Frank</string>
+    <string name="cny">Chinese Yuan</string>
+    <string name="czk">Tsjechische Kroon</string>
+    <string name="dkk">Deense Kroon</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">Britse Pond</string>
+    <string name="hkd">Hong Kong Dollar</string>
+    <string name="hrk">Kroatische Kuna</string>
+    <string name="huf">Hungaarse Forint</string>
+    <string name="idr">Indonesische Rupiah</string>
+    <string name="ils">Israelische Shekel</string>
+    <string name="inr">Indiase Rupee</string>
+    <string name="jpy">Japanse Yen</string>
+    <string name="krw">Koreaanse Won</string>
+    <string name="mxn">Mexicaanse Peso</string>
+    <string name="myr">Maleisische Ringgit</string>
+    <string name="nok">Noorse Krone</string>
+    <string name="nzd">New Zealand Dollar</string>
+    <string name="php">Filipijnse Peso</string>
+    <string name="pln">Poolse Zloty</string>
+    <string name="ron">Roemeense Leu</string>
+    <string name="rub">Russische Roebel</string>
+    <string name="sek">Zweedse Kroon</string>
+    <string name="sgd">Singapore Dollar</string>
+    <string name="thb">Thaise Baht</string>
+    <string name="lira">Turkse Lira</string>
+    <string name="usd">Amerikaanse Dollar</string>
+    <string name="zar">Zuid-Afrikaanse Rand</string>
+
+</resources>

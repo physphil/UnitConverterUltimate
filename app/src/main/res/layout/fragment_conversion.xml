@@ -33,15 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <android.support.design.widget.CoordinatorLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/list_coordinator_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/header_conversion">
 
-            <android.support.v4.widget.NestedScrollView
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/unit_list_container"
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -70,9 +69,9 @@
 
                 </LinearLayout>
 
-            </android.support.v4.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
 
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,10 +79,9 @@
                 android:src="@drawable/ic_autorenew_white_24dp"
                 app:backgroundTint="@color/color_accent"
                 app:layout_anchor="@id/unit_list_container"
-                app:layout_anchorGravity="bottom|right|end"
-                app:layout_behavior="com.physphil.android.unitconverterultimate.ui.ScrollAwareFabBehaviour"/>
+                app:layout_anchorGravity="bottom|right|end"/>
 
-        </android.support.design.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </RelativeLayout>
 

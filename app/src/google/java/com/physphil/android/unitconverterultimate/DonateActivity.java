@@ -16,42 +16,29 @@
 
 package com.physphil.android.unitconverterultimate;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.physphil.android.unitconverterultimate.iab.IabHelper;
-import com.physphil.android.unitconverterultimate.iab.IabResult;
-import com.physphil.android.unitconverterultimate.iab.Inventory;
-import com.physphil.android.unitconverterultimate.iab.Purchase;
+import com.android.billingclient.api.SkuDetails;
 import com.physphil.android.unitconverterultimate.ui.DonateListAdapter;
 import com.physphil.android.unitconverterultimate.ui.RecyclerViewItemClickListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
-import java.util.UUID;
 
-public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener {
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-    private static final int DONATE_REQUEST_CODE = 6996;
+public class DonateActivity extends BaseActivity implements RecyclerViewItemClickListener<SkuDetails> {
 
-    private List<String> mDonationOptions;
-    private IabHelper mHelper;
-    private Inventory mInventory;
+    private BillingManager billingManager;
     private RecyclerView mRecyclerView;
     private ProgressBar mProgressBar;
-    private String mPurchasePayload;
-
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, DonateActivity.class));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,99 +59,68 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
     public void onDestroy() {
         super.onDestroy();
 
-        // Shut down IAB
-        if (mHelper != null) {
-            mHelper.dispose();
-        }
-        mHelper = null;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
-            // Not related to in-app billing, handle normally
-            super.onActivityResult(requestCode, resultCode, data);
+        if (billingManager != null) {
+            billingManager.disconnect();
         }
     }
 
     private void setupBilling() {
-        mDonationOptions = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.donation_options)));
-
-        // Setup google play billing
-        StringBuilder sb = new StringBuilder().append(getString(R.string.license_key_p1))
-                .append(getString(R.string.license_key_p2))
-                .append(getString(R.string.license_key_p3));
-
-        mHelper = new IabHelper(this, sb.toString());
-        try {
-            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-                @Override
-                public void onIabSetupFinished(IabResult result) {
-                    if (result.isSuccess()) {
-                        // Try to get available inventory
-                        mHelper.queryInventoryAsync(true, mDonationOptions, new IabHelper.QueryInventoryFinishedListener() {
-                            @Override
-                            public void onQueryInventoryFinished(IabResult result, Inventory inv) {
-                                if (result.isSuccess()) {
-                                    mInventory = inv;
-                                    consumeExistingPurchases();
-                                    displayDonationOptions();
-                                }
-                                else {
-                                    shutdown(false);
-                                }
-                            }
-                        });
+        billingManager = new BillingManager();
+        billingManager.connect(this, new BillingManager.ConnectionStateListener() {
+            @Override
+            public void onConnected() {
+                billingManager.queryDonationOptions(new BillingManager.QueryDonationsListener() {
+                    @Override
+                    public void onComplete(@NotNull QueryDonationsResult result) {
+                        if (result instanceof QueryDonationsResult.Success) {
+                            displayDonationOptions(((QueryDonationsResult.Success) result).getDonations());
+                        } else {
+                            shutdown(false);
+                        }
                     }
-                    else {
-                        shutdown(false);
-                    }
-                }
-            });
-        }
-        catch (Exception ex) {
-            Toast.makeText(this, R.string.toast_error_billing_general, Toast.LENGTH_SHORT).show();
-            mHelper = null;
-            finish();
-        }
+                });
+            }
+
+            @Override
+            public void onConnectionError(@NotNull String message) {
+                shutdown(false);
+            }
+
+            @Override
+            public void onDisconnected() {
+                shutdown(false);
+            }
+        });
     }
 
     /**
      * Display donation options to user
      */
-    private void displayDonationOptions() {
+    private void displayDonationOptions(List<SkuDetails> donations) {
         mProgressBar.setVisibility(View.GONE);
-        mRecyclerView.setAdapter(new DonateListAdapter(mInventory, getResources().getStringArray(R.array.donation_options), this));
+        DonateListAdapter adapter = new DonateListAdapter(donations, this);
+        mRecyclerView.setAdapter(adapter);
     }
 
-    /**
-     * Consume any existing purchases
-     */
-    private void consumeExistingPurchases() {
-        List<Purchase> purchases = new ArrayList<Purchase>();
-
-        // Check each sku, consume if owned
-        for (String sku : mDonationOptions) {
-            Purchase p = mInventory.getPurchase(sku);
-            if (p != null) {
-                purchases.add(p);
-            }
-        }
-
-        mHelper.consumeAsync(purchases, new IabHelper.OnConsumeMultiFinishedListener() {
+    private void donate(SkuDetails donation) {
+        mProgressBar.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.GONE);
+        billingManager.donate(this, donation, new BillingManager.DonationResultListener() {
             @Override
-            public void onConsumeMultiFinished(List<Purchase> purchases, List<IabResult> results) {}
-        });
-    }
+            public void onDonationSuccess() {
+                shutdown(true);
+            }
 
-    /**
-     * Start Google Play billing flow, with specified product id (sku)
-     *
-     * @param productId product id of donation
-     */
-    private void donate(String productId) {
-        mPurchasePayload = UUID.randomUUID().toString();
-        mHelper.launchPurchaseFlow(this, productId, DONATE_REQUEST_CODE, mPurchaseFinishedListener, mPurchasePayload);
+            @Override
+            public void onDonationFailed(@Nullable String message) {
+                shutdown(false);
+            }
+
+            @Override
+            public void onUserCanceled() {
+                finish();
+            }
+        });
     }
 
     /**
@@ -182,39 +138,9 @@ public class DonateActivity extends BaseActivity implements RecyclerViewItemClic
         finish();
     }
 
-    // Listener called when purchase has completed
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
-        @Override
-        public void onIabPurchaseFinished(IabResult result, Purchase info) {
-
-            if (result.isFailure()) {
-                switch (result.getResponse()) {
-                    case IabHelper.IABHELPER_USER_CANCELLED:
-                        break;
-
-                    default:
-                        shutdown(false);
-                        break;
-                }
-            }
-            else {
-                // Consume purchase so it can be done again and thank user
-                mHelper.consumeAsync(info, mConsumeFinishedListener);
-            }
-        }
-    };
-
-    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
-        @Override
-        public void onConsumeFinished(Purchase purchase, IabResult result) {
-            // Purchase is successful, thank user and shutdown activity
-            shutdown(true);
-        }
-    };
-
     // RecyclerView item click listener
     @Override
-    public void onListItemClicked(Object sku, int position) {
-        donate((String) sku);
+    public void onListItemClicked(SkuDetails donation, int position) {
+        donate(donation);
     }
 }

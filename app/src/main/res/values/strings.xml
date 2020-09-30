@@ -77,6 +77,7 @@
     <string name="language_default" translatable="false">System Default</string>
     <string name="language_english" translatable="false">English</string>
     <string name="language_croatian" translatable="false">Croatian</string>
+    <string name="language_dutch" translatable="false">Dutch (Nederlands)</string>    
     <string name="language_farsi" translatable="false">Farsi</string>
     <string name="language_french" translatable="false">French</string>
     <string name="language_german" translatable="false">German</string>
@@ -290,5 +291,7 @@
     <string name="title_activity_acknowledgements">Acknowledgements</string>
     <string name="prefs_title_acknowledgements">Acknowledgements</string>
     <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
+    <string name="isk">Icelandic Krona</string>
+    <string name="language_norwegian">Norwegian</string>
 
 </resources>
