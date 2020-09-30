@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_conversion">
+
+        <argument
+            android:name="argConversionType"
+            android:defaultValue="AREA"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType" />
+
+        <action
+            android:id="@+id/action_nav_home_to_nav_settings"
+            app:destination="@id/nav_settings" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_acknowledgements"
+        android:name="com.physphil.android.unitconverterultimate.acknowledgements.AcknowledgementsFragment"
+        android:label="AcknowledgementsFragment"
+        tools:layout="@layout/fragment_acknowledgements" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.physphil.android.unitconverterultimate.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+
+        <action
+            android:id="@+id/action_nav_settings_to_acknowledgements"
+            app:destination="@id/nav_acknowledgements"/>
+
+    </fragment>
+
+
+    <!-- TODO: to be removed -->
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.physphil.android.unitconverterultimate.ConversionFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_conversion">
+
+        <argument
+            android:name="argConversionType"
+            android:defaultValue="COOKING"
+            app:argType="com.physphil.android.unitconverterultimate.models.ConversionType" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.physphil.android.unitconverterultimate.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.physphil.android.unitconverterultimate.ui.tools.ToolsFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.physphil.android.unitconverterultimate.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.physphil.android.unitconverterultimate.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+
+</navigation>

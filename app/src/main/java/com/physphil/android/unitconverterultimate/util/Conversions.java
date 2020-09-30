@@ -148,12 +148,13 @@ public final class Conversions {
             units.add(new Unit(EUR, R.string.eur, 1.0, 1.0));
             units.add(new Unit(HKD, R.string.hkd, 1 / map.get(Country.HKD), map.get(Country.HKD)));
             units.add(new Unit(HUF, R.string.huf, 1 / map.get(Country.HUF), map.get(Country.HUF)));
+            units.add(new Unit(ISK, R.string.isk, 1 / map.get(Country.ISK), map.get(Country.ISK)));
             units.add(new Unit(INR, R.string.inr, 1 / map.get(Country.INR), map.get(Country.INR)));
             units.add(new Unit(IDR, R.string.idr, 1 / map.get(Country.IDR), map.get(Country.IDR)));
             units.add(new Unit(ILS, R.string.ils, 1 / map.get(Country.ILS), map.get(Country.ILS)));
             units.add(new Unit(JPY, R.string.jpy, 1 / map.get(Country.JPY), map.get(Country.JPY)));
             units.add(new Unit(KRW, R.string.krw, 1 / map.get(Country.KRW), map.get(Country.KRW)));
-            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), MYR));
+            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), map.get(Country.MYR)));
             units.add(new Unit(MXN, R.string.mxn, 1 / map.get(Country.MXN), map.get(Country.MXN)));
             units.add(new Unit(NZD, R.string.nzd, 1 / map.get(Country.NZD), map.get(Country.NZD)));
             units.add(new Unit(NOK, R.string.nok, 1 / map.get(Country.NOK), map.get(Country.NOK)));

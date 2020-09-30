@@ -20,11 +20,11 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -183,6 +183,8 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onResume() {
         super.onResume();
         mTxtValue.addTextChangedListener(mTextWatcher);
+        mGrpFrom.setOnCheckedChangeListener(this);
+        mGrpTo.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -201,6 +203,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         mPresenter.onGetUnitsToDisplay(mConversionId);
+
+        // Takes care of restoring the ViewState after a screen rotation
+        if (mState != null) {
+            if (mState.getFromId() < 0 || mState.getToId() < 0) {
+                // Empty initial state, set state from default checked buttons
+                mState.setFromId(mGrpFrom.getCheckedRadioButtonId());
+                mState.setToId(mGrpTo.getCheckedRadioButtonId());
+            } else {
+                // Overwrite default checked state with last saved state
+                mGrpFrom.check(mState.getFromId());
+                mGrpTo.check(mState.getToId());
+            }
+
+            mTxtUnitFrom.setText(getCheckedUnit(mGrpFrom).getLabelResource());
+            mTxtUnitTo.setText(getCheckedUnit(mGrpTo).getLabelResource());
+        }
     }
 
     @Override
@@ -446,20 +464,22 @@ public final class ConversionFragment extends Fragment implements ConversionView
     // Radio Group checked change listener
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        Unit unit = getCheckedUnit(group);
-        switch (group.getId()) {
-            case R.id.radio_group_from:
-                mState.setFromId(checkedId);
-                mTxtUnitFrom.setText(unit.getLabelResource());
-                break;
+        if (mState != null) {
+            Unit unit = getCheckedUnit(group);
+            switch (group.getId()) {
+                case R.id.radio_group_from:
+                    mState.setFromId(checkedId);
+                    mTxtUnitFrom.setText(unit.getLabelResource());
+                    break;
 
-            case R.id.radio_group_to:
-                mState.setToId(checkedId);
-                mTxtUnitTo.setText(unit.getLabelResource());
-                break;
+                case R.id.radio_group_to:
+                    mState.setToId(checkedId);
+                    mTxtUnitTo.setText(unit.getLabelResource());
+                    break;
+            }
+
+            convert();
         }
-
-        convert();
     }
 
     // Change in shared preferences

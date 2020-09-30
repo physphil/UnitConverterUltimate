@@ -1,0 +1,250 @@
+<resources>
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="toast_error_no_browser">No browser could be found</string>
+
+    <string name="title_settings">Settings</string>
+
+    <string name="group_separator_none">None</string>
+
+    <!-- Settings -->
+    <string name="prefs_title_formatting">Formatting</string>
+    <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>
+    <string name="prefs_title_number_decimals">Number of Decimals</string>
+    <string name="prefs_summary_group_separator">Set the group separator to be shown in converted value</string>
+    <string name="prefs_title_group_separator">Group Separator</string>
+    <string name="prefs_summary_decimal_separator">Set the decimal separator to be shown in converted value</string>
+    <string name="prefs_title_decimal_separator">Decimal Separator</string>
+    <string name="prefs_title_visual">Visual</string>
+    <string name="prefs_title_light_theme">Use Light Theme</string>
+    <string name="prefs_title_language">Language</string>
+    <string name="prefs_summary_language">Choose the language to be used throughout the app</string>
+    <string name="prefs_title_other">Other Stuff</string>
+    <string name="prefs_title_source_code">View Source Code</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate is open source!  Check out the code on GitHub.</string>
+    <string name="prefs_title_unit_request">Request A Unit</string>
+    <string name="prefs_summary_unit_request">Would you like me to add a unit? Send me an email and let me know.</string>
+    <string name="prefs_title_rate">Rate on Google Play</string>
+    <string name="prefs_summary_rate">Enjoying all this unit conversion? Why not rate it 5 stars?</string>
+    <string name="prefs_title_donate">Donate</string>
+    <string name="prefs_summary_donate">Support development and make me smile :)</string>
+    <string name="prefs_title_open_issue">Found a Bug?</string>
+    <string name="prefs_summary_open_issue">Open an issue on GitHub.</string>
+    <string name="prefs_title_privacy_policy">Privacy Policy</string>
+    <string name="prefs_summary_privacy_policy">Because your privacy is important to me.</string>
+
+    <!-- Languages -->
+    <string name="language_default" translatable="false">System Default</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_croatian" translatable="false">Croatian</string>
+    <string name="language_dutch" translatable="false">Dutch (Nederlands)</string>
+    <string name="language_farsi" translatable="false">Farsi</string>
+    <string name="language_french" translatable="false">French</string>
+    <string name="language_german" translatable="false">German</string>
+    <string name="language_hungarian" translatable="false">Hungarian</string>
+    <string name="language_italian" translatable="false">Italian</string>
+    <string name="language_japanese" translatable="false">Japanese</string>
+    <string name="language_portuguese_brazil" translatable="false">Portuguese (Brazil)</string>
+    <string name="language_russian" translatable="false">Russian</string>
+    <string name="language_spanish" translatable="false">Spanish</string>
+    <string name="language_turkish" translatable="false">Turkish</string>
+
+    <!-- Conversions -->
+    <string name="area">Area</string>
+    <string name="cooking">Cooking</string>
+    <string name="currency">Currency</string>
+    <string name="storage">Digital Storage</string>
+    <string name="energy">Energy</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="length">Length / Distance</string>
+    <string name="mass">Mass / Weight</string>
+    <string name="power">Power</string>
+    <string name="pressure">Pressure</string>
+    <string name="speed">Speed</string>
+    <string name="temperature">Temperature</string>
+    <string name="time">Time</string>
+    <string name="torque">Torque</string>
+    <string name="volume">Volume</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Sq Kilometre</string>
+    <string name="sq_metre">Sq Metre</string>
+    <string name="sq_centimetre">Sq Centimetre</string>
+    <string name="hectare">Hectare</string>
+    <string name="sq_mile">Sq Mile</string>
+    <string name="sq_yard">Sq Yard</string>
+    <string name="sq_foot">Sq Foot</string>
+    <string name="sq_inch">Sq Inch</string>
+    <string name="acre">Acre</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Calorie</string>
+    <string name="kilocalorie">Kilocalorie</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowatt-Hour</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Miles/gallon (US)</string>
+    <string name="mpg_uk">Miles/gallon (UK)</string>
+    <string name="l_100k">Litres/100km</string>
+    <string name="km_l">Kilometres/litre</string>
+    <string name="miles_l">Miles/litre</string>
+
+    <!-- Length -->
+    <string name="kilometre">Kilometre</string>
+    <string name="mile">Miles</string>
+    <string name="metre">Metre</string>
+    <string name="centimetre">Centimetre (cm)</string>
+    <string name="millimetre">Millimetre (mm)</string>
+    <string name="micrometre">Micrometre</string>
+    <string name="nanometre">Nanometre</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Feet</string>
+    <string name="inch">Inch</string>
+    <string name="nautical_mile">Nautical Mile</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Light Year</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">HP (metric)</string>
+    <string name="hp_uk">HP (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">Calorie/second</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Pound</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Milligram</string>
+    <string name="ounce">Ounce</string>
+    <string name="grain">Grain</string>
+    <string name="stone">Stone</string>
+    <string name="metric_ton">Ton (metric)</string>
+    <string name="short_ton">Ton (US/short)</string>
+    <string name="long_ton">Ton (UK/long)</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosphere</string>
+    <string name="technical_atmosphere">Technical Atm</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometre/hour</string>
+    <string name="mph">Mile/hour</string>
+    <string name="m_s">Metre/second</string>
+    <string name="fps">Foot/second</string>
+    <string name="knot">Knot</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Rankine</string>
+    <string name="delisle">Delisle</string>
+    <string name="newton">Newton</string>
+    <string name="reaumur">Réaumur</string>
+    <string name="romer">Rømer</string>
+
+    <!-- Time -->
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="second">Second</string>
+    <string name="millisecond">Millisecond</string>
+    <string name="nanosecond">Nanosecond</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teaspoon</string>
+    <string name="tablespoon">Tablespoon</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Fluid Ounce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pint (US)</string>
+    <string name="gallon">Gallon (US)</string>
+    <string name="barrel">Barrel (US)</string>
+    <string name="fluid_ounce_uk">Fluid Ounce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pint (UK)</string>
+    <string name="gallon_uk">Gallon (UK)</string>
+    <string name="barrel_uk">Barrel (UK)</string>
+    <string name="millilitre">Millilitre</string>
+    <string name="litre">Litre</string>
+    <string name="cubic_cm">Cubic cm</string>
+    <string name="cubic_m">Cubic Metre</string>
+    <string name="cubic_inch">Cubic Inch</string>
+    <string name="cubic_foot">Cubic Foot</string>
+    <string name="cubic_yard">Cubic Yard</string>
+
+    <!-- New strings! -->
+    <string name="value_hint">Enter a value to convert</string>
+    <string name="title_acknowledgements">Acknowledgements</string>
+    <string name="prefs_title_acknowledgements">Acknowledgements</string>
+    <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
+    <string name="language_norwegian">Norwegian</string>
+
+    <string-array name="spinner_entries" translatable="false">
+        <item>@string/area</item>
+        <item>@string/cooking</item>
+        <item>@string/currency</item>
+        <item>@string/storage</item>
+        <item>@string/energy</item>
+        <item>@string/fuel_consumption</item>
+        <item>@string/length</item>
+        <item>@string/mass</item>
+        <item>@string/power</item>
+        <item>@string/pressure</item>
+        <item>@string/speed</item>
+        <item>@string/temperature</item>
+        <item>@string/time</item>
+        <item>@string/torque</item>
+        <item>@string/volume</item>
+    </string-array>
+
+</resources>
