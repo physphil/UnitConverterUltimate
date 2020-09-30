@@ -31,14 +31,14 @@
     <string name="request_unit">Unit Converter Ultimate: Neue Einheit anfragen</string>
     <string name="header_other_stuff">Diverses</string>
     <string name="progress_loading">Lade&#8230;</string>
-    <string name="error_loading_currency">Fehler beim Aktualisieren der Währungsumrechnungen\n\nBitte überprüfen sie ihre Internetverbindung und versuchen sie es erneut.</string>
+    <string name="error_loading_currency">Fehler beim Aktualisieren der Währungsumrechnungen\n\nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
 
-    <string name="toast_error_billing_internet">Hoppla, es gab ein Problem. Bitte stellen sie sicher, dass eine funktionierende Internetverbindung besteht, und versuchen sie es erneut.</string>
-    <string name="toast_error_billing_general">Hopple, es hab ein Problem. Bitte versuchen sie es erneut.</string>
-    <string name="toast_donation_successful">Danke für ihre Spende!</string>
-    <string name="toast_error_no_browser">Es konnte kein Browser gefunden werden</string>
+    <string name="toast_error_billing_internet">Hoppla, es gab ein Problem. Bitte stellen Sie sicher, dass eine funktionierende Internetverbindung besteht, und versuchen Sie es erneut.</string>
+    <string name="toast_error_billing_general">Hopple, es gab ein Problem. Bitte versuchen Sie es erneut.</string>
+    <string name="toast_donation_successful">Danke für Ihre Spende!</string>
+    <string name="toast_error_no_browser">Es konnte kein Browser gefunden werden.</string>
     <string name="toast_error_no_email_app">Keine E-Mail-App installiert</string>
-    <string name="toast_error_google_play">Fehler beim Öffnen des Play Stores, bitte versuchen sie es erneut</string>
+    <string name="toast_error_google_play">Fehler beim Öffnen des Play Stores, bitte versuchen Sie es erneut.</string>
     <string name="toast_copied_clipboard">Text in Zwischenablage kopiert</string>
     <string name="toast_currency_updated">Währungsumrechungen aktualisiert</string>
     <string name="toast_error_updating_currency">Fehler beim Aktualisieren der Währungsumrechnungen</string>
@@ -53,25 +53,46 @@
     <string name="prefs_title_visual">Erscheinungsbild</string>
     <string name="prefs_title_light_theme">Helles Farbschema verwenden</string>
     <string name="prefs_title_language">Sprache</string>
-    <string name="prefs_summary_language">Wähle die Sprache, die in der App verwendet werden soll</string>
+    <string name="prefs_summary_language">Wählen Sie die Sprache, die in der App verwendet werden soll.</string>
     <string name="prefs_title_other">Diverses</string>
+    <string name="title_activity_acknowledgements">Danksagungen</string>
+    <string name="prefs_title_acknowledgements">Danksagungen</string>
+    <string name="prefs_summary_acknowledgements">Ein großes Dankeschön an alle Helfer. Zum Ansehen aller Helfer hier Drücken.</string>
+
     <string name="prefs_title_source_code">Quellcode ansehen</string>
-    <string name="pref_summary_source_code">Unit Converter Ultimate ist Open Source! Schau dir den Quellcode auf GitHub an!</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate ist Open Source! Schauen Sie sich den Quellcode auf GitHub an!</string>
     <string name="prefs_title_unit_request">Neue Einheit anfragen</string>
-    <string name="prefs_summary_unit_request">Hättest du gerne eine neue Einheit hinzugefügt? Schreib mir eine E-Mail und lass es mich wissen.</string>
+    <string name="prefs_summary_unit_request">Hätten Sie gerne eine neue Einheit hinzugefügt? Schreiben Sie uns eine E-Mail und lassen Sie es uns wissen.</string>
     <string name="prefs_title_rate">Auf Google Play bewerten</string>
-    <string name="prefs_summary_rate">Dir gefällt diese Umrechnungs-App? Warum gibst du ihr nicht 5 Sterne?</string>
+    <string name="prefs_summary_rate">Ihnen gefällt diese Umrechnungs-App? Warum geben Sie ihr nicht 5 Sterne?</string>
     <string name="prefs_title_donate">Spenden</string>
-    <string name="prefs_summary_donate">Unterstütze die Entwicklung und mach mir eine Freude :)</string>
+    <string name="prefs_summary_donate">Unterstützen Sie die Entwicklung und machen Sie uns eine Freude :)</string>
     <string name="prefs_title_open_issue">Fehler gefunden?</string>
-    <string name="prefs_summary_open_issue">Melde das Problem auf GitHub</string>
+    <string name="prefs_summary_open_issue">Melden Sie das Problem auf GitHub.</string>
     <string name="prefs_title_privacy_policy">Datenschutz-Bestimmungen</string>
-    <string name="prefs_summary_privacy_policy">Ihre Privatsphäre ist wichtig.</string>
+    <string name="prefs_summary_privacy_policy">Ihre Privatsphäre ist uns wichtig.</string>
 
     <string name="dialog_btn_got_it">Verstanden</string>
     <string name="dialog_title_help">Hilfe</string>
-    <string name="dialog_message_help">Verwende das Slide-In-Menü, um zwischen Umrechnungen auszuwählen und wähle die benötigten Einheiten aus.\n\nDer umgewandelte Wert ist komplett anpassbar. Verwende das Einstellungsmenü, um die Anzahl der Nachkommastellen sowie den Gruppen- und Dezimaltrenner zu wählen.\n\nHalte den umgewandelten Wert lange gedrückt, um ihn in die Zwischenablage zu kopieren.</string>
+    <string name="dialog_message_help">Verwenden Sie das Slide-In-Menü, um zwischen Umrechnungen zu wählen und wählen Sie die benötigten Einheiten aus.\n\nDer umgewandelte Wert ist komplett anpassbar. Verwenden Sie das Einstellungsmenü, um die Anzahl der Nachkommastellen sowie den Gruppen- und Dezimaltrenner zu wählen.\n\nHalten Sie den umgewandelten Wert lange gedrückt, um ihn in die Zwischenablage zu kopieren.</string>
     <string name="dialog_btn_view_source">Quellcode ansehen</string>
+
+    <!-- Language values -->
+    <string name="language_default" translatable="false">Systemsprache</string>
+    <string name="language_english" translatable="false">Englisch</string>
+    <string name="language_croatian" translatable="false">Kroatisch</string>
+    <string name="language_dutch" translatable="false">Niederländisch</string>    
+    <string name="language_farsi" translatable="false">Persisch</string>
+    <string name="language_french" translatable="false">Französisch</string>
+    <string name="language_german" translatable="false">Deutsch</string>
+    <string name="language_hungarian" translatable="false">Ungarisch</string>
+    <string name="language_italian" translatable="false">Italienisch</string>
+    <string name="language_japanese" translatable="false">Japanisch</string>
+    <string name="language_norwegian" translateable="false">Norwegisch</string>
+    <string name="language_portuguese_brazil" translatable="false">Portugiesisch (Brasilien)</string>
+    <string name="language_russian" translatable="false">Russisch</string>
+    <string name="language_spanish" translatable="false">Spanisch</string>
+    <string name="language_turkish" translatable="false">Türkisch</string>
 
     <!-- Conversions -->
     <string name="area">Fläche</string>
@@ -80,8 +101,8 @@
     <string name="storage">Digitaler Speicher</string>
     <string name="energy">Energie</string>
     <string name="fuel_consumption">Kraftstoffverbrauch</string>
-	<string name="length">Länge / Entfernung</string>
-	<string name="mass">Masse / Gewicht</string>
+    <string name="length">Länge / Entfernung</string>
+    <string name="mass">Masse / Gewicht</string>
     <string name="power">Leistung</string>
     <string name="pressure">Druck</string>
     <string name="speed">Geschwindigkeit</string>
@@ -125,11 +146,11 @@
     <string name="electron_volt">eV</string>
 
     <!-- Fuel Consumption -->
-	<string name="mpg_us">Meilen/Gallone (US)</string>
-	<string name="mpg_uk">Meilen/Gallone (UK)</string>
-	<string name="l_100k">Liter/100km</string>
-	<string name="km_l">Kilometer/Liter</string>
-	<string name="miles_l">Meilen/Liter</string>
+    <string name="mpg_us">Meilen/Gallone (US)</string>
+    <string name="mpg_uk">Meilen/Gallone (UK)</string>
+    <string name="l_100k">Liter/100km</string>
+    <string name="km_l">Kilometer/Liter</string>
+    <string name="miles_l">Meilen/Liter</string>
 
     <!-- Distance -->
     <string name="kilometre">Kilometer</string>
@@ -140,7 +161,7 @@
     <string name="micrometre">Mikrometer</string>
     <string name="nanometre">Nanometer</string>
     <string name="yard">Yard</string>
-	<string name="feet">Fuß (ft)</string>
+    <string name="feet">Fuß (ft)</string>
     <string name="inch">Zoll (in)</string>
     <string name="nautical_mile">Seemeile</string>
     <string name="furlong">Furlong</string>
@@ -151,7 +172,7 @@
     <string name="pound">Pfund (Imperial)</string>
     <string name="gram">Gramm</string>
     <string name="milligram">Milligramm</string>
-    <string name="ounce">Unte</string>
+    <string name="ounce">Unze</string>
     <string name="grain">Gran</string>
     <string name="stone">Stone</string>
     <string name="metric_ton">Tonne (metrisch)</string>
@@ -163,9 +184,9 @@
     <string name="kilowatt">Kilowatt</string>
     <string name="megawatt">Megawatt</string>
     <string name="hp">PS (metrisch)</string>
-	<string name="hp_uk">PS (US/Industrie)</string>
+    <string name="hp_uk">PS (US/Industrie)</string>
     <string name="ft_lbf_s">ft-lbf/Sekunde</string>
-	<string name="calorie_s">Kalorien/Sekunde</string>
+    <string name="calorie_s">Kalorien/Sekunde</string>
     <string name="btu_s">BTU/Sekunde</string>
     <string name="kva">kVA</string>
 
@@ -182,10 +203,10 @@
     <string name="torr">Torr</string>
 
     <!-- Speed -->
-	<string name="km_h">Kilometer/Stunde</string>
-	<string name="mph">Meilen/Stunde</string>
-	<string name="m_s">Meter/Sekunde</string>
-	<string name="fps">Fuß/Sekunde</string>
+    <string name="km_h">Kilometer/Stunde</string>
+    <string name="mph">Meilen/Stunde</string>
+    <string name="m_s">Meter/Sekunde</string>
+    <string name="fps">Fuß/Sekunde</string>
     <string name="knot">Knoten</string>
 
     <!-- Temperature -->
@@ -250,6 +271,7 @@
     <string name="hrk">Kroatische Kuna</string>
     <string name="huf">Ungarischer Forint</string>
     <string name="idr">Indonesische Rupiah</string>
+    <string name="isk">Isländische Krone</string>
     <string name="ils">Israelischer Schekel</string>
     <string name="inr">Indische Rupie</string>
     <string name="jpy">Japanischer Yen</string>
