@@ -42,6 +42,8 @@
     <string name="toast_copied_clipboard">Text copied to clipboard</string>
     <string name="toast_currency_updated">Currency conversions updated</string>
     <string name="toast_error_updating_currency">There was an error updating the currency conversions.</string>
+    <string name="toast_error_not_binary">Given number is not binary </string>
+    <string name="toast_error_not_octal">Given number is not octal</string>
 
     <string name="prefs_title_formatting">Formatting</string>
     <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>
@@ -105,6 +107,13 @@
     <string name="time">Time</string>
     <string name="torque">Torque</string>
     <string name="volume">Volume</string>
+    <string name="baseNum">Base Numbers</string>
+
+    <!-- BaseNumbers -->
+    <string name="binary">Binary</string>
+    <string name="decimal">Decimal</string>
+    <string name="octal">Octal</string>
+    <string name="hexadecimal">Hexadecimal</string>
 
     <!-- Area -->
     <string name="sq_kilometre">Sq Kilometre</string>
@@ -284,6 +293,7 @@
     <string name="lira">Turkish Lira</string>
     <string name="usd">American Dollar</string>
     <string name="zar">South African Rand</string>
+
 
     <!-- All strings below this line require translation to at least one of the supported languages -->
     <!-- Once translated, please move above this line in the corresponding `strings.xml` file -->

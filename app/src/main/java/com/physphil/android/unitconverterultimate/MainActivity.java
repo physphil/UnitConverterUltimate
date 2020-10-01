@@ -187,6 +187,9 @@ public class MainActivity extends BaseActivity implements MainActivityView, Shar
 
             case R.id.drawer_volume:
                 return Conversion.VOLUME;
+
+            case R.id.base_numbers:
+                return Conversion.BASE;
         }
 
         return Conversion.AREA;
@@ -224,6 +227,8 @@ public class MainActivity extends BaseActivity implements MainActivityView, Shar
                 return 13;
             case Conversion.VOLUME:
                 return 14;
+            case R.id.base_numbers:
+                return 15;
             default:
                 return 0;
         }
