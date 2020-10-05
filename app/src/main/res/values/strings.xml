@@ -44,6 +44,7 @@
     <string name="toast_error_updating_currency">There was an error updating the currency conversions.</string>
     <string name="toast_error_not_binary">Given number is not binary </string>
     <string name="toast_error_not_octal">Given number is not octal</string>
+    <string name="toast_error_hex_coming_soon">Hexadecimal coming soon!</string>
 
     <string name="prefs_title_formatting">Formatting</string>
     <string name="prefs_summary_number_decimals">Set the number of decimal places to be shown in converted value</string>

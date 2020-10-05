@@ -32,7 +32,6 @@ public interface ConversionView {
     void showLoadingError(int message);
     void restoreConversionState(final ConversionState state);
     void showResult(double result);
-    void showResultHex(String hex);
     void updateCurrencyConversion();
     void showToast(int message);
     void showToastError(int message);

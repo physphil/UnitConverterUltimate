@@ -159,13 +159,28 @@ public class ConversionPresenter {
      * @param to    the base to be converted to
      */
 
-
-    //Handle conversion from selected Base
     public void convertBaseNumber(double value, Unit from, Unit to){
         double result = value;
+        if(from.getId() == Unit.BINARY) {
+            if(!isBinary((int) value)) {
+                mView.showToast(R.string.toast_error_not_binary);
+                return;
+            }
+        }
+
+        if(from.getId() == Unit.OCTAL){
+            if(!isOctal((int) value)) {
+                mView.showToast(R.string.toast_error_not_octal);
+                return;
+            }
+        }
+
+        if(from.getId() == Unit.HEXADECIMAL){
+            mView.showToast(R.string.toast_error_hex_coming_soon);
+        }
+
         if (from.getId() != to.getId()) {
             switch (to.getId()) {
-
                 case (Unit.BINARY):
                     result = toBinary(from.getId(), value);
                     break;
@@ -186,18 +201,15 @@ public class ConversionPresenter {
     //Handle conversions to Binary
     private double toBinary(int fromId, double value){
         double result = value;
+        double temp;
         switch (fromId){
             case(Unit.DECIMAL):
                 result = Double.parseDouble(Integer.toBinaryString((int) value));
                 break;
 
             case(Unit.OCTAL):
-                if(isOctal((int) value))
-                    result = Double.parseDouble(Integer.toBinaryString((int) value));
-                else{
-                    mView.showToast(R.string.toast_error_not_octal);
-                    return 0;
-                }
+                temp = octToDecimal((int) value);
+                result = Double.parseDouble(Integer.toBinaryString((int) temp));
                 break;
         }
         return result;
@@ -206,13 +218,14 @@ public class ConversionPresenter {
     //Handle conversions to Decimal
     private double toDecimal(int fromId, double value){
         double result = value;
+        String valueString = String.valueOf((int)value);
         switch (fromId){
             case(Unit.BINARY):
-                binToDecimal((int) value);
+                result = Integer.parseInt(valueString, 2);
                 break;
 
             case(Unit.OCTAL):
-                octToDecimal((int) value);
+                result = Integer.parseInt(valueString, 8);
                 break;
         }
         return result;
@@ -235,7 +248,6 @@ public class ConversionPresenter {
         return result;
     }
 
-
     //Convert from Binary to Decimal
     private double binToDecimal(int binaryNum){
         String valueString = String.valueOf(binaryNum);
@@ -251,10 +263,10 @@ public class ConversionPresenter {
     }
 
     //Convert from Octal to Decimal
-    private double octToDecimal(int binaryNum){
-        String valueString = String.valueOf(binaryNum);
+    private double octToDecimal(int octalNum){
+        String valueString = String.valueOf(octalNum);
 
-        if(isOctal(binaryNum)){
+        if(isOctal(octalNum)){
             double result = Integer.parseInt(valueString, 8);
             return result;
         }
@@ -271,7 +283,7 @@ public class ConversionPresenter {
 
     //Check if given number is Binary base
     private static boolean isBinary(int num) {
-        if (num == 0 || num == 1 || num < 0) {
+        if (num == 0 || num < 0) {
             return false;
         }
         while (num != 0) {
