@@ -1,7 +1,7 @@
 package com.physphil.android.unitconverterultimate
 
-import android.app.Activity
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingFlowParams
@@ -76,7 +76,7 @@ class BillingManager : PurchasesUpdatedListener {
         }
     }
 
-    fun donate(activity: Activity, donation: SkuDetails, listener: DonationResultListener) {
+    fun donate(activity: AppCompatActivity, donation: SkuDetails, listener: DonationResultListener) {
         donationResultListener = listener
         val flowParams = BillingFlowParams.newBuilder()
             .setSkuDetails(donation)
