@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -24,7 +24,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
         viewModel.init(this)
 
         findPreference<ListPreference>(SettingsViewModel.Keys.LANGUAGE)?.let { language ->
