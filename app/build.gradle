@@ -102,8 +102,8 @@ dependencies {
     implementation 'io.reactivex:rxjava:1.3.0'
 
 // Flavor
-    googleImplementation 'com.google.firebase:firebase-crash:11.8.0'
-    googleImplementation 'com.android.billingclient:billing:2.0.3'
+    //googleImplementation 'com.google.firebase:firebase-crash:x.y.z'
+    googleImplementation 'com.android.billingclient:billing:2.2.0'
 
 // Debug
     debugImplementation 'com.facebook.stetho:stetho:1.5.0'
