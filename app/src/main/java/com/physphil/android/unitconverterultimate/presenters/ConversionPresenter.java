@@ -32,13 +32,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func0;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Presenter to handle unit conversions
@@ -46,7 +46,7 @@ import rx.subscriptions.CompositeSubscription;
  */
 public class ConversionPresenter {
 
-    private CompositeSubscription mCompositeSubscription;
+    private CompositeDisposable mCompositeDisposable;
     private ConversionView mView;
 
     /**
@@ -56,33 +56,33 @@ public class ConversionPresenter {
      */
     public ConversionPresenter(ConversionView mView) {
         this.mView = mView;
-        this.mCompositeSubscription = new CompositeSubscription();
+        this.mCompositeDisposable = new CompositeDisposable();
     }
 
     public void onDestroy() {
         // Clear all observable subscriptions
-        mCompositeSubscription.unsubscribe();
+        mCompositeDisposable.dispose();
     }
 
     public void getLastConversionState(@Conversion.id final int conversionId) {
-        mCompositeSubscription.add(getConversionStateObservable(conversionId)
+        mCompositeDisposable.add(getConversionStateObservable(conversionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<ConversionState>() {
+                .subscribe(new Consumer<ConversionState>() {
                     @Override
-                    public void call(ConversionState conversionState) {
+                    public void accept(ConversionState conversionState) {
                         mView.restoreConversionState(conversionState);
                     }
-                }, new Action1<Throwable>() {
+                }, new Consumer<Throwable>() {
                     @Override
-                    public void call(Throwable throwable) {
+                    public void accept(Throwable throwable) {
                         // This should never happen
                     }
                 }));
     }
 
     private Observable<ConversionState> getConversionStateObservable(@Conversion.id final int conversionId) {
-        return Observable.defer(new Func0<Observable<ConversionState>>() {
+        return Observable.defer(new Callable<Observable<ConversionState>>() {
             @Override
             public Observable<ConversionState> call() {
                 return Observable.just(DataAccess.getInstance(mView.getContext()).getConversionState(conversionId));
@@ -91,13 +91,13 @@ public class ConversionPresenter {
     }
 
     public void onUpdateCurrencyConversions() {
-        mCompositeSubscription.add(CurrencyApi.getInstance().getService()
+        mCompositeDisposable.add(CurrencyApi.getInstance().getService()
                 .getLatestRates()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Envelope>() {
+                .subscribe(new Consumer<Envelope>() {
                     @Override
-                    public void call(Envelope envelope) {
+                    public void accept(Envelope envelope) {
                         List<Currency> currencies = new ArrayList<>();
                         for (Envelope.Cube cube : envelope.getCube().getCube().get(0).getCube()) {
                             currencies.add(new Currency(cube.getCurrency(), cube.getRate()));
@@ -115,9 +115,9 @@ public class ConversionPresenter {
                             mView.showUnitsList(Conversions.getInstance().getById(Conversion.CURRENCY));
                         }
                     }
-                }, new Action1<Throwable>() {
+                }, new Consumer<Throwable>() {
                     @Override
-                    public void call(Throwable throwable) {
+                    public void accept(Throwable throwable) {
                         if (!Conversions.getInstance().hasCurrency()) {
                             mView.showLoadingError(R.string.error_loading_currency);
                         }

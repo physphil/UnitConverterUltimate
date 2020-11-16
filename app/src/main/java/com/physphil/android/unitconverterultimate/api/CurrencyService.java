@@ -18,8 +18,8 @@ package com.physphil.android.unitconverterultimate.api;
 
 import com.physphil.android.unitconverterultimate.api.models.Envelope;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
-import rx.Observable;
 
 /**
  * Retrofit service to consume Currency API
