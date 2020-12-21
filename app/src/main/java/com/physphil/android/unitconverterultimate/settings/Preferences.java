@@ -19,6 +19,7 @@ package com.physphil.android.unitconverterultimate.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.physphil.android.unitconverterultimate.R;
@@ -47,8 +48,6 @@ public class Preferences {
     private static final String PREFS_CONVERSION = "conversion";
     private static final String PREFS_CURRENCY_V2 = "currency_v2";
     public static final String PREFS_LANGUAGE = "language";
-
-    private static final String GROUP_SEPARATOR_V2_DEFAULT = "0";
 
     private static Preferences mInstance;
     private SharedPreferences mPrefs;
@@ -112,12 +111,14 @@ public class Preferences {
      */
     @Nullable
     public Character getGroupSeparator() {
-        // If the v2 preference is missing than populate from v1.
+        String defaultSeparator = getLanguage().getDefaultGroupSeparator().getIndex();
+        Log.d("phil", "Default separator = " + defaultSeparator);
         if (mPrefs.contains(PREFS_GROUP_SEPARATOR_V2)) {
-            return getSeparatorFromIndex(mPrefs.getString(PREFS_GROUP_SEPARATOR_V2, GROUP_SEPARATOR_V2_DEFAULT));
+            return getSeparatorFromIndex(mPrefs.getString(PREFS_GROUP_SEPARATOR_V2, defaultSeparator));
         } else {
+            // If the v2 preference is missing than populate from v1.
             String convertedV1Separator = getSavedV1GroupSeparatorIndexOrNull();
-            String v2Separator = convertedV1Separator != null ? convertedV1Separator : GROUP_SEPARATOR_V2_DEFAULT;
+            String v2Separator = convertedV1Separator != null ? convertedV1Separator : defaultSeparator;
             mPrefs.edit().putString(PREFS_GROUP_SEPARATOR_V2, v2Separator).apply();
             return getSeparatorFromIndex(v2Separator);
         }
@@ -125,6 +126,11 @@ public class Preferences {
 
     /**
      * Map a saved index in shared preferences to a group separator character.
+     *
+     * "0" - None
+     * "1" - ,
+     * "2" - ' '
+     * "3" - .
      */
     private Character getSeparatorFromIndex(String index) {
         switch (index) {

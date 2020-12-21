@@ -39,22 +39,25 @@ private const val LANG_TURKISH = "tr"
  * Represents a Language that a user can select to display the app in.
  * Copyright (c) 2017 Phil Shadlyn
  */
-enum class Language(val id: String) {
+enum class Language(
+    val id: String,
+    val defaultGroupSeparator: GroupSeparator = GroupSeparator.None
+) {
     DEFAULT(LANG_DEFAULT),
     CROATIAN(LANG_CROATIAN),
-    DUTCH(LANG_DUTCH),
+    DUTCH(LANG_DUTCH, GroupSeparator.Period),
     ENGLISH(LANG_ENGLISH),
     FARSI(LANG_FARSI),
     FRENCH(LANG_FRENCH),
-    GERMAN(LANG_GERMAN),
-    HUNGARIAN(LANG_HUNGARIAN),
-    ITALIAN(LANG_ITALIAN),
-    JAPANESE(LANG_JAPANESE),
+    GERMAN(LANG_GERMAN, GroupSeparator.Period),
+    HUNGARIAN(LANG_HUNGARIAN, GroupSeparator.Period),
+    ITALIAN(LANG_ITALIAN, GroupSeparator.Period),
+    JAPANESE(LANG_JAPANESE, GroupSeparator.Comma),
     NORWEGIAN(LANG_NORWEGIAN),
     PORTUGUESE_BR(LANG_PORTUGUESE_BR),
-    RUSSIAN(LANG_RUSSIAN),
+    RUSSIAN(LANG_RUSSIAN, GroupSeparator.Period),
     SPANISH(LANG_SPANISH),
-    TURKISH(LANG_TURKISH);
+    TURKISH(LANG_TURKISH, GroupSeparator.Period);
 
     val displayStringId = when (id) {
         LANG_CROATIAN -> R.string.language_croatian

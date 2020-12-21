@@ -45,10 +45,10 @@ import com.physphil.android.unitconverterultimate.data.DataAccess;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
-import com.physphil.android.unitconverterultimate.settings.Preferences;
-import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
