@@ -11,7 +11,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.physphil.android.unitconverterultimate.conversion.ConversionRepository
 import com.physphil.android.unitconverterultimate.models.ConversionType
 import kotlinx.android.synthetic.main.fragment_conversion.*
@@ -39,7 +39,7 @@ class ConversionFragment : Fragment() {
             ?: throw IllegalArgumentException("Proper conversion type not specified when starting fragment")
 
         val factory = ConversionViewModel.Factory(conversionType, ConversionRepository())
-        conversionViewModel = ViewModelProviders.of(this, factory).get(ConversionViewModel::class.java)
+        conversionViewModel = ViewModelProvider(this, factory).get(ConversionViewModel::class.java)
         conversionViewModel.init(this)
         initViewListeners()
     }
