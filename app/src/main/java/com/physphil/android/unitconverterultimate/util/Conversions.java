@@ -18,7 +18,7 @@ package com.physphil.android.unitconverterultimate.util;
 
 import android.content.Context;
 
-import com.physphil.android.unitconverterultimate.Preferences;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.models.Country;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;

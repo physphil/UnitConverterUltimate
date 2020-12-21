@@ -20,20 +20,23 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.material.navigation.NavigationView;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.fragments.HelpDialogFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.presenters.MainActivityPresenter;
 import com.physphil.android.unitconverterultimate.presenters.MainActivityView;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 import com.physphil.android.unitconverterultimate.util.IntentFactory;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 
 /**

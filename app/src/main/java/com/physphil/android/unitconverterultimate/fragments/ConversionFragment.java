@@ -20,11 +20,6 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -41,9 +36,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.physphil.android.unitconverterultimate.BuildConfig;
-import com.physphil.android.unitconverterultimate.Preferences;
-import com.physphil.android.unitconverterultimate.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
@@ -52,11 +47,17 @@ import com.physphil.android.unitconverterultimate.models.ConversionState;
 import com.physphil.android.unitconverterultimate.models.Unit;
 import com.physphil.android.unitconverterultimate.presenters.ConversionPresenter;
 import com.physphil.android.unitconverterultimate.presenters.ConversionView;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 import com.physphil.android.unitconverterultimate.util.IntentFactory;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
 
 /**
  * Base fragment to display units to convert
@@ -373,11 +374,11 @@ public final class ConversionFragment extends Fragment implements ConversionView
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
         symbols.setDecimalSeparator(mPrefs.getDecimalSeparator().charAt(0));
 
-        String groupSeparator = mPrefs.getGroupSeparator();
-        boolean isSeparatorUsed = !groupSeparator.equals(mAppContext.getString(R.string.group_separator_none));
+        Character groupSeparator = mPrefs.getGroupSeparator();
+        boolean isSeparatorUsed = groupSeparator != null;
         formatter.setGroupingUsed(isSeparatorUsed);
         if (isSeparatorUsed) {
-            symbols.setGroupingSeparator(groupSeparator.charAt(0));
+            symbols.setGroupingSeparator(groupSeparator);
         }
 
         formatter.setDecimalFormatSymbols(symbols);
@@ -487,7 +488,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(Preferences.PREFS_NUMBER_OF_DECIMALS) ||
                 key.equals(Preferences.PREFS_DECIMAL_SEPARATOR) ||
-                key.equals(Preferences.PREFS_GROUP_SEPARATOR)) {
+                key.equals(Preferences.PREFS_GROUP_SEPARATOR_V2)) {
             mTxtResult.setText(getDecimalFormat().format(mResult));
         }
     }

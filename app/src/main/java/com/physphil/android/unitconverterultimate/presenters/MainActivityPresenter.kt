@@ -18,7 +18,7 @@ package com.physphil.android.unitconverterultimate.presenters
 
 import android.content.Context
 import android.os.Build
-import com.physphil.android.unitconverterultimate.Preferences
+import com.physphil.android.unitconverterultimate.settings.Preferences
 import com.physphil.android.unitconverterultimate.models.Language
 import java.util.*
 

@@ -31,7 +31,14 @@
         <item>10</item>
     </string-array>
 
-    <string-array name="group_separators" translatable="false">
+    <string-array name="group_separator_index" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="group_separator_value" translatable="false">
         <item>@string/group_separator_none</item>
         <item>,</item>
         <item>" "</item>
