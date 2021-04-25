@@ -76,11 +76,6 @@
             android:summary="@string/prefs_summary_acknowledgements"/>
 
         <Preference
-            android:key="unit_request"
-            android:title="@string/prefs_title_unit_request"
-            android:summary="@string/prefs_summary_unit_request"/>
-
-        <Preference
             android:key="rate_app"
             android:title="@string/prefs_title_rate"
             android:summary="@string/prefs_summary_rate" />

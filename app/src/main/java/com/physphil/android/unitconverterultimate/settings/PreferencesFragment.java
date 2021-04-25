@@ -54,15 +54,6 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         addPreferencesFromResource(R.xml.preferences);
 
         // Add listeners to preferences
-        Preference unitRequest = findPreference("unit_request");
-        unitRequest.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                requestUnit();
-                return true;
-            }
-        });
-
         Preference rateApp = findPreference("rate_app");
         rateApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
