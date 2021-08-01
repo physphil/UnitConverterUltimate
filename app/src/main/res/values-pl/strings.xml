@@ -63,7 +63,7 @@
     <string name="prefs_summary_rate">Podoba Ci się ten konwerter jednostek? Dlaczego by nie ocenić go na 5 gwiazdek?</string>
     <string name="prefs_title_donate">Wesprzyj</string>
     <string name="prefs_summary_donate">Wesprzyj rozwój i spraw, żebym się uśmiechnął :)</string>
-    <string name="prefs_title_open_issue">Znalazłeś/aś błąd?</string>
+    <string name="prefs_title_open_issue">Znalazłeś(-aś) błąd?</string>
     <string name="prefs_summary_open_issue">Zgłoś błąd na GitHubie.</string>
     <string name="prefs_title_privacy_policy">Polityka prywatności</string>
     <string name="prefs_summary_privacy_policy">Ponieważ Twoja prywatność jest dla mnie ważna.</string>
@@ -227,7 +227,7 @@
     <string name="pint_uk">Pinta (UK) [pt]</string>
     <string name="gallon_uk">Galon (UK) [imp gal]</string>
     <string name="barrel_uk">Baryłka (UK) [imp bbl]</string>
-    <string name="millilitre">Millilitr [ml]</string>
+    <string name="millilitre">Mililitr [ml]</string>
     <string name="litre">Litr [l]</string>
     <string name="cubic_cm">Centymetr sześcienny [cm³]</string>
     <string name="cubic_m">Metr sześcienny [m³]</string>
