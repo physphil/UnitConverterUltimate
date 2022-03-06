@@ -67,9 +67,11 @@ class BillingManager : PurchasesUpdatedListener {
             .setSkusList(DonationProductIdProvider.all)
             .setType(BillingClient.SkuType.INAPP)
             .build()
-        billingClient.querySkuDetailsAsync(params) { result: BillingResult, donations: List<SkuDetails> ->
+        billingClient.querySkuDetailsAsync(params) { result: BillingResult, donations: List<SkuDetails>? ->
             if (result.responseCode == BillingClient.BillingResponseCode.OK) {
-                listener.onComplete(QueryDonationsResult.Success(donations))
+                donations?.let {
+                    listener.onComplete(QueryDonationsResult.Success(donations))
+                } ?: listener.onComplete(QueryDonationsResult.Error("No donations found"))
             } else {
                 listener.onComplete(QueryDonationsResult.Error(result.debugMessage))
             }
@@ -89,7 +91,7 @@ class BillingManager : PurchasesUpdatedListener {
 
     // region PurchasesUpdatedListener impl
     override fun onPurchasesUpdated(
-        billingResult: BillingResult?,
+        billingResult: BillingResult,
         purchases: MutableList<Purchase>?
     ) {
         // Handle purchase after successful user donation
