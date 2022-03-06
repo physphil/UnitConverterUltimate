@@ -59,7 +59,6 @@ enum class Country {
     PHP,
     PLN,
     RON,
-    RUB,
     SEK,
     SGD,
     THB,

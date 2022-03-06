@@ -161,7 +161,6 @@ public final class Conversions {
             units.add(new Unit(PHP, R.string.php, 1 / map.get(Country.PHP), map.get(Country.PHP)));
             units.add(new Unit(PLN, R.string.pln, 1 / map.get(Country.PLN), map.get(Country.PLN)));
             units.add(new Unit(RON, R.string.ron, 1 / map.get(Country.RON), map.get(Country.RON)));
-            units.add(new Unit(RUB, R.string.rub, 1 / map.get(Country.RUB), map.get(Country.RUB)));
             units.add(new Unit(SGD, R.string.sgd, 1 / map.get(Country.SGD), map.get(Country.SGD)));
             units.add(new Unit(ZAR, R.string.zar, 1 / map.get(Country.ZAR), map.get(Country.ZAR)));
             units.add(new Unit(SEK, R.string.sek, 1 / map.get(Country.SEK), map.get(Country.SEK)));
