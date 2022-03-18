@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Phil Shadlyn
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="app_name">Unit Converter Ultimate</string>
+    <string name="title_activity_donate">Darovat?</string>
+    <string name="title_activity_settings">Nastavení</string>
+    <string name="text_from">Z</string>
+    <string name="text_to">Do</string>
+    <string name="default_value">1</string>
+    <string name="menu_download">Stažení</string>
+    <string name="menu_clear">Smazat hodnotu</string>
+    <string name="menu_help">Nápověda</string>
+    <string name="menu_settings">Nastavení</string>
+    <string name="group_separator_none">Žádný</string>
+    <string name="request_unit">Unit Converter Ultimate: Požádat o novou jednotku</string>
+    <string name="header_other_stuff">Ostatní</string>
+    <string name="progress_loading">Načítání&#8230;</string>
+    <string name="error_loading_currency">Nastala chyba při aktualizaci měnových konverzí.\n\nProsím zkontrolujte stav internetového připojení a zkuste to znovu.</string>
+
+    <string name="toast_error_billing_internet">Jejda, nastal problém. Prosím zkontrolujte, že je vaše internetové připojení v pořádku a zkuste to znovu.</string>
+    <string name="toast_error_billing_general">Jejda, nastal problém. Prosím, zkuste to znovu.</string>
+    <string name="toast_donation_successful">Díky za dar!</string>
+    <string name="toast_error_no_browser">Nebylo možné najít žádný prohlížeč</string>
+    <string name="toast_error_no_email_app">Není nainstalován žádný e-mailový klient</string>
+    <string name="toast_error_google_play">Nastala chyba při otevírání obchodu Google Play, prosím zkuste to znovu</string>
+    <string name="toast_copied_clipboard">Text zkopírován do schránky</string>
+    <string name="toast_currency_updated">Měnové konverze aktualizovány</string>
+    <string name="toast_error_updating_currency">Nastala chyba při aktualizaci měnových konverzí.</string>
+
+    <string name="prefs_title_formatting">Formátování</string>
+    <string name="prefs_summary_number_decimals">Zadejte počet desetinných mist, které mají být zobrazeny v převedených hodnotách.</string>
+    <string name="prefs_title_number_decimals">Počet desetinných míst</string>
+    <string name="prefs_summary_group_separator">Zadejte oddělovač tisíců, který má být zobrazen v převedených hodnotách</string>
+    <string name="prefs_title_group_separator">Oddělovač tisíců</string>
+    <string name="prefs_summary_decimal_separator">Zadejte oddělovač desetinných míst, který má být zobrazen v převedených hodnotách</string>
+    <string name="prefs_title_decimal_separator">Oddělovač desetinných míst</string>
+    <string name="prefs_title_visual">Zobrazení</string>
+    <string name="prefs_title_light_theme">Použít světlý motiv</string>
+    <string name="prefs_title_language">Jazyk</string>
+    <string name="prefs_summary_language">Zvolte jazyk, který má být v aplikaci použit</string>
+    <string name="prefs_title_other">Ostatní</string>
+    <string name="prefs_title_source_code">Zobrazit zdrojový kód</string>
+    <string name="pref_summary_source_code">Unit Converter Ultimate je open source! Prohlédněte si kód na GitHubu.</string>
+    <string name="prefs_title_unit_request">Požádat o jednotku</string>
+    <string name="prefs_summary_unit_request">Rádi byste, abych přidal novou jednotku? Pošlete mi e-mail a dejte mi vědět.</string>
+    <string name="prefs_title_rate">Hodnotit na Google Play</string>
+    <string name="prefs_summary_rate">Líbí se vám převody všech těch jednotek? Proč nedat 5 hvězdiček?</string>
+    <string name="prefs_title_donate">Darovat</string>
+    <string name="prefs_summary_donate">Podpořte vývoj a vykouzlete mi úsměv na tváři :)</string>
+    <string name="prefs_title_open_issue">Našli jste chybu?</string>
+    <string name="prefs_summary_open_issue">Založte problém na GitHubu.</string>
+    <string name="prefs_title_privacy_policy">Ochrana soukromí</string>
+    <string name="prefs_summary_privacy_policy">Protože vaše soukromí je pro mě důležité.</string>
+
+    <string name="dialog_btn_got_it">Rozumím</string>
+    <string name="dialog_title_help">Nápověda</string>
+    <string name="dialog_message_help">Použijte vysouvací nabídku pro navigaci mezi převody a vyberte jednotky, které potřebujete.\n\nPřevedná jednotka je plně přizpůsobitelná. Použijte nabídku nastavení a vyberte počet desetinných míst, oddělovač tisíců i oddělovač desetinných míst dle vašich potřeb.\n\nDlouhým stiskem na převedené jednotce ji zkopírujete do schránky.</string>
+    <string name="dialog_btn_view_source">Zobrazit zdrojový kód</string>
+
+    <!-- Language values -->
+    <string name="language_default" translatable="false">Dle systému</string>
+    <string name="language_english" translatable="false">Angličtina</string>
+    <string name="language_croatian" translatable="false">Chorvatština</string>
+    <string name="language_czech" translatable="false">Čeština</string>
+    <string name="language_dutch" translatable="false">Holandština</string>    
+    <string name="language_farsi" translatable="false">Perština</string>
+    <string name="language_french" translatable="false">Francouzština</string>
+    <string name="language_german" translatable="false">Němčina</string>
+    <string name="language_hungarian" translatable="false">Maďarština</string>
+    <string name="language_italian" translatable="false">Italština</string>
+    <string name="language_japanese" translatable="false">Japonština</string>
+    <string name="language_portuguese_brazil" translatable="false">Portugalština (Brazílie)</string>
+    <string name="language_russian" translatable="false">Ruština</string>
+    <string name="language_spanish" translatable="false">Španělština</string>
+    <string name="language_turkish" translatable="false">Turečtina</string>
+
+    <!-- Conversions -->
+    <string name="area">Plocha</string>
+    <string name="cooking">Kuchyně</string>
+    <string name="currency">Měna</string>
+    <string name="storage">Digitální úložiště</string>
+    <string name="energy">Energie</string>
+    <string name="fuel_consumption">Spotřeba paliva</string>
+    <string name="length">Délka</string>
+    <string name="mass">Hmotnost</string>
+    <string name="power">Síla</string>
+    <string name="pressure">Tlak</string>
+    <string name="speed">Rychlost</string>
+    <string name="temperature">Teplota</string>
+    <string name="time">Čas</string>
+    <string name="torque">Točivý moment</string>
+    <string name="volume">Objem</string>
+
+    <!-- Area -->
+    <string name="sq_kilometre">Kilometr čtvereční</string>
+    <string name="sq_metre">Metr čtvereční</string>
+    <string name="sq_centimetre">Centimetr čtvereční</string>
+    <string name="hectare">Hektar</string>
+    <string name="sq_mile">Čtvereční míle</string>
+    <string name="sq_yard">Čtvereční yard</string>
+    <string name="sq_foot">Čtvereční stopa</string>
+    <string name="sq_inch">Čtvereční palec</string>
+    <string name="acre">Akr</string>
+
+    <!-- Digital Storage -->
+    <string name="bit">Bit</string>
+    <string name="Byte">Byte</string>
+    <string name="kilobit">Kilobit</string>
+    <string name="kilobyte">Kilobyte</string>
+    <string name="megabit">Megabit</string>
+    <string name="megabyte">Megabyte</string>
+    <string name="gigabit">Gigabit</string>
+    <string name="gigabyte">Gigabyte</string>
+    <string name="terabit">Terabit</string>
+    <string name="terabyte">Terabyte</string>
+
+    <!-- Energy -->
+    <string name="joule">Joule</string>
+    <string name="kilojoule">Kilojoule</string>
+    <string name="calorie">Kalorie</string>
+    <string name="kilocalorie">Kilokalorie</string>
+    <string name="btu">BTU</string>
+    <string name="ft_lbF">ft-lbf</string>
+    <string name="in_lbF">in-lbf</string>
+    <string name="kilowatt_hour">Kilowatthodina</string>
+    <string name="electron_volt">eV</string>
+
+    <!-- Fuel Consumption -->
+    <string name="mpg_us">Mílí/galon (US)</string>
+    <string name="mpg_uk">Mílí/galon (UK)</string>
+    <string name="l_100k">Litrů/100km</string>
+    <string name="km_l">Kilometrů/litr</string>
+    <string name="miles_l">Mílí/litr</string>
+
+    <!-- Distance -->
+    <string name="kilometre">Kilometr</string>
+    <string name="mile">Míle</string>
+    <string name="metre">Metr</string>
+    <string name="centimetre">Centimetr (cm)</string>
+    <string name="millimetre">Milimetr (mm)</string>
+    <string name="micrometre">Mikrometr</string>
+    <string name="nanometre">Nanometr</string>
+    <string name="yard">Yard</string>
+    <string name="feet">Stopa</string>
+    <string name="inch">Palec</string>
+    <string name="nautical_mile">Námořní míle</string>
+    <string name="furlong">Furlong</string>
+    <string name="light_year">Světelný rok</string>
+
+    <!-- Mass/Weight -->
+    <string name="kilogram">Kilogram</string>
+    <string name="pound">Libra</string>
+    <string name="gram">Gram</string>
+    <string name="milligram">Miligram</string>
+    <string name="ounce">Unce</string>
+    <string name="grain">Zrno (grain)</string>
+    <string name="stone">Kámen (stone)</string>
+    <string name="metric_ton">Tuna (metrická)</string>
+    <string name="short_ton">Tuna (US/short)</string>
+    <string name="long_ton">Tuna (UK/long)</string>
+
+    <!-- Power -->
+    <string name="watt">Watt</string>
+    <string name="kilowatt">Kilowatt</string>
+    <string name="megawatt">Megawatt</string>
+    <string name="hp">Koňská síla (metric)</string>
+    <string name="hp_uk">Koňská síla (mechanical)</string>
+    <string name="ft_lbf_s">ft-lbf/second</string>
+    <string name="calorie_s">Kalorie/sekundu</string>
+    <string name="btu_s">BTU/second</string>
+    <string name="kva">kV-A</string>
+
+    <!-- Pressure -->
+    <string name="megapascal">Megapascal</string>
+    <string name="kilopascal">Kilopascal</string>
+    <string name="pascal">Pascal</string>
+    <string name="bar">Bar</string>
+    <string name="psi">PSI</string>
+    <string name="psf">PSF</string>
+    <string name="atmosphere">Atmosféra</string>
+    <string name="technical_atmosphere">Technická atmosféra</string>
+    <string name="mmhg">mm Hg</string>
+    <string name="torr">Torr</string>
+
+    <!-- Speed -->
+    <string name="km_h">Kilometr za hodinu</string>
+    <string name="mph">Míle za hodinu</string>
+    <string name="m_s">Metr za sekundu</string>
+    <string name="fps">Stopa za sekundu</string>
+    <string name="knot">Uzel</string>
+
+    <!-- Temperature -->
+    <string name="celsius">Stupeň Celsia</string>
+    <string name="fahrenheit">Stupeň Fahrenheita</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="rankine">Stupeň Rankina</string>
+    <string name="delisle">Stupeň Delisla </string>
+    <string name="newton">Stupeň Newtona </string>
+    <string name="reaumur">Stupeň Réaumura</string>
+    <string name="romer">Stupeň Rømera </string>
+    <string name="gas_mark">Gas Mark</string>
+
+    <!-- Time -->
+    <string name="year">Rok</string>
+    <string name="month">Měsíc</string>
+    <string name="week">Týden</string>
+    <string name="day">Den</string>
+    <string name="hour">Hodina</string>
+    <string name="minute">Minuta</string>
+    <string name="second">Sekunda</string>
+    <string name="millisecond">Milisekunda</string>
+    <string name="nanosecond">Nanosekunda</string>
+
+    <!-- Torque -->
+    <string name="n_m">N-m</string>
+
+    <!-- Volume -->
+    <string name="teaspoon">Teaspoon</string>
+    <string name="tablespoon">Tablespoon</string>
+    <string name="cup">Cup</string>
+    <string name="fluid_ounce">Tekutá Unce (US)</string>
+    <string name="quart">Quart (US)</string>
+    <string name="pint">Pinta (US)</string>
+    <string name="gallon">Galon (US)</string>
+    <string name="barrel">Barel (US)</string>
+    <string name="fluid_ounce_uk">Tekutá unce (UK)</string>
+    <string name="quart_uk">Quart (UK)</string>
+    <string name="pint_uk">Pinta (UK)</string>
+    <string name="gallon_uk">Galon (UK)</string>
+    <string name="barrel_uk">Barel (UK)</string>
+    <string name="millilitre">Mililitr</string>
+    <string name="litre">Litr</string>
+    <string name="cubic_cm">Centimetr krychlový</string>
+    <string name="cubic_m">Metr krychlový</string>
+    <string name="cubic_inch">Krychlový palec</string>
+    <string name="cubic_foot">Krychlová stopa</string>
+    <string name="cubic_yard">Krychlový yard</string>
+
+    <!-- Currency -->
+    <string name="aud">Australský dolar</string>
+    <string name="bgn">Bulharský lev</string>
+    <string name="brl">Brazilský real</string>
+    <string name="cdn">Kanadský dolar</string>
+    <string name="chf">Švýcarský frank</string>
+    <string name="cny">Čínský juan</string>
+    <string name="czk">Česká koruna</string>
+    <string name="dkk">Dánská koruna</string>
+    <string name="eur">Euro</string>
+    <string name="gbp">Britská libra</string>
+    <string name="hkd">Hongkongský dolar</string>
+    <string name="hrk">Chorvatská kuna</string>
+    <string name="huf">Maďarský forint</string>
+    <string name="idr">Indonéská rupie</string>
+    <string name="ils">Izraelský šekel</string>
+    <string name="inr">Indická rupie</string>
+    <string name="jpy">Japonský jen</string>
+    <string name="krw">Jihokorejský won</string>
+    <string name="mxn">Mexické peso</string>
+    <string name="myr">Malajsijský ringgit</string>
+    <string name="nok">Norská koruna</string>
+    <string name="nzd">Novozélandský dolar</string>
+    <string name="php">Filipínské peso</string>
+    <string name="pln">Polský zlotý</string>
+    <string name="ron">Rumunský lei</string>
+    <string name="rub">Ruský rubl</string>
+    <string name="sek">Švédská koruna</string>
+    <string name="sgd">Singapurský dolar</string>
+    <string name="thb">Thajský baht</string>
+    <string name="lira">Turecká lira</string>
+    <string name="usd">Americký dolar</string>
+    <string name="zar">Jihoafrický rand</string>
+
+    <!-- All strings below this line require translation to at least one of the supported languages -->
+    <!-- Once translated, please move above this line in the corresponding `strings.xml` file -->
+    <string name="title_activity_acknowledgements">Poděkování</string>
+    <string name="prefs_title_acknowledgements">Poděkování</string>
+    <string name="prefs_summary_acknowledgements">Všem těmto skvělým lidem patří velký dík!</string>
+
+</resources>
