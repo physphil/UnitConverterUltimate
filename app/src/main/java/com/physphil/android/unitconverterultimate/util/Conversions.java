@@ -33,6 +33,8 @@ import java.util.Map;
 
 import static com.physphil.android.unitconverterultimate.models.Unit.*;
 
+import androidx.annotation.Nullable;
+
 /**
  * Contains all conversion info
  */
@@ -135,41 +137,61 @@ public final class Conversions {
         final Currencies currencies = Preferences.getInstance(context).getLatestCurrency();
         if (Preferences.getInstance(context).hasLatestCurrency() && currencies != null) {
             Map<Country, Double> map = currencies.toMap();
-            units.add(new Unit(USD, R.string.usd, 1 / map.get(Country.USD), map.get(Country.USD)));
-            units.add(new Unit(AUD, R.string.aud, 1 / map.get(Country.AUD), map.get(Country.AUD)));
-            units.add(new Unit(GBP, R.string.gbp, 1 / map.get(Country.GBP), map.get(Country.GBP)));
-            units.add(new Unit(BRL, R.string.brl, 1 / map.get(Country.BRL), map.get(Country.BRL)));
-            units.add(new Unit(BGN, R.string.bgn, 1 / map.get(Country.BGN), map.get(Country.BGN)));
-            units.add(new Unit(CDN, R.string.cdn, 1 / map.get(Country.CAD), map.get(Country.CAD)));
-            units.add(new Unit(CNY, R.string.cny, 1 / map.get(Country.CNY), map.get(Country.CNY)));
-            units.add(new Unit(HRK, R.string.hrk, 1 / map.get(Country.HRK), map.get(Country.HRK)));
-            units.add(new Unit(CZK, R.string.czk, 1 / map.get(Country.CZK), map.get(Country.CZK)));
-            units.add(new Unit(DKK, R.string.dkk, 1 / map.get(Country.DKK), map.get(Country.DKK)));
-            units.add(new Unit(EUR, R.string.eur, 1.0, 1.0));
-            units.add(new Unit(HKD, R.string.hkd, 1 / map.get(Country.HKD), map.get(Country.HKD)));
-            units.add(new Unit(HUF, R.string.huf, 1 / map.get(Country.HUF), map.get(Country.HUF)));
-            units.add(new Unit(ISK, R.string.isk, 1 / map.get(Country.ISK), map.get(Country.ISK)));
-            units.add(new Unit(INR, R.string.inr, 1 / map.get(Country.INR), map.get(Country.INR)));
-            units.add(new Unit(IDR, R.string.idr, 1 / map.get(Country.IDR), map.get(Country.IDR)));
-            units.add(new Unit(ILS, R.string.ils, 1 / map.get(Country.ILS), map.get(Country.ILS)));
-            units.add(new Unit(JPY, R.string.jpy, 1 / map.get(Country.JPY), map.get(Country.JPY)));
-            units.add(new Unit(KRW, R.string.krw, 1 / map.get(Country.KRW), map.get(Country.KRW)));
-            units.add(new Unit(MYR, R.string.myr, 1 / map.get(Country.MYR), map.get(Country.MYR)));
-            units.add(new Unit(MXN, R.string.mxn, 1 / map.get(Country.MXN), map.get(Country.MXN)));
-            units.add(new Unit(NZD, R.string.nzd, 1 / map.get(Country.NZD), map.get(Country.NZD)));
-            units.add(new Unit(NOK, R.string.nok, 1 / map.get(Country.NOK), map.get(Country.NOK)));
-            units.add(new Unit(PHP, R.string.php, 1 / map.get(Country.PHP), map.get(Country.PHP)));
-            units.add(new Unit(PLN, R.string.pln, 1 / map.get(Country.PLN), map.get(Country.PLN)));
-            units.add(new Unit(RON, R.string.ron, 1 / map.get(Country.RON), map.get(Country.RON)));
-            units.add(new Unit(SGD, R.string.sgd, 1 / map.get(Country.SGD), map.get(Country.SGD)));
-            units.add(new Unit(ZAR, R.string.zar, 1 / map.get(Country.ZAR), map.get(Country.ZAR)));
-            units.add(new Unit(SEK, R.string.sek, 1 / map.get(Country.SEK), map.get(Country.SEK)));
-            units.add(new Unit(CHF, R.string.chf, 1 / map.get(Country.CHF), map.get(Country.CHF)));
-            units.add(new Unit(THB, R.string.thb, 1 / map.get(Country.THB), map.get(Country.THB)));
-            units.add(new Unit(LIRA, R.string.lira, 1 / map.get(Country.TRY), map.get(Country.TRY)));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, USD, R.string.usd, Country.USD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, AUD, R.string.aud, Country.AUD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, GBP, R.string.gbp, Country.GBP));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, BRL, R.string.brl, Country.BRL));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, BGN, R.string.bgn, Country.BGN));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, CDN, R.string.cdn, Country.CAD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, CNY, R.string.cny, Country.CNY));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, CZK, R.string.czk, Country.CZK));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, DKK, R.string.dkk, Country.DKK));
+            addCurrencyUnitIfNotNull(units, new Unit(EUR, R.string.eur, 1.0, 1.0));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, HKD, R.string.hkd, Country.HKD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, HUF, R.string.huf, Country.HUF));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, ISK, R.string.isk, Country.ISK));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, INR, R.string.inr, Country.INR));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, IDR, R.string.idr, Country.IDR));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, ILS, R.string.ils, Country.ILS));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, JPY, R.string.jpy, Country.JPY));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, KRW, R.string.krw, Country.KRW));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, MYR, R.string.myr, Country.MYR));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, MXN, R.string.mxn, Country.MXN));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, NZD, R.string.nzd, Country.NZD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, NOK, R.string.nok, Country.NOK));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, PHP, R.string.php, Country.PHP));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, PLN, R.string.pln, Country.PLN));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, RON, R.string.ron, Country.RON));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, SGD, R.string.sgd, Country.SGD));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, ZAR, R.string.zar, Country.ZAR));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, SEK, R.string.sek, Country.SEK));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, CHF, R.string.chf, Country.CHF));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, THB, R.string.thb, Country.THB));
+            addCurrencyUnitIfNotNull(units, getCurrencyUnit(map, LIRA, R.string.lira, Country.TRY));
         }
 
         addConversion(Conversion.CURRENCY, new Conversion(Conversion.CURRENCY, R.string.currency, units));
+    }
+
+    @Nullable
+    private Unit getCurrencyUnit(Map<Country, Double> currencyMap, int id, int labelResource, Country country) {
+        try {
+            return new Unit(
+                /* id */ id,
+                /* labelResource */ labelResource,
+                /* conversionToBase */ 1 / currencyMap.get(country),
+                /* conversionFromBase */ currencyMap.get(country)
+            );
+        } catch (NullPointerException ex) {
+            // Currency not present
+            return null;
+        }
+    }
+
+    private void addCurrencyUnitIfNotNull(List<Unit> currencyUnits, @Nullable Unit currencyUnit) {
+        if (currencyUnit != null) {
+            currencyUnits.add(currencyUnit);
+        }
     }
 
     private void getStorageConversions() {

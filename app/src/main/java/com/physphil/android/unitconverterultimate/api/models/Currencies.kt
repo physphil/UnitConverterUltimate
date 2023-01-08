@@ -44,7 +44,6 @@ enum class Country {
     DKK,
     GBP,
     HKD,
-    HRK,
     HUF,
     IDR,
     ILS,
