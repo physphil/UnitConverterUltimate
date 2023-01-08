@@ -33,7 +33,7 @@ import java.util.Map;
 
 import static com.physphil.android.unitconverterultimate.models.Unit.*;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Contains all conversion info
