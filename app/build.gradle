@@ -19,7 +19,7 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion '30.0.3'
 
     signingConfigs {
@@ -39,7 +39,7 @@ android {
     defaultConfig {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 50702
         versionName '5.7.2'
     }
