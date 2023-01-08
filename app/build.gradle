@@ -40,8 +40,8 @@ android {
         applicationId "com.physphil.android.unitconverterultimate"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 50702
-        versionName '5.7.2'
+        versionCode 50703
+        versionName '5.7.3'
     }
 
 
