@@ -190,6 +190,12 @@ public class Unit {
     public static final int CUBIC_FOOT = 1218;
     public static final int CUBIC_YARD = 1219;
 
+    public static final int BINARY = 1501;
+    public static final int DECIMAL = 1502;
+    public static final int OCTAL = 1503;
+    public static final int HEXADECIMAL = 1504;
+
+
     @IntDef({SQ_KILOMETRES, SQ_METRES, SQ_CENTIMETRES, HECTARE, SQ_MILE, SQ_YARD, SQ_FOOT, SQ_INCH, ACRE,
             AUD, BGN, BRL, CDN, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HRK, HUF, IDR, ILS, INR, ISK, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, LIRA, USD, ZAR,
             BIT, BYTE, KILOBIT, KILOBYTE, MEGABIT, MEGABYTE, GIGABIT, GIGABYTE, TERABIT, TERABYTE,
@@ -204,7 +210,8 @@ public class Unit {
             YEAR, MONTH, WEEK, DAY, HOUR, MINUTE, SECOND, MILLISECOND, NANOSECOND,
             N_M,
             TEASPOON, TABLESPOON, CUP, FLUID_OUNCE, QUART, PINT, GALLON, BARREL, FLUID_OUNCE_UK, QUART_UK, PINT_UK,
-            GALLON_UK, BARREL_UK, MILLILITRE, LITRE, CUBIC_CM, CUBIC_M, CUBIC_INCH, CUBIC_FOOT, CUBIC_YARD})
+            GALLON_UK, BARREL_UK, MILLILITRE, LITRE, CUBIC_CM, CUBIC_M, CUBIC_INCH, CUBIC_FOOT, CUBIC_YARD,
+            BINARY, DECIMAL, OCTAL, HEXADECIMAL})
     public @interface id {}
 
     private int id;

@@ -150,6 +150,152 @@ public class ConversionPresenter {
         }
     }
 
+
+    /**
+     * Convert a number from a base to another
+     *
+     * @param value the value to convert
+     * @param from  the base to be converted from
+     * @param to    the base to be converted to
+     */
+
+    public void convertBaseNumber(double value, Unit from, Unit to){
+        double result = value;
+        if(from.getId() == Unit.BINARY) {
+            if(!isBinary((int) value)) {
+                mView.showToast(R.string.toast_error_not_binary);
+                return;
+            }
+        }
+
+        if(from.getId() == Unit.OCTAL){
+            if(!isOctal((int) value)) {
+                mView.showToast(R.string.toast_error_not_octal);
+                return;
+            }
+        }
+
+        if(from.getId() == Unit.HEXADECIMAL){
+            mView.showToast(R.string.toast_error_hex_coming_soon);
+        }
+
+        if (from.getId() != to.getId()) {
+            switch (to.getId()) {
+                case (Unit.BINARY):
+                    result = toBinary(from.getId(), value);
+                    break;
+
+                case(Unit.OCTAL):
+                    result = toOctal(from.getId(), value);
+                    break;
+
+                case(Unit.DECIMAL):
+                    result = toDecimal(from.getId(), value);
+                    break;
+
+            }
+        }
+        mView.showResult(result);
+    }
+
+    //Handle conversions to Binary
+    private double toBinary(int fromId, double value){
+        double result = value;
+        double temp;
+        switch (fromId){
+            case(Unit.DECIMAL):
+                result = Double.parseDouble(Integer.toBinaryString((int) value));
+                break;
+
+            case(Unit.OCTAL):
+                temp = octToDecimal((int) value);
+                result = Double.parseDouble(Integer.toBinaryString((int) temp));
+                break;
+        }
+        return result;
+    }
+
+    //Handle conversions to Decimal
+    private double toDecimal(int fromId, double value){
+        double result = value;
+        String valueString = String.valueOf((int)value);
+        switch (fromId){
+            case(Unit.BINARY):
+                result = Integer.parseInt(valueString, 2);
+                break;
+
+            case(Unit.OCTAL):
+                result = Integer.parseInt(valueString, 8);
+                break;
+        }
+        return result;
+
+    }
+
+    //Handle conversions to Hex
+    private double toOctal(int fromId, double value){
+        double result = value;
+        switch (fromId){
+            case(Unit.DECIMAL):
+                result = Double.parseDouble(Integer.toOctalString((int) value));
+                break;
+
+            case(Unit.BINARY):
+                double temp = binToDecimal((int) value);
+                result = Double.parseDouble(Integer.toOctalString((int) temp));
+                break;
+        }
+        return result;
+    }
+
+    //Convert from Binary to Decimal
+    private double binToDecimal(int binaryNum){
+        String valueString = String.valueOf(binaryNum);
+
+        if(isBinary(binaryNum)){
+            double result = Integer.parseInt(valueString, 2);
+            return result;
+        }
+        else{
+            mView.showToast(R.string.toast_error_not_binary);
+            return 0;
+        }
+    }
+
+    //Convert from Octal to Decimal
+    private double octToDecimal(int octalNum){
+        String valueString = String.valueOf(octalNum);
+
+        if(isOctal(octalNum)){
+            double result = Integer.parseInt(valueString, 8);
+            return result;
+        }
+        else{
+            mView.showToast(R.string.toast_error_not_octal);
+            return 0;
+        }
+    }
+
+    //Check if given number is Octal
+    private static boolean isOctal(int num){
+        return String.valueOf(num).matches("^[1-7][0-7]*$");
+    }
+
+    //Check if given number is Binary base
+    private static boolean isBinary(int num) {
+        if (num == 0 || num < 0) {
+            return false;
+        }
+        while (num != 0) {
+            if (num % 10 > 1) {
+                return false;
+            }
+            num = num / 10;
+        }
+        return true;
+    }
+
+
     /**
      * Convert a temperature value from one unit to another
      *

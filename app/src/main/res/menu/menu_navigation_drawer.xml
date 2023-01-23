@@ -95,6 +95,11 @@
             android:icon="@drawable/ic_volume"
             android:title="@string/volume"/>
 
+        <item
+            android:id="@+id/base_numbers"
+            android:icon="@drawable/ic_volume"
+            android:title="Base Numbers"/>
+
     </group>
 
     <item

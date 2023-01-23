@@ -396,4 +396,27 @@ public class ConversionTests
         mPresenter.convert(5.5, volume.getUnitById(CUBIC_YARD), volume.getUnitById(TEASPOON));
         verify(view, atLeastOnce()).showResult(AdditionalMatchers.eq(853138.298312504, DELTA_9));
     }
+
+    @Test
+    public void testBinary()
+    {
+        Conversion basenumbers = mConversions.getById(Conversion.BASE);
+
+        mPresenter.convertBaseNumber(11.0, basenumbers.getUnitById(BINARY), basenumbers.getUnitById(DECIMAL));
+        verify(view, atLeastOnce()).showResult(eq(3));
+
+        mPresenter.convertBaseNumber(11.0, basenumbers.getUnitById(BINARY), basenumbers.getUnitById(OCTAL));
+        verify(view, atLeastOnce()).showResult(eq(5));
+
+        mPresenter.convertBaseNumber(6, basenumbers.getUnitById(DECIMAL), basenumbers.getUnitById(BINARY));
+        verify(view, atLeastOnce()).showResult(eq(110));
+
+        mPresenter.convertBaseNumber(15, basenumbers.getUnitById(DECIMAL), basenumbers.getUnitById(BINARY));
+        verify(view, atLeastOnce()).showResult(eq(17));
+
+        mPresenter.convertBaseNumber(12, basenumbers.getUnitById(OCTAL), basenumbers.getUnitById(DECIMAL));
+        verify(view, atLeastOnce()).showResult(eq(10));
+
+
+    }
 }

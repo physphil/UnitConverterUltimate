@@ -43,13 +43,14 @@ public final class Conversion {
     public static final int TIME = 11;
     public static final int TORQUE = 12;
     public static final int VOLUME = 13;
+    public static final int BASE = 15;
 
     private int id;
     private int labelResource;
     private List<Unit> units;
 
     @IntDef({AREA, COOKING, CURRENCY, STORAGE, ENERGY, FUEL, LENGTH, MASS, POWER, PRESSURE, SPEED,
-            TEMPERATURE, TIME, TORQUE, VOLUME})
+            TEMPERATURE, TIME, TORQUE, VOLUME, BASE})
     public @interface id {
     }
 

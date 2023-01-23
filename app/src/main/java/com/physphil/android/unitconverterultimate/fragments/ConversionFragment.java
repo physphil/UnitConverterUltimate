@@ -260,6 +260,10 @@ public final class ConversionFragment extends Fragment implements ConversionView
         double value = isNumeric(input) ? Double.parseDouble(input) : 0;
 
         switch (mConversionId) {
+            case Conversion.BASE:
+                mPresenter.convertBaseNumber(value,  getCheckedUnit(mGrpFrom),  getCheckedUnit(mGrpTo));
+                break;
+
             case Conversion.TEMPERATURE:
                 mPresenter.convertTemperatureValue(value, getCheckedUnit(mGrpFrom), getCheckedUnit(mGrpTo));
                 break;

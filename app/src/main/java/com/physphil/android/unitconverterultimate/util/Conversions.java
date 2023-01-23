@@ -22,6 +22,7 @@ import com.physphil.android.unitconverterultimate.settings.Preferences;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.api.models.Country;
 import com.physphil.android.unitconverterultimate.api.models.Currencies;
+import com.physphil.android.unitconverterultimate.models.BaseNumberUnit;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.models.TemperatureUnit;
 import com.physphil.android.unitconverterultimate.models.Unit;
@@ -73,6 +74,7 @@ public final class Conversions {
         getTimeConversions();
         getTorqueConversions();
         getVolumeConversions();
+        getBaseConversions();
         mCurrencyUpdated = false;
     }
 
@@ -382,6 +384,19 @@ public final class Conversions {
         units.add(new Unit(CUBIC_YARD, R.string.cubic_yard, 0.7645548692741148, 1.3079506));
         addConversion(Conversion.VOLUME, new Conversion(Conversion.VOLUME, R.string.volume, units));
     }
+
+    private void getBaseConversions() {
+        List<Unit> units = new ArrayList<>();
+
+        units.add(new BaseNumberUnit(BINARY, R.string.binary));
+        units.add(new BaseNumberUnit(OCTAL, R.string.octal));
+        units.add(new BaseNumberUnit(DECIMAL, R.string.decimal));
+        units.add(new BaseNumberUnit(HEXADECIMAL, R.string.hexadecimal));
+
+        addConversion(Conversion.BASE, new Conversion(Conversion.BASE, R.string.baseNum, units));
+    }
+
+
 
     public boolean hasCurrency() {
         return mConversions.get(Conversion.CURRENCY).getUnits().size() > 0;
