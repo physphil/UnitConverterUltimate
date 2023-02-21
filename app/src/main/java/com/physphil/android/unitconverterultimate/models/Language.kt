@@ -30,6 +30,7 @@ private const val LANG_HUNGARIAN = "hu"
 private const val LANG_ITALIAN = "it"
 private const val LANG_JAPANESE = "ja"
 private const val LANG_NORWEGIAN = "nb"
+private const val LANG_POLISH = "pl"
 private const val LANG_PORTUGUESE_BR = "pt_BR"
 private const val LANG_RUSSIAN = "ru"
 private const val LANG_SPANISH = "es"
@@ -54,6 +55,7 @@ enum class Language(
     ITALIAN(LANG_ITALIAN, GroupSeparator.Period),
     JAPANESE(LANG_JAPANESE, GroupSeparator.Comma),
     NORWEGIAN(LANG_NORWEGIAN),
+    POLISH(LANG_POLISH),
     PORTUGUESE_BR(LANG_PORTUGUESE_BR),
     RUSSIAN(LANG_RUSSIAN, GroupSeparator.Period),
     SPANISH(LANG_SPANISH),
@@ -70,6 +72,7 @@ enum class Language(
         LANG_ITALIAN -> R.string.language_italian
         LANG_JAPANESE -> R.string.language_japanese
         LANG_NORWEGIAN -> R.string.language_norwegian
+        LANG_POLISH -> R.string.language_polish
         LANG_PORTUGUESE_BR -> R.string.language_portuguese_brazil
         LANG_RUSSIAN -> R.string.language_russian
         LANG_SPANISH -> R.string.language_spanish
