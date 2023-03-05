@@ -76,6 +76,21 @@
     <string name="dialog_message_help">Használd a becsúszó menüt az átváltások közti válogatásra, és válaszd ki a mértékegységeket, amiket használnál.\n\nAz átalakított érték teljesen személyre szabható. A beállítások menüpontban kiválaszthatod a megjelenített helyiértékek számát, valamint az ezres és a tizedes elválasztót is.\n\nAz átalakított értékre hosszan rányomva az a vágólapra kerül.</string>
     <string name="dialog_btn_view_source">Forráskód megtekintése</string>
 
+    <!-- Language values -->
+    <string name="language_default" translatable="false">Rendszer alapbeállítása</string>
+    <string name="language_english" translatable="false">Angol</string>
+    <string name="language_croatian" translatable="false">Horvát</string>
+    <string name="language_farsi" translatable="false">Fárszi</string>
+    <string name="language_french" translatable="false">Francia</string>
+    <string name="language_german" translatable="false">Német</string>
+    <string name="language_hungarian" translatable="false">Magyar</string>
+    <string name="language_italian" translatable="false">Olasz</string>
+    <string name="language_japanese" translatable="false">Japán</string>
+    <string name="language_portuguese_brazil" translatable="false">Portugál (Brazília)</string>
+    <string name="language_russian" translatable="false">Orosz</string>
+    <string name="language_spanish" translatable="false">Spanyol</string>
+    <string name="language_turkish" translatable="false">Török</string>
+
     <!-- Conversions -->
     <string name="area">Terület</string>
     <string name="cooking">Sütés-főzés</string>
