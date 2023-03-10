@@ -20,7 +20,6 @@
     <string name="app_name">Unit Converter Ultimate</string>
     <string name="title_activity_donate">Donere?</string>
     <string name="title_activity_settings">Innstillinger</string>
-    <string name="title_activity_acknowledgements">Krediteringer</string>
     <string name="text_from">Fra</string>
     <string name="text_to">Til</string>
     <string name="default_value">1</string>
@@ -40,7 +39,7 @@
     <string name="toast_error_no_browser">Ingen nettleser ble funnet</string>
     <string name="toast_error_no_email_app">Ingen e-post-app installert</string>
     <string name="toast_error_google_play">Feil ved åpning av Google Play Store, prøv igjen</string>
-    <string name="toast_copied_clipboard">Tekst kopiert til utklippstave</string>
+    <string name="toast_copied_clipboard">Tekst kopiert til utklippstavle</string>
     <string name="toast_currency_updated">Valutaomregninger oppdatert</string>
     <string name="toast_error_updating_currency">Det var en feil ved oppdatering av valutaomregningene.</string>
 
@@ -68,8 +67,6 @@
     <string name="prefs_summary_open_issue">Meld fra om problemet på GitHub.</string>
     <string name="prefs_title_privacy_policy">Personvern</string>
     <string name="prefs_summary_privacy_policy">Fordi ditt personvern er viktig.</string>
-    <string name="prefs_title_acknowledgements">Krediteringer</string>
-    <string name="prefs_summary_acknowledgements">Mange takk til disse folkene!</string>
 
     <string name="dialog_btn_got_it">OK</string>
     <string name="dialog_title_help">Hjelp</string>
@@ -181,7 +178,7 @@
     <string name="psf">PSF</string>
     <string name="atmosphere">Atmosfære</string>
     <string name="technical_atmosphere">Teknisk Atm</string>
-    <string name="mmhg">mm Hg</string>
+    <string name="mmhg">mmHg</string>
     <string name="torr">Torr</string>
 
     <!-- Speed -->
@@ -269,5 +266,10 @@
     <string name="lira">Tyrkiske Lira</string>
     <string name="usd">Amerikanske Dollar</string>
     <string name="zar">Sør-Afrikanske Rand</string>
+
+    <string name="title_activity_acknowledgements">Krediteringer</string>
+    <string name="prefs_title_acknowledgements">Krediteringer</string>
+    <string name="prefs_summary_acknowledgements">Mange takk til disse folkene!</string>
+    <string name="isk">Islandske Kroner</string>
 
 </resources>
