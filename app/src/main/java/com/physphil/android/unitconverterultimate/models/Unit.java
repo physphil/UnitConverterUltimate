@@ -72,12 +72,20 @@ public class Unit {
     public static final int BYTE = 101;
     public static final int KILOBIT = 102;
     public static final int KILOBYTE = 103;
-    public static final int MEGABIT = 104;
-    public static final int MEGABYTE = 105;
-    public static final int GIGABIT = 106;
-    public static final int GIGABYTE = 107;
-    public static final int TERABIT = 108;
-    public static final int TERABYTE = 109;
+    public static final int KIBIBIT = 104;
+    public static final int KIBIBYTE = 105;
+    public static final int MEGABIT = 106;
+    public static final int MEGABYTE = 107;
+    public static final int MEBIBIT = 108;
+    public static final int MEBIBYTE = 109;
+    public static final int GIGABIT = 110;
+    public static final int GIGABYTE = 111;
+    public static final int GIBIBIT = 112;
+    public static final int GIBIBYTE = 113;
+    public static final int TERABIT = 114;
+    public static final int TERABYTE = 115;
+    public static final int TEBIBIT = 116;
+    public static final int TEBIBYTE = 117;
 
     public static final int JOULE = 200;
     public static final int KILOJOULE = 201;

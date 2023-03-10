@@ -106,12 +106,20 @@
     <string name="Byte">بایت</string>
     <string name="kilobit">کیلوبیت</string>
     <string name="kilobyte">کیلوبایت</string>
+    <string name="kibibit">Kibibit</string>
+    <string name="kibibyte">Kibibyte</string>
     <string name="megabit">مگابیت</string>
     <string name="megabyte">مگابایت</string>
+    <string name="mebibit">Mebibit</string>
+    <string name="mebibyte">Mebibyte</string>
     <string name="gigabit">گیگابیت</string>
     <string name="gigabyte">گیگابایت</string>
+    <string name="gibibit">Gibibit</string>
+    <string name="gibibyte">Gibibyte</string>
     <string name="terabit">ترابیت</string>
     <string name="terabyte">ترابایت</string>
+    <string name="tebibit">Tebibit</string>
+    <string name="tebibyte">Tebibyte</string>
 
     <!-- انرژی -->
     <string name="joule">ژول</string>
