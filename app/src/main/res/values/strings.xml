@@ -96,8 +96,8 @@
     <string name="storage">Digital Storage</string>
     <string name="energy">Energy</string>
     <string name="fuel_consumption">Fuel Consumption</string>
-    <string name="length">Length / Distance</string>
-    <string name="mass">Mass / Weight</string>
+    <string name="length">Length/Distance</string>
+    <string name="mass">Mass/Weight</string>
     <string name="power">Power</string>
     <string name="pressure">Pressure</string>
     <string name="speed">Speed</string>
@@ -149,7 +149,7 @@
 
     <!-- Distance -->
     <string name="kilometre">Kilometre</string>
-    <string name="mile">Miles</string>
+    <string name="mile">Mile</string>
     <string name="metre">Metre</string>
     <string name="centimetre">Centimetre (cm)</string>
     <string name="millimetre">Millimetre (mm)</string>
