@@ -160,6 +160,7 @@
     <string name="inch">Inch</string>
     <string name="nautical_mile">Nautical Mile</string>
     <string name="furlong">Furlong</string>
+    <string name="astronomical_unit">Astronimical Unit</string>
     <string name="light_year">Light Year</string>
 
     <!-- Mass/Weight -->

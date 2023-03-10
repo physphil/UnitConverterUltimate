@@ -253,6 +253,7 @@ public final class Conversions {
         units.add(new Unit(INCH, R.string.inch, 0.0254, 39.3700787401574803));
         units.add(new Unit(NAUTICAL_MILE, R.string.nautical_mile, 1852.0, 0.000539956803455723542));
         units.add(new Unit(FURLONG, R.string.furlong, 201.168, 0.0049709695379));
+        units.add(new Unit(ASTRONOMICAL_UNIT, R.string.astronomical_unit, 149597870700.0, 0.0000000000066845871222684454959959533));
         units.add(new Unit(LIGHT_YEAR, R.string.light_year, 9460730472580800.0, 0.0000000000000001057000834024615463709));
         addConversion(Conversion.LENGTH, new Conversion(Conversion.LENGTH, R.string.length, units));
     }

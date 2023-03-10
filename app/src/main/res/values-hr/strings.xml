@@ -144,6 +144,7 @@
     <string name="inch">Inč</string>
     <string name="nautical_mile">Nautička Milja</string>
     <string name="furlong">Osmina milje</string>
+    <string name="astronomical_unit">Astronomska jedinica</string>
     <string name="light_year">Svijetlosna Godina</string>
 
     <!-- Mass/Weight -->
