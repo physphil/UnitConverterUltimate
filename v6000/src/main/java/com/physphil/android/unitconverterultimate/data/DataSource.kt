@@ -145,7 +145,10 @@ object PressureDataSource : DataSource<Pressure>() {
         Pressure.Atmosphere to multipliers("101325", "0.0000098692326671601283"),
         Pressure.TechnicalAtmosphere to multipliers("98066.5", "0.0000101971621297792824257"),
         Pressure.MmHg to multipliers("133.322387415", "0.007500615758456563339513"),
-        Pressure.Torr to multipliers("133.3223684210526315789", "0.00750061682704169751")
+        Pressure.Torr to multipliers("133.3223684210526315789", "0.00750061682704169751"),
+	Pressure.MmH2O to multipliers("9.806650", "0.1019716"),
+	Pressure.InHg to multipliers("3386.388640341", "0.00029529983"),
+	Pressure.InH2O to multipliers("249.0889", "0.0040146309")
     )
 }
 

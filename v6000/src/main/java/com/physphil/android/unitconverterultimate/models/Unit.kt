@@ -144,10 +144,13 @@ sealed class Pressure(override val displayStringResId: Int) : Unit() {
     object TechnicalAtmosphere : Pressure(R.string.technical_atmosphere)
     object MmHg : Pressure(R.string.mmhg)
     object Torr : Pressure(R.string.torr)
+    object MmH2O : Pressure(R.string.mmh2o)
+    object InHg : Pressure(R.string.inhg)
+    object InH2O : Pressure(R.string.inh2o)
 
     companion object {
         val all: List<Pressure> = listOf(
-            Megapascal, Kilopascal, Pascal, Bar, Psi, Psf, Atmosphere, TechnicalAtmosphere, MmHg, Torr
+            Megapascal, Kilopascal, Pascal, Bar, Psi, Psf, Atmosphere, TechnicalAtmosphere, MmHg, Torr, MmH2O, InHg, InH2O
         )
     }
 }

@@ -183,6 +183,9 @@
     <string name="technical_atmosphere">Technikai atmoszféra</string>
     <string name="mmhg">mmHg</string>
     <string name="torr">Torr</string>
+    <string name="mmh2o">mmH2O</string>
+    <string name="inhg">Hüvelyk Hg</string>
+    <string name="inh2o">Hüvelyk H2O</string>
 
     <!-- Speed -->
     <string name="km_h">Kilométer/óra</string>

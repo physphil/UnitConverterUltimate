@@ -140,6 +140,9 @@ public class Unit {
     public static final int TECHNICAL_ATMOSPHERE = 709;
     public static final int MMHG = 707;
     public static final int TORR = 708;
+    public static final int MMH2O = 709;
+    public static final int INHG = 710;
+    public static final int INH2O = 711;
 
     public static final int KM_HR = 800;
     public static final int MPH = 801;
@@ -198,7 +201,7 @@ public class Unit {
             KILOMETRE, MILE, METRE, CENTIMETRE, MILLIMETRE, MICROMETRE, NANOMETRE, YARD, FEET, INCH, NAUTICAL_MILE, FURLONG, LIGHT_YEAR,
             KILOGRAM, POUND, GRAM, MILLIGRAM, OUNCE, GRAIN, STONE, METRIC_TON, SHORT_TON, LONG_TON,
             WATT, KILOWATT, MEGAWATT, HP, HP_UK, FT_LBF_S, CALORIE_S, BTU_S, KVA,
-            MEGAPASCAL, KILOPASCAL, PASCAL, BAR, PSI, PSF, ATMOSPHERE, TECHNICAL_ATMOSPHERE, MMHG, TORR,
+	    MEGAPASCAL, KILOPASCAL, PASCAL, BAR, PSI, PSF, ATMOSPHERE, TECHNICAL_ATMOSPHERE, MMHG, TORR, MMH2O, INHG, INH2O,
             KM_HR, MPH, M_S, FPS, KNOT,
             CELSIUS, FAHRENHEIT, KELVIN, RANKINE, DELISLE, NEWTON, REAUMUR, ROMER, GAS_MARK,
             YEAR, MONTH, WEEK, DAY, HOUR, MINUTE, SECOND, MILLISECOND, NANOSECOND,

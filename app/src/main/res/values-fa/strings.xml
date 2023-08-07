@@ -180,7 +180,10 @@
     <string name="technical_atmosphere">Technical Atm</string>
     <string name="mmhg">میلی متر جیوه</string>
     <string name="torr">Torr</string>
-
+    <string name="mmh2o">میلی متر H2O</string>
+    <string name="inhg">اینچ Hg</string>
+    <string name="inh2o">اینچ H2O</string>
+    
     <!-- سرعت -->
     <string name="km_h">کیلومتر/ساعت</string>
     <string name="mph">مایل/ساعت</string>

@@ -180,6 +180,9 @@
     <string name="technical_atmosphere">工学気圧</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">トル</string>
+    <string name="mmh2o">mm H2O</string>
+    <string name="inhg">in Hg</string>
+    <string name="inh2o">in H2O</string>
 
     <!-- Speed -->
     <string name="km_h">キロメートル/時</string>

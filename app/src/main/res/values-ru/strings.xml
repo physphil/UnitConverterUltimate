@@ -180,6 +180,9 @@
     <string name="technical_atmosphere">Технич. атмосфера</string>
     <string name="mmhg">мм рт. ст.</string>
     <string name="torr">Торр</string>
+    <string name="mmh2o">мм H2O</string>
+    <string name="inhg">Дюйм рт. ст.</string>
+    <string name="inh2o">Дюйм H2O</string>
 
     <!-- Speed -->
     <string name="km_h">Километр/час</string>

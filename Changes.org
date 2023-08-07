@@ -1,0 +1,58 @@
+Changelog file by Proper Brgdbald for unit updates
+
+* 2023-08-07
+
+Inches H2O based from wikipedia (https://en.wikipedia.org/wiki/Inch_of_water)
+mm H2O based on Inches H2O divided by 25.4 
+ or https://en.wikipedia.org/wiki/Centimetre_of_water
+  Therefore conventional value
+inHg based from mmHg but multiplied by 25.4 per wikipedia https://en.wikipedia.org/wiki/Inch
+
+String translations are not perfect, please let me know.
+
+
+Main conversion files changed where units are defined and converted.
+- /app/src/main/java/com/physphil/android/unitconverterultimate/
+  - [X] /util/Conversions.java 
+  - [-] /models/Conversion.java
+    - [ ] apparently no units spec'd
+    - [X] partly completing for reference I checked this
+  - [X] /models/Unit.java
+- /v6000/src/main/java/com/physphil/android/unitconverterultimate/
+  - [-] ConversionFragment.kt
+    - [ ] apparently no units spec'd
+    - [X] partly completing for reference I checked this
+  - [ ] /conversion/ConversionRepository.kt
+    - Did not see need to change
+
+
+I did not change the files underneath /app/src/test or /v6000/src/test.
+
+
+List of files changed that contained "metre" and therefore other units:
+- [X] ‎app/src
+  - [X] /main/java/com/physphil/android/unitconverterultimate/models/Unit.java
+  - [X] ‎/main/java/com/physphil/android/unitconverterultimate/util/Conversions.java
+- [X] v6000/src
+  - [X] /main/java/com/physphil/android/unitconverterultimate/models/Unit.kt
+  - [X] /main/java/com/physphil/android/unitconverterultimate/data/DataSource.kt
+  - [X] /main/res/values/strings.xml
+- [X] app/src/main/res
+  - [X] ‎/values/strings.xml
+  - [X] ‎/values-it/strings.xml
+  - [X] ‎/values-es/strings.xml
+  - [X] ‎/values-ru/strings.xml need translation
+    - Attempted with other units as sample
+  - [X] ‎/values-hr/strings.xml 
+  - [X] ‎/values-hu/strings.xml need translation
+    - Attempted with other units as sample
+  - [X] ‎/values-fr/strings.xml
+  - [X] ‎/values-pt-rBR/strings.xml
+  - [X] ‎/values-nl/strings.xml
+  - [X] /values-tr/strings.xml
+  - [X] ‎/values-fa/strings.xml
+    - need help with translation and file formatting (Right Justified)
+    - Attempted with other units as sample
+  - [X] /values-de/strings.xml
+  - [X] /values-ja/strings.xml
+  - [X] ‎/values-nb/strings.xml

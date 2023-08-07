@@ -304,6 +304,9 @@ public final class Conversions {
         units.add(new Unit(TECHNICAL_ATMOSPHERE, R.string.technical_atmosphere, 98066.5, 0.0000101971621297792824257));
         units.add(new Unit(MMHG, R.string.mmhg, 133.322387415, 0.007500615758456563339513));
         units.add(new Unit(TORR, R.string.torr, 133.3223684210526315789, 0.00750061682704169751));
+	units.add(new Unit(MMH2O, R.string.mmh2o, 9.806650, 0.1019716));
+	units.add(new Unit(INHG, R.string.inhg, 3386.388640341, 0.00029529983));
+	units.add(new Unit(INH2O, R.string.inh2o, 249.0889, 0.0040146309));
         addConversion(Conversion.PRESSURE, new Conversion(Conversion.PRESSURE, R.string.pressure, units));
     }
 
