@@ -179,6 +179,9 @@
     <string name="technical_atmosphere">Atmosfera técnica</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
+    <string name="mmh2o">mm H2O</string>
+    <string name="inhg">in Hg</string>
+    <string name="inh2o">in H2O</string>
 
     <!-- Velocidade -->
     <string name="km_h">Quilômetro/hora</string>
