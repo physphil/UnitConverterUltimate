@@ -180,6 +180,9 @@
     <string name="technical_atmosphere">Teknik Atmosfer</string>
     <string name="mmhg">mm Hg</string>
     <string name="torr">Torr</string>
+    <string name="mmh2o">mm H2O</string>
+    <string name="inhg">in Hg</string>
+    <string name="inh2o">in H2O</string>
 
     <!-- Speed -->
     <string name="km_h">Kilometre/saat</string>
